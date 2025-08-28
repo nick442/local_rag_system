@@ -1,0 +1,61 @@
+"""
+RAG System Package
+Core components for document ingestion, embedding, and retrieval.
+"""
+
+from .document_ingestion import (
+    Document,
+    DocumentChunk,
+    DocumentLoader,
+    TextLoader,
+    PDFLoader,
+    HTMLLoader,
+    MarkdownLoader,
+    DocumentChunker,
+    DocumentIngestionService
+)
+
+from .embedding_service import (
+    EmbeddingService,
+    EmbeddingBatch,
+    create_embedding_service
+)
+
+from .vector_database import (
+    VectorDatabase,
+    create_vector_database
+)
+
+from .retriever import (
+    RetrievalResult,
+    Retriever,
+    create_retriever
+)
+
+__version__ = "1.0.0"
+__all__ = [
+    # Document ingestion
+    "Document",
+    "DocumentChunk", 
+    "DocumentLoader",
+    "TextLoader",
+    "PDFLoader", 
+    "HTMLLoader",
+    "MarkdownLoader",
+    "DocumentChunker",
+    "DocumentIngestionService",
+    
+    # Embedding service
+    "EmbeddingService",
+    "EmbeddingBatch",
+    "create_embedding_service",
+    
+    # Vector database
+    "VectorDatabase",
+    "create_vector_database",
+    
+    # Retrieval
+    "RetrievalResult",
+    "Retriever",
+    "create_retriever"
+]

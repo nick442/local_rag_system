@@ -1,0 +1,223 @@
+{
+  "retrieval_test_prompts": {
+    "metadata": {
+      "version": "1.0",
+      "created": "2025-08-28",
+      "description": "Comprehensive test prompts for validating RAG information retrieval accuracy and consistency",
+      "target_corpus": "realistic_full_production (11k documents)",
+      "test_categories": [
+        "factual_retrieval",
+        "conceptual_understanding", 
+        "multi_document_synthesis",
+        "edge_cases",
+        "consistency_validation"
+      ]
+    },
+    
+    "test_sets": {
+      "factual_retrieval": {
+        "description": "Tests for retrieving specific facts, figures, and concrete information",
+        "prompts": [
+          {
+            "id": "fact_001",
+            "query": "What are the specific hardware requirements for gaming computers?",
+            "expected_elements": ["RAM", "GPU", "CPU", "storage", "memory"],
+            "difficulty": "easy",
+            "expected_sources": 2
+          },
+          {
+            "id": "fact_002", 
+            "query": "What virus protection programs are mentioned and what are their pros and cons?",
+            "expected_elements": ["AVG", "Norton", "free", "slow", "bloated"],
+            "difficulty": "medium",
+            "expected_sources": 1
+          },
+          {
+            "id": "fact_003",
+            "query": "What specific Firefox extensions are recommended for security?",
+            "expected_elements": ["WoT", "NoScript", "Web of Trust", "extensions"],
+            "difficulty": "easy", 
+            "expected_sources": 1
+          },
+          {
+            "id": "fact_004",
+            "query": "What are the backup strategies mentioned for protecting against viruses?",
+            "expected_elements": ["system backup", "SyncToy", "complete backup", "documents"],
+            "difficulty": "medium",
+            "expected_sources": 1
+          },
+          {
+            "id": "fact_005",
+            "query": "What affiliate marketing companies and programs are discussed?",
+            "expected_elements": ["Amazon", "associates", "affiliate", "commission"],
+            "difficulty": "medium",
+            "expected_sources": 2
+          }
+        ]
+      },
+      
+      "conceptual_understanding": {
+        "description": "Tests for understanding broader concepts and themes across documents",
+        "prompts": [
+          {
+            "id": "concept_001",
+            "query": "Explain the relationship between gaming performance and computer hardware specifications",
+            "expected_elements": ["performance", "hardware", "gaming", "specifications", "requirements"],
+            "difficulty": "medium",
+            "expected_sources": 3
+          },
+          {
+            "id": "concept_002",
+            "query": "What are the key principles of safe computing practices?",
+            "expected_elements": ["virus protection", "Firefox", "backup", "safe browsing"],
+            "difficulty": "medium", 
+            "expected_sources": 2
+          },
+          {
+            "id": "concept_003",
+            "query": "How do web design skills relate to web development capabilities?",
+            "expected_elements": ["web design", "development", "skills", "XHTML", "technology"],
+            "difficulty": "hard",
+            "expected_sources": 2
+          },
+          {
+            "id": "concept_004",
+            "query": "What makes affiliate marketing successful according to the documents?",
+            "expected_elements": ["content", "marketing", "affiliate", "success", "strategy"],
+            "difficulty": "medium",
+            "expected_sources": 3
+          }
+        ]
+      },
+      
+      "multi_document_synthesis": {
+        "description": "Tests requiring information synthesis across multiple documents",
+        "prompts": [
+          {
+            "id": "synthesis_001",
+            "query": "Compare the approaches to computer security mentioned across different contexts",
+            "expected_elements": ["virus protection", "firewall", "browser security", "backup"],
+            "difficulty": "hard",
+            "expected_sources": 4
+          },
+          {
+            "id": "synthesis_002", 
+            "query": "What technologies and tools are mentioned for different professional fields?",
+            "expected_elements": ["gaming hardware", "web development", "science education", "marketing tools"],
+            "difficulty": "hard",
+            "expected_sources": 5
+          },
+          {
+            "id": "synthesis_003",
+            "query": "How do different documents approach the concept of performance optimization?",
+            "expected_elements": ["gaming performance", "web performance", "system performance"],
+            "difficulty": "hard",
+            "expected_sources": 3
+          }
+        ]
+      },
+      
+      "edge_cases": {
+        "description": "Tests for handling unusual queries and edge cases", 
+        "prompts": [
+          {
+            "id": "edge_001",
+            "query": "What is mentioned about Soviet Union country codes?",
+            "expected_elements": ["su", "Soviet Union", "country code", "phased out"],
+            "difficulty": "hard",
+            "expected_sources": 1
+          },
+          {
+            "id": "edge_002",
+            "query": "Find information about IKEA Billy bookcase modifications",
+            "expected_elements": ["IKEA", "Billy", "bookcase", "hack", "built-in"],
+            "difficulty": "easy",
+            "expected_sources": 1
+          },
+          {
+            "id": "edge_003", 
+            "query": "What foreign language content appears in the documents?",
+            "expected_elements": ["Indonesian", "Bahasa", "foreign", "language"],
+            "difficulty": "medium",
+            "expected_sources": 1
+          },
+          {
+            "id": "edge_004",
+            "query": "What specific software versions are mentioned?",
+            "expected_elements": ["Firefox", "AVG version 8", "Internet Explorer", "versions"],
+            "difficulty": "medium",
+            "expected_sources": 2
+          }
+        ]
+      },
+      
+      "consistency_validation": {
+        "description": "Tests for consistent retrieval of the same information across multiple runs",
+        "prompts": [
+          {
+            "id": "consistency_001",
+            "query": "What are the two main rules for computer safety?",
+            "expected_elements": ["Rule 1", "Rule 2", "backup", "safe computing"],
+            "difficulty": "easy",
+            "expected_sources": 1,
+            "runs": 5
+          },
+          {
+            "id": "consistency_002",
+            "query": "List the advantages of Firefox over Internet Explorer",
+            "expected_elements": ["tabbed browsing", "pop-up blocking", "Open Source", "security"],
+            "difficulty": "medium",
+            "expected_sources": 1,
+            "runs": 5
+          },
+          {
+            "id": "consistency_003",
+            "query": "What gaming computer price ranges are mentioned?",
+            "expected_elements": ["$2,000", "expensive", "gaming computer", "price"],
+            "difficulty": "easy",
+            "expected_sources": 1,
+            "runs": 3
+          }
+        ]
+      }
+    },
+    
+    "evaluation_criteria": {
+      "relevance_score": {
+        "description": "How relevant are the retrieved documents to the query?",
+        "scale": "1-10",
+        "thresholds": {
+          "excellent": 8,
+          "good": 6,
+          "acceptable": 4,
+          "poor": 2
+        }
+      },
+      "completeness_score": {
+        "description": "Does the response contain the expected information elements?",
+        "scale": "percentage of expected elements found",
+        "thresholds": {
+          "excellent": 80,
+          "good": 60, 
+          "acceptable": 40,
+          "poor": 20
+        }
+      },
+      "source_diversity": {
+        "description": "Are results drawn from expected number of source documents?",
+        "scale": "actual vs expected source count",
+        "tolerance": 1
+      },
+      "response_quality": {
+        "description": "Overall quality and coherence of the generated response",
+        "scale": "1-10",
+        "factors": ["accuracy", "coherence", "completeness", "relevance"]
+      },
+      "retrieval_consistency": {
+        "description": "Consistency of results across multiple runs of the same query",
+        "scale": "percentage similarity in retrieved documents",
+        "threshold": 70
+      }
+    }
+  }
+}

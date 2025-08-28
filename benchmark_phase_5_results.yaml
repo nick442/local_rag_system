@@ -1,0 +1,81 @@
+benchmark_duration: 32.809266328811646
+config_path: config/model_config.yaml
+generation_speed:
+  avg_first_token_latency_ms: 93.4150218963623
+  avg_generation_time: 3.6735212326049806
+  avg_tokens_per_second: 27.515603866851787
+  generation_times:
+  - 3.5207018852233887
+  - 3.5861029624938965
+  - 3.742385149002075
+  - 3.7292091846466064
+  - 3.7892069816589355
+  max_tokens_per_second: 28.687461560975517
+  min_tokens_per_second: 26.654653728042497
+  num_tests: 5
+  success: true
+  tokens_per_second_values:
+  - 28.687461560975517
+  - 28.164277784640408
+  - 26.988136169504664
+  - 27.08349009109585
+  - 26.654653728042497
+  total_tokens_generated: 505
+memory_usage:
+  baseline_memory_mb: 518.921875
+  generation_increase_mb: 4.6875
+  memory_after_unload_mb: 547.015625
+  memory_recovered_mb: 4095.046875
+  model_loading_increase_mb: 4118.453125
+  peak_memory_mb: 4642.0625
+  success: true
+model_loading:
+  load_time_seconds: 0.3520650863647461
+  memory_usage_mb: 4168.40625
+  model_info:
+    batch_size: 512
+    context_window: 8192
+    default_params:
+      max_tokens: 2048
+      temperature: 0.7
+      top_p: 0.95
+    gpu_layers: -1
+    load_time: 0.35203099250793457
+    metal_enabled: true
+    model_loaded: true
+    model_path: /Users/nickwiebe/Documents/claude-workspace/RAGagentProject/models/gemma-3-4b-it-q4_0.gguf
+  success: true
+rag_pipeline:
+  error: 'Missing files: db_path: data/rag_vectors.db'
+  success: false
+streaming_performance:
+  avg_first_token_latency_ms: 94.50070063273112
+  avg_inter_token_latency_ms: 878156300754.0769
+  avg_tokens_per_second: 27.971007440824977
+  individual_results:
+  - avg_inter_token_latency_ms: 878156299847.385
+    first_token_latency_ms: 101.55296325683594
+    query: What is machine learning?
+    tokens_generated: 51
+    tokens_per_second: 28.54494808893458
+    total_time: 1.7866559028625488
+  - avg_inter_token_latency_ms: 878156300748.7115
+    first_token_latency_ms: 88.61994743347168
+    query: How do neural networks work?
+    tokens_generated: 51
+    tokens_per_second: 27.928982846569372
+    total_time: 1.8260600566864014
+  - avg_inter_token_latency_ms: 878156301666.1343
+    first_token_latency_ms: 93.32919120788574
+    query: Explain deep learning algorithms
+    tokens_generated: 51
+    tokens_per_second: 27.439091386970976
+    total_time: 1.8586621284484863
+  num_tests: 3
+  success: true
+  total_tokens_generated: 153
+system_info:
+  cpu_count: 10
+  memory_total_gb: 16.0
+  platform: darwin
+timestamp: '2025-08-27 18:36:19'

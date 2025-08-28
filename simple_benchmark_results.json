@@ -1,0 +1,41 @@
+{
+  "file_loading": {
+    "files": 20,
+    "total_time": 0.0003638267517089844,
+    "avg_time_per_file": 1.8191337585449218e-05,
+    "chars_per_second": 112402399.79030144,
+    "total_chars": 40895
+  },
+  "document_ingestion": {
+    "files": 20,
+    "total_time": 0.004040241241455078,
+    "avg_time_per_file": 0.0002020120620727539,
+    "files_per_second": 4950.19945709902,
+    "total_chunks": 41,
+    "avg_chunks_per_file": 2.05
+  },
+  "embedding_generation": {
+    "texts_processed": 41,
+    "total_time": 0.49599313735961914,
+    "texts_per_second": 82.66243403741493,
+    "time_per_text": 0.012097393594137052,
+    "embedding_dimension": 384
+  },
+  "database_operations": {
+    "document_inserts": 0,
+    "doc_insert_total_time": 0,
+    "docs_per_second": 0,
+    "chunk_inserts": 0,
+    "chunk_insert_total_time": 0,
+    "chunks_per_second": 0
+  },
+  "end_to_end_pipeline": {
+    "files_tested": 5,
+    "files_succeeded": 0,
+    "total_time": 0,
+    "avg_time_per_file": 0,
+    "files_per_second": 0,
+    "total_chunks": 0,
+    "avg_chunks_per_file": 0
+  }
+}

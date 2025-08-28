@@ -1,0 +1,20 @@
+model:
+  path: "/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/models/gemma-3-4b-it-q4_0.gguf"
+  type: "gemma-3"
+  quantization: "Q4_0"
+  
+llm_params:
+  n_ctx: 8192
+  n_batch: 512
+  n_threads: 8
+  n_gpu_layers: -1  # Use all layers on GPU
+  temperature: 0.7
+  top_p: 0.95
+  max_tokens: 2048
+  
+chat_template:
+  system_prefix: "<bos>"
+  user_prefix: "<start_of_turn>user\n"
+  user_suffix: "<end_of_turn>\n"
+  assistant_prefix: "<start_of_turn>model\n"
+  assistant_suffix: "<end_of_turn>\n"

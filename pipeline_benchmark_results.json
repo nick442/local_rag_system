@@ -1,0 +1,121 @@
+{
+  "file_loading": {
+    "files_tested": 20,
+    "avg_load_time": 1.882314682006836e-05,
+    "total_load_time": 0.0003764629364013672,
+    "avg_file_size": 2044.75,
+    "total_chars_loaded": 40895,
+    "chars_per_second": 108629551.66561115,
+    "memory_delta_mb": 0.03125
+  },
+  "document_ingestion": {
+    "text_loader": {
+      "avg_time": 3.713369369506836e-05,
+      "total_time": 0.0007426738739013672,
+      "docs_loaded": 20,
+      "memory_delta_mb": 0.046875
+    },
+    "document_chunker": {
+      "avg_time": 0.0001572847366333008,
+      "total_time": 0.0031456947326660156,
+      "avg_chunks_per_doc": 2.05,
+      "total_chunks": 41,
+      "memory_delta_mb": 52.203125
+    },
+    "full_service": {
+      "avg_time": 0.00018459558486938477,
+      "total_time": 0.0036919116973876953,
+      "avg_chunks_per_doc": 2.05,
+      "docs_processed": 20,
+      "memory_delta_mb": 0.0625
+    }
+  },
+  "embedding_service": {
+    "1": {
+      "error": "EmbeddingService.embed_texts() got an unexpected keyword argument 'batch_size'"
+    },
+    "4": {
+      "error": "EmbeddingService.embed_texts() got an unexpected keyword argument 'batch_size'"
+    },
+    "8": {
+      "error": "EmbeddingService.embed_texts() got an unexpected keyword argument 'batch_size'"
+    },
+    "16": {
+      "error": "EmbeddingService.embed_texts() got an unexpected keyword argument 'batch_size'"
+    },
+    "32": {
+      "error": "EmbeddingService.embed_texts() got an unexpected keyword argument 'batch_size'"
+    }
+  },
+  "vector_database": {
+    "document_insertion": {
+      "count": 0,
+      "avg_time": 0,
+      "total_time": 0,
+      "docs_per_second": 0
+    },
+    "chunk_insertion": {
+      "count": 0,
+      "avg_time": 0,
+      "total_time": 0,
+      "chunks_per_second": 0
+    },
+    "search_operations": {
+      "count": 0,
+      "avg_time": 0,
+      "total_time": 0,
+      "searches_per_second": 0
+    },
+    "memory_delta_mb": 7.1875
+  },
+  "corpus_manager": {
+    "w1_b4": {
+      "config": {
+        "max_workers": 1,
+        "batch_size": 4
+      },
+      "files_processed": 0,
+      "chunks_created": 0,
+      "files_failed": 100,
+      "total_time": 8.03050184249878,
+      "files_per_second": 0.0,
+      "chunks_per_second": 0.0,
+      "memory_delta_mb": 650.109375
+    },
+    "w1_b8": {
+      "config": {
+        "max_workers": 1,
+        "batch_size": 8
+      },
+      "files_processed": 0,
+      "chunks_created": 0,
+      "files_failed": 100,
+      "total_time": 5.909807920455933,
+      "files_per_second": 0.0,
+      "chunks_per_second": 0.0,
+      "memory_delta_mb": 20.015625
+    },
+    "w1_b16": {
+      "config": {
+        "max_workers": 1,
+        "batch_size": 16
+      },
+      "files_processed": 0,
+      "chunks_created": 0,
+      "files_failed": 100,
+      "total_time": 5.870709180831909,
+      "files_per_second": 0.0,
+      "chunks_per_second": 0.0,
+      "memory_delta_mb": 0.71875
+    }
+  },
+  "overall_metrics": {
+    "document_processing_rate": 5417.2476590248625,
+    "best_embedding_batch_size": null,
+    "best_embedding_rate": 0,
+    "chunk_insert_rate": 0,
+    "search_rate": 0,
+    "best_pipeline_config": null,
+    "best_pipeline_rate": 0
+  }
+}
