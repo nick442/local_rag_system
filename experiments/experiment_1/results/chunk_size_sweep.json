@@ -1,0 +1,145 @@
+{
+  "experiment_id": "sweep_1756545053",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 83.37782883644104,
+  "created_at": "2025-08-30T09:12:16.916477+00:00",
+  "completed_at": "2025-08-30T09:12:16.916479+00:00",
+  "results": [
+    {
+      "run_id": "sweep_1756545053_run_0_0",
+      "query": "What is machine learning?",
+      "response": "Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed. It involves algorithms that can identify patterns in data and make predictions or decisions.",
+      "metrics": {
+        "response_time": 5.404531955718994,
+        "response_length": 35,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 5.404531955718994,
+      "timestamp": "2025-08-30T09:10:58.942444+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_0_1",
+      "query": "Define neural networks.",
+      "response": "Neural networks are a type of supervised machine learning algorithm, often represented as a multi-layer perceptron. They consist of interconnected nodes (neurons) arranged in layers, and are used for classification or regression tasks. A simple mathematical model for a neuron was first presented by Warren McCulloch and Walter Pitts in 1943. They can be represented through operations on matrices and vectors, making them suitable for implementation in vectorised languages like q/kdb+. In deeper layers, features learned in previous layers come together to form more complex and meaningful abstractions.",
+      "metrics": {
+        "response_time": 12.422802925109863,
+        "response_length": 88,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 12.422802925109863,
+      "timestamp": "2025-08-30T09:11:11.491907+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_0_2",
+      "query": "What is deep learning?",
+      "response": "Deep learning networks use backpropagation for training.",
+      "metrics": {
+        "response_time": 7.537503004074097,
+        "response_length": 7,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 7.537503004074097,
+      "timestamp": "2025-08-30T09:11:19.236446+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_1_0",
+      "query": "What is machine learning?",
+      "response": "Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed. It involves algorithms that can identify patterns in data and make predictions or decisions.",
+      "metrics": {
+        "response_time": 6.567023038864136,
+        "response_length": 35,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 6.567023038864136,
+      "timestamp": "2025-08-30T09:11:25.911227+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_1_1",
+      "query": "Define neural networks.",
+      "response": "Neural networks are a type of supervised machine learning algorithm, often represented as a multi-layer perceptron. They consist of interconnected nodes (neurons) arranged in layers, and are used for classification or regression tasks. A simple mathematical model for a neuron was first presented by Warren McCulloch and Walter Pitts in 1943. They can be represented through operations on matrices and vectors, making them suitable for implementation in vectorised languages like q/kdb+. In deeper layers, features learned in previous layers come together to form more complex and meaningful abstractions.",
+      "metrics": {
+        "response_time": 14.426272869110107,
+        "response_length": 88,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 14.426272869110107,
+      "timestamp": "2025-08-30T09:11:40.459497+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_1_2",
+      "query": "What is deep learning?",
+      "response": "Deep learning networks use backpropagation for training.",
+      "metrics": {
+        "response_time": 7.476226091384888,
+        "response_length": 7,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 7.476226091384888,
+      "timestamp": "2025-08-30T09:11:48.097669+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_2_0",
+      "query": "What is machine learning?",
+      "response": "Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed. It involves algorithms that can identify patterns in data and make predictions or decisions.",
+      "metrics": {
+        "response_time": 6.519554138183594,
+        "response_length": 35,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 6.519554138183594,
+      "timestamp": "2025-08-30T09:11:54.728425+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_2_1",
+      "query": "Define neural networks.",
+      "response": "Neural networks are a type of supervised machine learning algorithm, often represented as a multi-layer perceptron. They consist of interconnected nodes (neurons) arranged in layers, and are used for classification or regression tasks. A simple mathematical model for a neuron was first presented by Warren McCulloch and Walter Pitts in 1943. They can be represented through operations on matrices and vectors, making them suitable for implementation in vectorised languages like q/kdb+. In deeper layers, features learned in previous layers come together to form more complex and meaningful abstractions.",
+      "metrics": {
+        "response_time": 14.364654064178467,
+        "response_length": 88,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 14.364654064178467,
+      "timestamp": "2025-08-30T09:12:09.224105+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545053_run_2_2",
+      "query": "What is deep learning?",
+      "response": "Deep learning networks use backpropagation for training.",
+      "metrics": {
+        "response_time": 7.381626844406128,
+        "response_length": 7,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 7.381626844406128,
+      "timestamp": "2025-08-30T09:12:16.805243+00:00",
+      "error_message": null
+    }
+  ]
+}

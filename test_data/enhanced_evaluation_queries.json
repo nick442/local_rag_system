@@ -1,0 +1,381 @@
+{
+  "metadata": {
+    "total_queries": 52,
+    "categories": ["factual", "analytical", "technical", "edge_case"],
+    "creation_date": "2025-08-30",
+    "description": "Enhanced evaluation dataset for chunking optimization experiments",
+    "version": "2.0",
+    "expected_performance": {
+      "factual": "P@5 > 0.8",
+      "analytical": "P@5 > 0.6", 
+      "technical": "P@5 > 0.8",
+      "edge_case": "P@5 > 0.4"
+    }
+  },
+  "queries": [
+    {
+      "query_id": "fact_001",
+      "category": "factual",
+      "query_text": "What is machine learning?",
+      "expected_difficulty": "easy",
+      "keywords": ["machine learning", "definition", "AI"]
+    },
+    {
+      "query_id": "fact_002", 
+      "category": "factual",
+      "query_text": "When was Python programming language created?",
+      "expected_difficulty": "easy",
+      "keywords": ["Python", "programming", "history", "creation"]
+    },
+    {
+      "query_id": "fact_003",
+      "category": "factual", 
+      "query_text": "Who invented the World Wide Web?",
+      "expected_difficulty": "easy",
+      "keywords": ["WWW", "web", "inventor", "Tim Berners-Lee"]
+    },
+    {
+      "query_id": "fact_004",
+      "category": "factual",
+      "query_text": "What is the capital of Australia?",
+      "expected_difficulty": "easy", 
+      "keywords": ["Australia", "capital", "Canberra"]
+    },
+    {
+      "query_id": "fact_005",
+      "category": "factual",
+      "query_text": "What does HTML stand for?",
+      "expected_difficulty": "easy",
+      "keywords": ["HTML", "acronym", "HyperText Markup Language"]
+    },
+    {
+      "query_id": "fact_006",
+      "category": "factual",
+      "query_text": "What is the speed of light in vacuum?",
+      "expected_difficulty": "easy",
+      "keywords": ["speed of light", "vacuum", "physics", "299792458"]
+    },
+    {
+      "query_id": "fact_007",
+      "category": "factual",
+      "query_text": "What is the largest planet in our solar system?",
+      "expected_difficulty": "easy",
+      "keywords": ["largest planet", "solar system", "Jupiter"]
+    },
+    {
+      "query_id": "fact_008",
+      "category": "factual",
+      "query_text": "What does CPU stand for?",
+      "expected_difficulty": "easy",
+      "keywords": ["CPU", "Central Processing Unit", "computer"]
+    },
+    {
+      "query_id": "fact_009",
+      "category": "factual",
+      "query_text": "What is the chemical symbol for gold?",
+      "expected_difficulty": "easy",
+      "keywords": ["gold", "chemical symbol", "Au"]
+    },
+    {
+      "query_id": "fact_010",
+      "category": "factual",
+      "query_text": "What programming language is known for artificial intelligence?",
+      "expected_difficulty": "medium",
+      "keywords": ["programming language", "AI", "Python", "Lisp"]
+    },
+    {
+      "query_id": "fact_011",
+      "category": "factual",
+      "query_text": "What is the most popular version control system?",
+      "expected_difficulty": "medium",
+      "keywords": ["version control", "Git", "VCS"]
+    },
+    {
+      "query_id": "fact_012",
+      "category": "factual",
+      "query_text": "What does API stand for?",
+      "expected_difficulty": "easy",
+      "keywords": ["API", "Application Programming Interface"]
+    },
+    {
+      "query_id": "fact_013",
+      "category": "factual",
+      "query_text": "What is the default port for HTTP?",
+      "expected_difficulty": "medium",
+      "keywords": ["HTTP", "port", "80"]
+    },
+    {
+      "query_id": "fact_014",
+      "category": "factual",
+      "query_text": "What does SQL stand for?",
+      "expected_difficulty": "easy",
+      "keywords": ["SQL", "Structured Query Language", "database"]
+    },
+    {
+      "query_id": "fact_015",
+      "category": "factual",
+      "query_text": "What is the most widely used database management system?",
+      "expected_difficulty": "medium",
+      "keywords": ["database", "DBMS", "MySQL", "PostgreSQL"]
+    },
+    {
+      "query_id": "anal_001",
+      "category": "analytical",
+      "query_text": "Compare supervised vs unsupervised learning approaches",
+      "expected_difficulty": "medium",
+      "keywords": ["supervised learning", "unsupervised learning", "comparison", "ML"]
+    },
+    {
+      "query_id": "anal_002",
+      "category": "analytical", 
+      "query_text": "Why do neural networks work better than traditional algorithms for image recognition?",
+      "expected_difficulty": "hard",
+      "keywords": ["neural networks", "image recognition", "traditional algorithms", "comparison"]
+    },
+    {
+      "query_id": "anal_003",
+      "category": "analytical",
+      "query_text": "What are the advantages and disadvantages of microservices architecture?",
+      "expected_difficulty": "medium",
+      "keywords": ["microservices", "architecture", "advantages", "disadvantages"]
+    },
+    {
+      "query_id": "anal_004",
+      "category": "analytical",
+      "query_text": "How does cloud computing change software development practices?",
+      "expected_difficulty": "medium",
+      "keywords": ["cloud computing", "software development", "practices", "change"]
+    },
+    {
+      "query_id": "anal_005",
+      "category": "analytical",
+      "query_text": "What factors contribute to software project failures?",
+      "expected_difficulty": "medium",
+      "keywords": ["software project", "failures", "factors", "causes"]
+    },
+    {
+      "query_id": "anal_006",
+      "category": "analytical",
+      "query_text": "How do different programming paradigms affect code maintainability?",
+      "expected_difficulty": "hard",
+      "keywords": ["programming paradigms", "maintainability", "code quality"]
+    },
+    {
+      "query_id": "anal_007",
+      "category": "analytical",
+      "query_text": "What are the trade-offs between performance and security in web applications?",
+      "expected_difficulty": "medium",
+      "keywords": ["performance", "security", "web applications", "trade-offs"]
+    },
+    {
+      "query_id": "anal_008",
+      "category": "analytical",
+      "query_text": "How does data structure choice impact algorithm efficiency?",
+      "expected_difficulty": "medium",
+      "keywords": ["data structures", "algorithm efficiency", "performance"]
+    },
+    {
+      "query_id": "anal_009",
+      "category": "analytical",
+      "query_text": "What makes some machine learning models more interpretable than others?",
+      "expected_difficulty": "hard",
+      "keywords": ["machine learning", "interpretability", "explainable AI"]
+    },
+    {
+      "query_id": "anal_010",
+      "category": "analytical",
+      "query_text": "How do caching strategies affect system performance and complexity?",
+      "expected_difficulty": "medium",
+      "keywords": ["caching", "system performance", "complexity", "strategies"]
+    },
+    {
+      "query_id": "anal_011",
+      "category": "analytical",
+      "query_text": "What are the implications of choosing SQL vs NoSQL databases?",
+      "expected_difficulty": "medium",
+      "keywords": ["SQL", "NoSQL", "database choice", "implications"]
+    },
+    {
+      "query_id": "anal_012",
+      "category": "analytical",
+      "query_text": "How do different testing strategies impact software quality and development speed?",
+      "expected_difficulty": "medium",
+      "keywords": ["testing strategies", "software quality", "development speed"]
+    },
+    {
+      "query_id": "anal_013",
+      "category": "analytical",
+      "query_text": "What are the benefits and drawbacks of functional programming?",
+      "expected_difficulty": "medium",
+      "keywords": ["functional programming", "benefits", "drawbacks"]
+    },
+    {
+      "query_id": "anal_014",
+      "category": "analytical",
+      "query_text": "How does technical debt accumulate and what are its long-term effects?",
+      "expected_difficulty": "medium",
+      "keywords": ["technical debt", "accumulation", "long-term effects"]
+    },
+    {
+      "query_id": "anal_015",
+      "category": "analytical",
+      "query_text": "What factors determine the scalability of distributed systems?",
+      "expected_difficulty": "hard",
+      "keywords": ["scalability", "distributed systems", "factors"]
+    },
+    {
+      "query_id": "tech_001",
+      "category": "technical",
+      "query_text": "Define gradient descent algorithm",
+      "expected_difficulty": "medium",
+      "keywords": ["gradient descent", "algorithm", "optimization", "machine learning"]
+    },
+    {
+      "query_id": "tech_002",
+      "category": "technical",
+      "query_text": "Explain backpropagation algorithm in neural networks",
+      "expected_difficulty": "hard",
+      "keywords": ["backpropagation", "neural networks", "algorithm"]
+    },
+    {
+      "query_id": "tech_003",
+      "category": "technical",
+      "query_text": "What is Big O notation and how is it used?",
+      "expected_difficulty": "medium",
+      "keywords": ["Big O notation", "complexity analysis", "algorithms"]
+    },
+    {
+      "query_id": "tech_004",
+      "category": "technical",
+      "query_text": "Define REST API principles",
+      "expected_difficulty": "medium",
+      "keywords": ["REST API", "principles", "web services"]
+    },
+    {
+      "query_id": "tech_005",
+      "category": "technical",
+      "query_text": "What is a hash table and how does it work?",
+      "expected_difficulty": "medium",
+      "keywords": ["hash table", "data structure", "hashing"]
+    },
+    {
+      "query_id": "tech_006",
+      "category": "technical",
+      "query_text": "Explain the SOLID principles in software design",
+      "expected_difficulty": "medium",
+      "keywords": ["SOLID principles", "software design", "object-oriented"]
+    },
+    {
+      "query_id": "tech_007",
+      "category": "technical",
+      "query_text": "What is containerization and how does Docker work?",
+      "expected_difficulty": "medium",
+      "keywords": ["containerization", "Docker", "virtualization"]
+    },
+    {
+      "query_id": "tech_008",
+      "category": "technical",
+      "query_text": "Define ACID properties in database transactions",
+      "expected_difficulty": "medium",
+      "keywords": ["ACID", "database transactions", "properties"]
+    },
+    {
+      "query_id": "tech_009",
+      "category": "technical",
+      "query_text": "What is a binary search tree and its operations?",
+      "expected_difficulty": "medium",
+      "keywords": ["binary search tree", "BST", "operations"]
+    },
+    {
+      "query_id": "tech_010",
+      "category": "technical",
+      "query_text": "Explain MapReduce programming model",
+      "expected_difficulty": "hard",
+      "keywords": ["MapReduce", "programming model", "distributed computing"]
+    },
+    {
+      "query_id": "tech_011",
+      "category": "technical",
+      "query_text": "What is OAuth and how does it work for authentication?",
+      "expected_difficulty": "medium",
+      "keywords": ["OAuth", "authentication", "authorization"]
+    },
+    {
+      "query_id": "tech_012",
+      "category": "technical",
+      "query_text": "Define eventual consistency in distributed systems",
+      "expected_difficulty": "hard",
+      "keywords": ["eventual consistency", "distributed systems", "CAP theorem"]
+    },
+    {
+      "query_id": "edge_001",
+      "category": "edge_case",
+      "query_text": "What are the current challenges in artificial intelligence research?",
+      "expected_difficulty": "hard",
+      "keywords": ["AI challenges", "research", "current problems"]
+    },
+    {
+      "query_id": "edge_002",
+      "category": "edge_case",
+      "query_text": "How does quantum computing relate to machine learning?",
+      "expected_difficulty": "hard",
+      "keywords": ["quantum computing", "machine learning", "quantum ML"]
+    },
+    {
+      "query_id": "edge_003",
+      "category": "edge_case",
+      "query_text": "What ethical considerations arise from AI systems making decisions?",
+      "expected_difficulty": "hard",
+      "keywords": ["AI ethics", "decision making", "ethical considerations"]
+    },
+    {
+      "query_id": "edge_004",
+      "category": "edge_case",
+      "query_text": "How might programming languages evolve in the next decade?",
+      "expected_difficulty": "hard",
+      "keywords": ["programming languages", "evolution", "future trends"]
+    },
+    {
+      "query_id": "edge_005",
+      "category": "edge_case",
+      "query_text": "What are the environmental impacts of large-scale cloud computing?",
+      "expected_difficulty": "hard",
+      "keywords": ["environmental impact", "cloud computing", "sustainability"]
+    },
+    {
+      "query_id": "edge_006",
+      "category": "edge_case",
+      "query_text": "How do cultural differences affect software development practices globally?",
+      "expected_difficulty": "hard",
+      "keywords": ["cultural differences", "software development", "global practices"]
+    },
+    {
+      "query_id": "edge_007",
+      "category": "edge_case",
+      "query_text": "What role will artificial intelligence play in cybersecurity threats and defense?",
+      "expected_difficulty": "hard",
+      "keywords": ["AI", "cybersecurity", "threats", "defense"]
+    },
+    {
+      "query_id": "edge_008",
+      "category": "edge_case",
+      "query_text": "How might blockchain technology change data management practices?",
+      "expected_difficulty": "medium",
+      "keywords": ["blockchain", "data management", "distributed ledger"]
+    },
+    {
+      "query_id": "edge_009",
+      "category": "edge_case",
+      "query_text": "What are the long-term implications of open source software on the technology industry?",
+      "expected_difficulty": "hard",
+      "keywords": ["open source", "technology industry", "long-term implications"]
+    },
+    {
+      "query_id": "edge_010",
+      "category": "edge_case",
+      "query_text": "How do privacy regulations like GDPR affect software architecture decisions?",
+      "expected_difficulty": "medium",
+      "keywords": ["privacy regulations", "GDPR", "software architecture"]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "generation_date": "2025-08-28 15:53:30",
+  "corpora_generated": [
+    "small",
+    "medium",
+    "large",
+    "edge_cases"
+  ],
+  "results": {
+    "small": {
+      "corpus_size": "small",
+      "documents_count": 10,
+      "total_words": 4067,
+      "avg_words_per_document": 406.7,
+      "document_types": [
+        "technical_article",
+        "qa_document",
+        "code_documentation",
+        "news_article"
+      ],
+      "topics_used": [
+        "machine learning",
+        "artificial intelligence",
+        "neural networks",
+        "deep learning",
+        "natural language processing",
+        "computer vision",
+        "data science",
+        "algorithms",
+        "programming",
+        "software engineering",
+        "cloud computing",
+        "cybersecurity",
+        "blockchain",
+        "quantum computing",
+        "robotics",
+        "automation",
+        "internet of things",
+        "big data"
+      ],
+      "generated_at": "2025-08-28 15:53:30"
+    },
+    "medium": {
+      "corpus_size": "medium",
+      "documents_count": 100,
+      "total_words": 51773,
+      "avg_words_per_document": 517.73,
+      "document_types": [
+        "technical_article",
+        "qa_document",
+        "code_documentation",
+        "news_article"
+      ],
+      "topics_used": [
+        "machine learning",
+        "artificial intelligence",
+        "neural networks",
+        "deep learning",
+        "natural language processing",
+        "computer vision",
+        "data science",
+        "algorithms",
+        "programming",
+        "software engineering",
+        "cloud computing",
+        "cybersecurity",
+        "blockchain",
+        "quantum computing",
+        "robotics",
+        "automation",
+        "internet of things",
+        "big data"
+      ],
+      "generated_at": "2025-08-28 15:53:30"
+    },
+    "large": {
+      "corpus_size": "large",
+      "documents_count": 1000,
+      "total_words": 501464,
+      "avg_words_per_document": 501.464,
+      "document_types": [
+        "technical_article",
+        "qa_document",
+        "code_documentation",
+        "news_article"
+      ],
+      "topics_used": [
+        "machine learning",
+        "artificial intelligence",
+        "neural networks",
+        "deep learning",
+        "natural language processing",
+        "computer vision",
+        "data science",
+        "algorithms",
+        "programming",
+        "software engineering",
+        "cloud computing",
+        "cybersecurity",
+        "blockchain",
+        "quantum computing",
+        "robotics",
+        "automation",
+        "internet of things",
+        "big data"
+      ],
+      "generated_at": "2025-08-28 15:53:30"
+    },
+    "edge_cases": {
+      "edge_cases_count": 6,
+      "case_types": [
+        "empty",
+        "minimal",
+        "unicode",
+        "very_long_line",
+        "special_chars",
+        "repeated_content"
+      ],
+      "generated_at": "2025-08-28 15:53:30",
+      "description": "Edge case documents for testing system robustness"
+    }
+  }
+}

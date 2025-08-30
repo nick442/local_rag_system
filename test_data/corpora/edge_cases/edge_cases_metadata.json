@@ -1,0 +1,13 @@
+{
+  "edge_cases_count": 6,
+  "case_types": [
+    "empty",
+    "minimal",
+    "unicode",
+    "very_long_line",
+    "special_chars",
+    "repeated_content"
+  ],
+  "generated_at": "2025-08-28 15:53:30",
+  "description": "Edge case documents for testing system robustness"
+}

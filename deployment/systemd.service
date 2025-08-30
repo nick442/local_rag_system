@@ -1,0 +1,26 @@
+[Unit]
+Description=RAG System - Local AI Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=raguser
+Group=raguser
+WorkingDirectory=/opt/rag-system
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PYTHONPATH=/opt/rag-system
+ExecStart=/opt/rag-system/venv/bin/python main.py status
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/rag-system/data /opt/rag-system/logs
+
+[Install]
+WantedBy=multi-user.target

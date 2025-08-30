@@ -85,7 +85,7 @@ class RAGPipeline:
                 'max_tokens': 2048
             },
             'chat_template': {
-                'system_prefix': '<bos>',
+                'system_prefix': '',
                 'user_prefix': '<start_of_turn>user\n',
                 'user_suffix': '<end_of_turn>\n',
                 'assistant_prefix': '<start_of_turn>model\n',
@@ -146,6 +146,7 @@ class RAGPipeline:
               system_prompt: Optional[str] = None,
               include_metadata: bool = True,
               stream: bool = False,
+              collection_id: Optional[str] = None,
               **generation_kwargs) -> Dict[str, Any]:
         """
         Execute a single RAG query.
@@ -157,11 +158,27 @@ class RAGPipeline:
             system_prompt: Optional system instruction
             include_metadata: Whether to include source metadata
             stream: Whether to return streaming generator
-            **generation_kwargs: Additional generation parameters
+            collection_id: Optional collection filter for retrieval
+            **generation_kwargs: Additional generation parameters for LLM generation (e.g., max_tokens)
             
         Returns:
             Dictionary with answer, sources, and metadata
         """
+        # ✅ FIX: Add input validation
+        if not user_query or not user_query.strip():
+            raise ValueError("Query cannot be empty or whitespace-only")
+        
+        cleaned_query = user_query.strip()
+        
+        if len(cleaned_query) < 2:
+            raise ValueError("Query must be at least 2 characters long")
+        
+        if len(cleaned_query) > 2000:
+            raise ValueError("Query cannot exceed 2000 characters")
+        
+        # Log the validated query
+        self.logger.info(f"Processing validated query: '{cleaned_query[:50]}{'...' if len(cleaned_query) > 50 else ''}'")
+        
         start_time = time.time()
         
         # Use defaults from config if not specified
@@ -169,15 +186,24 @@ class RAGPipeline:
         retrieval_method = retrieval_method or self.config.get('retrieval', {}).get('default_method', 'vector')
         include_metadata = include_metadata if include_metadata is not None else self.config.get('retrieval', {}).get('include_metadata', True)
         
+        # Use default system prompt if none provided
+        if system_prompt is None:
+            system_prompt = self._get_default_system_prompt()
+        
+        # Reserved keys that should not be forwarded to the LLM generation layer
+        reserved_keys = {"collection_id"}
+        
         try:
             # Step 1: Retrieve relevant contexts
             retrieval_start = time.time()
             self.logger.info(f"Retrieving contexts for query: '{user_query[:50]}...'")
             
+            # Pass collection_id to retriever for proper isolation
             contexts = self.retriever.retrieve(
                 user_query, 
                 k=k, 
-                method=retrieval_method
+                method=retrieval_method,
+                collection_id=collection_id
             )
             
             retrieval_time = time.time() - retrieval_start
@@ -204,10 +230,13 @@ class RAGPipeline:
             # Step 3: Generate response
             generation_start = time.time()
             
+            # Remove any reserved keys before forwarding to LLM
+            llm_kwargs = {k: v for k, v in generation_kwargs.items() if k not in reserved_keys}
+            
             if stream:
                 # Return streaming generator and metadata
                 generator, get_stats = self.llm_wrapper.generate_stream_with_stats(
-                    prompt, **generation_kwargs
+                    prompt, **llm_kwargs
                 )
                 
                 def streaming_response():
@@ -228,7 +257,7 @@ class RAGPipeline:
             else:
                 # Non-streaming generation
                 result = self.llm_wrapper.generate_with_stats(
-                    prompt, **generation_kwargs
+                    prompt, **llm_kwargs
                 )
                 
                 generation_time = result['generation_time']
@@ -322,6 +351,10 @@ class RAGPipeline:
         Returns:
             Dictionary with answer, sources, and metadata
         """
+        # Use default system prompt if none provided
+        if system_prompt is None:
+            system_prompt = self._get_default_system_prompt()
+        
         # Add user message to history
         self.conversation_history.append({'role': 'user', 'content': user_query})
         
@@ -419,6 +452,21 @@ class RAGPipeline:
         
         return sources
     
+    def _get_default_system_prompt(self) -> Optional[str]:
+        """Load default system prompt from rag_config.yaml."""
+        try:
+            config_path = Path("config/rag_config.yaml")
+            if config_path.exists():
+                with open(config_path, 'r') as f:
+                    config = yaml.safe_load(f)
+                    system_prompt_config = config.get('system_prompt', {})
+                    return system_prompt_config.get('default')
+        except Exception as e:
+            self.logger.warning(f"Could not load system prompt from rag_config.yaml: {e}")
+        
+        # Fallback default
+        return "You are a helpful AI assistant that answers questions using provided context information. Base your responses on the retrieved context when available. If the information needed to answer a question is not available in the context, politely explain that you don't have enough information to provide an accurate answer."
+
     def _update_stats(self, retrieval_time: float, generation_time: float, tokens_generated: int):
         """Update pipeline statistics."""
         self.stats['total_queries'] += 1

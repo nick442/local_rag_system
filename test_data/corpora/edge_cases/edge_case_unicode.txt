@@ -1,0 +1,14 @@
+
+Unicode Test Document: deep learning
+
+This document contains various Unicode characters: 
+• Bullet points with special symbols ★ ◆ ▲
+• Mathematical symbols: ∑ ∏ ∫ ∂ ∇ ∞
+• Greek letters: α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
+• Emoji symbols: 🤖 💻 🧠 📊 🔬 ⚡ 🚀 🎯
+• International characters: café résumé naïve piñata
+• Currency symbols: $ € £ ¥ ₹ ₿
+• Arrows and symbols: → ← ↑ ↓ ⇒ ⇐ ⇑ ⇓
+
+The purpose of this document is to test Unicode handling in artificial intelligence 
+systems and ensure proper optimization of special characters.

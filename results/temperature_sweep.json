@@ -1,0 +1,130 @@
+{
+  "experiment_id": "sweep_1756541993",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 0.010358095169067383,
+  "created_at": "2025-08-30T08:19:53.695280+00:00",
+  "completed_at": "2025-08-30T08:19:53.695280+00:00",
+  "results": [
+    {
+      "run_id": "sweep_1756541993_run_0_0",
+      "query": "What is machine learning?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 5.0067901611328125e-06
+      },
+      "duration_seconds": 5.0067901611328125e-06,
+      "timestamp": "2025-08-30T08:19:53.685089+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_0_1",
+      "query": "How does artificial intelligence work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 2.86102294921875e-06
+      },
+      "duration_seconds": 2.86102294921875e-06,
+      "timestamp": "2025-08-30T08:19:53.685495+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_0_2",
+      "query": "Explain deep learning algorithms.",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 3.0994415283203125e-06
+      },
+      "duration_seconds": 3.0994415283203125e-06,
+      "timestamp": "2025-08-30T08:19:53.685867+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_0_3",
+      "query": "What are neural networks?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.291534423828125e-06
+      },
+      "duration_seconds": 4.291534423828125e-06,
+      "timestamp": "2025-08-30T08:19:53.691468+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_0_4",
+      "query": "How do large language models work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 3.0994415283203125e-06
+      },
+      "duration_seconds": 3.0994415283203125e-06,
+      "timestamp": "2025-08-30T08:19:53.691909+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_1_0",
+      "query": "What is machine learning?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 3.0994415283203125e-06
+      },
+      "duration_seconds": 3.0994415283203125e-06,
+      "timestamp": "2025-08-30T08:19:53.692402+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_1_1",
+      "query": "How does artificial intelligence work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 2.1457672119140625e-06
+      },
+      "duration_seconds": 2.1457672119140625e-06,
+      "timestamp": "2025-08-30T08:19:53.692815+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_1_2",
+      "query": "Explain deep learning algorithms.",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 5.9604644775390625e-06
+      },
+      "duration_seconds": 5.9604644775390625e-06,
+      "timestamp": "2025-08-30T08:19:53.693398+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_1_3",
+      "query": "What are neural networks?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 3.0994415283203125e-06
+      },
+      "duration_seconds": 3.0994415283203125e-06,
+      "timestamp": "2025-08-30T08:19:53.694123+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    },
+    {
+      "run_id": "sweep_1756541993_run_1_4",
+      "query": "How do large language models work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 1.9073486328125e-06
+      },
+      "duration_seconds": 1.9073486328125e-06,
+      "timestamp": "2025-08-30T08:19:53.694669+00:00",
+      "error_message": "cannot import name 'create_system_manager' from 'src.system_manager' (/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/agent/Opus/Opus-2/local_rag_system/src/system_manager.py)"
+    }
+  ]
+}

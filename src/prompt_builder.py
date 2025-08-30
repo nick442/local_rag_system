@@ -22,9 +22,10 @@ class PromptBuilder:
             chat_template: Chat template configuration from config
             encoding_name: Tokenizer encoding name for token counting
         """
-        # Default Gemma-3 template if none provided
+        # ✅ FIX: Remove BOS token from system_prefix to avoid duplicates
+        # The LLM wrapper will add BOS token automatically
         self.chat_template = chat_template or {
-            'system_prefix': '<bos>',
+            'system_prefix': '',  # ✅ FIX: Remove '<bos>' to prevent duplicates
             'user_prefix': '<start_of_turn>user\n',
             'user_suffix': '<end_of_turn>\n',
             'assistant_prefix': '<start_of_turn>model\n',

@@ -62,7 +62,8 @@ class Retriever:
         self.logger = logging.getLogger(__name__)
     
     def retrieve(self, query: str, k: int = 5, 
-                method: str = "vector") -> List[RetrievalResult]:
+                method: str = "vector", 
+                collection_id: Optional[str] = None) -> List[RetrievalResult]:
         """
         Retrieve relevant chunks for a query.
         
@@ -70,26 +71,27 @@ class Retriever:
             query: Search query string
             k: Number of results to return
             method: Retrieval method ("vector", "keyword", "hybrid")
+            collection_id: Optional collection filter
             
         Returns:
             List of RetrievalResult objects ordered by relevance
         """
         if method == "vector":
-            return self._vector_retrieve(query, k)
+            return self._vector_retrieve(query, k, collection_id)
         elif method == "keyword":
-            return self._keyword_retrieve(query, k)
+            return self._keyword_retrieve(query, k, collection_id)
         elif method == "hybrid":
-            return self._hybrid_retrieve(query, k)
+            return self._hybrid_retrieve(query, k, collection_id)
         else:
             raise ValueError(f"Unknown retrieval method: {method}")
     
-    def _vector_retrieve(self, query: str, k: int) -> List[RetrievalResult]:
+    def _vector_retrieve(self, query: str, k: int, collection_id: Optional[str] = None) -> List[RetrievalResult]:
         """Retrieve using vector similarity search."""
         # Generate query embedding
         query_embedding = self.embedding_service.embed_text(query)
         
-        # Search for similar chunks
-        results = self.vector_db.search_similar(query_embedding, k)
+        # Search for similar chunks with optional collection filtering
+        results = self.vector_db.search_similar(query_embedding, k, collection_id=collection_id)
         
         return [
             RetrievalResult(
@@ -103,9 +105,9 @@ class Retriever:
             for chunk_id, score, data in results
         ]
     
-    def _keyword_retrieve(self, query: str, k: int) -> List[RetrievalResult]:
+    def _keyword_retrieve(self, query: str, k: int, collection_id: Optional[str] = None) -> List[RetrievalResult]:
         """Retrieve using keyword search."""
-        results = self.vector_db.keyword_search(query, k)
+        results = self.vector_db.keyword_search(query, k, collection_id=collection_id)
         
         return [
             RetrievalResult(
@@ -119,13 +121,13 @@ class Retriever:
             for chunk_id, score, data in results
         ]
     
-    def _hybrid_retrieve(self, query: str, k: int, alpha: float = 0.7) -> List[RetrievalResult]:
+    def _hybrid_retrieve(self, query: str, k: int, collection_id: Optional[str] = None, alpha: float = 0.7) -> List[RetrievalResult]:
         """Retrieve using hybrid vector + keyword search."""
         # Generate query embedding
         query_embedding = self.embedding_service.embed_text(query)
         
-        # Perform hybrid search
-        results = self.vector_db.hybrid_search(query_embedding, query, k, alpha)
+        # Perform hybrid search with optional collection filtering
+        results = self.vector_db.hybrid_search(query_embedding, query, k, alpha, collection_id=collection_id)
         
         return [
             RetrievalResult(

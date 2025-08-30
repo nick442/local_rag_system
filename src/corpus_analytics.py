@@ -195,25 +195,40 @@ class CorpusAnalyzer:
         with sqlite3.connect(str(self.db_path)) as conn:
             cursor = conn.cursor()
             
-            # Get document embeddings (average of chunk embeddings)
+            # ✅ FIX: Get individual embeddings instead of trying to average in SQL
             cursor.execute("""
-                SELECT d.doc_id, d.source_path, AVG(e.embedding_vector)
+                SELECT d.doc_id, d.source_path, e.embedding_vector
                 FROM documents d
                 JOIN chunks c ON d.doc_id = c.doc_id
                 JOIN embeddings e ON c.chunk_id = e.chunk_id
                 WHERE d.collection_id = ?
-                GROUP BY d.doc_id, d.source_path
-                LIMIT 100
+                LIMIT 500
             """, (collection_id,))
             
-            doc_embeddings = {}
+            # ✅ FIX: Group embeddings by document and calculate averages in Python
+            doc_embeddings_raw = defaultdict(list)
+            doc_paths = {}
+            
             for row in cursor.fetchall():
                 doc_id, source_path, embedding_blob = row
                 if embedding_blob:
-                    embedding = np.frombuffer(embedding_blob, dtype=np.float32)
+                    try:
+                        embedding = np.frombuffer(embedding_blob, dtype=np.float32)
+                        doc_embeddings_raw[doc_id].append(embedding)
+                        doc_paths[doc_id] = source_path
+                    except Exception as e:
+                        self.logger.warning(f"Failed to process embedding for doc {doc_id}: {e}")
+                        continue
+            
+            # ✅ FIX: Calculate document-level embeddings by averaging chunk embeddings
+            doc_embeddings = {}
+            for doc_id, embeddings in doc_embeddings_raw.items():
+                if embeddings:
+                    # Average embeddings for this document
+                    avg_embedding = np.mean(embeddings, axis=0)
                     doc_embeddings[doc_id] = {
-                        'embedding': embedding,
-                        'source_path': source_path
+                        'embedding': avg_embedding,
+                        'source_path': doc_paths[doc_id]
                     }
         
         # Calculate pairwise similarities
@@ -222,14 +237,19 @@ class CorpusAnalyzer:
         
         for i, doc_id1 in enumerate(doc_ids):
             for j, doc_id2 in enumerate(doc_ids[i+1:], i+1):
-                emb1 = doc_embeddings[doc_id1]['embedding']
-                emb2 = doc_embeddings[doc_id2]['embedding']
-                
-                # Cosine similarity
-                similarity = np.dot(emb1, emb2) / (np.linalg.norm(emb1) * np.linalg.norm(emb2))
-                
-                if similarity >= min_similarity:
-                    similar_pairs.append((doc_id1, doc_id2, float(similarity)))
+                try:
+                    emb1 = doc_embeddings[doc_id1]['embedding']
+                    emb2 = doc_embeddings[doc_id2]['embedding']
+                    
+                    # Cosine similarity with error handling
+                    norm1, norm2 = np.linalg.norm(emb1), np.linalg.norm(emb2)
+                    if norm1 > 0 and norm2 > 0:
+                        similarity = np.dot(emb1, emb2) / (norm1 * norm2)
+                        if similarity >= min_similarity:
+                            similar_pairs.append((doc_id1, doc_id2, float(similarity)))
+                except Exception as e:
+                    self.logger.warning(f"Failed to calculate similarity between {doc_id1} and {doc_id2}: {e}")
+                    continue
         
         # Sort by similarity and return top pairs
         similar_pairs.sort(key=lambda x: x[2], reverse=True)
@@ -330,25 +350,39 @@ class CorpusAnalyzer:
         with sqlite3.connect(str(self.db_path)) as conn:
             cursor = conn.cursor()
             
-            # Get embeddings for all other documents
+            # ✅ FIX: Get individual embeddings, not averaged
             cursor.execute("""
-                SELECT d.doc_id, AVG(e.embedding_vector)
+                SELECT d.doc_id, e.embedding_vector
                 FROM documents d
                 JOIN chunks c ON d.doc_id = c.doc_id
                 JOIN embeddings e ON c.chunk_id = e.chunk_id
                 WHERE d.collection_id = ? AND d.doc_id != ?
-                GROUP BY d.doc_id
             """, (collection_id, target_doc_id))
             
-            similarities = []
+            # ✅ FIX: Calculate document averages in Python
+            doc_embeddings_raw = defaultdict(list)
             for row in cursor.fetchall():
                 doc_id, embedding_blob = row
                 if embedding_blob:
-                    embedding = np.frombuffer(embedding_blob, dtype=np.float32)
-                    similarity = np.dot(target_embedding, embedding) / (
-                        np.linalg.norm(target_embedding) * np.linalg.norm(embedding)
-                    )
-                    similarities.append((doc_id, float(similarity)))
+                    try:
+                        embedding = np.frombuffer(embedding_blob, dtype=np.float32)
+                        doc_embeddings_raw[doc_id].append(embedding)
+                    except Exception as e:
+                        continue
+            
+            similarities = []
+            for doc_id, embeddings in doc_embeddings_raw.items():
+                if embeddings:
+                    # Calculate average embedding for the document
+                    avg_embedding = np.mean(embeddings, axis=0)
+                    try:
+                        norm_target = np.linalg.norm(target_embedding)
+                        norm_doc = np.linalg.norm(avg_embedding)
+                        if norm_target > 0 and norm_doc > 0:
+                            similarity = np.dot(target_embedding, avg_embedding) / (norm_target * norm_doc)
+                            similarities.append((doc_id, float(similarity)))
+                    except Exception as e:
+                        continue
         
         # Sort by similarity and return top documents
         similarities.sort(key=lambda x: x[1], reverse=True)

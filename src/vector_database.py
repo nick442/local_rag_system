@@ -13,7 +13,13 @@ from typing import List, Tuple, Optional, Dict, Any, Union
 import uuid
 
 import numpy as np
-import sqlite_vec
+
+# sqlite-vec is optional; if not installed as a Python package, we'll attempt vendor dylib below
+try:
+    import sqlite_vec  # type: ignore
+except Exception:  # pragma: no cover - handled by runtime fallback
+    sqlite_vec = None
+import os
 
 from .document_ingestion import DocumentChunk
 
@@ -45,13 +51,40 @@ class VectorDatabase:
         conn.row_factory = sqlite3.Row
         
         try:
-            # Load sqlite-vec using the Python package
-            conn.enable_load_extension(True)
-            sqlite_vec.load(conn)
-            conn.enable_load_extension(False)
-            self.logger.info("Successfully loaded sqlite-vec extension using Python package")
+            # Try Python package first
+            if sqlite_vec is not None:
+                conn.enable_load_extension(True)
+                sqlite_vec.load(conn)
+                conn.enable_load_extension(False)
+                self.logger.info("Successfully loaded sqlite-vec extension using Python package")
+            else:
+                raise RuntimeError("sqlite_vec module not available")
         except Exception as e:
-            self.logger.warning(f"Failed to load sqlite-vec extension: {e}. Vector search will use fallback.")
+            # Attempt vendor dylib fallback unless disabled by env
+            try:
+                disable_vendor = os.getenv('RAG_DISABLE_SQLITE_VEC_VENDOR') == '1' or os.getenv('RAG_SQLITE_VEC_TRY_VENDOR', '1') == '0'
+                if not disable_vendor:
+                    conn.enable_load_extension(True)
+                    # Resolve vendor dylib path relative to project root
+                    vendor_path = (Path(__file__).resolve().parents[1] / 'vendor' / 'sqlite-vec' / 'vec0.dylib')
+                    if vendor_path.exists():
+                        conn.load_extension(str(vendor_path))
+                        self.logger.info(f"Loaded sqlite-vec from vendor dylib: {vendor_path}")
+                    else:
+                        # Try by name if on system path
+                        conn.load_extension('vec0')
+                        self.logger.info("Loaded sqlite-vec via 'vec0' name")
+                    conn.enable_load_extension(False)
+                else:
+                    raise RuntimeError("Vendor sqlite-vec load disabled by environment")
+            except Exception as e2:
+                try:
+                    conn.enable_load_extension(False)
+                except Exception:
+                    pass
+                self.logger.warning(
+                    f"Failed to load sqlite-vec (package/vendor): {e2}. Vector search will use fallback."
+                )
         
         return conn
     

@@ -1,0 +1,16 @@
+
+Special Characters Test Document
+
+This document contains various special characters and punctuation marks:
+
+Brackets: () [] {} <> 
+Quotes: "quotes" 'single' `backticks`
+Punctuation: !@#$%^&*()_+-=[]{}|;':",./<>?
+Mathematical: ± × ÷ ² ³ ½ ¼ ¾ √ ∞
+Programming: // /* */ <tag> </tag> { } \ 
+ 	 
+
+Topic: programming with optimization
+
+The integration of deep learning requires 
+careful handling of special characters in configuration systems.

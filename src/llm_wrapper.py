@@ -50,13 +50,16 @@ class LLMWrapper:
         start_time = time.time()
         
         try:
+            # ✅ FIX: Configure to avoid duplicate BOS token issues
             self.model = Llama(
                 model_path=str(self.model_path),
                 n_ctx=self.n_ctx,
                 n_batch=self.n_batch,
                 n_threads=self.n_threads,
                 n_gpu_layers=self.n_gpu_layers,  # Use Metal with -1
-                verbose=False
+                verbose=False,
+                add_bos_token=True,  # ✅ FIX: Explicitly control BOS token addition
+                echo=False  # ✅ FIX: Prevent echo that might cause duplication
             )
             
             self._load_time = time.time() - start_time

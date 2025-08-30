@@ -1,3 +1,3 @@
-When issuing python commands always use source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python
-
-always update the root claude_workdone.md with concise documentation of your actions. if it doesn't exist yet, create it.
+- When issuing python commands always use source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python
+- always update the root claude_workdone.md with concise documentation of your actions. if it doesn't exist yet, create it. DON'T READ THE WHOLE FILE, just append it
+-always make sure you write files in the correct directories, don't clutter up the root directory

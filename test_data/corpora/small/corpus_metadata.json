@@ -1,0 +1,33 @@
+{
+  "corpus_size": "small",
+  "documents_count": 10,
+  "total_words": 5659,
+  "avg_words_per_document": 565.9,
+  "document_types": [
+    "technical_article",
+    "qa_document",
+    "code_documentation",
+    "news_article"
+  ],
+  "topics_used": [
+    "machine learning",
+    "artificial intelligence",
+    "neural networks",
+    "deep learning",
+    "natural language processing",
+    "computer vision",
+    "data science",
+    "algorithms",
+    "programming",
+    "software engineering",
+    "cloud computing",
+    "cybersecurity",
+    "blockchain",
+    "quantum computing",
+    "robotics",
+    "automation",
+    "internet of things",
+    "big data"
+  ],
+  "generated_at": "2025-08-28 16:22:30"
+}

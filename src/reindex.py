@@ -77,6 +77,7 @@ class ReindexTool:
         self,
         db_path: str = "data/rag_vectors.db",
         embedding_service: Optional[EmbeddingService] = None,
+        embedding_model_path: Optional[str] = None,
         chunk_size: int = 512,
         chunk_overlap: int = 128
     ):
@@ -86,15 +87,32 @@ class ReindexTool:
         Args:
             db_path: Path to vector database
             embedding_service: Embedding service for re-embedding
+            embedding_model_path: Path to embedding model (optional for read-only operations)
             chunk_size: Default chunk size for re-chunking
             chunk_overlap: Default chunk overlap for re-chunking
         """
         self.db_path = Path(db_path)
         self.db = VectorDatabase(str(db_path))
-        self.embedding_service = embedding_service or EmbeddingService()
+        
+        # ✅ FIX: Only initialize EmbeddingService if model path provided or service passed
+        if embedding_service:
+            self.embedding_service = embedding_service
+        elif embedding_model_path:
+            try:
+                self.embedding_service = EmbeddingService(embedding_model_path)
+            except Exception as e:
+                self.logger = logging.getLogger(__name__)
+                self.logger.warning(f"Could not initialize embedding service: {e}")
+                self.embedding_service = None
+        else:
+            self.embedding_service = None
+            
         self.ingestion_service = DocumentIngestionService()
         self.default_chunk_size = chunk_size
         self.default_chunk_overlap = chunk_overlap
+        
+        # Store model path for operations that need it
+        self.embedding_model_path = embedding_model_path
         
         self.logger = logging.getLogger(__name__)
     
@@ -787,6 +805,7 @@ class ReindexTool:
 
 def create_reindex_tool(
     db_path: str = "data/rag_vectors.db",
+    embedding_model_path: Optional[str] = None,
     **kwargs
 ) -> ReindexTool:
     """
@@ -794,12 +813,17 @@ def create_reindex_tool(
     
     Args:
         db_path: Path to vector database
+        embedding_model_path: Path to embedding model (optional)
         **kwargs: Additional arguments for ReindexTool
         
     Returns:
         Configured ReindexTool instance
     """
-    return ReindexTool(db_path=db_path, **kwargs)
+    return ReindexTool(
+        db_path=db_path, 
+        embedding_model_path=embedding_model_path,
+        **kwargs
+    )
 
 
 def quick_maintenance(

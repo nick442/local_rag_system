@@ -1,0 +1,130 @@
+{
+  "experiment_id": "sweep_1756542020",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 2.590911865234375,
+  "created_at": "2025-08-30T08:20:23.503700+00:00",
+  "completed_at": "2025-08-30T08:20:23.503701+00:00",
+  "results": [
+    {
+      "run_id": "sweep_1756542020_run_0_0",
+      "query": "What is machine learning?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.3581249713897705
+      },
+      "duration_seconds": 0.3581249713897705,
+      "timestamp": "2025-08-30T08:20:21.270885+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_0_1",
+      "query": "How does artificial intelligence work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.2400970458984375
+      },
+      "duration_seconds": 0.2400970458984375,
+      "timestamp": "2025-08-30T08:20:21.512925+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_0_2",
+      "query": "Explain deep learning algorithms.",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.24163198471069336
+      },
+      "duration_seconds": 0.24163198471069336,
+      "timestamp": "2025-08-30T08:20:21.758469+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_0_3",
+      "query": "What are neural networks?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.23961997032165527
+      },
+      "duration_seconds": 0.23961997032165527,
+      "timestamp": "2025-08-30T08:20:22.001047+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_0_4",
+      "query": "How do large language models work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.23762989044189453
+      },
+      "duration_seconds": 0.23762989044189453,
+      "timestamp": "2025-08-30T08:20:22.241558+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_1_0",
+      "query": "What is machine learning?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.2765839099884033
+      },
+      "duration_seconds": 0.2765839099884033,
+      "timestamp": "2025-08-30T08:20:22.522093+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_1_1",
+      "query": "How does artificial intelligence work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.25884008407592773
+      },
+      "duration_seconds": 0.25884008407592773,
+      "timestamp": "2025-08-30T08:20:22.782580+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_1_2",
+      "query": "Explain deep learning algorithms.",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.23592209815979004
+      },
+      "duration_seconds": 0.23592209815979004,
+      "timestamp": "2025-08-30T08:20:23.021732+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_1_3",
+      "query": "What are neural networks?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.2319471836090088
+      },
+      "duration_seconds": 0.2319471836090088,
+      "timestamp": "2025-08-30T08:20:23.257226+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    },
+    {
+      "run_id": "sweep_1756542020_run_1_4",
+      "query": "How do large language models work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.24044394493103027
+      },
+      "duration_seconds": 0.24044394493103027,
+      "timestamp": "2025-08-30T08:20:23.502214+00:00",
+      "error_message": "models/embedding is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`"
+    }
+  ]
+}

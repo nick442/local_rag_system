@@ -1,0 +1,55 @@
+{
+  "experiment_id": "sweep_1756545006",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 20.003993034362793,
+  "created_at": "2025-08-30T09:10:26.190378+00:00",
+  "completed_at": "2025-08-30T09:10:26.190379+00:00",
+  "results": [
+    {
+      "run_id": "sweep_1756545006_run_0_0",
+      "query": "What is machine learning?",
+      "response": "Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed. It involves algorithms that can identify patterns in data and make predictions or decisions.",
+      "metrics": {
+        "response_time": 5.26195216178894,
+        "response_length": 35,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 5.26195216178894,
+      "timestamp": "2025-08-30T09:10:11.448255+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545006_run_0_1",
+      "query": "Define neural networks.",
+      "response": "Neural networks are a type of supervised machine learning algorithm, often represented as a multi-layer perceptron. They consist of interconnected nodes (neurons) arranged in layers, and are used for classification or regression tasks. A simple mathematical model for a neuron was first presented by Warren McCulloch and Walter Pitts in 1943. They can be represented through operations on matrices and vectors, making them suitable for implementation in vectorised languages like q/kdb+. In deeper layers, features learned in previous layers come together to form more complex and meaningful abstractions.",
+      "metrics": {
+        "response_time": 10.597445249557495,
+        "response_length": 88,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 10.597445249557495,
+      "timestamp": "2025-08-30T09:10:22.164538+00:00",
+      "error_message": null
+    },
+    {
+      "run_id": "sweep_1756545006_run_0_2",
+      "query": "What is deep learning?",
+      "response": "Deep learning networks use backpropagation for training.",
+      "metrics": {
+        "response_time": 3.8124167919158936,
+        "response_length": 7,
+        "num_sources": 5,
+        "retrieval_success": 1.0,
+        "response_generated": 1.0
+      },
+      "duration_seconds": 3.8124167919158936,
+      "timestamp": "2025-08-30T09:10:26.089099+00:00",
+      "error_message": null
+    }
+  ]
+}

@@ -10,8 +10,9 @@ import asyncio
 import json
 import logging
 import sys
+from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 
 import click
 from rich.console import Console
@@ -26,30 +27,39 @@ from src.deduplication import DocumentDeduplicator, create_deduplicator
 from src.reindex import ReindexTool, create_reindex_tool
 from src.corpus_analytics import CorpusAnalyzer, create_corpus_analyzer
 from src.rag_pipeline import RAGPipeline
-# from src.cli_chat import main as chat_main  # Commented out - has dependency issues
+from src.cli_chat import chat as chat_main
 
 
 # Global configuration
 console = Console()
 DEFAULT_DB_PATH = "data/rag_vectors.db"
 DEFAULT_EMBEDDING_PATH = "models/embeddings/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/c9745ed1d9f207416be6d2e6f8de32d1f16199bf"
-DEFAULT_LLM_PATH = "/Users/nickwiebe/Documents/claude-workspace/RAGagentProject/models/gemma-3-4b-it-q4_0.gguf"
+DEFAULT_LLM_PATH = "models/gemma-3-4b-it-q4_0.gguf"
 
 
 def setup_logging(verbose: bool = False):
     """Setup logging configuration."""
     level = logging.DEBUG if verbose else logging.INFO
+
+    # Ensure logs directory exists before attaching file handler (important in isolated FS/tests)
+    try:
+        Path('logs').mkdir(parents=True, exist_ok=True)
+    except Exception:
+        # If we cannot create the directory, continue with console logging only
+        pass
+
+    handlers = [logging.StreamHandler()]
+    try:
+        handlers.append(logging.FileHandler('logs/rag_system.log'))
+    except Exception:
+        # In environments without filesystem access, skip file logging
+        pass
+
     logging.basicConfig(
         level=level,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.StreamHandler(),
-            logging.FileHandler('logs/rag_system.log')
-        ]
+        handlers=handlers,
     )
-    
-    # Create logs directory if it doesn't exist
-    Path('logs').mkdir(exist_ok=True)
 
 
 @click.group()
@@ -58,10 +68,46 @@ def setup_logging(verbose: bool = False):
 @click.pass_context
 def cli(ctx, db_path: str, verbose: bool):
     """RAG System - Local Retrieval-Augmented Generation Platform"""
+    import signal
+    from src.system_manager import SystemManager
+    from src.error_handler import ErrorHandler, ErrorContext
+    
+    # Initialize system manager
+    system = SystemManager()
+    system.config.db_path = db_path
+    system.config.log_level = "DEBUG" if verbose else "INFO"
+    
+    # Initialize error handler
+    error_handler = ErrorHandler(system)
+    
+    # Setup signal handlers for graceful shutdown
+    def signal_handler(signum, frame):
+        """Handle shutdown signals gracefully"""
+        console.print("[yellow]Shutting down system...[/yellow]")
+        system.shutdown()
+        sys.exit(0)
+    
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    # Initialize components
+    if not system.initialize_components():
+        console.print("[red]❌ System initialization failed[/red]")
+        console.print("[yellow]💡 Run 'python main.py doctor' for diagnostics[/yellow]")
+        sys.exit(1)
+    
+    # Run basic health check
+    if not system.health_check():
+        console.print("[yellow]⚠️  Some health checks failed[/yellow]")
+        console.print("[yellow]💡 Run 'python main.py doctor' for details[/yellow]")
+    
+    # Setup logging after system initialization
     setup_logging(verbose)
     
-    # Store configuration in context
+    # Store system components in context for commands
     ctx.ensure_object(dict)
+    ctx.obj['system'] = system
+    ctx.obj['error_handler'] = error_handler
     ctx.obj['db_path'] = db_path
     ctx.obj['verbose'] = verbose
     
@@ -425,6 +471,287 @@ def export_analytics_report(ctx, collection: str, output: Optional[Path]):
 
 # ========== MAINTENANCE COMMANDS ==========
 
+# =============================================================================
+# Configuration Management Commands
+# =============================================================================
+
+@cli.group()
+def config():
+    """Configuration management commands"""
+    pass
+
+
+@config.command('show')
+@click.option('--profile', help='Show specific profile (default: current)')
+def show_config(profile: Optional[str]):
+    """Show current configuration settings"""
+    try:
+        from src.config_manager import create_config_manager
+        config_manager = create_config_manager()
+        
+        if profile:
+            profile_config = config_manager.get_profile(profile)
+            rprint(f"[bold blue]Profile: {profile}[/bold blue]")
+            
+            table = Table(show_header=True, header_style="bold magenta")
+            table.add_column("Setting", style="cyan")
+            table.add_column("Value", style="white")
+            
+            for key, value in profile_config.to_dict().items():
+                table.add_row(key, str(value))
+            
+            console.print(table)
+        else:
+            summary = config_manager.get_config_summary()
+            
+            rprint(f"[bold blue]Configuration Summary[/bold blue]")
+            rprint(f"Current Profile: [green]{summary['current_profile']}[/green]")
+            rprint(f"Config File: [cyan]{summary['config_file']}[/cyan]")
+            rprint(f"Available Profiles: [yellow]{', '.join(summary['available_profiles'])}[/yellow]")
+            
+            if summary['temporary_overrides']:
+                rprint("\n[bold red]Temporary Overrides:[/bold red]")
+                for key, value in summary['temporary_overrides'].items():
+                    rprint(f"  {key}: {value}")
+            
+            rprint("\n[bold blue]Active Settings:[/bold blue]")
+            table = Table(show_header=True, header_style="bold magenta")
+            table.add_column("Setting", style="cyan")
+            table.add_column("Value", style="white")
+            
+            for key, value in summary['active_settings'].items():
+                table.add_row(key, str(value))
+            
+            console.print(table)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to show configuration: {e}[/red]")
+        sys.exit(1)
+
+
+@config.command('list-profiles')
+def list_profiles():
+    """List all available configuration profiles"""
+    try:
+        from src.config_manager import create_config_manager
+        config_manager = create_config_manager()
+        
+        profiles = config_manager.list_profiles()
+        current_profile = config_manager.get_current_profile_name()
+        
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Profile", style="cyan")
+        table.add_column("Status", style="white")
+        table.add_column("Retrieval K", style="yellow")
+        table.add_column("Max Tokens", style="green")
+        table.add_column("Temperature", style="blue")
+        
+        for name, profile_config in profiles.items():
+            status = "✓ Active" if name == current_profile else ""
+            table.add_row(
+                name,
+                status,
+                str(profile_config.retrieval_k),
+                str(profile_config.max_tokens),
+                str(profile_config.temperature)
+            )
+        
+        console.print(table)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to list profiles: {e}[/red]")
+        sys.exit(1)
+
+
+@config.command('switch-profile')
+@click.argument('profile_name')
+@click.option('--save/--no-save', default=True, help='Save configuration after switching')
+def switch_profile(profile_name: str, save: bool):
+    """Switch to a different configuration profile"""
+    try:
+        from src.config_manager import create_config_manager
+        config_manager = create_config_manager()
+        
+        if config_manager.switch_profile(profile_name):
+            if save:
+                config_manager.save_config()
+            
+            rprint(f"[green]✓ Switched to profile: {profile_name}[/green]")
+            
+            # Show new profile settings
+            profile_config = config_manager.get_profile()
+            rprint(f"\n[bold blue]Active Settings:[/bold blue]")
+            rprint(f"Retrieval K: [yellow]{profile_config.retrieval_k}[/yellow]")
+            rprint(f"Max Tokens: [green]{profile_config.max_tokens}[/green]")
+            rprint(f"Temperature: [blue]{profile_config.temperature}[/blue]")
+        else:
+            rprint(f"[red]✗ Failed to switch to profile: {profile_name}[/red]")
+            sys.exit(1)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to switch profile: {e}[/red]")
+        sys.exit(1)
+
+
+@config.command('set')
+@click.argument('key')
+@click.argument('value')
+@click.option('--temporary', '-t', is_flag=True, help='Set temporary override (not saved)')
+@click.option('--type', 'value_type', type=click.Choice(['str', 'int', 'float', 'bool']), default='str', help='Value type')
+def set_config(key: str, value: str, temporary: bool, value_type: str):
+    """Set a configuration parameter"""
+    try:
+        from src.config_manager import create_config_manager
+        config_manager = create_config_manager()
+        
+        # Convert value to appropriate type
+        if value_type == 'int':
+            typed_value = int(value)
+        elif value_type == 'float':
+            typed_value = float(value)
+        elif value_type == 'bool':
+            typed_value = value.lower() in ('true', '1', 'yes', 'on')
+        else:
+            typed_value = value
+        
+        if temporary:
+            config_manager.override_param(key, typed_value, temporary=True)
+            rprint(f"[yellow]✓ Set temporary override: {key} = {typed_value}[/yellow]")
+        else:
+            if config_manager.set_param(key, typed_value, save=True):
+                rprint(f"[green]✓ Set configuration: {key} = {typed_value}[/green]")
+            else:
+                rprint(f"[red]✗ Failed to set configuration parameter[/red]")
+                sys.exit(1)
+        
+    except ValueError as e:
+        rprint(f"[red]✗ Invalid value type: {e}[/red]")
+        sys.exit(1)
+    except Exception as e:
+        rprint(f"[red]✗ Failed to set configuration: {e}[/red]")
+        sys.exit(1)
+
+
+@config.command('get')
+@click.argument('key')
+def get_config(key: str):
+    """Get a configuration parameter value"""
+    try:
+        from src.config_manager import create_config_manager
+        config_manager = create_config_manager()
+        
+        value = config_manager.get_param(key)
+        if value is not None:
+            rprint(f"[cyan]{key}[/cyan]: [white]{value}[/white]")
+        else:
+            rprint(f"[red]✗ Parameter '{key}' not found[/red]")
+            sys.exit(1)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to get configuration: {e}[/red]")
+        sys.exit(1)
+
+
+@config.command('reload')
+def reload_config():
+    """Reload configuration from file"""
+    try:
+        from src.config_manager import create_config_manager
+        config_manager = create_config_manager()
+        
+        if config_manager.reload_config():
+            rprint(f"[green]✓ Configuration reloaded successfully[/green]")
+        else:
+            rprint(f"[red]✗ Failed to reload configuration[/red]")
+            sys.exit(1)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to reload configuration: {e}[/red]")
+        sys.exit(1)
+
+
+# =============================================================================
+# System Statistics Commands  
+# =============================================================================
+
+@cli.group()
+def stats():
+    """System monitoring and statistics commands"""
+    pass
+
+
+@stats.command('show')
+@click.option('--format', 'output_format', type=click.Choice(['table', 'json']), default='table', help='Output format')
+def show_stats(output_format: str):
+    """Show current system and session statistics"""
+    try:
+        from src.monitor import create_monitor
+        monitor = create_monitor(enable_continuous_monitoring=False)
+        
+        if output_format == 'json':
+            stats_data = monitor.get_performance_summary()
+            rprint(json.dumps(stats_data, indent=2))
+        else:
+            formatted_stats = monitor.format_stats_display()
+            rprint(formatted_stats)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to get statistics: {e}[/red]")
+        sys.exit(1)
+
+
+@stats.command('system')
+def show_system_stats():
+    """Show current system resource usage"""
+    try:
+        from src.monitor import create_monitor
+        monitor = create_monitor(enable_continuous_monitoring=False)
+        
+        system_stats = monitor.get_current_system_stats()
+        
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Resource", style="cyan")
+        table.add_column("Usage", style="white")
+        table.add_column("Details", style="yellow")
+        
+        table.add_row("CPU", f"{system_stats.cpu_percent:.1f}%", "Current usage")
+        table.add_row("Memory", f"{system_stats.memory_percent:.1f}%", f"{system_stats.memory_used_gb:.1f}GB / {system_stats.memory_total_gb:.1f}GB")
+        table.add_row("Disk", f"{system_stats.disk_percent:.1f}%", f"{system_stats.disk_used_gb:.1f}GB / {system_stats.disk_total_gb:.1f}GB")
+        
+        console.print(table)
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to get system statistics: {e}[/red]")
+        sys.exit(1)
+
+
+@stats.command('export')
+@click.option('--output', type=click.Path(path_type=Path), help='Output file path')
+@click.option('--format', 'export_format', type=click.Choice(['json']), default='json', help='Export format')
+def export_stats(output: Optional[Path], export_format: str):
+    """Export statistics to file"""
+    try:
+        from src.monitor import create_monitor
+        monitor = create_monitor(enable_continuous_monitoring=False)
+        
+        stats_data = monitor.export_stats(format=export_format)
+        
+        if output is None:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output = Path(f"stats_export_{timestamp}.{export_format}")
+        
+        output.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(output, 'w') as f:
+            if export_format == 'json':
+                json.dump(stats_data, f, indent=2, default=str)
+        
+        rprint(f"[green]✓ Statistics exported to: {output}[/green]")
+        
+    except Exception as e:
+        rprint(f"[red]✗ Failed to export statistics: {e}[/red]")
+        sys.exit(1)
+
 @cli.group()
 def maintenance():
     """Database maintenance and optimization commands"""
@@ -524,7 +851,14 @@ def reindex(ctx, collection: str, operation: str, backup: bool):
 def validate_integrity(ctx, collection: Optional[str]):
     """Validate database integrity"""
     try:
-        tool = create_reindex_tool(ctx.obj['db_path'])
+        # ✅ FIX: Get embedding model path from context if available
+        embedding_model_path = ctx.obj.get('embedding_model_path')
+        
+        # Pass embedding model path if available
+        tool = create_reindex_tool(
+            ctx.obj['db_path'], 
+            embedding_model_path=embedding_model_path
+        )
         
         with Progress() as progress:
             task = progress.add_task("Validating integrity...", total=None)
@@ -559,32 +893,79 @@ def validate_integrity(ctx, collection: Optional[str]):
 @click.option('--collection', default='default', help='Collection to query')
 @click.option('--model-path', default=DEFAULT_LLM_PATH, help='LLM model path')
 @click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
+@click.option('--no-streaming', is_flag=True, help='Disable streaming output')
+@click.option('--profile', default='balanced', help='Configuration profile to use')
 @click.pass_context
-def chat(ctx, collection: str, model_path: str, embedding_path: str):
+def chat(ctx, collection: str, model_path: str, embedding_path: str, no_streaming: bool, profile: str):
     """Start interactive chat with RAG system"""
     try:
-        # Import and run the existing chat interface
-        # Modify sys.argv to pass parameters to the chat system
-        original_argv = sys.argv.copy()
-        sys.argv = [
-            'cli_chat.py',
-            '--db-path', ctx.obj['db_path'],
-            '--collection', collection,
-            '--model-path', model_path,
-            '--embedding-path', embedding_path
-        ]
+        # Load configuration manager to get profile settings
+        from src.config_manager import create_config_manager
+        from src.cli_chat import ChatInterface
         
-        # Call the chat main function
-        # chat_main()  # Temporarily disabled
-        rprint("[yellow]Chat functionality temporarily disabled - use 'query' command instead[/yellow]")
+        config_manager = create_config_manager()
+        config_manager.switch_profile(profile)
         
-        # Restore original argv
-        sys.argv = original_argv
+        rprint(f"[blue]🚀 Starting RAG Chat Interface[/blue]")
+        rprint(f"[dim]Profile: {profile} | Collection: {collection} | Streaming: {not no_streaming}[/dim]")
+        rprint()
         
+        # Create and run chat interface directly
+        interface = ChatInterface(
+            config_manager=config_manager,
+            db_path=ctx.obj['db_path'],
+            model_path=model_path,
+            embedding_path=embedding_path,
+            collection=collection,
+            no_streaming=no_streaming
+        )
+        interface.run()
+        
+    except KeyboardInterrupt:
+        rprint("\n[yellow]👋 Chat session ended[/yellow]")
     except Exception as e:
-        rprint(f"[red]❌ Chat failed to start: {e}[/red]")
+        rprint(f"[red]✗ Chat failed to start: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
         sys.exit(1)
 
+
+def validate_query_input(question: str) -> str:
+    """
+    Validate and clean query input.
+    
+    Args:
+        question: Raw query string
+        
+    Returns:
+        Cleaned query string
+        
+    Raises:
+        click.BadParameter: If query is invalid
+    """
+    if not question:
+        raise click.BadParameter("Query cannot be empty")
+    
+    # Clean whitespace
+    cleaned = question.strip()
+    
+    if not cleaned:
+        raise click.BadParameter("Query cannot be only whitespace")
+    
+    # Check minimum length (optional)
+    if len(cleaned) < 3:
+        raise click.BadParameter("Query must be at least 3 characters long")
+    
+    # Check maximum length (prevent excessive queries)
+    if len(cleaned) > 1000:
+        raise click.BadParameter("Query cannot exceed 1000 characters")
+    
+    # Check for potentially problematic characters
+    if any(char in cleaned for char in ['\x00', '\x01', '\x02']):
+        raise click.BadParameter("Query contains invalid characters")
+    
+    return cleaned
 
 @cli.command('query')
 @click.argument('question')
@@ -596,6 +977,9 @@ def chat(ctx, collection: str, model_path: str, embedding_path: str):
 def query(ctx, question: str, collection: str, model_path: str, embedding_path: str, k: int):
     """Ask a single question to the RAG system"""
     try:
+        # ✅ FIX: Validate input before processing
+        validated_question = validate_query_input(question)
+        
         # Initialize RAG pipeline
         rag = RAGPipeline(
             db_path=ctx.obj['db_path'],
@@ -606,23 +990,113 @@ def query(ctx, question: str, collection: str, model_path: str, embedding_path: 
         with Progress() as progress:
             task = progress.add_task("Processing query...", total=None)
             
-            response = rag.query(question, k=k, collection_id=collection)
+            response = rag.query(validated_question, k=k, collection_id=collection)
             
             progress.update(task, completed=100, total=100)
         
-        rprint(f"[bold blue]Question:[/bold blue] {question}")
+        rprint(f"[bold blue]Question:[/bold blue] {validated_question}")
         rprint(f"[bold green]Answer:[/bold green]")
-        rprint(response['response'])
+        # Support both {'answer': ...} from RAGPipeline and older {'response': ...}
+        rprint(response.get('answer', response.get('response', '')))
         
         if ctx.obj['verbose'] and 'retrieval_results' in response:
             rprint(f"\n[dim]Retrieved {len(response['retrieval_results'])} relevant chunks[/dim]")
         
+    except click.BadParameter as e:
+        rprint(f"[red]❌ Invalid query: {e}[/red]")
+        sys.exit(1)
     except Exception as e:
         rprint(f"[red]❌ Query failed: {e}[/red]")
         sys.exit(1)
 
 
 # ========== UTILITY COMMANDS ==========
+
+@cli.command('doctor')
+@click.option('--format', 'output_format', type=click.Choice(['markdown', 'json']), default='markdown', help='Report format')
+@click.option('--output', type=click.Path(path_type=Path), help='Output file path')
+@click.pass_context
+def doctor(ctx, output_format: str, output: Optional[Path]):
+    """Run comprehensive system diagnostics"""
+    try:
+        from src.health_checks import HealthChecker
+        
+        # Get system manager from context
+        system = ctx.obj.get('system')
+        if not system:
+            # If system manager not available, create one for diagnostics
+            from src.system_manager import SystemManager
+            system = SystemManager()
+            
+        # Initialize health checker
+        health_checker = HealthChecker(system)
+        
+        rprint("[yellow]🔍 Running comprehensive system diagnostics...[/yellow]")
+        
+        with Progress() as progress:
+            task = progress.add_task("Running health checks...", total=None)
+            
+            # Run all health checks
+            health_report = health_checker.run_all_checks()
+            
+            progress.update(task, completed=100, total=100)
+        
+        # Display results
+        overall_status = "✅ HEALTHY" if health_report.overall_status else "❌ UNHEALTHY"
+        rprint(f"\n[bold blue]System Health Report {overall_status}[/bold blue]")
+        
+        # Summary table
+        summary_table = Table(show_header=True, header_style="bold magenta")
+        summary_table.add_column("Check", style="cyan")
+        summary_table.add_column("Status", style="white")
+        summary_table.add_column("Message", style="yellow")
+        summary_table.add_column("Time (ms)", justify="right", style="dim")
+        
+        for check in health_report.checks:
+            status_icon = "✅" if check.status else "❌"
+            summary_table.add_row(
+                check.name.replace('_', ' ').title(),
+                status_icon,
+                check.message,
+                f"{check.execution_time_ms:.1f}"
+            )
+        
+        console.print(summary_table)
+        
+        # Show recommendations if any
+        if health_report.recommendations:
+            rprint(f"\n[bold yellow]💡 Recommendations:[/bold yellow]")
+            for i, rec in enumerate(health_report.recommendations, 1):
+                rprint(f"  {i}. {rec}")
+        
+        # Show failed check details
+        failed_checks = [check for check in health_report.checks if not check.status]
+        if failed_checks:
+            rprint(f"\n[bold red]❌ Failed Check Details:[/bold red]")
+            for check in failed_checks:
+                rprint(f"\n[red]• {check.name.replace('_', ' ').title()}[/red]")
+                rprint(f"  Error: {check.message}")
+                if check.details and ctx.obj.get('verbose'):
+                    rprint(f"  Details: {json.dumps(check.details, indent=2)}")
+        
+        # Save report to file if requested
+        if output:
+            report_content = health_checker.generate_report(health_report, format=output_format)
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with open(output, 'w') as f:
+                f.write(report_content)
+            rprint(f"\n[green]📄 Report saved to: {output}[/green]")
+        
+        # Exit with error code if unhealthy
+        if not health_report.overall_status:
+            sys.exit(1)
+            
+    except Exception as e:
+        rprint(f"[red]❌ Diagnostics failed: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
 
 @cli.command('status')
 @click.pass_context
@@ -654,6 +1128,425 @@ def status(ctx):
     except Exception as e:
         rprint(f"[red]❌ Status check failed: {e}[/red]")
         sys.exit(1)
+
+
+# ============================================================================
+# EXPERIMENT COMMANDS - ParametricRAG Experimental Interface
+# ============================================================================
+
+@cli.group()
+def experiment():
+    """Advanced experimental interface for RAG system parameter exploration"""
+    pass
+
+
+@experiment.command('sweep')
+@click.option('--param', required=True, help='Parameter to sweep (e.g., temperature, chunk_size)')
+@click.option('--range', 'param_range', help='Range as min,max,step (e.g., 0.1,1.0,0.1)')
+@click.option('--values', help='Categorical values (e.g., 256,512,1024)')
+@click.option('--queries', default='test_data/benchmark_queries.json', help='JSON file with evaluation queries')
+@click.option('--output', help='Output file for results')
+@click.option('--corpus', default='default', help='Target corpus/collection')
+@click.pass_context
+def sweep(ctx, param: str, param_range: str, values: str, queries: str, output: str, corpus: str):
+    """Run parameter sweep experiment"""
+    try:
+        from src.experiment_runner import create_experiment_runner
+        from src.experiment_templates import create_base_experiment_config
+        from src.config_manager import ParameterRange
+        
+        # Load evaluation queries
+        query_list = _load_evaluation_queries(queries)
+        
+        # Create parameter range
+        if values:
+            # Categorical values
+            value_list = [_parse_value(v.strip()) for v in values.split(',')]
+            param_range_obj = ParameterRange(param, "categorical", values=value_list)
+        elif param_range:
+            # Linear range
+            parts = param_range.split(',')
+            if len(parts) != 3:
+                raise click.BadParameter("Range must be min,max,step format")
+            min_val, max_val, step = map(float, parts)
+            param_range_obj = ParameterRange(param, "linear", min_val, max_val, step)
+        else:
+            raise click.BadParameter("Must specify either --range or --values")
+        
+        rprint(f"[blue]🧪 Starting parameter sweep: {param}[/blue]")
+        rprint(f"[dim]Range: {param_range_obj.param_name} = {param_range_obj.generate_values()}[/dim]")
+        rprint(f"[dim]Queries: {len(query_list)} | Corpus: {corpus}[/dim]")
+        
+        # Create base config and override corpus
+        base_config = create_base_experiment_config()
+        base_config.target_corpus = corpus
+        
+        # Run experiment
+        runner = create_experiment_runner()
+        results = runner.run_parameter_sweep(
+            base_config=base_config,
+            parameter_ranges=[param_range_obj],
+            queries=query_list
+        )
+        
+        # Output results
+        _display_sweep_results(results)
+        
+        if output:
+            _save_experiment_results(results, output)
+            rprint(f"[green]💾 Results saved to {output}[/green]")
+        
+    except Exception as e:
+        rprint(f"[red]❌ Parameter sweep failed: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
+
+
+@experiment.command('compare')
+@click.option('--config-a', required=True, help='First configuration (profile name or JSON file)')
+@click.option('--config-b', required=True, help='Second configuration (profile name or JSON file)')  
+@click.option('--queries', default='test_data/benchmark_queries.json', help='JSON file with evaluation queries')
+@click.option('--significance', default=0.05, help='Statistical significance level')
+@click.option('--output', help='Output file for results')
+@click.pass_context
+def compare(ctx, config_a: str, config_b: str, queries: str, significance: float, output: str):
+    """Run A/B test between two configurations"""
+    try:
+        from src.experiment_runner import create_experiment_runner
+        
+        # Load configurations
+        config_a_obj = _load_config(config_a)
+        config_b_obj = _load_config(config_b)
+        
+        # Load evaluation queries
+        query_list = _load_evaluation_queries(queries)
+        
+        rprint(f"[blue]⚖️  Starting A/B test comparison[/blue]")
+        rprint(f"[dim]Config A: {config_a} | Config B: {config_b}[/dim]")
+        rprint(f"[dim]Queries: {len(query_list)} | Significance: {significance}[/dim]")
+        
+        # Run experiment
+        runner = create_experiment_runner()
+        results = runner.run_ab_test(
+            config_a=config_a_obj,
+            config_b=config_b_obj,
+            queries=query_list,
+            significance_level=significance
+        )
+        
+        # Display results
+        _display_ab_test_results(results)
+        
+        if output:
+            _save_experiment_results(results, output)
+            rprint(f"[green]💾 Results saved to {output}[/green]")
+        
+    except Exception as e:
+        rprint(f"[red]❌ A/B test failed: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
+
+
+@experiment.command('template')
+@click.argument('template_name', required=False)
+@click.option('--queries', help='Override template queries with custom JSON file')
+@click.option('--corpus', default='default', help='Target corpus/collection')
+@click.option('--output', help='Output file for results')
+@click.option('--list-templates', is_flag=True, help='List available templates')
+@click.pass_context
+def template(ctx, template_name: str, queries: str, corpus: str, output: str, list_templates: bool):
+    """Run pre-defined experiment template"""
+    try:
+        from src.experiment_runner import create_experiment_runner
+        from src.experiment_templates import get_template, list_templates as get_template_list, get_template_info
+        
+        if list_templates:
+            templates = get_template_list()
+            rprint("[blue]📋 Available Experiment Templates:[/blue]")
+            
+            for template_name in templates:
+                info = get_template_info(template_name)
+                rprint(f"\n[bold]{template_name}[/bold]")
+                rprint(f"  {info['description']}")
+                rprint(f"  [dim]Parameters: {', '.join(info['parameters'])} ({info['estimated_combinations']} combinations)[/dim]")
+                rprint(f"  [dim]Runtime: ~{info['expected_runtime_hours']:.1f}h | Queries: {info['evaluation_queries_count']}[/dim]")
+            return
+        
+        if not template_name:
+            rprint("[red]❌ Template name is required when not listing templates[/red]")
+            rprint("[dim]Use --list-templates to see available templates[/dim]")
+            sys.exit(1)
+        
+        # Load template
+        template = get_template(template_name)
+        
+        # Override queries if provided
+        query_list = None
+        if queries:
+            query_list = _load_evaluation_queries(queries)
+        
+        # Override corpus in base config
+        template.base_config.target_corpus = corpus
+        
+        rprint(f"[blue]🔬 Running experiment template: {template.name}[/blue]")
+        rprint(f"[dim]{template.description}[/dim]")
+        rprint(f"[dim]Parameters: {len(template.parameter_ranges)} | Corpus: {corpus}[/dim]")
+        
+        # Estimate runtime
+        combinations = 1
+        for pr in template.parameter_ranges:
+            combinations *= len(pr.generate_values())
+        estimated_queries = len(query_list) if query_list else len(template.evaluation_queries)
+        estimated_runtime = combinations * estimated_queries * 3.0 / 60  # minutes
+        
+        rprint(f"[dim]Estimated: {combinations} configs × {estimated_queries} queries ≈ {estimated_runtime:.1f}min[/dim]")
+        
+        if combinations * estimated_queries > 100:
+            if not click.confirm(f"This will run {combinations * estimated_queries} experiments. Continue?"):
+                rprint("[yellow]⚠️  Experiment cancelled[/yellow]")
+                return
+        
+        # Run experiment
+        runner = create_experiment_runner()
+        results = runner.run_template_experiment(template, query_list)
+        
+        # Display results
+        _display_template_results(results, template)
+        
+        if output:
+            _save_experiment_results(results, output)
+            rprint(f"[green]💾 Results saved to {output}[/green]")
+        
+    except Exception as e:
+        rprint(f"[red]❌ Template experiment failed: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
+
+
+@experiment.command('list')
+@click.option('--status', help='Filter by status (running, completed, failed)')
+@click.option('--limit', default=10, help='Maximum number of experiments to show')
+def list_experiments(status: str, limit: int):
+    """List recent experiments"""
+    try:
+        from src.experiment_runner import ExperimentDatabase
+        
+        db = ExperimentDatabase()
+        # This would require implementing a list method in ExperimentDatabase
+        rprint("[yellow]⚠️  Experiment listing not yet implemented[/yellow]")
+        rprint("[dim]Coming soon: experiment history and status tracking[/dim]")
+        
+    except Exception as e:
+        rprint(f"[red]❌ Failed to list experiments: {e}[/red]")
+
+
+# Helper functions for experiment CLI
+
+def _load_evaluation_queries(queries_file: str) -> List[str]:
+    """Load evaluation queries from JSON file."""
+    queries_path = Path(queries_file)
+    
+    if not queries_path.exists():
+        # Use default queries if file doesn't exist
+        rprint(f"[yellow]⚠️  Queries file {queries_file} not found, using defaults[/yellow]")
+        return [
+            "What is machine learning?",
+            "How does artificial intelligence work?",
+            "Explain deep learning algorithms.",
+            "What are neural networks?",
+            "How do large language models work?"
+        ]
+    
+    try:
+        with open(queries_path) as f:
+            data = json.load(f)
+            if isinstance(data, list):
+                return data
+            elif isinstance(data, dict) and 'queries' in data:
+                return data['queries']
+            else:
+                raise ValueError("Invalid queries file format")
+    except Exception as e:
+        rprint(f"[red]❌ Failed to load queries from {queries_file}: {e}[/red]")
+        sys.exit(1)
+
+
+def _load_config(config_identifier: str):
+    """Load configuration from profile name or JSON file."""
+    from src.config_manager import create_config_manager
+    from src.experiment_templates import create_base_experiment_config
+    
+    # Check if it's a profile name
+    if config_identifier in ['fast', 'balanced', 'quality']:
+        config_manager = create_config_manager()
+        profile_config = config_manager.get_profile(config_identifier)
+        
+        # Convert ProfileConfig to ExperimentConfig
+        base_config = create_base_experiment_config()
+        base_config.retrieval_k = profile_config.retrieval_k
+        base_config.max_tokens = profile_config.max_tokens
+        base_config.temperature = profile_config.temperature
+        base_config.chunk_size = profile_config.chunk_size
+        base_config.chunk_overlap = profile_config.chunk_overlap
+        base_config.n_ctx = profile_config.n_ctx
+        
+        return base_config
+    
+    # Try to load as JSON file
+    config_path = Path(config_identifier)
+    if config_path.exists():
+        with open(config_path) as f:
+            config_data = json.load(f)
+            from src.config_manager import ExperimentConfig
+            return ExperimentConfig(**config_data)
+    
+    raise ValueError(f"Unknown configuration: {config_identifier}")
+
+
+def _parse_value(value_str: str):
+    """Parse string value to appropriate type."""
+    value_str = value_str.strip()
+    
+    # Try integer
+    try:
+        return int(value_str)
+    except ValueError:
+        pass
+    
+    # Try float
+    try:
+        return float(value_str)
+    except ValueError:
+        pass
+    
+    # Try boolean
+    if value_str.lower() in ('true', 'false'):
+        return value_str.lower() == 'true'
+    
+    # Return as string
+    return value_str
+
+
+def _display_sweep_results(results):
+    """Display parameter sweep results."""
+    rprint(f"\n[green]✅ Parameter sweep completed![/green]")
+    rprint(f"[dim]Experiment ID: {results.experiment_id}[/dim]")
+    rprint(f"[dim]Total runtime: {results.total_runtime:.1f}s[/dim]")
+    rprint(f"[dim]Total runs: {len(results.results)}[/dim]")
+    
+    # Calculate aggregate metrics
+    if results.results:
+        avg_response_time = sum(r.metrics.get('response_time', 0) for r in results.results) / len(results.results)
+        success_rate = sum(1 for r in results.results if r.error_message is None) / len(results.results)
+        
+        rprint(f"\n[bold]Summary Metrics:[/bold]")
+        rprint(f"📊 Average response time: {avg_response_time:.2f}s")
+        rprint(f"✅ Success rate: {success_rate:.1%}")
+
+
+def _display_ab_test_results(results):
+    """Display A/B test results."""
+    rprint(f"\n[green]✅ A/B test completed![/green]")
+    rprint(f"[dim]Experiment ID: {results.experiment_id}[/dim]")
+    rprint(f"[dim]Total runtime: {results.total_runtime:.1f}s[/dim]")
+    
+    # Split results by configuration
+    a_results = [r for r in results.results if r.config.target_corpus == "config_A"]
+    b_results = [r for r in results.results if r.config.target_corpus == "config_B"]
+    
+    if a_results and b_results:
+        avg_time_a = sum(r.metrics.get('response_time', 0) for r in a_results) / len(a_results)
+        avg_time_b = sum(r.metrics.get('response_time', 0) for r in b_results) / len(b_results)
+        
+        rprint(f"\n[bold]Comparison Results:[/bold]")
+        rprint(f"⏱️  Config A avg time: {avg_time_a:.2f}s")
+        rprint(f"⏱️  Config B avg time: {avg_time_b:.2f}s")
+        rprint(f"📈 Improvement: {((avg_time_a - avg_time_b) / avg_time_a * 100):+.1f}%")
+
+
+def _display_template_results(results, template):
+    """Display template experiment results."""
+    rprint(f"\n[green]✅ Template experiment '{template.name}' completed![/green]")
+    rprint(f"[dim]Experiment ID: {results.experiment_id}[/dim]")
+    rprint(f"[dim]Total runtime: {results.total_runtime:.1f}s[/dim]")
+    rprint(f"[dim]Configurations tested: {len(set(r.run_id.split('_')[2] for r in results.results))}[/dim]")
+
+
+def _save_experiment_results(results, output_file: str):
+    """Save experiment results to JSON file with full configuration provenance."""
+    output_path = Path(output_file)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Prepare metadata
+    metadata = {
+        'export_timestamp': datetime.now().isoformat(),
+        'claude_version': 'Experiment_v2_fixes'
+    }
+    
+    # Convert results to serializable format with enhanced provenance
+    results_data = {
+        "metadata": metadata,
+        "experiment_id": results.experiment_id,
+        "experiment_type": results.experiment_type,
+        "status": results.status,
+        "total_runtime": results.total_runtime,
+        "created_at": results.created_at.isoformat(),
+        "completed_at": results.completed_at.isoformat() if results.completed_at else None,
+        "total_results": len(results.results),
+        "results": []
+    }
+    
+    for result in results.results:
+        # Extract all configuration parameters if available
+        config_dict = {}
+        if hasattr(result, 'config') and result.config:
+            config_dict = {
+                'chunk_size': getattr(result.config, 'chunk_size', None),
+                'chunk_overlap': getattr(result.config, 'chunk_overlap', None),
+                'retrieval_k': getattr(result.config, 'retrieval_k', None),
+                'temperature': getattr(result.config, 'temperature', None),
+                'max_tokens': getattr(result.config, 'max_tokens', None),
+                'profile': getattr(result.config, 'profile', None),
+                'collection_id': getattr(result.config, 'collection_id', None),
+                'retrieval_method': getattr(result.config, 'retrieval_method', 'vector')
+            }
+        
+        # Create enhanced result entry
+        result_entry = {
+            "run_id": result.run_id,
+            "config": config_dict,
+            "query": result.query,
+            "response": result.response,
+            "response_length_words": len(result.response.split()) if result.response else 0,
+            "response_length_chars": len(result.response) if result.response else 0,
+            "metrics": result.metrics,
+            "duration_seconds": result.duration_seconds,
+            "timestamp": result.timestamp.isoformat(),
+            "error_message": result.error_message,
+            
+            # Enhanced metrics from metadata if available
+            "retrieval_time": result.metrics.get('retrieval_time') if result.metrics else None,
+            "generation_time": result.metrics.get('generation_time') if result.metrics else None,
+            "prompt_tokens": result.metrics.get('prompt_tokens') if result.metrics else None,
+            "output_tokens": result.metrics.get('output_tokens') if result.metrics else None,
+            "total_tokens": result.metrics.get('total_tokens') if result.metrics else None,
+            "contexts_count": result.metrics.get('contexts_count') if result.metrics else None,
+            "tokens_per_second": result.metrics.get('tokens_per_second') if result.metrics else None
+        }
+        
+        results_data["results"].append(result_entry)
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(results_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Saved {len(results.results)} experiment results to {output_path}")
+    print(f"   Enhanced format includes full config provenance")
 
 
 if __name__ == '__main__':

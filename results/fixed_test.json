@@ -1,0 +1,130 @@
+{
+  "experiment_id": "sweep_1756542120",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 4.386211633682251,
+  "created_at": "2025-08-30T08:22:05.301170+00:00",
+  "completed_at": "2025-08-30T08:22:05.301171+00:00",
+  "results": [
+    {
+      "run_id": "sweep_1756542120_run_0_0",
+      "query": "What is machine learning?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.380615234375
+      },
+      "duration_seconds": 4.380615234375,
+      "timestamp": "2025-08-30T08:22:05.295553+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_0_1",
+      "query": "How does artificial intelligence work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 6.29425048828125e-05
+      },
+      "duration_seconds": 6.29425048828125e-05,
+      "timestamp": "2025-08-30T08:22:05.296470+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_0_2",
+      "query": "Explain deep learning algorithms.",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 5.1021575927734375e-05
+      },
+      "duration_seconds": 5.1021575927734375e-05,
+      "timestamp": "2025-08-30T08:22:05.296953+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_0_3",
+      "query": "What are neural networks?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.601478576660156e-05
+      },
+      "duration_seconds": 4.601478576660156e-05,
+      "timestamp": "2025-08-30T08:22:05.297389+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_0_4",
+      "query": "How do large language models work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.506111145019531e-05
+      },
+      "duration_seconds": 4.506111145019531e-05,
+      "timestamp": "2025-08-30T08:22:05.297830+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_1_0",
+      "query": "What is machine learning?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 6.723403930664062e-05
+      },
+      "duration_seconds": 6.723403930664062e-05,
+      "timestamp": "2025-08-30T08:22:05.298333+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_1_1",
+      "query": "How does artificial intelligence work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 6.198883056640625e-05
+      },
+      "duration_seconds": 6.198883056640625e-05,
+      "timestamp": "2025-08-30T08:22:05.298906+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_1_2",
+      "query": "Explain deep learning algorithms.",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 7.605552673339844e-05
+      },
+      "duration_seconds": 7.605552673339844e-05,
+      "timestamp": "2025-08-30T08:22:05.299450+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_1_3",
+      "query": "What are neural networks?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.8160552978515625e-05
+      },
+      "duration_seconds": 4.8160552978515625e-05,
+      "timestamp": "2025-08-30T08:22:05.299971+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    },
+    {
+      "run_id": "sweep_1756542120_run_1_4",
+      "query": "How do large language models work?",
+      "response": "",
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.506111145019531e-05
+      },
+      "duration_seconds": 4.506111145019531e-05,
+      "timestamp": "2025-08-30T08:22:05.300394+00:00",
+      "error_message": "expected str, bytes or os.PathLike object, not VectorDatabase"
+    }
+  ]
+}
