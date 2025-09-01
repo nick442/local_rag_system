@@ -26,6 +26,10 @@ from .vector_database import (
     create_vector_database
 )
 
+from .model_cache import (
+    ModelCache,
+)
+
 from .retriever import (
     RetrievalResult,
     Retriever,
@@ -53,6 +57,9 @@ __all__ = [
     # Vector database
     "VectorDatabase",
     "create_vector_database",
+    
+    # Model cache
+    "ModelCache",
     
     # Retrieval
     "RetrievalResult",
