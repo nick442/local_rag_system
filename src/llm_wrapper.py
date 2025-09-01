@@ -10,6 +10,7 @@ from typing import Dict, Any, Optional, Generator, Callable
 import threading
 
 from llama_cpp import Llama
+from .model_cache import ModelCache
 
 
 class LLMWrapper:
@@ -45,33 +46,45 @@ class LLMWrapper:
         self._load_model()
     
     def _load_model(self):
-        """Load the language model with Metal acceleration."""
-        self.logger.info(f"Loading model from: {self.model_path}")
+        """Load the language model with Metal acceleration via ModelCache."""
+        self.logger.info(f"Acquiring LLM model from cache: {self.model_path}")
         start_time = time.time()
-        
+
         try:
-            # ✅ FIX: Configure to avoid duplicate BOS token issues
-            self.model = Llama(
-                model_path=str(self.model_path),
-                n_ctx=self.n_ctx,
-                n_batch=self.n_batch,
-                n_threads=self.n_threads,
-                n_gpu_layers=self.n_gpu_layers,  # Use Metal with -1
-                verbose=False,
-                add_bos_token=True,  # ✅ FIX: Explicitly control BOS token addition
-                echo=False  # ✅ FIX: Prevent echo that might cause duplication
+            init_params = {
+                'n_ctx': self.n_ctx,
+                'n_batch': self.n_batch,
+                'n_threads': self.n_threads,
+                'n_gpu_layers': self.n_gpu_layers,
+                'verbose': False,
+                'add_bos_token': True,
+                'echo': False,
+            }
+
+            def _loader():
+                self.logger.info(f"Loading LLM model from: {self.model_path}")
+                return Llama(
+                    model_path=str(self.model_path),
+                    **init_params
+                )
+
+            cache = ModelCache.instance()
+            self.model = cache.get_llm_model(
+                str(self.model_path),
+                init_params=init_params,
+                loader=_loader,
             )
-            
+
             self._load_time = time.time() - start_time
             self._is_loaded = True
-            
-            self.logger.info(f"Model loaded successfully in {self._load_time:.2f}s")
+
+            self.logger.info(f"Model ready in {self._load_time:.2f}s")
             self.logger.info(f"  Context window: {self.n_ctx}")
             self.logger.info(f"  GPU layers: {self.n_gpu_layers}")
             self.logger.info(f"  Metal acceleration: {'enabled' if self.n_gpu_layers == -1 else 'disabled'}")
-            
+
         except Exception as e:
-            self.logger.error(f"Failed to load model: {e}")
+            self.logger.error(f"Failed to load/acquire model: {e}")
             raise
     
     def generate(self, prompt: str, max_tokens: Optional[int] = None, 

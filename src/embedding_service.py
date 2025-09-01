@@ -16,6 +16,7 @@ from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
 from .document_ingestion import DocumentChunk
+from .model_cache import ModelCache
 
 
 class EmbeddingService:
@@ -36,7 +37,7 @@ class EmbeddingService:
         self.model = None
         self.logger = logging.getLogger(__name__)
         
-        # Initialize model
+        # Initialize model via cache (lazy-load)
         self._load_model()
     
     def _get_optimal_device(self) -> str:
@@ -49,22 +50,32 @@ class EmbeddingService:
             return "cpu"
     
     def _load_model(self):
-        """Load the SentenceTransformers model."""
+        """Load or acquire the SentenceTransformers model via ModelCache."""
         try:
-            self.logger.info(f"Loading embedding model from: {self.model_path}")
-            self.model = SentenceTransformer(str(self.model_path), device=self.device)
-            
+            self.logger.info(f"Acquiring embedding model from cache: {self.model_path}")
+            cache = ModelCache.instance()
+
+            def _loader():
+                self.logger.info(f"Loading embedding model from: {self.model_path}")
+                return SentenceTransformer(str(self.model_path), device=self.device)
+
+            self.model = cache.get_embedding_model(
+                str(self.model_path),
+                device=self.device,
+                loader=_loader,
+            )
+
             # Get model info
             max_seq_length = getattr(self.model, 'max_seq_length', 256)
             embedding_dimension = self.model.get_sentence_embedding_dimension()
-            
-            self.logger.info(f"Model loaded successfully:")
+
+            self.logger.info("Embedding model ready:")
             self.logger.info(f"  Device: {self.device}")
             self.logger.info(f"  Max sequence length: {max_seq_length}")
             self.logger.info(f"  Embedding dimension: {embedding_dimension}")
-            
+
         except Exception as e:
-            self.logger.error(f"Failed to load model from {self.model_path}: {e}")
+            self.logger.error(f"Failed to load/acquire model from {self.model_path}: {e}")
             raise
     
     def get_embedding_dimension(self) -> int:
