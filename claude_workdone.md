@@ -2281,3 +2281,46 @@ The RAG system now has comprehensive analysis and implementation plans for all i
 
 **Total Analysis Time**: ~4 hours of comprehensive analysis and documentation
 **Ready for Implementation**: Complete roadmap with 4.5-6.5 hour implementation timeline
+
+
+## 2025-09-01: Phase 2 Implementation - Model Resource Management
+
+### Objective
+Implement Phase 2 of RAG system refactor to eliminate wasteful model reloading (4GB+ LLM, ~500MB embedding model) through model caching system, critical for 16GB Mac mini M4 target.
+
+### Actions Completed
+- **Created new git branch**: `phase2-model-resource-management` from main branch
+- **Implemented ModelCache singleton**: Thread-safe lazy loading system in `src/model_cache.py`
+  - Caches embedding models by (resolved_path, device) 
+  - Caches LLM models by (resolved_path, key init params)
+  - Per-key locks prevent duplicate loads under concurrency
+  - Exposes get_embedding_model(), get_llm_model(), clear(), stats() APIs
+
+- **Updated component integration**:
+  - `src/embedding_service.py`: Uses ModelCache for lazy/shared SentenceTransformer models
+  - `src/llm_wrapper.py`: Uses ModelCache for lazy/shared Llama models with param-based cache keys
+  - `src/vector_database.py`: Added embedding dimension validation with metadata persistence
+  - `src/retriever.py`: Derives embedding dimension from actual model to prevent mismatches
+
+- **Added comprehensive tests**: `tests/test_model_cache.py` with fake modules for isolation
+  - Tests singleton behavior, embedding/LLM caching, dimension validation
+  - All tests pass successfully
+
+### Technical Benefits Achieved
+- **Memory efficiency**: Eliminates repeated 4GB+ LLM and ~500MB embedding model loads
+- **Thread safety**: Avoids race conditions on concurrent commands
+- **Configuration validation**: Catches embedding dimension mismatches early
+- **Backward compatibility**: Preserved existing public APIs
+
+### Validation Results
+- ModelCache tests pass (4/4 tests successful)
+- CLI functionality preserved and working
+- Core system integration validated
+- Memory usage will be stable across multiple commands
+
+### Commit Details
+- Branch: `phase2-model-resource-management`
+- Commit: d08d6e0 - "Phase 2: Model Resource Management - Implement model caching system"
+- Files changed: 7 files, 467 insertions, 34 deletions
+- New files: src/model_cache.py, tests/test_model_cache.py, .serena/.gitignore
+
