@@ -381,7 +381,8 @@ class VectorDatabase:
                 return [
                     (
                         row['chunk_id'],
-                        1.0 / (1.0 + row['distance']),  # Convert distance to similarity score
+                        # Convert distance to similarity score
+                        1.0 / (1.0 + row['distance']),
                         {
                             'content': row['content'],
                             'metadata': json.loads(row['metadata_json']),
@@ -397,8 +398,13 @@ class VectorDatabase:
                 # Fallback to manual similarity calculation
                 return self._manual_similarity_search(query_embedding, k, metadata_filter, collection_id)
     
-    def _manual_similarity_search(self, query_embedding: np.ndarray, k: int, 
-                                 metadata_filter: Optional[Dict[str, Any]] = None, collection_id: Optional[str] = None) -> List[Tuple[str, float, Dict[str, Any]]]:
+    def _manual_similarity_search(
+        self,
+        query_embedding: np.ndarray,
+        k: int,
+        metadata_filter: Optional[Dict[str, Any]] = None,
+        collection_id: Optional[str] = None,
+    ) -> List[Tuple[str, float, Dict[str, Any]]]:
         """Fallback method for similarity search without sqlite-vec."""
         with self._get_connection() as conn:
             cursor = conn.cursor()

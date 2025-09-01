@@ -74,9 +74,24 @@ class EmbeddingService:
             self.logger.info(f"  Max sequence length: {max_seq_length}")
             self.logger.info(f"  Embedding dimension: {embedding_dimension}")
 
-        except Exception as e:
-            self.logger.error(f"Failed to load/acquire model from {self.model_path}: {e}")
+        except FileNotFoundError as e:
+            # More specific message for missing local paths
+            self.logger.error(
+                "Embedding model path not found: %s", self.model_path, exc_info=True
+            )
             raise
+        except Exception as e:
+            # Preserve traceback and provide actionable context
+            self.logger.error(
+                "Failed to load/acquire embedding model from %s: %s",
+                self.model_path,
+                e,
+                exc_info=True,
+            )
+            raise RuntimeError(
+                f"Failed to initialize embedding model from '{self.model_path}'. "
+                f"Check the model identifier or local path and device configuration."
+            ) from e
     
     def get_embedding_dimension(self) -> int:
         """Get the dimension of embeddings produced by this model."""
