@@ -1,76 +1,75 @@
-# Unified RAG System Configuration
+chat_template:
+  assistant_prefix: '<start_of_turn>model
 
-# System Paths
+    '
+  assistant_suffix: '<end_of_turn>
+
+    '
+  user_prefix: '<start_of_turn>user
+
+    '
+  user_suffix: '<end_of_turn>
+
+    '
 corpus_path: corpus/
+current_profile: fast
+database:
+  backup_enabled: true
+  backup_interval: 24
 database_path: data/rag_vectors.db
-
-# Model Configuration
-model:
-  llm_path: "models/gemma-3-4b-it-q4_0.gguf"
-  llm_type: "gemma-3"
-  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
-  n_gpu_layers: -1  # Use all layers on GPU
-  n_threads: 8
-
-# Current Profile
-current_profile: balanced
-
-# Performance Profiles (simplified to 6 essential parameters)
-profiles:
-  fast:
-    retrieval_k: 3
-    max_tokens: 512
-    temperature: 0.7
-    chunk_size: 256
-    chunk_overlap: 64
-    n_ctx: 4096
-
-  balanced:
-    retrieval_k: 5
-    max_tokens: 1024
-    temperature: 0.8
-    chunk_size: 512
-    chunk_overlap: 128
-    n_ctx: 8192
-
-  quality:
-    retrieval_k: 10
-    max_tokens: 2048
-    temperature: 0.9
-    chunk_size: 512
-    chunk_overlap: 128
-    n_ctx: 8192
-
-# System Settings
-performance:
-  embedding_batch_size: 32
-  memory_limit_gb: 8
-  parallel_workers: 4
-  cache_enabled: true
-
 logging:
   file: logs/rag_system.log
   level: INFO
   max_size_mb: 100
-
-database:
-  backup_enabled: true
-  backup_interval: 24
-
-# Chat Templates
-chat_template:
-  user_prefix: "<start_of_turn>user\n"
-  user_suffix: "<end_of_turn>\n"
-  assistant_prefix: "<start_of_turn>model\n"
-  assistant_suffix: "<end_of_turn>\n"
-
-# System Prompts
+model:
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  llm_path: models/gemma-3-4b-it-q4_0.gguf
+  llm_type: gemma-3
+  n_gpu_layers: -1
+  n_threads: 8
+performance:
+  cache_enabled: true
+  embedding_batch_size: 32
+  memory_limit_gb: 8
+  parallel_workers: 4
+profiles:
+  balanced:
+    chunk_overlap: 128
+    chunk_size: 512
+    max_tokens: 1024
+    n_ctx: 8192
+    retrieval_k: 5
+    temperature: 0.8
+  fast:
+    chunk_overlap: 64
+    chunk_size: 256
+    max_tokens: 512
+    n_ctx: 4096
+    retrieval_k: 3
+    temperature: 0.7
+  quality:
+    chunk_overlap: 128
+    chunk_size: 512
+    max_tokens: 2048
+    n_ctx: 8192
+    retrieval_k: 10
+    temperature: 0.9
 system_prompt:
-  default: "You are a helpful AI assistant that answers questions using provided context information. Base your responses on the retrieved context when available. If the information needed to answer a question is not available in the context, politely explain that you don't have enough information to provide an accurate answer."
-  
+  default: You are a helpful AI assistant that answers questions using provided context
+    information. Base your responses on the retrieved context when available. If the
+    information needed to answer a question is not available in the context, politely
+    explain that you don't have enough information to provide an accurate answer.
   profiles:
-    fast: "You are a helpful AI assistant. Answer questions concisely using the provided context. If the answer isn't in the context, say you don't have enough information."
-    
-    balanced: "You are a helpful AI assistant that answers questions using provided context information. Base your responses on the retrieved context when available. If the information needed to answer a question is not available in the context, politely explain that you don't have enough information to provide an accurate answer."
-    
-    quality: "You are a helpful AI assistant that provides comprehensive answers using provided context information. Base your responses on the retrieved context when available. Provide detailed, well-structured responses with clear reasoning. If the information needed to answer a question is not available in the context, politely explain that you don't have enough information to provide an accurate answer."
+    balanced: You are a helpful AI assistant that answers questions using provided
+      context information. Base your responses on the retrieved context when available.
+      If the information needed to answer a question is not available in the context,
+      politely explain that you don't have enough information to provide an accurate
+      answer.
+    fast: You are a helpful AI assistant. Answer questions concisely using the provided
+      context. If the answer isn't in the context, say you don't have enough information.
+    quality: You are a helpful AI assistant that provides comprehensive answers using
+      provided context information. Base your responses on the retrieved context when
+      available. Provide detailed, well-structured responses with clear reasoning.
+      If the information needed to answer a question is not available in the context,
+      politely explain that you don't have enough information to provide an accurate
+      answer.

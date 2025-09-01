@@ -12,6 +12,7 @@ import yaml
 from .retriever import Retriever, RetrievalResult, create_retriever
 from .prompt_builder import PromptBuilder, create_prompt_builder
 from .llm_wrapper import LLMWrapper, create_llm_wrapper
+from .config_manager import ProfileConfig
 
 
 class RAGPipeline:
@@ -22,6 +23,7 @@ class RAGPipeline:
                  embedding_model_path: str,
                  llm_model_path: str,
                  config_path: Optional[str] = None,
+                 profile_config: Optional['ProfileConfig'] = None,
                  **kwargs):
         """
         Initialize the RAG pipeline.
@@ -31,17 +33,19 @@ class RAGPipeline:
             embedding_model_path: Path to embedding model
             llm_model_path: Path to LLM model
             config_path: Path to model configuration file
+            profile_config: ProfileConfig object with retrieval and generation settings
             **kwargs: Additional configuration parameters
         """
         self.db_path = db_path
         self.embedding_model_path = embedding_model_path
         self.llm_model_path = llm_model_path
         self.config_path = config_path
+        self.profile_config = profile_config
         
         self.logger = logging.getLogger(__name__)
         
         # Load configuration
-        self.config = self._load_config(config_path, **kwargs)
+        self.config = self._load_config(config_path, profile_config=profile_config, **kwargs)
         
         # Initialize components
         self.retriever = None
@@ -62,13 +66,30 @@ class RAGPipeline:
         
         self._initialize_components()
     
-    def _load_config(self, config_path: Optional[str], **kwargs) -> Dict[str, Any]:
-        """Load configuration from file and kwargs."""
+    def _load_config(self, config_path: Optional[str], profile_config: Optional['ProfileConfig'] = None, **kwargs) -> Dict[str, Any]:
+        """Load configuration from file, profile, and kwargs."""
         config = {}
         
         if config_path and Path(config_path).exists():
             with open(config_path, 'r') as f:
                 config = yaml.safe_load(f)
+        
+        # Apply profile config if provided
+        if profile_config:
+            config.update({
+                'llm_params': {
+                    'n_ctx': profile_config.n_ctx,
+                    'temperature': profile_config.temperature,
+                    'max_tokens': profile_config.max_tokens,
+                },
+                'retrieval': {
+                    'default_k': profile_config.retrieval_k,
+                },
+                'chunking': {
+                    'chunk_size': profile_config.chunk_size,
+                    'chunk_overlap': profile_config.chunk_overlap,
+                }
+            })
         
         # Override with kwargs
         config.update(kwargs)
@@ -95,6 +116,10 @@ class RAGPipeline:
                 'default_k': 5,
                 'default_method': 'vector',
                 'include_metadata': True
+            },
+            'chunking': {
+                'chunk_size': 512,
+                'chunk_overlap': 128,
             }
         }
         
@@ -572,6 +597,7 @@ def create_rag_pipeline(db_path: str,
                        embedding_model_path: str,
                        llm_model_path: str,
                        config_path: Optional[str] = None,
+                       profile_config: Optional[ProfileConfig] = None,
                        **kwargs) -> RAGPipeline:
     """
     Factory function to create a RAGPipeline instance.
@@ -581,6 +607,7 @@ def create_rag_pipeline(db_path: str,
         embedding_model_path: Path to embedding model
         llm_model_path: Path to LLM model
         config_path: Path to model configuration file
+        profile_config: ProfileConfig object with retrieval and generation settings
         **kwargs: Additional configuration parameters
         
     Returns:
@@ -591,5 +618,6 @@ def create_rag_pipeline(db_path: str,
         embedding_model_path=embedding_model_path,
         llm_model_path=llm_model_path,
         config_path=config_path,
+        profile_config=profile_config,
         **kwargs
     )

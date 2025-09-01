@@ -69,45 +69,39 @@ def setup_logging(verbose: bool = False):
 def cli(ctx, db_path: str, verbose: bool):
     """RAG System - Local Retrieval-Augmented Generation Platform"""
     import signal
-    from src.system_manager import SystemManager
+    from src.config_manager import ConfigManager
     from src.error_handler import ErrorHandler, ErrorContext
     
-    # Initialize system manager
-    system = SystemManager()
-    system.config.db_path = db_path
-    system.config.log_level = "DEBUG" if verbose else "INFO"
+    # Initialize configuration manager
+    config_manager = ConfigManager()
     
-    # Initialize error handler
-    error_handler = ErrorHandler(system)
+    # Override db_path if provided
+    if db_path != DEFAULT_DB_PATH:
+        config_manager.override_param('db_path', db_path)
+    
+    # Set logging level
+    log_level = "DEBUG" if verbose else "INFO"
+    config_manager.override_param('log_level', log_level)
+    
+    # For now, skip ErrorHandler until we refactor it in a later phase
+    # error_handler = ErrorHandler()
     
     # Setup signal handlers for graceful shutdown
     def signal_handler(signum, frame):
         """Handle shutdown signals gracefully"""
         console.print("[yellow]Shutting down system...[/yellow]")
-        system.shutdown()
         sys.exit(0)
     
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
     
-    # Initialize components
-    if not system.initialize_components():
-        console.print("[red]❌ System initialization failed[/red]")
-        console.print("[yellow]💡 Run 'python main.py doctor' for diagnostics[/yellow]")
-        sys.exit(1)
-    
-    # Run basic health check
-    if not system.health_check():
-        console.print("[yellow]⚠️  Some health checks failed[/yellow]")
-        console.print("[yellow]💡 Run 'python main.py doctor' for details[/yellow]")
-    
-    # Setup logging after system initialization
+    # Setup logging
     setup_logging(verbose)
     
-    # Store system components in context for commands
+    # Store components in context for commands
     ctx.ensure_object(dict)
-    ctx.obj['system'] = system
-    ctx.obj['error_handler'] = error_handler
+    ctx.obj['config_manager'] = config_manager
+    # ctx.obj['error_handler'] = error_handler  # Skip until refactored
     ctx.obj['db_path'] = db_path
     ctx.obj['verbose'] = verbose
     
@@ -1024,9 +1018,9 @@ def doctor(ctx, output_format: str, output: Optional[Path]):
         # Get system manager from context
         system = ctx.obj.get('system')
         if not system:
-            # If system manager not available, create one for diagnostics
-            from src.system_manager import SystemManager
-            system = SystemManager()
+            # If config manager not available, create one for diagnostics
+            from src.config_manager import ConfigManager
+            config_manager = ConfigManager()
             
         # Initialize health checker
         health_checker = HealthChecker(system)

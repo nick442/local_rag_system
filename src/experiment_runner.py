@@ -14,9 +14,8 @@ from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 import traceback
 
-from .config_manager import ExperimentConfig, ParameterRange, ExperimentTemplate, ConstraintValidator
+from .config_manager import ExperimentConfig, ParameterRange, ExperimentTemplate, ConstraintValidator, ConfigManager, ProfileConfig
 from .rag_pipeline import RAGPipeline
-from .system_manager import SystemManager
 
 
 @dataclass
@@ -241,9 +240,9 @@ class ResourceManager:
 class ExperimentRunner:
     """Core experiment orchestration system."""
     
-    def __init__(self, system_manager: SystemManager = None, db_path: str = "data/experiments.db"):
+    def __init__(self, config_manager: ConfigManager = None, db_path: str = "data/experiments.db"):
         """Initialize experiment runner."""
-        self.system_manager = system_manager
+        self.config_manager = config_manager or ConfigManager()
         self.db = ExperimentDatabase(db_path)
         self.resource_manager = ResourceManager()
         self.validator = ConstraintValidator()
@@ -501,28 +500,33 @@ class ExperimentRunner:
     
     def _create_rag_pipeline(self, config: ExperimentConfig) -> RAGPipeline:
         """Create RAG pipeline with experimental configuration."""
-        if not self.system_manager:
-            # Create basic system manager if none provided
-            from .system_manager import SystemManager
-            self.system_manager = SystemManager()
-            self.system_manager.initialize_components()
+        # Get current profile and create ProfileConfig from experiment config
+        current_profile = self.config_manager.get_profile()
         
-        # Create RAG pipeline with paths, not objects
-        rag_pipeline = RAGPipeline(
-            db_path=self.system_manager.config.db_path,
-            embedding_model_path=self.system_manager.config.embedding_model_path,
-            llm_model_path=self.system_manager.config.llm_model_path
+        # Create profile config with experiment parameters
+        profile_config = ProfileConfig(
+            retrieval_k=getattr(config, 'retrieval_k', current_profile.retrieval_k),
+            max_tokens=getattr(config, 'max_tokens', current_profile.max_tokens),
+            temperature=getattr(config, 'temperature', current_profile.temperature),
+            chunk_size=getattr(config, 'chunk_size', current_profile.chunk_size),
+            chunk_overlap=getattr(config, 'chunk_overlap', current_profile.chunk_overlap),
+            n_ctx=getattr(config, 'n_ctx', current_profile.n_ctx)
         )
         
-        # Override configuration parameters
-        if hasattr(config, 'retrieval_k'):
-            rag_pipeline.config['retrieval']['default_k'] = config.retrieval_k
-        if hasattr(config, 'max_tokens'):
-            rag_pipeline.config['llm_params']['max_tokens'] = config.max_tokens
-        if hasattr(config, 'temperature'):
-            rag_pipeline.config['llm_params']['temperature'] = config.temperature
+        # Get database and model paths from config manager
+        db_path = self.config_manager.get_param('database.path', 'data/rag_vectors.db')
+        embedding_model_path = 'models/embeddings/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/c9745ed1d9f207416be6d2e6f8de32d1f16199bf'
+        llm_model_path = 'models/gemma-3-4b-it-q4_0.gguf'
         
-        # NEW: Handle chunking parameters by creating per-config collection
+        # Create RAG pipeline with profile configuration
+        rag_pipeline = RAGPipeline(
+            db_path=db_path,
+            embedding_model_path=embedding_model_path,
+            llm_model_path=llm_model_path,
+            profile_config=profile_config
+        )
+        
+        # Handle chunking parameters by creating per-config collection
         if hasattr(config, 'chunk_size') or hasattr(config, 'chunk_overlap'):
             collection_id = self._ensure_chunked_collection(config)
             rag_pipeline.set_corpus(collection_id)
@@ -551,7 +555,8 @@ class ExperimentRunner:
         # Use ReindexTool to create properly chunked collection
         try:
             from .reindex import ReindexTool
-            reindex_tool = ReindexTool(self.system_manager.config.db_path)
+            db_path = self.config_manager.get_param('database.path', 'data/rag_vectors.db')
+            reindex_tool = ReindexTool(db_path)
             
             # Source collection (configurable, default to production)
             source_collection = "realistic_full_production"
@@ -621,6 +626,6 @@ class ExperimentRunner:
             }
 
 
-def create_experiment_runner(system_manager: SystemManager = None) -> ExperimentRunner:
+def create_experiment_runner(config_manager: ConfigManager = None) -> ExperimentRunner:
     """Factory function to create ExperimentRunner instance."""
-    return ExperimentRunner(system_manager)
+    return ExperimentRunner(config_manager)
