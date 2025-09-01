@@ -515,8 +515,20 @@ class ExperimentRunner:
         
         # Get database and model paths from config manager
         db_path = self.config_manager.get_param('database.path', 'data/rag_vectors.db')
-        embedding_model_path = 'models/embeddings/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/c9745ed1d9f207416be6d2e6f8de32d1f16199bf'
-        llm_model_path = 'models/gemma-3-4b-it-q4_0.gguf'
+
+        # Prefer experiment config values; fall back to global config or sensible defaults
+        try:
+            from src.config_manager import ExperimentConfig as _DefaultConfig
+            _default_llm = _DefaultConfig().llm_model_path
+            _default_embed = _DefaultConfig().embedding_model_path
+        except Exception:
+            _default_llm = 'models/gemma-3-4b-it-q4_0.gguf'
+            _default_embed = 'sentence-transformers/all-MiniLM-L6-v2'
+
+        embedding_model_path = getattr(config, 'embedding_model_path', None) or \
+                               self.config_manager.get_param('embedding_model_path', _default_embed)
+        llm_model_path = getattr(config, 'llm_model_path', None) or \
+                         self.config_manager.get_param('llm_model_path', _default_llm)
         
         # Create RAG pipeline with profile configuration
         rag_pipeline = RAGPipeline(
