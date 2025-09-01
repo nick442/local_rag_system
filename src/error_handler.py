@@ -52,9 +52,25 @@ class RecoveryResult:
 class ErrorHandler:
     """Centralized error handling and recovery system"""
     
-    def __init__(self, system_manager):
-        self.system = system_manager
-        self.logger = system_manager.logger.getChild('error_handler')
+    def __init__(self, config_manager_or_system):
+        """Initialize ErrorHandler with ConfigManager or legacy SystemManager.
+        
+        Supports both the new ConfigManager-based initialization and legacy
+        SystemManager objects for backward compatibility.
+        """
+        # Determine if this is ConfigManager or legacy SystemManager
+        if hasattr(config_manager_or_system, 'get_param') and hasattr(config_manager_or_system, 'load_config'):
+            # This looks like a ConfigManager
+            self.config_manager = config_manager_or_system
+            self.system = None  # No system manager
+            self.logger = logging.getLogger(__name__)
+        elif hasattr(config_manager_or_system, 'components'):
+            # Legacy SystemManager
+            self.system = config_manager_or_system
+            self.config_manager = getattr(config_manager_or_system, 'config', None)
+            self.logger = config_manager_or_system.logger.getChild('error_handler')
+        else:
+            raise ValueError("ErrorHandler requires a ConfigManager or SystemManager object")
         
         # Error statistics
         self.error_stats = {
@@ -279,13 +295,14 @@ class ErrorHandler:
         
         # Step 2: Clear component caches if possible
         cleared_components = []
-        for name, component in self.system.components.items():
-            try:
-                if hasattr(component, 'clear_cache'):
-                    component.clear_cache()
-                    cleared_components.append(name)
-            except:
-                pass
+        if self.system and hasattr(self.system, 'components'):
+            for name, component in self.system.components.items():
+                try:
+                    if hasattr(component, 'clear_cache'):
+                        component.clear_cache()
+                        cleared_components.append(name)
+                except:
+                    pass
         
         # Step 3: Check if memory was freed
         memory = psutil.virtual_memory()
@@ -352,10 +369,7 @@ class ErrorHandler:
                 message="Model file not found. Please check model path in configuration.",
                 details={
                     'suggestion': 'check_model_path',
-                    'current_config': {
-                        'llm_model': self.system.config.llm_model_path,
-                        'embedding_model': self.system.config.embedding_model_path
-                    }
+                    'current_config': self._get_current_model_config()
                 },
                 should_continue=False
             )
@@ -564,6 +578,31 @@ class ErrorHandler:
             'most_problematic_component': max(self.error_stats['by_component'].items(), key=lambda x: x[1])[0] if self.error_stats['by_component'] else None
         }
     
+    def _get_current_model_config(self) -> Dict[str, Any]:
+        """Get current model configuration from config manager or system."""
+        if self.config_manager:
+            # Use ConfigManager
+            try:
+                from src.config_manager import ExperimentConfig
+                default_llm = ExperimentConfig().llm_model_path
+                default_embed = ExperimentConfig().embedding_model_path
+            except Exception:
+                default_llm = 'models/gemma-3-4b-it-q4_0.gguf'
+                default_embed = 'sentence-transformers/all-MiniLM-L6-v2'
+            
+            return {
+                'llm_model': self.config_manager.get_param('llm_model_path', default_llm),
+                'embedding_model': self.config_manager.get_param('embedding_model_path', default_embed)
+            }
+        elif self.system and hasattr(self.system, 'config'):
+            # Legacy SystemManager
+            return {
+                'llm_model': getattr(self.system.config, 'llm_model_path', 'unknown'),
+                'embedding_model': getattr(self.system.config, 'embedding_model_path', 'unknown')
+            }
+        else:
+            return {'llm_model': 'unknown', 'embedding_model': 'unknown'}
+
     def reset_statistics(self):
         """Reset error statistics"""
         self.error_stats = {
