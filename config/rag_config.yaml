@@ -14,9 +14,9 @@ chat_template:
 corpus_path: corpus/
 current_profile: fast
 database:
+  path: data/rag_vectors.db
   backup_enabled: true
   backup_interval: 24
-database_path: data/rag_vectors.db
 logging:
   file: logs/rag_system.log
   level: INFO

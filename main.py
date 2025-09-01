@@ -1015,15 +1015,15 @@ def doctor(ctx, output_format: str, output: Optional[Path]):
     try:
         from src.health_checks import HealthChecker
         
-        # Get system manager from context
-        system = ctx.obj.get('system')
-        if not system:
+        # Get config manager from context
+        config_manager = ctx.obj.get('config_manager')
+        if not config_manager:
             # If config manager not available, create one for diagnostics
             from src.config_manager import ConfigManager
             config_manager = ConfigManager()
             
-        # Initialize health checker
-        health_checker = HealthChecker(system)
+        # Initialize health checker with config manager
+        health_checker = HealthChecker(config_manager)
         
         rprint("[yellow]🔍 Running comprehensive system diagnostics...[/yellow]")
         
