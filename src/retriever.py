@@ -11,7 +11,9 @@ import tiktoken
 
 import numpy as np
 
-from .embedding_service import EmbeddingService
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .embedding_service import EmbeddingService
 from .interfaces.retrieval_interface import RetrievalInterface
 from .interfaces.vector_index_interface import VectorIndexInterface
 from .metrics import get_metrics
@@ -47,7 +49,7 @@ class RetrievalResult:
 class Retriever(RetrievalInterface):
     """High-level retrieval interface for the RAG system."""
     
-    def __init__(self, vector_db: VectorIndexInterface, embedding_service: EmbeddingService, 
+    def __init__(self, vector_db: VectorIndexInterface, embedding_service: 'EmbeddingService', 
                  max_context_tokens: int = 6000, encoding_name: str = "cl100k_base"):
         """
         Initialize the retriever.
