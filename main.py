@@ -1161,44 +1161,8 @@ def experiment():
 def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path], dry_run: bool):
     """Run a batch of queries and emit JSONL results"""
 
-    def _load_evaluation_queries(path: Path) -> List[str]:
-        text = path.read_text(encoding='utf-8', errors='ignore')
-        if not text.strip():
-            return []
-        # Try JSONL first
-        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
-        objs = []
-        for ln in lines:
-            try:
-                objs.append(json.loads(ln))
-            except Exception:
-                objs = []
-                break
-        if objs:
-            queries = [str(o['query']) for o in objs if isinstance(o, dict) and 'query' in o]
-            if queries:
-                return queries
-        # Fallback: JSON
-        data = json.loads(text)
-        if isinstance(data, list) and all(isinstance(x, str) for x in data):
-            return data
-        if isinstance(data, list) and all(isinstance(x, dict) for x in data):
-            out = [str(x.get('query')) for x in data if 'query' in x]
-            if out:
-                return out
-        if isinstance(data, dict):
-            if 'queries' in data and isinstance(data['queries'], list):
-                return [str(q) for q in data['queries']]
-            if 'categories' in data and isinstance(data['categories'], dict):
-                acc: List[str] = []
-                for arr in data['categories'].values():
-                    if isinstance(arr, list):
-                        for item in arr:
-                            if isinstance(item, dict) and 'query' in item:
-                                acc.append(str(item['query']))
-                if acc:
-                    return acc
-        raise click.BadParameter('Unsupported queries file format')
+    # Use module-level helper (defined later) for query loading
+    # (removed local definition to avoid duplication)
 
     try:
         # Prepare output path
@@ -1227,13 +1191,18 @@ def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection
         rag = None
         if not dry_run:
             # Initialize pipeline only when not dry-running
-            rag = RAGPipeline(
-                db_path=ctx.obj['db_path'],
-                embedding_model_path=embedding_path,
-                llm_model_path=model_path,
-                profile_config=config_manager.get_profile(),
-            )
-            rag.set_corpus(collection)
+            try:
+                rag = RAGPipeline(
+                    db_path=ctx.obj['db_path'],
+                    embedding_model_path=embedding_path,
+                    llm_model_path=model_path,
+                    profile_config=config_manager.get_profile(),
+                )
+                rag.set_corpus(collection)
+            except Exception as init_err:
+                rprint(f"[red]✗ Failed to initialize pipeline: {init_err}[/red]")
+                rprint("[dim]Hint: use --dry-run to validate input/output without loading models[/dim]")
+                sys.exit(1)
 
         # Run queries and write JSONL
         with output_path.open('w', encoding='utf-8') as f_out:
@@ -1489,33 +1458,68 @@ def list_experiments(status: str, limit: int):
 
 # Helper functions for experiment CLI
 
-def _load_evaluation_queries(queries_file: str) -> List[str]:
-    """Load evaluation queries from JSON file."""
-    queries_path = Path(queries_file)
-    
-    if not queries_path.exists():
-        # Use default queries if file doesn't exist
-        rprint(f"[yellow]⚠️  Queries file {queries_file} not found, using defaults[/yellow]")
+def _load_evaluation_queries(queries_file) -> List[str]:
+    """Load evaluation queries from JSON/JSONL file.
+
+    Supports:
+    - JSONL: one object per line with 'query' key
+    - JSON array of strings
+    - JSON array of objects with 'query'
+    - Structured JSON with 'queries' or 'categories' map
+    """
+    path = Path(queries_file)
+    if not path.exists():
+        # Provide a small default set if missing
+        rprint(f"[yellow]⚠️  Queries file {path} not found, using defaults[/yellow]")
         return [
             "What is machine learning?",
-            "How does artificial intelligence work?",
-            "Explain deep learning algorithms.",
-            "What are neural networks?",
-            "How do large language models work?"
+            "What is retrieval-augmented generation?",
+            "What is a vector database?",
         ]
-    
+
+    text = path.read_text(encoding='utf-8', errors='ignore')
+    if not text.strip():
+        return []
+
+    # Try JSONL first
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    objs = []
+    for ln in lines:
+        try:
+            objs.append(json.loads(ln))
+        except Exception:
+            objs = []
+            break
+    if objs:
+        queries = [str(o['query']) for o in objs if isinstance(o, dict) and 'query' in o]
+        if queries:
+            return queries
+
+    # Fallback to JSON
     try:
-        with open(queries_path) as f:
-            data = json.load(f)
-            if isinstance(data, list):
-                return data
-            elif isinstance(data, dict) and 'queries' in data:
-                return data['queries']
-            else:
-                raise ValueError("Invalid queries file format")
-    except Exception as e:
-        rprint(f"[red]❌ Failed to load queries from {queries_file}: {e}[/red]")
-        sys.exit(1)
+        data = json.loads(text)
+    except Exception:
+        return []
+
+    if isinstance(data, list) and all(isinstance(x, str) for x in data):
+        return data
+    if isinstance(data, list) and all(isinstance(x, dict) for x in data):
+        out = [str(x.get('query')) for x in data if 'query' in x]
+        if out:
+            return out
+    if isinstance(data, dict):
+        if 'queries' in data and isinstance(data['queries'], list):
+            return [str(q) for q in data['queries']]
+        if 'categories' in data and isinstance(data['categories'], dict):
+            acc: List[str] = []
+            for arr in data['categories'].values():
+                if isinstance(arr, list):
+                    for item in arr:
+                        if isinstance(item, dict) and 'query' in item:
+                            acc.append(str(item['query']))
+            if acc:
+                return acc
+    return []
 
 
 def _load_config(config_identifier: str):
