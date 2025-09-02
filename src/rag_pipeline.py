@@ -75,20 +75,27 @@ class RAGPipeline:
                 config = yaml.safe_load(f)
         
         # Apply profile config if provided
+        # Merge into existing nested dicts instead of replacing them outright
         if profile_config:
-            config.update({
-                'llm_params': {
-                    'n_ctx': profile_config.n_ctx,
-                    'temperature': profile_config.temperature,
-                    'max_tokens': profile_config.max_tokens,
-                },
-                'retrieval': {
-                    'default_k': profile_config.retrieval_k,
-                },
-                'chunking': {
-                    'chunk_size': profile_config.chunk_size,
-                    'chunk_overlap': profile_config.chunk_overlap,
-                }
+            # LLM params
+            config.setdefault('llm_params', {})
+            config['llm_params'].update({
+                'n_ctx': profile_config.n_ctx,
+                'temperature': profile_config.temperature,
+                'max_tokens': profile_config.max_tokens,
+            })
+
+            # Retrieval params
+            config.setdefault('retrieval', {})
+            config['retrieval'].update({
+                'default_k': profile_config.retrieval_k,
+            })
+
+            # Chunking params
+            config.setdefault('chunking', {})
+            config['chunking'].update({
+                'chunk_size': profile_config.chunk_size,
+                'chunk_overlap': profile_config.chunk_overlap,
             })
         
         # Override with kwargs

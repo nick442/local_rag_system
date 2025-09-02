@@ -75,13 +75,13 @@ def cli(ctx, db_path: str, verbose: bool):
     # Initialize configuration manager
     config_manager = ConfigManager()
     
-    # Override db_path if provided
+    # Override database.path if provided (use dotted keys expected by ConfigManager)
     if db_path != DEFAULT_DB_PATH:
-        config_manager.override_param('db_path', db_path)
+        config_manager.override_param('database.path', db_path)
     
-    # Set logging level
+    # Set logging level (use dotted key)
     log_level = "DEBUG" if verbose else "INFO"
-    config_manager.override_param('log_level', log_level)
+    config_manager.override_param('logging.level', log_level)
     
     # For now, skip ErrorHandler until we refactor it in a later phase
     # error_handler = ErrorHandler()
