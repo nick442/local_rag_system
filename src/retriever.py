@@ -415,9 +415,14 @@ def create_retriever(db_path: str, embedding_model_path: str,
     from .vector_database import create_vector_database
     from .embedding_service import create_embedding_service
     
-    # Create components
-    vector_db = create_vector_database(db_path, embedding_dimension)
+    # Create embedding service first to derive true embedding dimension
     embedding_service = create_embedding_service(embedding_model_path)
+    try:
+        true_dim = embedding_service.get_embedding_dimension()
+    except Exception:
+        true_dim = embedding_dimension
+    # Create vector DB with validated/derived dimension
+    vector_db = create_vector_database(db_path, true_dim)
     
     # Create retriever
     return Retriever(vector_db, embedding_service, **kwargs)

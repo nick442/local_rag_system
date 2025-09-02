@@ -12,10 +12,10 @@ import gc
 
 import numpy as np
 import torch
-from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
 from .document_ingestion import DocumentChunk
+from .model_cache import ModelCache
 
 
 class EmbeddingService:
@@ -32,11 +32,14 @@ class EmbeddingService:
         """
         self.model_path = Path(model_path)
         self.batch_size = batch_size
-        self.device = device or self._get_optimal_device()
+
+        raw_device = device or self._get_optimal_device()
+        # Normalize to ensure consistent cache keys and device handling
+        self.device = raw_device.strip().lower() if isinstance(raw_device, str) else raw_device
         self.model = None
         self.logger = logging.getLogger(__name__)
         
-        # Initialize model
+        # Initialize model via cache (lazy-load)
         self._load_model()
     
     def _get_optimal_device(self) -> str:
@@ -49,23 +52,66 @@ class EmbeddingService:
             return "cpu"
     
     def _load_model(self):
-        """Load the SentenceTransformers model."""
+        """Load or acquire the SentenceTransformers model via ModelCache."""
         try:
-            self.logger.info(f"Loading embedding model from: {self.model_path}")
-            self.model = SentenceTransformer(str(self.model_path), device=self.device)
-            
+            self.logger.info(f"Acquiring embedding model from cache: {self.model_path}")
+            cache = ModelCache.instance()
+
+            def _loader():
+                # Lazy import to ensure tests can patch sentence_transformers
+                # and to avoid importing heavy models at module import time.
+                from sentence_transformers import SentenceTransformer  # type: ignore
+                self.logger.info(f"Loading embedding model from: {self.model_path}")
+                return SentenceTransformer(str(self.model_path), device=self.device)
+
+            self.model = cache.get_embedding_model(
+                str(self.model_path),
+                device=self.device,
+                loader=_loader,
+            )
+
             # Get model info
             max_seq_length = getattr(self.model, 'max_seq_length', 256)
             embedding_dimension = self.model.get_sentence_embedding_dimension()
-            
-            self.logger.info(f"Model loaded successfully:")
+
+            self.logger.info("Embedding model ready:")
             self.logger.info(f"  Device: {self.device}")
             self.logger.info(f"  Max sequence length: {max_seq_length}")
             self.logger.info(f"  Embedding dimension: {embedding_dimension}")
-            
-        except Exception as e:
-            self.logger.error(f"Failed to load model from {self.model_path}: {e}")
+
+        except FileNotFoundError as e:
+            # More specific message for missing local paths
+            self.logger.error(
+                "Embedding model path not found: %s", self.model_path, exc_info=True
+            )
             raise
+        except PermissionError as e:
+            self.logger.error(
+                "Permission denied accessing embedding model path: %s",
+                self.model_path,
+                exc_info=True,
+            )
+            raise
+        except OSError as e:
+            self.logger.error(
+                "OS error while loading embedding model from %s: %s",
+                self.model_path,
+                e,
+                exc_info=True,
+            )
+            raise
+        except Exception as e:
+            # Preserve traceback and provide actionable context
+            self.logger.error(
+                "Failed to load/acquire embedding model from %s: %s",
+                self.model_path,
+                e,
+                exc_info=True,
+            )
+            raise RuntimeError(
+                f"Failed to initialize embedding model from '{self.model_path}'. "
+                f"Check the model identifier or local path and device configuration."
+            ) from e
     
     def get_embedding_dimension(self) -> int:
         """Get the dimension of embeddings produced by this model."""
@@ -126,8 +172,19 @@ class EmbeddingService:
                     'memory': f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB" if torch.cuda.is_available() else "N/A"
                 })
         
-        except Exception as e:
-            self.logger.error(f"Error generating embeddings: {e}")
+        except torch.cuda.OutOfMemoryError as e:  # type: ignore[attr-defined]
+            self.logger.error("CUDA OOM during embedding generation: %s", e, exc_info=True)
+            raise
+        except MemoryError as e:
+            self.logger.error("System memory exhausted during embedding generation", exc_info=True)
+            raise
+        except ValueError as e:
+            # Likely invalid input batch or model args
+            self.logger.error("Invalid input for embedding generation: %s", e, exc_info=True)
+            raise
+        except RuntimeError as e:
+            # Torch/MPS runtime errors
+            self.logger.error("Runtime error during embedding generation: %s", e, exc_info=True)
             raise
         
         finally:

@@ -328,8 +328,24 @@ class ConfigManager:
         """
         try:
             with open(self.config_path, 'r') as f:
-                self._config_data = yaml.safe_load(f)
-            
+                loaded = yaml.safe_load(f)
+
+            # Normalize empty or invalid structures
+            if loaded is None:
+                loaded = {}
+            if not isinstance(loaded, dict):
+                self.logger.warning("Config file root is not a mapping; using defaults")
+                loaded = {}
+
+            # Ensure required keys exist with sane defaults
+            loaded.setdefault('profiles', {name: profile.to_dict() for name, profile in self.DEFAULT_PROFILES.items()})
+            if not isinstance(loaded.get('profiles'), dict):
+                self.logger.warning("'profiles' section invalid; resetting to defaults")
+                loaded['profiles'] = {name: profile.to_dict() for name, profile in self.DEFAULT_PROFILES.items()}
+
+            loaded.setdefault('current_profile', 'balanced')
+
+            self._config_data = loaded
             self._current_profile = self._config_data.get('current_profile', 'balanced')
             self.logger.info(f"Loaded configuration from {self.config_path}")
             
@@ -460,25 +476,35 @@ class ConfigManager:
     def get_param(self, key: str, default: Any = None) -> Any:
         """
         Get a configuration parameter value.
-        
-        Args:
-            key: Parameter name
-            default: Default value if not found
-        
-        Returns:
-            Parameter value
+
+        Supports:
+        - Temporary overrides
+        - Current profile attributes
+        - Dotted notation for nested keys in the general config (e.g., 'database.path')
         """
-        # Check overrides first
+        # Check overrides first (support exact key, including dotted)
         if key in self._overrides:
             return self._overrides[key]
-        
-        # Check current profile
-        current_profile = self.get_profile()
-        if hasattr(current_profile, key):
-            return getattr(current_profile, key)
-        
-        # Check general config
-        return self._config_data.get(key, default)
+
+        # If this is a simple key and matches a profile attribute, return it
+        if '.' not in key:
+            current_profile = self.get_profile()
+            if hasattr(current_profile, key):
+                return getattr(current_profile, key)
+
+        # Try dotted notation lookup in general config
+        def _get_nested(d: Dict[str, Any], dotted_key: str, default_val: Any) -> Any:
+            parts = dotted_key.split('.')
+            cur: Any = d
+            for part in parts:
+                if isinstance(cur, dict) and part in cur:
+                    cur = cur[part]
+                else:
+                    return default_val
+            return cur
+
+        value = _get_nested(self._config_data, key, default)
+        return value
     
     def set_param(self, key: str, value: Any, save: bool = True) -> bool:
         """

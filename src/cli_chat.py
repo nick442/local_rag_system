@@ -79,7 +79,7 @@ class ChatInterface:
         self.no_streaming = no_streaming
         self.monitor = Monitor()
         
-        # Initialize RAG pipeline with provided or config values
+        # Get current profile configuration
         profile_config = self.config.get_profile()
         
         # Use provided parameters or fall back to config defaults
@@ -87,11 +87,42 @@ class ChatInterface:
         embedding_path = embedding_path or 'models/embeddings/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/c9745ed1d9f207416be6d2e6f8de32d1f16199bf'
         llm_path = model_path or 'models/gemma-3-4b-it-q4_0.gguf'
         
-        self.rag = RAGPipeline(db_path, embedding_path, llm_path)
+        # Initialize RAG pipeline with profile configuration
+        self.rag = RAGPipeline(
+            db_path=db_path, 
+            embedding_model_path=embedding_path, 
+            llm_model_path=llm_path,
+            profile_config=profile_config
+        )
         self.session = ChatSession(self.rag, self.console)
         
         # Set up signal handlers
         signal.signal(signal.SIGINT, self._signal_handler)
+
+    
+    def _reinitialize_rag_pipeline(self):
+        """Reinitialize RAG pipeline with current profile configuration."""
+        profile_config = self.config.get_profile()
+        
+        # Store current configuration parameters
+        current_db_path = self.rag.db_path
+        current_embedding_path = self.rag.embedding_model_path
+        current_llm_path = self.rag.llm_model_path
+        
+        # Close existing pipeline if it has cleanup methods
+        if hasattr(self.rag, 'close'):
+            self.rag.close()
+        
+        # Create new RAG pipeline with updated profile
+        self.rag = RAGPipeline(
+            db_path=current_db_path,
+            embedding_model_path=current_embedding_path,
+            llm_model_path=current_llm_path,
+            profile_config=profile_config
+        )
+        
+        # Update session with new RAG pipeline
+        self.session.rag = self.rag
     
     def _signal_handler(self, signum, frame):
         """Handle Ctrl+C gracefully."""
@@ -284,8 +315,14 @@ class ChatInterface:
         elif command == 'profile':
             if args:
                 try:
+                    old_profile = self.config.get_current_profile_name()
                     self.config.switch_profile(args[0])
-                    self.console.print(f"[green]Switched to profile: {args[0]}[/green]")
+                    
+                    # Reinitialize RAG pipeline with new profile
+                    self._reinitialize_rag_pipeline()
+                    
+                    self.console.print(f"[green]Switched from profile '{old_profile}' to '{args[0]}'[/green]")
+                    self.console.print("[dim]RAG pipeline reinitialized with new settings[/dim]")
                 except Exception as e:
                     self.console.print(f"[red]Error switching profile: {e}[/red]")
             else:

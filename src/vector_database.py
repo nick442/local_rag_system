@@ -92,7 +92,35 @@ class VectorDatabase:
         """Initialize database schema."""
         with self._get_connection() as conn:
             cursor = conn.cursor()
-            
+
+            # Persist and validate embedding dimension in metadata
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS db_metadata (
+                    key TEXT PRIMARY KEY,
+                    value TEXT NOT NULL
+                )
+                """
+            )
+            cursor.execute("SELECT value FROM db_metadata WHERE key = 'embedding_dimension'")
+            row = cursor.fetchone()
+            if row is None:
+                # First-time init: store the configured embedding dimension
+                cursor.execute(
+                    "INSERT OR REPLACE INTO db_metadata (key, value) VALUES ('embedding_dimension', ?)",
+                    (str(int(self.embedding_dimension)),),
+                )
+            else:
+                try:
+                    stored_dim = int(row["value"]) if isinstance(row, sqlite3.Row) else int(row[0])
+                except Exception:
+                    stored_dim = None
+                if stored_dim is not None and stored_dim != int(self.embedding_dimension):
+                    raise ValueError(
+                        f"Database embedding dimension mismatch: stored={stored_dim}, requested={self.embedding_dimension}. "
+                        f"Use a database initialized with the same embedding dimension, or reindex your data."
+                    )
+
             # Create documents table
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS documents (
@@ -195,7 +223,7 @@ class VectorDatabase:
                 self.logger.info("sqlite-vec vector search table created successfully")
             except sqlite3.OperationalError as e:
                 self.logger.warning(f"Could not create vector search table: {e}")
-            
+
             conn.commit()
     
     def insert_document(self, doc_id: str, source_path: str, metadata: Dict[str, Any], collection_id: str = "default") -> bool:
@@ -353,7 +381,8 @@ class VectorDatabase:
                 return [
                     (
                         row['chunk_id'],
-                        1.0 / (1.0 + row['distance']),  # Convert distance to similarity score
+                        # Convert distance to similarity score
+                        1.0 / (1.0 + row['distance']),
                         {
                             'content': row['content'],
                             'metadata': json.loads(row['metadata_json']),
@@ -369,8 +398,13 @@ class VectorDatabase:
                 # Fallback to manual similarity calculation
                 return self._manual_similarity_search(query_embedding, k, metadata_filter, collection_id)
     
-    def _manual_similarity_search(self, query_embedding: np.ndarray, k: int, 
-                                 metadata_filter: Optional[Dict[str, Any]] = None, collection_id: Optional[str] = None) -> List[Tuple[str, float, Dict[str, Any]]]:
+    def _manual_similarity_search(
+        self,
+        query_embedding: np.ndarray,
+        k: int,
+        metadata_filter: Optional[Dict[str, Any]] = None,
+        collection_id: Optional[str] = None,
+    ) -> List[Tuple[str, float, Dict[str, Any]]]:
         """Fallback method for similarity search without sqlite-vec."""
         with self._get_connection() as conn:
             cursor = conn.cursor()
