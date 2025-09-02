@@ -1,5 +1,10 @@
 # Repository Guidelines
 
+## Python Environment
+- Always run Python using the project conda environment:
+  `source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python`
+  Use this prefix for all commands shown below (tests, CLI, scripts).
+
 ## Project Structure & Module Organization
 - `src/`: Core Python modules (e.g., `rag_pipeline.py`, `vector_database.py`, `embedding_service.py`, `corpus_*`, `deduplication.py`).
 - `tests/`: Unit/integration tests (`test_*.py`). Uses `unittest` and lightweight scripts.
