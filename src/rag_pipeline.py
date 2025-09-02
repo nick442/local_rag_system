@@ -13,6 +13,7 @@ from .retriever import Retriever, RetrievalResult, create_retriever
 from .prompt_builder import PromptBuilder, create_prompt_builder
 from .llm_wrapper import LLMWrapper, create_llm_wrapper
 from .config_manager import ProfileConfig
+from .metrics import get_metrics
 
 
 class RAGPipeline:
@@ -219,6 +220,16 @@ class RAGPipeline:
         self.logger.info(f"Processing validated query: '{cleaned_query[:50]}{'...' if len(cleaned_query) > 50 else ''}'")
         
         start_time = time.time()
+        metrics = get_metrics()
+        metrics.track(
+            component="pipeline",
+            event="query_received",
+            query_preview=cleaned_query[:80],
+            k=k,
+            retrieval_method=retrieval_method,
+            collection_id=collection_id,
+            stream=bool(stream),
+        )
         
         # Use defaults from config if not specified
         k = k or self.config.get('retrieval', {}).get('default_k', 5)
@@ -255,6 +266,15 @@ class RAGPipeline:
             
             retrieval_time = time.time() - retrieval_start
             self.logger.info(f"Retrieved {len(contexts)} contexts in {retrieval_time:.3f}s")
+            metrics.track(
+                component="pipeline",
+                event="retrieval_completed",
+                retrieval_time=round(retrieval_time, 6),
+                contexts_count=len(contexts),
+                k=k,
+                retrieval_method=retrieval_method,
+                collection_id=collection_id,
+            )
             
             # Step 2: Build prompt
             prompt_start = time.time()
@@ -308,11 +328,25 @@ class RAGPipeline:
                 )
                 
                 generation_time = result['generation_time']
+                metrics.track(
+                    component="pipeline",
+                    event="generation_completed",
+                    generation_time=round(generation_time, 6),
+                    prompt_tokens=result.get('prompt_tokens'),
+                    output_tokens=result.get('output_tokens'),
+                    total_tokens=result.get('total_tokens'),
+                    tokens_per_second=result.get('tokens_per_second'),
+                )
                 
                 # Update pipeline stats
                 self._update_stats(retrieval_time, generation_time, result['output_tokens'])
                 
                 total_time = time.time() - start_time
+                metrics.track(
+                    component="pipeline",
+                    event="query_completed",
+                    total_time=round(total_time, 6),
+                )
                 
                 # Format sources
                 sources = self._format_sources(contexts)

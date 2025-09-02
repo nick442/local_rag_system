@@ -967,13 +967,22 @@ def validate_query_input(question: str) -> str:
 @click.option('--model-path', default=DEFAULT_LLM_PATH, help='LLM model path')
 @click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
 @click.option('--k', default=5, help='Number of documents to retrieve')
+@click.option('--metrics/--no-metrics', default=False, help='Enable JSONL metrics logging')
 @click.pass_context
-def query(ctx, question: str, collection: str, model_path: str, embedding_path: str, k: int):
+def query(ctx, question: str, collection: str, model_path: str, embedding_path: str, k: int, metrics: bool):
     """Ask a single question to the RAG system"""
     try:
         # ✅ FIX: Validate input before processing
         validated_question = validate_query_input(question)
         
+        # Optionally enable JSONL metrics
+        if metrics:
+            try:
+                from src.metrics import enable_metrics
+                enable_metrics(True, output_path="logs/metrics.jsonl")
+            except Exception:
+                pass
+
         # Initialize RAG pipeline
         rag = RAGPipeline(
             db_path=ctx.obj['db_path'],

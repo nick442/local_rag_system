@@ -50,6 +50,17 @@ class VectorDatabase(VectorIndexInterface):
         """Get a database connection with sqlite-vec loaded."""
         conn = sqlite3.connect(str(self.db_path))
         conn.row_factory = sqlite3.Row
+        try:
+            cur = conn.cursor()
+            # Apply PRAGMA optimizations
+            cur.execute("PRAGMA journal_mode=WAL")
+            cur.execute("PRAGMA synchronous=NORMAL")
+            # Negative cache size means kibibytes of cache in memory
+            cur.execute("PRAGMA cache_size=-64000")
+            cur.close()
+        except Exception:
+            # Non-fatal if PRAGMAs fail (e.g., read-only connection)
+            pass
         
         try:
             # Try Python package first
