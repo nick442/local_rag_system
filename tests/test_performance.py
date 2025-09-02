@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import types
+import tempfile
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -182,8 +183,11 @@ class TestPerformancePhase7(unittest.TestCase):
         self.llm_patch = mock.patch.object(self.rag_pipeline, "create_llm_wrapper", return_value=_FakeLLM())
         self.ret_patch.start(); self.pb_patch.start(); self.llm_patch.start()
 
+        # Use a temp database path for isolation and cleanup
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self.db_path = str(Path(self._tmpdir.name) / "test_perf.db")
         self.pipeline = self.rag_pipeline.RAGPipeline(
-            db_path="data/test_perf.db",
+            db_path=self.db_path,
             embedding_model_path="models/embeddings/fake",
             llm_model_path="models/llm/fake.gguf",
         )
@@ -191,11 +195,19 @@ class TestPerformancePhase7(unittest.TestCase):
     def tearDown(self):
         self.ret_patch.stop(); self.pb_patch.stop(); self.llm_patch.stop()
         self.modules_patcher.stop()
+        if hasattr(self, "_tmpdir"):
+            self._tmpdir.cleanup()
 
     def test_memory_usage_under_16gb(self):
-        rss_mb = get_rss_mb_fallback()
-        # Should be comfortably under 16GB in all CI/dev contexts
-        self.assertLess(rss_mb, 16_384)
+        baseline_mb = get_rss_mb_fallback()
+        # Perform a few operations to potentially grow memory
+        for _ in range(3):
+            _ = self.pipeline.query("what is ML?", k=1)
+        after_mb = get_rss_mb_fallback()
+        delta_mb = max(0.0, after_mb - baseline_mb)
+        # Absolute guard and relative delta guard to reduce flakiness
+        self.assertLess(after_mb, 16_384, msg=f"RSS too high: {after_mb:.1f}MB")
+        self.assertLess(delta_mb, 512, msg=f"Memory delta unexpectedly large: {delta_mb:.1f}MB")
 
     def test_query_latency_under_reasonable_threshold(self):
         # Run a few queries and ensure latency is low with fakes
@@ -212,4 +224,3 @@ class TestPerformancePhase7(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -3,8 +3,13 @@ import sys
 import types
 import unittest
 import tempfile
+import importlib
 from pathlib import Path
 from unittest import mock
+from contextlib import contextmanager
+
+
+EMBEDDING_DIM = 384
 
 
 def make_fake_third_party_modules(counters=None):
@@ -22,13 +27,13 @@ def make_fake_third_party_modules(counters=None):
 
         def encode(self, texts, convert_to_numpy=True, normalize_embeddings=True, batch_size=None):
             import numpy as np
-            arr = np.zeros((len(texts), 384), dtype=np.float32)
+            arr = np.zeros((len(texts), EMBEDDING_DIM), dtype=np.float32)
             if normalize_embeddings and len(texts) > 0:
                 arr[:, 0] = 1.0
             return arr
 
         def get_sentence_embedding_dimension(self):
-            return 384
+            return EMBEDDING_DIM
 
     st_mod.SentenceTransformer = FakeSentenceTransformer
     fake_modules["sentence_transformers"] = st_mod
@@ -120,7 +125,6 @@ class TestIntegrationPhase7(unittest.TestCase):
         self.modules_patcher = mock.patch.dict(sys.modules, self.fake_modules, clear=False)
         self.modules_patcher.start()
 
-        import importlib
         self.rag_pipeline = importlib.import_module("src.rag_pipeline")
         self.config_manager = importlib.import_module("src.config_manager")
 
@@ -191,6 +195,40 @@ class TestIntegrationPhase7(unittest.TestCase):
 
         return _FakeLLM()
 
+    @contextmanager
+    def pipeline_with_mocks(self, profile_config=None, db_path: str = None, *, mock_llm: bool = True, llm_model_path: str | None = None):
+        """Context manager to create RAGPipeline with mocked components."""
+        if db_path is None:
+            # Use a temp database path per invocation
+            tmpd = tempfile.TemporaryDirectory()
+            db_path = str(Path(tmpd.name) / "test_integration.db")
+        else:
+            tmpd = None
+        ret = self._fake_retriever_factory()
+        pb = self._fake_prompt_builder_factory()
+        patches = [
+            mock.patch.object(self.rag_pipeline, "create_retriever", return_value=ret),
+            mock.patch.object(self.rag_pipeline, "create_prompt_builder", return_value=pb),
+        ]
+        if mock_llm:
+            patches.append(mock.patch.object(self.rag_pipeline, "create_llm_wrapper", return_value=self._fake_llm_wrapper_factory()))
+        from contextlib import ExitStack
+        with ExitStack() as stack:
+            for p in patches:
+                stack.enter_context(p)
+            rp = self.rag_pipeline.RAGPipeline(
+                db_path=db_path,
+                embedding_model_path="models/embeddings/fake",
+                llm_model_path=llm_model_path or "models/llm/fake.gguf",
+                profile_config=profile_config,
+            )
+            try:
+                yield rp, ret
+            finally:
+                # Cleanup temp dir if we created one
+                if tmpd is not None:
+                    tmpd.cleanup()
+
     def test_config_profile_propagation(self):
         profile = self.config_manager.ProfileConfig(
             retrieval_k=3,
@@ -201,30 +239,21 @@ class TestIntegrationPhase7(unittest.TestCase):
             n_ctx=4096,
         )
 
-        with mock.patch.object(self.rag_pipeline, "create_retriever", return_value=self._fake_retriever_factory()):
-            with mock.patch.object(self.rag_pipeline, "create_prompt_builder", return_value=self._fake_prompt_builder_factory()):
-                with mock.patch.object(self.rag_pipeline, "create_llm_wrapper", return_value=self._fake_llm_wrapper_factory()):
-                    rp = self.rag_pipeline.RAGPipeline(
-                        db_path="data/test_integration.db",
-                        embedding_model_path="models/embeddings/fake",
-                        llm_model_path="models/llm/fake.gguf",
-                        profile_config=profile,
-                    )
+        with self.pipeline_with_mocks(profile_config=profile) as (rp, _ret):
+            cfg = rp.config
+            # Verify propagation to nested blocks
+            self.assertEqual(cfg['retrieval']['default_k'], 3)
+            self.assertEqual(cfg['chunking']['chunk_size'], 256)
+            self.assertEqual(cfg['chunking']['chunk_overlap'], 32)
+            self.assertEqual(cfg['llm_params']['n_ctx'], 4096)
+            self.assertEqual(cfg['llm_params']['max_tokens'], 512)
+            self.assertAlmostEqual(cfg['llm_params']['temperature'], 0.6)
 
-                    cfg = rp.config
-                    # Verify propagation to nested blocks
-                    self.assertEqual(cfg['retrieval']['default_k'], 3)
-                    self.assertEqual(cfg['chunking']['chunk_size'], 256)
-                    self.assertEqual(cfg['chunking']['chunk_overlap'], 32)
-                    self.assertEqual(cfg['llm_params']['n_ctx'], 4096)
-                    self.assertEqual(cfg['llm_params']['max_tokens'], 512)
-                    self.assertAlmostEqual(cfg['llm_params']['temperature'], 0.6)
-
-                    # Ensure query uses retrieval method and returns expected structure
-                    out = rp.query("what is ML?", k=0, retrieval_method="hybrid", collection_id="demo")
-                    self.assertIn('answer', out)
-                    self.assertIn('sources', out)
-                    self.assertEqual(out['metadata']['retrieval_method'], 'hybrid')
+            # Ensure query uses retrieval method and returns expected structure
+            out = rp.query("what is ML?", k=0, retrieval_method="hybrid", collection_id="demo")
+            self.assertIn('answer', out)
+            self.assertIn('sources', out)
+            self.assertEqual(out['metadata']['retrieval_method'], 'hybrid')
 
     def test_model_caching_across_pipelines(self):
         # Create a temporary fake LLM model file
@@ -232,55 +261,46 @@ class TestIntegrationPhase7(unittest.TestCase):
             model_path = Path(tmpd) / "fake.gguf"
             model_path.write_text("fake")
 
-            with mock.patch.object(self.rag_pipeline, "create_retriever", return_value=self._fake_retriever_factory()):
-                with mock.patch.object(self.rag_pipeline, "create_prompt_builder", return_value=self._fake_prompt_builder_factory()):
-                    # First pipeline
-                    rp1 = self.rag_pipeline.RAGPipeline(
-                        db_path="data/test_integration.db",
-                        embedding_model_path="models/embeddings/fake",
-                        llm_model_path=str(model_path),
-                        profile_config=self.config_manager.ProfileConfig(
-                            retrieval_k=5, max_tokens=512, temperature=0.7, chunk_size=256, chunk_overlap=64, n_ctx=4096
-                        ),
-                    )
+            # First pipeline
+            with self.pipeline_with_mocks(
+                profile_config=self.config_manager.ProfileConfig(
+                    retrieval_k=5, max_tokens=512, temperature=0.7, chunk_size=256, chunk_overlap=64, n_ctx=4096
+                ),
+                db_path=str(Path(model_path).with_suffix('.db')),
+                mock_llm=False,
+                llm_model_path=str(model_path),
+            ) as (rp1, _):
+                pass
 
-                    # Second pipeline with identical LLM params should reuse cache
-                    rp2 = self.rag_pipeline.RAGPipeline(
-                        db_path="data/test_integration.db",
-                        embedding_model_path="models/embeddings/fake",
-                        llm_model_path=str(model_path),
-                        profile_config=self.config_manager.ProfileConfig(
-                            retrieval_k=5, max_tokens=512, temperature=0.7, chunk_size=256, chunk_overlap=64, n_ctx=4096
-                        ),
-                    )
+            # Second pipeline with identical LLM params should reuse cache
+            with self.pipeline_with_mocks(
+                profile_config=self.config_manager.ProfileConfig(
+                    retrieval_k=5, max_tokens=512, temperature=0.7, chunk_size=256, chunk_overlap=64, n_ctx=4096
+                ),
+                db_path=str(Path(model_path).with_suffix('.db')),
+                mock_llm=False,
+                llm_model_path=str(model_path),
+            ) as (rp2, _):
+                pass
 
-                    # Verify ModelCache stats reflect reuse
-                    import importlib
-                    mc = importlib.import_module("src.model_cache").ModelCache.instance()
-                    stats = mc.stats()
-                    self.assertEqual(stats["llm_models"], 1)
-                    # One miss for first load, one hit for second
-                    self.assertEqual(stats["llm_misses"], 1)
-                    self.assertGreaterEqual(stats["llm_hits"], 1)
+            # Verify ModelCache stats reflect reuse
+            mc = importlib.import_module("src.model_cache").ModelCache.instance()
+            stats = mc.stats()
+            self.assertEqual(stats["llm_models"], 1)
+            # One miss for first load, one hit for second
+            self.assertEqual(stats["llm_misses"], 1)
+            self.assertGreaterEqual(stats["llm_hits"], 1)
 
     def test_interface_swapping_method_and_collection(self):
-        fake_ret = self._fake_retriever_factory()
-        with mock.patch.object(self.rag_pipeline, "create_retriever", return_value=fake_ret):
-            with mock.patch.object(self.rag_pipeline, "create_prompt_builder", return_value=self._fake_prompt_builder_factory()):
-                with mock.patch.object(self.rag_pipeline, "create_llm_wrapper", return_value=self._fake_llm_wrapper_factory()):
-                    rp = self.rag_pipeline.RAGPipeline(
-                        db_path="data/test_integration.db",
-                        embedding_model_path="models/embeddings/fake",
-                        llm_model_path="models/llm/fake.gguf",
-                    )
-                    rp.query("hello", k=2, retrieval_method="keyword", collection_id="colA")
-                    rp.query("hello", k=2, retrieval_method="hybrid", collection_id="colB")
+        with self.pipeline_with_mocks() as (rp, fake_ret):
+            rp.query("hello", k=2, retrieval_method="keyword", collection_id="colA")
+            rp.query("hello", k=2, retrieval_method="hybrid", collection_id="colB")
 
-        # Verify retriever was called with requested methods and collection ids
-        methods = [c["method"] for c in fake_ret.calls]
-        cols = [c["collection_id"] for c in fake_ret.calls]
-        self.assertEqual(methods, ["keyword", "hybrid"])
-        self.assertEqual(cols, ["colA", "colB"])
+            # Verify retriever was called with requested methods and collection ids
+            methods = [c["method"] for c in fake_ret.calls]
+            cols = [c["collection_id"] for c in fake_ret.calls]
+            self.assertEqual(methods, ["keyword", "hybrid"])
+            self.assertEqual(cols, ["colA", "colB"])
 
 
 if __name__ == "__main__":
