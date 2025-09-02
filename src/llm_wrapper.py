@@ -10,6 +10,7 @@ from typing import Dict, Any, Optional, Generator, Callable
 import threading
 
 from llama_cpp import Llama
+from .model_cache import ModelCache
 
 
 class LLMWrapper:
@@ -40,7 +41,14 @@ class LLMWrapper:
         self.top_p = kwargs.get('top_p', 0.95)
         self.max_tokens = kwargs.get('max_tokens', 2048)
         
+        # Optional cache param keys for ModelCache keying behavior
+        self._cache_param_keys = tuple(
+            kwargs.get('cache_param_keys', []) or kwargs.get('llm_cache_param_keys', [])
+        ) or None
+
         self.model = None
+        self._cache_key = None
+        self._effective_cache_param_keys = None
         self.logger = logging.getLogger(__name__)
         self._load_time = 0.0
         self._is_loaded = False
@@ -49,33 +57,66 @@ class LLMWrapper:
         self._load_model()
     
     def _load_model(self):
-        """Load the language model with Metal acceleration."""
-        self.logger.info(f"Loading model from: {self.model_path}")
+        """Load the language model with Metal acceleration via ModelCache."""
+        self.logger.info(f"Acquiring LLM model from cache: {self.model_path}")
         start_time = time.time()
-        
+
         try:
-            # ✅ FIX: Configure to avoid duplicate BOS token issues
-            self.model = Llama(
-                model_path=str(self.model_path),
-                n_ctx=self.n_ctx,
-                n_batch=self.n_batch,
-                n_threads=self.n_threads,
-                n_gpu_layers=self.n_gpu_layers,  # Use Metal with -1
-                verbose=False,
-                add_bos_token=True,  # ✅ FIX: Explicitly control BOS token addition
-                echo=False  # ✅ FIX: Prevent echo that might cause duplication
+            init_params = {
+                'n_ctx': self.n_ctx,
+                'n_batch': self.n_batch,
+                'n_threads': self.n_threads,
+                'n_gpu_layers': self.n_gpu_layers,
+                'verbose': False,
+                'add_bos_token': True,
+                'echo': False,
+            }
+
+            def _loader():
+                self.logger.info(f"Loading LLM model from: {self.model_path}")
+                return Llama(
+                    model_path=str(self.model_path),
+                    **init_params
+                )
+
+            cache = ModelCache.instance()
+
+            # Determine final cache key parameters used for this instance
+            default_param_keys = (
+                "n_ctx",
+                "n_batch",
+                "n_threads",
+                "n_gpu_layers",
+                "add_bos_token",
+                "echo",
             )
-            
+            self._effective_cache_param_keys = (
+                self._cache_param_keys
+                or cache._llm_cache_param_keys
+                or default_param_keys
+            )
+            key_params = tuple(
+                sorted((k, init_params.get(k)) for k in self._effective_cache_param_keys)
+            )
+            self._cache_key = (str(self.model_path), key_params)
+
+            self.model = cache.get_llm_model(
+                str(self.model_path),
+                init_params=init_params,
+                loader=_loader,
+                cache_param_keys=self._cache_param_keys,
+            )
+
             self._load_time = time.time() - start_time
             self._is_loaded = True
-            
-            self.logger.info(f"Model loaded successfully in {self._load_time:.2f}s")
+
+            self.logger.info(f"Model ready in {self._load_time:.2f}s")
             self.logger.info(f"  Context window: {self.n_ctx}")
             self.logger.info(f"  GPU layers: {self.n_gpu_layers}")
             self.logger.info(f"  Metal acceleration: {'enabled' if self.n_gpu_layers == -1 else 'disabled'}")
-            
+
         except Exception as e:
-            self.logger.error(f"Failed to load model: {e}")
+            self.logger.error(f"Failed to load/acquire model: {e}")
             raise
     
     def generate(self, prompt: str, max_tokens: Optional[int] = None, 
@@ -285,7 +326,25 @@ class LLMWrapper:
     def unload_model(self):
         """Unload the model to free memory."""
         if self.model:
-            self.logger.info("Unloading model to free memory")
+            self.logger.info("Unloading model and evicting from cache to free memory")
+            
+            # Evict from ModelCache to actually free memory
+            try:
+                cache = ModelCache.instance()
+
+                cache_key = getattr(self, "_cache_key", None)
+                if cache_key is None:
+                    self.logger.warning("No cache key found for model; skipping eviction")
+                else:
+                    evicted = cache.evict(cache_key)
+                    if evicted:
+                        self.logger.info("Model evicted from cache successfully")
+                    else:
+                        self.logger.warning("Model was not found in cache during eviction")
+
+            except Exception as e:
+                self.logger.warning(f"Failed to evict model from cache: {e}")
+            
             self.model = None
             self._is_loaded = False
     

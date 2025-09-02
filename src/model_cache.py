@@ -1,219 +1,283 @@
 """
-Model Cache
-===========
+Model Cache Singleton
+Thread-safe, lazy-loading cache for embedding and LLM models.
 
-Thread-safe, LRU-style cache specialized for model-related results (LLM outputs,
-tokenization, etc.). Provides safe path normalization, configurable parameter keys
-for cache key construction, eviction and clear operations, and basic statistics
-with periodic logging.
+This avoids repeatedly loading large models across the application lifecycle.
 """
 
 from __future__ import annotations
 
-import logging
-import os
-from collections import OrderedDict
-from dataclasses import dataclass
+import threading
 from pathlib import Path
-from threading import Lock
-from time import time
-from typing import Any, Dict, Hashable, Iterable, Mapping, Optional, Tuple
-
-
-# ---------- Type aliases (readability over complex annotations) ----------
-CacheKey = Hashable
-CacheValue = Any
-ParamDict = Mapping[str, Any]
-
-
-def _normalize_device(device: Optional[str]) -> str:
-    return (device or "").strip().lower()
-
-
-def _safe_resolve(path_like: os.PathLike[str] | str) -> str:
-    """Resolve a path safely even if it may not exist.
-
-    Falls back to absolute/expanded path if strict resolution fails.
-    """
-    try:
-        return str(Path(path_like).expanduser().resolve(strict=True))
-    except Exception:
-        # Fallbacks: try non-strict resolve (Py>=3.12 guarantees non-strict by default)
-        try:
-            return str(Path(path_like).expanduser().resolve(strict=False))
-        except Exception:
-            # Final fallback: abspath after expanduser
-            return os.path.abspath(os.fspath(Path(path_like).expanduser()))
-
-
-@dataclass
-class CacheStats:
-    hits: int = 0
-    misses: int = 0
-    puts: int = 0
-    evictions: int = 0
-    clears: int = 0
-    last_report_ts: float = 0.0
-
-    @property
-    def total(self) -> int:
-        return self.hits + self.misses
-
-    @property
-    def hit_rate(self) -> float:
-        return (self.hits / self.total) if self.total else 0.0
+from typing import Any, Callable, Dict, Optional, Tuple
+import os
+import logging
 
 
 class ModelCache:
-    """LRU cache for model-related computations with configurable key parameters.
+    """Thread-safe singleton cache for model instances.
 
-    Thread-safe operations; supports explicit evict and clear for memory pressure scenarios.
+    - Embedding models are keyed by (resolved_path, device).
+    - LLM models are keyed by (resolved_path, selected init params).
+
+    Lazy-loads models on first access using a provided loader callable.
     """
 
-    def __init__(
-        self,
-        max_items: int = 1024,
-        llm_param_keys: Optional[Iterable[str]] = None,
-        log_interval: int = 1000,
-        logger: Optional[logging.Logger] = None,
-    ) -> None:
-        """
-        Args:
-            max_items: Maximum number of entries to retain (LRU eviction beyond this).
-            llm_param_keys: Parameter names used to influence LLM cache keys. If None,
-                uses environment var `LLM_CACHE_PARAM_KEYS` (comma-separated) or a sensible default.
-            log_interval: Log statistics every N operations (get/put/evict/clear).
-            logger: Optional logger; if None, uses module logger.
-        """
-        self._store: "OrderedDict[CacheKey, CacheValue]" = OrderedDict()
-        self._lock = Lock()
-        self.max_items = max(1, int(max_items))
-        self.log_interval = max(0, int(log_interval))
-        self.logger = logger or logging.getLogger(__name__)
-        self.stats = CacheStats(last_report_ts=time())
+    _instance: Optional["ModelCache"] = None
+    _instance_lock = threading.Lock()
 
-        # Configure which parameters affect cache keys
-        env_keys = os.getenv("LLM_CACHE_PARAM_KEYS")
-        if llm_param_keys is not None:
-            self.llm_param_keys = tuple(str(k) for k in llm_param_keys)
-        elif env_keys:
-            self.llm_param_keys = tuple(k.strip() for k in env_keys.split(",") if k.strip())
-        else:
-            # Default keys commonly impacting LLM determinism/outputs
-            self.llm_param_keys = (
-                "temperature",
-                "top_p",
-                "max_tokens",
-                "n_ctx",
-                "n_gpu_layers",
-                "stop",
-                "seed",
-                "repeat_penalty",
-            )
+    def __init__(self) -> None:
+        # Internal caches. Keys are tuples; see get_* methods for exact shape.
+        # Using generic tuple keys keeps annotations simple and readable.
+        self._embedding_models: Dict[tuple, Any] = {}
+        self._llm_models: Dict[tuple, Any] = {}
+        self._locks: Dict[Any, threading.Lock] = {}
 
-    # ---------- Key construction ----------
-    def build_model_key(
-        self,
-        model_path: os.PathLike[str] | str,
-        device: Optional[str] = None,
-        params: Optional[ParamDict] = None,
-    ) -> CacheKey:
-        """Construct a stable cache key for a model instance or result.
+        # Cache statistics
+        self._stats = {
+            "embed_hits": 0,
+            "embed_misses": 0,
+            "llm_hits": 0,
+            "llm_misses": 0,
+        }
 
-        - Uses safe path resolution (with fallbacks) to normalize model_path
-        - Normalizes device string to lower-case
-        - Filters provided params to only those configured in `llm_param_keys`
-        - Produces a hashable tuple key
-        """
-        norm_path = _safe_resolve(model_path)
-        norm_device = _normalize_device(device)
-        params = params or {}
-
-        # Keep only relevant parameters in a deterministic order
-        filtered: Tuple[Tuple[str, Any], ...] = tuple(
-            (k, params.get(k)) for k in self.llm_param_keys if k in params
+        # Configurable subset of LLM init params to use for cache key
+        # Can be overridden via env var LLM_CACHE_PARAM_KEYS="k1,k2,k3"
+        env_keys = os.environ.get("LLM_CACHE_PARAM_KEYS")
+        self._llm_cache_param_keys: Optional[Tuple[str, ...]] = (
+            tuple(k.strip() for k in env_keys.split(",") if k.strip()) if env_keys else None
         )
-        return (norm_path, norm_device, filtered)
 
-    # ---------- Core cache operations ----------
-    def get(self, key: CacheKey, default: Optional[CacheValue] = None) -> Optional[CacheValue]:
-        with self._lock:
-            value = self._store.get(key)
-            if value is not None:
-                # Move to end to mark as recently used
-                self._store.move_to_end(key)
-                self.stats.hits += 1
-            else:
-                self.stats.misses += 1
-                value = default
-            self._maybe_log_stats()
-            return value
+        self._logger = logging.getLogger(__name__)
 
-    def put(self, key: CacheKey, value: CacheValue) -> None:
-        with self._lock:
-            if key in self._store:
-                self._store.move_to_end(key)
-            self._store[key] = value
-            self.stats.puts += 1
+    @classmethod
+    def instance(cls) -> "ModelCache":
+        if cls._instance is None:
+            with cls._instance_lock:
+                if cls._instance is None:
+                    cls._instance = cls()
+        return cls._instance
 
-            # Enforce LRU capacity
-            while len(self._store) > self.max_items:
-                evicted_key, _ = self._store.popitem(last=False)
-                self.stats.evictions += 1
-                self.logger.debug(f"ModelCache LRU evicted: {evicted_key}")
+    def _get_lock(self, key: Any) -> threading.Lock:
+        # One lock per key to prevent duplicate loads under concurrency
+        with self._instance_lock:
+            lock = self._locks.get(key)
+            if lock is None:
+                lock = threading.Lock()
+                self._locks[key] = lock
+            return lock
 
-            self._maybe_log_stats()
+    # -------- Embedding Models --------
+    def get_embedding_model(
+        self,
+        model_path: str,
+        *,
+        device: str = "auto",
+        loader: Callable[[], Any],
+    ) -> Any:
+        """Get or load an embedding model.
 
-    def evict(self, key: CacheKey) -> bool:
-        """Remove a specific item from cache. Returns True if removed."""
-        with self._lock:
-            removed = key in self._store
-            if removed:
-                del self._store[key]
-                self.stats.evictions += 1
-            self._maybe_log_stats()
-            return removed
+        Args:
+            model_path: Filesystem path or model identifier
+            device: Device tag (e.g., 'cpu', 'mps', 'cuda', or 'auto')
+            loader: Callable that returns a fully-initialized model instance
 
-    def clear_cache(self) -> int:
-        """Clear all cache entries. Returns number of entries removed."""
-        with self._lock:
-            size = len(self._store)
-            self._store.clear()
-            self.stats.clears += 1
-            self._maybe_log_stats(force=True)
-            return size
-
-    # ---------- Statistics ----------
-    def get_statistics(self) -> Dict[str, Any]:
-        with self._lock:
-            total = self.stats.total
-            return {
-                "size": len(self._store),
-                "capacity": self.max_items,
-                "hits": self.stats.hits,
-                "misses": self.stats.misses,
-                "puts": self.stats.puts,
-                "evictions": self.stats.evictions,
-                "clears": self.stats.clears,
-                "hit_rate": (self.stats.hits / total) if total else 0.0,
-            }
-
-    def _maybe_log_stats(self, force: bool = False) -> None:
-        if self.log_interval <= 0:
-            return
-        total_ops = self.stats.total + self.stats.puts + self.stats.evictions + self.stats.clears
-        if force or (total_ops % self.log_interval == 0):
-            s = self.get_statistics()
-            self.logger.info(
-                "ModelCache stats - size=%d hit_rate=%.2f hits=%d misses=%d evictions=%d",
-                s["size"], s["hit_rate"], s["hits"], s["misses"], s["evictions"],
+        Returns:
+            A cached model instance
+        """
+        # Path validation for local filesystem paths with safe resolution
+        path_obj = Path(model_path).expanduser()
+        if path_obj.exists():
+            try:
+                resolved = str(path_obj.resolve(strict=True))
+            except PermissionError as e:
+                # Surface permission errors explicitly for local paths
+                self._logger.error(
+                    "Permission denied resolving embedding model path: %s", model_path
+                )
+                raise
+            except OSError as e:
+                # Unexpected resolution error – bubble up with context
+                self._logger.error(
+                    "Error resolving embedding model path '%s': %s", model_path, e
+                )
+                raise
+        else:
+            # Likely a model identifier (e.g., Hugging Face). Do not raise.
+            # Keep original identifier as part of cache key and warn once.
+            resolved = str(model_path)
+            self._logger.debug(
+                "Embedding model path does not exist locally; treating as identifier: %s",
+                model_path,
             )
 
+        key = (resolved, device or "auto")
+        model = self._embedding_models.get(key)
+        if model is not None:
+            self._stats["embed_hits"] += 1
+            return model
 
-__all__ = [
-    "ModelCache",
-    "CacheKey",
-    "CacheValue",
-    "ParamDict",
-]
+        lock = self._get_lock(("embed", key))
+        with lock:
+            # Double-check inside lock
+            model = self._embedding_models.get(key)
+            if model is not None:
+                self._stats["embed_hits"] += 1
+                return model
+            model = loader()
+            self._embedding_models[key] = model
+            self._stats["embed_misses"] += 1
+            self._logger.debug("Embedding cache miss; loaded and cached: %s | %s", key[0], key[1])
+            return model
 
+    # -------- LLM Models --------
+    def get_llm_model(
+        self,
+        model_path: str,
+        *,
+        init_params: Dict[str, Any],
+        loader: Callable[[], Any],
+        cache_param_keys: Optional[Tuple[str, ...]] = None,
+    ) -> Any:
+        """Get or load an LLM model instance.
+
+        Args:
+            model_path: GGUF model path
+            init_params: Full init parameters passed to the model
+            loader: Callable that returns a fully-initialized model instance
+            cache_param_keys: Subset of keys that affect model construction;
+                              used to derive the cache key. If None, a default
+                              subset is used.
+
+        Returns:
+            A cached model instance
+        """
+        # Safely resolve LLM model path (must be a local file)
+        path_obj = Path(model_path).expanduser()
+        try:
+            resolved_path = str(path_obj.resolve(strict=True))
+        except FileNotFoundError:
+            self._logger.error("LLM model path not found: %s", model_path)
+            raise
+        except PermissionError as e:
+            self._logger.error("Permission denied accessing LLM model path: %s", model_path)
+            raise
+        except OSError as e:
+            self._logger.error("Error resolving LLM model path '%s': %s", model_path, e)
+            raise
+        # Only parameters that impact model construction should key the cache
+        default_param_keys = (
+            "n_ctx",
+            "n_batch",
+            "n_threads",
+            "n_gpu_layers",
+            "add_bos_token",
+            "echo",
+        )
+        # Priority: explicit param -> instance config -> default list
+        keys = cache_param_keys or self._llm_cache_param_keys or default_param_keys
+        key_params = tuple(sorted((k, init_params.get(k)) for k in keys))
+        key = (resolved_path, key_params)
+
+        model = self._llm_models.get(key)
+        if model is not None:
+            self._stats["llm_hits"] += 1
+            return model
+
+        lock = self._get_lock(("llm", key))
+        with lock:
+            model = self._llm_models.get(key)
+            if model is not None:
+                self._stats["llm_hits"] += 1
+                return model
+            model = loader()
+            self._llm_models[key] = model
+            self._stats["llm_misses"] += 1
+            self._logger.debug("LLM cache miss; loaded and cached: %s", key[0])
+            return model
+
+    # -------- Maintenance / Stats --------
+    def clear(self) -> None:
+        """Clear all cached models. Does not call any unload hooks."""
+        self._embedding_models.clear()
+        self._llm_models.clear()
+        self._locks.clear()
+        # Do not reset stats on clear; they are cumulative for observability
+
+    def stats(self) -> Dict[str, Any]:
+        return {
+            "embedding_models": len(self._embedding_models),
+            "llm_models": len(self._llm_models),
+            "embed_hits": self._stats["embed_hits"],
+            "embed_misses": self._stats["embed_misses"],
+            "llm_hits": self._stats["llm_hits"],
+            "llm_misses": self._stats["llm_misses"],
+        }
+
+    def evict(self, key: tuple) -> bool:
+        """Evict a cached model by its key.
+
+        The key must match the internal cache key:
+        - Embeddings: (resolved_path_or_identifier: str, device: str)
+        - LLM: (resolved_path: str, key_params: tuple)
+
+        Returns True if an entry was removed from either cache.
+        """
+        removed = False
+
+        # Attempt graceful resource cleanup if possible
+        def _cleanup(obj: Any) -> None:
+            for method_name in ("close", "shutdown", "unload", "release"):
+                try:
+                    method = getattr(obj, method_name, None)
+                    if callable(method):
+                        method()
+                        self._logger.debug(
+                            "Called cleanup method '%s' on cached model for key: %s",
+                            method_name,
+                            key,
+                        )
+                        return
+                except Exception as e:
+                    # Log and continue with eviction to avoid leaks
+                    self._logger.warning(
+                        "Error during cleanup '%s' for key %s: %s",
+                        method_name,
+                        key,
+                        e,
+                    )
+
+        obj = self._embedding_models.get(key)
+        if obj is not None:
+            _cleanup(obj)
+            del self._embedding_models[key]
+            removed = True
+
+        obj = self._llm_models.get(key)
+        if obj is not None:
+            _cleanup(obj)
+            del self._llm_models[key]
+            removed = True
+        # Remove associated lock if present
+        embed_lock_key = ("embed", key)
+        llm_lock_key = ("llm", key)
+        with self._instance_lock:
+            self._locks.pop(embed_lock_key, None)
+            self._locks.pop(llm_lock_key, None)
+        if removed:
+            self._logger.debug("Evicted cache entry for key: %s", key)
+        return removed
+
+    def set_llm_cache_param_keys(self, keys: Tuple[str, ...]) -> None:
+        """Override the default set of LLM init params used for the cache key."""
+        self._llm_cache_param_keys = keys
+
+    def log_stats(self, logger: Optional[logging.Logger] = None) -> None:
+        """Log cache statistics (hits/misses and sizes)."""
+        lg = logger or self._logger
+        s = self.stats()
+        lg.info(
+            "ModelCache stats | embed: %d models, %d hits/%d misses | llm: %d models, %d hits/%d misses",
+            s["embedding_models"], s["embed_hits"], s["embed_misses"],
+            s["llm_models"], s["llm_hits"], s["llm_misses"],
+        )

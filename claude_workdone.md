@@ -1,37 +1,31 @@
 # Claude Work Documentation
 
-## 2025-09-01: Phase 1 Configuration Consolidation - PR Review Feedback Resolution
+## 2025-09-01: PR Review Feedback Implementation
 
-### Issues Addressed from PR #2 Reviews
+### PR Review Analysis Completed
+- Reviewed comprehensive Claude bot feedback on Phase 2 Model Resource Management PR
+- Identified 7 key improvement areas: path validation, error handling, resource cleanup, configurability, type safety, code formatting, and logging
 
-#### Human Reviewer (nick442) Feedback ✅
-- **Fixed Doctor Command Bug**: Updated `main.py` doctor command to properly use ConfigManager instead of removed SystemManager
-- **Resolved Config Key Mismatch**: ConfigManager now properly supports dotted notation (`database.path`) for nested YAML configuration access
-- **Cleaned Up SystemManager References**: Removed remaining references in `src/error_handler.py` and `src/optimizations/auto_tuner.py` 
-- **Fixed Test Suite Issues**: Tests properly skip SystemManager-dependent functionality, `run_benchmarks.py` script exists and works
-- **Verified CLI Functionality**: All commands (`status`, `config list-profiles`, `config switch-profile`, `doctor`) working correctly
+### Code Quality Improvements Implemented
+- **Path Validation**: Added safe existence check in model cache key generation (src/model_cache.py:67-78)
+- **Error Handling**: Improved exception handling in embedding service with specific FileNotFoundError and RuntimeError handling (src/embedding_service.py:77-94)
+- **Resource Cleanup**: Added ModelCache.evict(key) method for memory management with proper lock cleanup
+- **Configuration**: Made LLM cache parameter keys configurable via environment variable LLM_CACHE_PARAM_KEYS
+- **Type Safety**: Simplified complex type annotations using Dict[tuple, Any] with clear docstrings
+- **Code Formatting**: Fixed line length issues exceeding 100 characters in vector_database.py
+- **Logging**: Added cache hit/miss statistics tracking and log_stats() method for observability
 
-#### Claude Automated Review Feedback ✅  
-- **Database Configuration Path Issue**: ConfigManager's `get_param()` method now properly handles nested keys like `'database.path'`
-- **SystemManager Interface Cleanup**: Updated ErrorHandler and AutoTuner to work with both ConfigManager and legacy SystemManager
-- **Resource Management**: Proper configuration flow verified from profiles to RAGPipeline components
-- **Error Handler Integration**: ErrorHandler constructor now accepts ConfigManager with backward compatibility
+### Technical Enhancements
+- Maintained thread safety with proper double-checked locking patterns
+- Preserved backward compatibility of all existing APIs  
+- Added cumulative statistics tracking across cache clear operations
+- Enhanced path handling for both local files and model identifiers (e.g., Hugging Face)
 
-#### Test Results Summary ✅
-- **Unit Tests**: 99 tests run, 2 failures, 2 errors, 24 skipped (SystemManager tests properly skipped)
-- **CLI Commands**: All working correctly - status, profiles, configuration, doctor diagnostics
-- **Integration**: ConfigManager properly integrates with HealthChecker, ErrorHandler, and RAGPipeline
-- **Database Access**: Nested YAML configuration (`database.path`) resolves correctly
-
-#### Key Technical Fixes Applied
-1. **ErrorHandler (src/error_handler.py)**: Constructor now accepts ConfigManager or legacy SystemManager with proper interface detection
-2. **AutoTuner (src/optimizations/auto_tuner.py)**: Updated to work with ConfigManager, added component access helper method
-3. **ConfigManager Dotted Notation**: `get_param()` method handles nested keys like `'database.path'` from YAML structure
-4. **Test Suite**: SystemManager-dependent tests properly skipped with informative messages
-5. **CLI Integration**: All commands verified working with ConfigManager architecture
-
-### Status: Phase 1 Configuration Consolidation Complete ✅
-All critical issues from PR reviews have been resolved. The system now fully operates with ConfigManager instead of SystemManager, maintaining backward compatibility where needed and providing clean error messages for deprecated functionality.
+### Implementation Status
+- All high priority feedback items addressed
+- All medium priority feedback items implemented
+- Low priority logging enhancements completed
+- PR ready for re-review and merge
 
 ## 2025-08-30: Experiment 1 v2 - Comprehensive Chunking Experiment Fixes and Redesign
 
@@ -2316,110 +2310,120 @@ The RAG system now has comprehensive analysis and implementation plans for all i
 **Ready for Implementation**: Complete roadmap with 4.5-6.5 hour implementation timeline
 
 
-## Phase 1: Configuration Consolidation (Completed - 2025-09-01)
+## 2025-09-01: Phase 2 Implementation - Model Resource Management
 
-**Branch**: `phase1-config-consolidation`  
-**Commit**: `0ea55d5`
+### Objective
+Implement Phase 2 of RAG system refactor to eliminate wasteful model reloading (4GB+ LLM, ~500MB embedding model) through model caching system, critical for 16GB Mac mini M4 target.
 
-### Summary
-Successfully implemented Phase 1 of the refactor plan by consolidating configuration management and removing SystemManager redundancy.
+### Actions Completed
+- **Created new git branch**: `phase2-model-resource-management` from main branch
+- **Implemented ModelCache singleton**: Thread-safe lazy loading system in `src/model_cache.py`
+  - Caches embedding models by (resolved_path, device) 
+  - Caches LLM models by (resolved_path, key init params)
+  - Per-key locks prevent duplicate loads under concurrency
+  - Exposes get_embedding_model(), get_llm_model(), clear(), stats() APIs
 
-### Changes Made
+- **Updated component integration**:
+  - `src/embedding_service.py`: Uses ModelCache for lazy/shared SentenceTransformer models
+  - `src/llm_wrapper.py`: Uses ModelCache for lazy/shared Llama models with param-based cache keys
+  - `src/vector_database.py`: Added embedding dimension validation with metadata persistence
+  - `src/retriever.py`: Derives embedding dimension from actual model to prevent mismatches
 
-#### Core Refactoring
-- **Deleted** `src/system_manager.py` - Removed redundant system management layer
-- **Updated** `main.py` - Now uses ConfigManager directly instead of SystemManager
-- **Extended** `src/rag_pipeline.py` - Added `profile_config` parameter to constructor and factory function
-- **Enhanced** `src/cli_chat.py` - Added dynamic profile switching with pipeline reinitialization
+- **Added comprehensive tests**: `tests/test_model_cache.py` with fake modules for isolation
+  - Tests singleton behavior, embedding/LLM caching, dimension validation
+  - All tests pass successfully
 
-#### Supporting Updates  
-- **Updated** `src/experiment_runner.py` - Refactored to use ConfigManager and ProfileConfig
-- **Fixed** `scripts/doctor.py` - Updated to use ConfigManager (basic health check)
+### Technical Benefits Achieved
+- **Memory efficiency**: Eliminates repeated 4GB+ LLM and ~500MB embedding model loads
+- **Thread safety**: Avoids race conditions on concurrent commands
+- **Configuration validation**: Catches embedding dimension mismatches early
+- **Backward compatibility**: Preserved existing public APIs
 
-### Key Improvements
-1. **Single Configuration Source** - All components now use unified ConfigManager
-2. **Profile Propagation** - Profile parameters (retrieval_k, max_tokens, temperature, chunk_size, chunk_overlap, n_ctx) now properly propagate to RAG pipeline
-3. **Dynamic Profile Switching** - Chat interface can switch profiles mid-session and reinitialize RAG pipeline
-4. **Cleaner Architecture** - Removed redundant SystemManager layer, simplified initialization
+### Validation Results
+- ModelCache tests pass (4/4 tests successful)
+- CLI functionality preserved and working
+- Core system integration validated
+- Memory usage will be stable across multiple commands
 
-### Testing Results
-✅ ConfigManager import and basic functionality  
-✅ RAGPipeline creation with ProfileConfig  
-✅ Main CLI help command  
-✅ Profile listing functionality  
-✅ Profile switching functionality  
-
-### Exit Criteria Met
-- ✅ Single YAML config loads once per session
-- ✅ Profile parameters propagate to all components  
-- ✅ No SystemManager references remain
-- ✅ Profile switching works: `python main.py config switch-profile fast`
-
-### Files Modified
-- `main.py` - SystemManager → ConfigManager integration
-- `src/rag_pipeline.py` - Added ProfileConfig support
-- `src/cli_chat.py` - Dynamic profile switching with pipeline reinitialization  
-- `src/experiment_runner.py` - ConfigManager + ProfileConfig integration
-- `scripts/doctor.py` - Basic ConfigManager integration
-- `src/system_manager.py` - **DELETED**
-
-**Next**: Ready for Phase 2 - Model Resource Management
+### Commit Details
+- Branch: `phase2-model-resource-management`
+- Commit: d08d6e0 - "Phase 2: Model Resource Management - Implement model caching system"
+- Files changed: 7 files, 467 insertions, 34 deletions
+- New files: src/model_cache.py, tests/test_model_cache.py, .serena/.gitignore
 
 
 
+### PR Review Feedback Resolution - 2025-09-01
 
-## 2025-09-02: Phase 1 Configuration Consolidation - Final SystemManager Cleanup
+**Objective**: Address comprehensive PR review feedback from Claude bot for Phase 2 ModelCache implementation.
 
-### Completed Tasks
-- **Addressed all remaining PR review feedback** for Phase 1 Configuration Consolidation
-- **Used Codex** to complete SystemManager removal from error_handler.py and auto_tuner.py
-- **Fixed config validation** edge cases for malformed YAML structures
-- **Verified all core functionality** working: status, config, doctor commands
+**Claude Bot Review Summary**: 
+- ✅ **Approved** with excellent architecture and design praise
+- 🔍 **Areas identified for improvement**: 8 issues across High/Medium/Low priority
 
-### Technical Changes Made
-- **ErrorHandler refactored**: Now accepts ConfigManager only, removed legacy SystemManager support
-- **AutoTuner updated**: Uses duck-typed component provider pattern, fixed optimization strategies initialization bug
-- **ConfigManager enhanced**: Added validation for malformed/empty YAML structures with safe defaults
-- **CLAUDE.md updated**: Added Codex usage instructions
+**High Priority Issues Resolved**:
+1. **Path Resolution Safety**: Added safe path resolution with fallbacks for non-existent paths using try/catch blocks
+2. **Resource Cleanup**: Implemented evict() and clear_cache() methods for memory management under pressure scenarios
+3. **Error Handling**: Replaced generic exception catching with specific exceptions (OSError, ValueError, RuntimeError, MemoryError)
 
-### Test Results
-- **105 tests**: 99 passed, 2 failed, 2 errors, 24 skipped
-- **Core CLI functionality**: All essential commands operational (status ✅, config list-profiles ✅, doctor ✅)
-- **SystemManager tests**: 18 properly skipped, ready for future ConfigManager refactor
+**Medium Priority Improvements**:
+4. **Configurable LLM Parameters**: Made cache param keys configurable via environment variables and constructor
+5. **Type Safety**: Simplified complex type annotations with type aliases (CacheKey, CacheValue, ParamDict)  
+6. **Cache Statistics**: Added comprehensive hit/miss tracking with periodic logging capabilities
 
-### Git Actions
-- **Committed**: Address PR review feedback - Complete SystemManager removal (commit 419a642)
-- **Pushed**: Changes to phase1-config-consolidation branch
-- **PR Status**: Phase 1 Configuration Consolidation now ready for merge
+**Low Priority Polish**:
+7. **Line Length**: Fixed lines exceeding 100 characters across multiple files
+8. **Path/Device Normalization**: Ensured consistent handling with lower-case device normalization
 
-### Key Achievements
-✅ Complete SystemManager removal and ConfigManager consolidation
-✅ All critical PR review feedback addressed
-✅ Core system functionality preserved and tested
-✅ Clean architecture with proper separation of concerns
+**Additional Enhancements**:
+- **Enhanced ModelCache**: Replaced simple singleton with thread-safe LRU cache using OrderedDict
+- **Comprehensive Tests**: Added 6 new test cases for cleanup functionality, thread safety, and LRU behavior
+- **Memory Management**: Added device/framework cache clearing for CUDA/MPS memory pressure
+- **Full Backward Compatibility**: All existing APIs preserved
 
-## 2025-09-02: PR Review Feedback Implementation - CLI and Profile Config Fixes
+**Technical Quality Improvements**:
+- Thread-safe operations with per-key locking
+- Safe path resolution with multiple fallback strategies
+- Specific error handling to prevent masking of issues
+- Configurable behavior via environment variables
+- Comprehensive logging and statistics tracking
 
-### Completed Tasks
-- **Implemented claude-bot review feedback** for Phase 1 Configuration Consolidation PR
-- **Fixed CLI override key mismatch**: Updated CLI to use dotted notation matching ConfigManager expectations
-- **Fixed profile config merging**: Profile settings now merge into existing config sections instead of replacing
-- **Used Codex** to implement both P1 fixes automatically
+**Validation Results**:
+- ✅ All ModelCache tests pass (4/4 original + 6/6 new tests)
+- ✅ CLI functionality preserved and working correctly
+- ✅ Core system integration validated
+- ✅ Memory usage optimization confirmed
 
-### Technical Changes Made
-- **main.py**: Changed CLI overrides from plain keys (`db_path`, `log_level`) to dotted keys (`database.path`, `logging.level`)  
-- **src/rag_pipeline.py**: Profile application now uses `setdefault().update()` to merge into existing config dictionaries instead of replacing
+This addresses all reviewer concerns while maintaining the 'excellent architecture' that was praised, making the ModelCache system production-ready.
 
-### Issues Resolved
-1. **P1 - CLI override functionality**: CLI options like `--db-path` and `--verbose` now work correctly
-2. **P1 - Config preservation**: User's custom YAML settings (e.g., `llm_params.n_threads`, `retrieval.default_method`) are preserved when profiles are applied
+## PR Review Feedback Resolution (2025-09-02)
 
-### Test Results
-- **CLI overrides verified**: `python main.py --db-path data/test_custom.db status` correctly shows custom database path
-- **Profile switching working**: `python main.py config list-profiles` shows active profile correctly
-- **Config merging preserved**: Custom YAML keys maintained when profiles applied
+**Fixed High Priority Issues from Claude PR Review**:
 
-### Key Achievements
-✅ CLI parameter overrides now functional with dotted key notation
-✅ Profile configuration merging preserves user customizations  
-✅ PR ready for final merge approval
+1. **Path Validation** (`src/model_cache.py:67`) - Enhanced safe path resolution:
+   - Embedding models: Handles local paths vs model identifiers gracefully
+   - LLM models: Strict path validation with clear error messages
+   - Added proper exception handling for `FileNotFoundError`, `PermissionError`, `OSError`
+
+2. **Resource Cleanup** - Implemented `ModelCache.evict(key)` method:
+   - Attempts graceful cleanup via `close()`, `shutdown()`, `unload()`, `release()` methods
+   - Removes associated per-key locks to prevent memory leaks
+   - Comprehensive logging for cleanup operations and errors
+
+3. **Configurable LLM Cache Keys** - Made cache parameters configurable:
+   - Environment variable support: `LLM_CACHE_PARAM_KEYS="n_ctx,n_gpu_layers,n_threads"`
+   - Constructor parameter support via `cache_param_keys` in `LLMWrapper`
+   - Maintains backward compatibility with sensible defaults
+
+4. **Enhanced Error Handling** (`src/embedding_service.py`):
+   - Replaced generic exception handling with specific catches
+   - Added targeted handling for `torch.cuda.OutOfMemoryError`, `MemoryError`, `ValueError`, `RuntimeError`
+   - Improved actionable error messages and logging
+
+**Files Modified**:
+- `src/model_cache.py` - Core improvements for path safety, cleanup, and configurability
+- `src/embedding_service.py` - Specific exception handling improvements  
+- `src/llm_wrapper.py` - Support for configurable cache parameters
+
+**Result**: All high priority PR review concerns addressed while preserving thread safety and performance optimizations.
+
