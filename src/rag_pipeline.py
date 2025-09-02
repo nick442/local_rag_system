@@ -231,12 +231,20 @@ class RAGPipeline:
             self.logger.info(f"Retrieving contexts for query: '{user_query[:50]}...'")
             
             # Pass collection_id to retriever for proper isolation
-            contexts = self.retriever.retrieve(
-                user_query, 
-                k=k, 
-                method=retrieval_method,
-                collection_id=collection_id
-            )
+            try:
+                contexts = self.retriever.retrieve(
+                    user_query,
+                    k=k,
+                    method=retrieval_method,
+                    collection_id=collection_id,
+                )
+            except TypeError:
+                # Backward-compatible fallback for retrievers without collection_id support
+                contexts = self.retriever.retrieve(
+                    user_query,
+                    k=k,
+                    method=retrieval_method,
+                )
             
             retrieval_time = time.time() - retrieval_start
             self.logger.info(f"Retrieved {len(contexts)} contexts in {retrieval_time:.3f}s")

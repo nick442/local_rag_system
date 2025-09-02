@@ -12,7 +12,6 @@ import gc
 
 import numpy as np
 import torch
-from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
 from .document_ingestion import DocumentChunk
@@ -59,6 +58,9 @@ class EmbeddingService:
             cache = ModelCache.instance()
 
             def _loader():
+                # Lazy import to ensure tests can patch sentence_transformers
+                # and to avoid importing heavy models at module import time.
+                from sentence_transformers import SentenceTransformer  # type: ignore
                 self.logger.info(f"Loading embedding model from: {self.model_path}")
                 return SentenceTransformer(str(self.model_path), device=self.device)
 

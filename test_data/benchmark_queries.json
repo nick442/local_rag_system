@@ -204,7 +204,7 @@
       },
       {
         "id": "edge_003",
-        "query": "What is " + "very " * 50 + "long query about machine learning with excessive repetition?",
+        "query": "What is very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long query about machine learning with excessive repetition?",
         "expected_behavior": "handle_gracefully",
         "difficulty": "edge",
         "expected_response_length": "medium",
@@ -228,7 +228,7 @@
       },
       {
         "id": "edge_006",
-        "query": "What is machine learning" + "?" * 100,
+        "query": "What is machine learning????????????????????????????????????????????????????????????????????????????????????????????????????",
         "expected_topics": ["machine learning"],
         "expected_behavior": "handle_gracefully",
         "difficulty": "edge",
