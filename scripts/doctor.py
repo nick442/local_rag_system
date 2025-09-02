@@ -33,25 +33,65 @@ def main():
     console = Console()
     
     try:
-        from src.system_manager import SystemManager
+        from src.config_manager import ConfigManager
         from src.health_checks import HealthChecker
         
-        # Initialize system manager
-        system = SystemManager()
-        health_checker = HealthChecker(system)
+        # Initialize config manager
+        config_manager = ConfigManager()
+        health_checker = HealthChecker(config_manager)
         
         rprint("[yellow]🔍 Running system diagnostics...[/yellow]")
         
         if args.quick:
-            # Quick health check only
+            # Quick health check with basic config validation
             rprint("[blue]Running quick health check...[/blue]")
-            healthy = system.health_check()
+            
+            healthy = True
+            issues = []
+            
+            try:
+                # Check 1: YAML config loads successfully
+                config_data = config_manager.load_config()
+                rprint("✅ Configuration file loads successfully")
+                
+                # Check 2: Required keys present
+                required_keys = ['profiles', 'current_profile', 'database']
+                for key in required_keys:
+                    if key not in config_data:
+                        issues.append(f"Missing required config key: {key}")
+                        healthy = False
+                    else:
+                        rprint(f"✅ Required key '{key}' present")
+                
+                # Check 3: Database path is readable
+                db_path = config_manager.get_param('database.path', 'data/rag_vectors.db')
+                db_path_obj = Path(db_path)
+                if not db_path_obj.parent.exists():
+                    issues.append(f"Database directory does not exist: {db_path_obj.parent}")
+                    healthy = False
+                else:
+                    rprint(f"✅ Database directory accessible: {db_path_obj.parent}")
+                
+                # Check 4: Current profile is valid
+                current_profile = config_manager.get_current_profile_name()
+                profiles = config_manager.list_profiles()
+                if current_profile not in profiles:
+                    issues.append(f"Current profile '{current_profile}' not found in profiles")
+                    healthy = False
+                else:
+                    rprint(f"✅ Current profile '{current_profile}' is valid")
+                    
+            except Exception as e:
+                issues.append(f"Config validation error: {e}")
+                healthy = False
             
             if healthy:
                 rprint("[green]✅ System appears healthy[/green]")
                 return 0
             else:
-                rprint("[red]❌ System health issues detected[/red]")
+                rprint("[red]❌ System health issues detected:[/red]")
+                for issue in issues:
+                    rprint(f"  • {issue}")
                 rprint("[yellow]💡 Run without --quick for detailed diagnostics[/yellow]")
                 return 1
         

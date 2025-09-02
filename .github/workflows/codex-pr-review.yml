@@ -1,0 +1,65 @@
+# Codex-style automated PR review workflow
+name: Codex PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: codex-pr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate review (lightweight)
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          python scripts/ci/generate_review.py
+
+      - name: Find previous review comment
+        id: find-comment
+        uses: peter-evans/find-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: 'Automated Review Summary'
+
+      - name: Create or update PR comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: review.md
+          edit-mode: replace
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+
+      # Optional: Swap the above "Generate review" step with Codex CLI invocation.
+      # Example (uncomment and define CODEX_CMD to enable):
+      # - name: Generate review with Codex CLI
+      #   if: env.CODEX_CMD != ''
+      #   env:
+      #     CODEX_CMD: ${{ vars.CODEX_CMD }}
+      #   run: |
+      #     # Expect CODEX_CMD to write review.md at repo root
+      #     bash -lc "$CODEX_CMD"
+

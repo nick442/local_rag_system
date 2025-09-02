@@ -30,9 +30,19 @@ class EmbeddingService:
             batch_size: Number of documents to process in each batch
             device: Device to use ('cpu', 'mps', 'cuda'). If None, auto-detect.
         """
-        self.model_path = Path(model_path)
+        # Normalize model path safely
+        try:
+            self.model_path = Path(model_path).expanduser().resolve(strict=True)
+        except Exception:
+            # Fallbacks for non-existent paths during dry-runs/tests
+            try:
+                self.model_path = Path(model_path).expanduser().resolve(strict=False)
+            except Exception:
+                self.model_path = Path(model_path).expanduser()
+
         self.batch_size = batch_size
-        self.device = device or self._get_optimal_device()
+        # Normalize device handling
+        self.device = (device or self._get_optimal_device()).strip().lower()
         self.model = None
         self.logger = logging.getLogger(__name__)
         
@@ -53,18 +63,22 @@ class EmbeddingService:
         try:
             self.logger.info(f"Loading embedding model from: {self.model_path}")
             self.model = SentenceTransformer(str(self.model_path), device=self.device)
-            
-            # Get model info
+
             max_seq_length = getattr(self.model, 'max_seq_length', 256)
             embedding_dimension = self.model.get_sentence_embedding_dimension()
-            
-            self.logger.info(f"Model loaded successfully:")
+
+            self.logger.info("Model loaded successfully:")
             self.logger.info(f"  Device: {self.device}")
             self.logger.info(f"  Max sequence length: {max_seq_length}")
             self.logger.info(f"  Embedding dimension: {embedding_dimension}")
-            
+
+        except (OSError, ValueError, RuntimeError) as e:
+            # Common errors: file not found, incompatible model, device errors
+            self.logger.error(f"Failed to load embedding model from {self.model_path}: {e}")
+            raise
         except Exception as e:
-            self.logger.error(f"Failed to load model from {self.model_path}: {e}")
+            # Preserve traceback but make log explicit to avoid masking specific issues
+            self.logger.exception("Unexpected error while loading embedding model")
             raise
     
     def get_embedding_dimension(self) -> int:
@@ -126,8 +140,12 @@ class EmbeddingService:
                     'memory': f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB" if torch.cuda.is_available() else "N/A"
                 })
         
-        except Exception as e:
+        except (RuntimeError, ValueError, MemoryError) as e:
+            # RuntimeError may include CUDA/MPS issues; ValueError for bad inputs; MemoryError for OOM
             self.logger.error(f"Error generating embeddings: {e}")
+            raise
+        except Exception:
+            self.logger.exception("Unexpected error during embedding generation")
             raise
         
         finally:
@@ -135,6 +153,19 @@ class EmbeddingService:
             gc.collect()
         
         return all_embeddings
+
+    def clear_cache(self) -> None:
+        """Clear device/framework caches to free memory."""
+        try:
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+                torch.mps.empty_cache()
+        except Exception:
+            # Best-effort cache clear; do not propagate
+            pass
+        finally:
+            gc.collect()
     
     def embed_chunks(self, chunks: List[DocumentChunk], show_progress: bool = True) -> List[np.ndarray]:
         """

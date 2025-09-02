@@ -74,6 +74,13 @@ Advanced corpus management capabilities for production deployment:
 - **Organization**: Logical command groups (ingest, collection, analytics, maintenance)
 - **Features**: Progress bars, colored output, comprehensive help
 
+## Developer Tooling
+
+### 🤖 [Automated PR Review](codex_pr_review.md)
+- **Purpose**: Post a PR comment with an automated review summary
+- **Workflow**: Runs on PR events via GitHub Actions
+- **Customization**: Swap in Codex CLI to generate richer reviews
+
 ## Component Interaction Diagram
 
 ```

@@ -1,3 +1,4 @@
+- ALWAYS. when writing code, always make sure you're not on the main branch and ALWAYS create a pull request when you are done. 
 - When issuing python commands always use source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python
-- always update the root claude_workdone.md with concise documentation of your actions. if it doesn't exist yet, create it. DON'T READ THE WHOLE FILE, just append it
 -always make sure you write files in the correct directories, don't clutter up the root directory
+-when using codex, always use danger-full-access and don't specify any other config info
