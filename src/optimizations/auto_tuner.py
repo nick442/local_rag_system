@@ -64,23 +64,20 @@ class AutoTuner:
     Monitors metrics, identifies bottlenecks, and applies optimizations automatically.
     """
     
-    def __init__(self, config_manager_or_system, monitoring_interval: float = 30.0,
+    def __init__(self, config_manager_or_provider, monitoring_interval: float = 30.0,
                  optimization_threshold: float = 0.2):
         """
         Initialize auto-tuner.
         
         Args:
-            config_manager_or_system: ConfigManager or legacy SystemManager for accessing components
+            config_manager_or_provider: ConfigManager instance and/or an object exposing
+                a `get_component(name)` method to provide optional components.
             monitoring_interval: How often to collect metrics (seconds)
             optimization_threshold: Minimum performance degradation to trigger optimization
         """
-        # Support both ConfigManager and legacy SystemManager
-        if hasattr(config_manager_or_system, 'get_param'):
-            self.config_manager = config_manager_or_system
-            self.system_manager = None
-        else:
-            self.system_manager = config_manager_or_system
-            self.config_manager = getattr(config_manager_or_system, 'config', None)
+        # Support ConfigManager and an optional component provider (duck-typed)
+        self.config_manager = config_manager_or_provider if hasattr(config_manager_or_provider, 'get_param') else None
+        self._component_provider = config_manager_or_provider if hasattr(config_manager_or_provider, 'get_component') else None
         self.monitoring_interval = monitoring_interval
         self.optimization_threshold = optimization_threshold
         
@@ -105,20 +102,6 @@ class AutoTuner:
             BottleneckType.IO_BOTTLENECK: {'io_wait_ms': 2000, 'io_percent': 30}
         }
         
-        # Monitoring state
-        self._monitoring = False
-        self._monitor_thread = None
-        self._stop_event = threading.Event()
-    
-    def _get_component(self, component_name: str):
-        """Get component from system manager or return None if not available."""
-        if self.system_manager and hasattr(self.system_manager, 'get_component'):
-            try:
-                return self.system_manager.get_component(component_name)
-            except:
-                return None
-        return None
-        
         # Optimization strategies
         self.optimization_strategies = {
             BottleneckType.MEMORY_PRESSURE: self._optimize_memory_pressure,
@@ -129,11 +112,25 @@ class AutoTuner:
             BottleneckType.DATABASE_SLOW: self._optimize_database_performance,
             BottleneckType.IO_BOTTLENECK: self._optimize_io_performance
         }
-        
+
+        # Monitoring state
+        self._monitoring = False
+        self._monitor_thread = None
+        self._stop_event = threading.Event()
+
         self.logger.info(f"AutoTuner initialized - Monitoring interval: {monitoring_interval}s")
+
+    def _get_component(self, component_name: str):
+        """Get a named component from the optional provider, if available."""
+        if self._component_provider and hasattr(self._component_provider, 'get_component'):
+            try:
+                return self._component_provider.get_component(component_name)
+            except Exception:
+                return None
+        return None
     
     def collect_metrics(self) -> PerformanceMetrics:
-        """Collect current performance metrics from all system components."""
+        """Collect current performance metrics from available components."""
         try:
             # System metrics
             memory = psutil.virtual_memory()

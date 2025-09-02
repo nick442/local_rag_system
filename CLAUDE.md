@@ -1,3 +1,4 @@
-- ALWAYS. when writing code, always open up a new git branch and ALWAYS create a pull request and @codex in it when you are done. a human or another ai will evaluate the pull request before adding it to the main branch
+- ALWAYS. when writing code, always make sure you're not on the main branch and ALWAYS create a pull request when you are done. 
 - When issuing python commands always use source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python
 -always make sure you write files in the correct directories, don't clutter up the root directory
+-when using codex, always use danger-full-access and don't specify any other config info

@@ -328,8 +328,24 @@ class ConfigManager:
         """
         try:
             with open(self.config_path, 'r') as f:
-                self._config_data = yaml.safe_load(f)
-            
+                loaded = yaml.safe_load(f)
+
+            # Normalize empty or invalid structures
+            if loaded is None:
+                loaded = {}
+            if not isinstance(loaded, dict):
+                self.logger.warning("Config file root is not a mapping; using defaults")
+                loaded = {}
+
+            # Ensure required keys exist with sane defaults
+            loaded.setdefault('profiles', {name: profile.to_dict() for name, profile in self.DEFAULT_PROFILES.items()})
+            if not isinstance(loaded.get('profiles'), dict):
+                self.logger.warning("'profiles' section invalid; resetting to defaults")
+                loaded['profiles'] = {name: profile.to_dict() for name, profile in self.DEFAULT_PROFILES.items()}
+
+            loaded.setdefault('current_profile', 'balanced')
+
+            self._config_data = loaded
             self._current_profile = self._config_data.get('current_profile', 'balanced')
             self.logger.info(f"Loaded configuration from {self.config_path}")
             
