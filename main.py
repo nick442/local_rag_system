@@ -28,6 +28,7 @@ from src.reindex import ReindexTool, create_reindex_tool
 from src.corpus_analytics import CorpusAnalyzer, create_corpus_analyzer
 from src.rag_pipeline import RAGPipeline
 from src.cli_chat import chat as chat_main
+from src.config_manager import ConfigManager
 
 
 # Global configuration
@@ -1017,6 +1018,8 @@ def query(ctx, question: str, collection: str, model_path: str, embedding_path: 
 
 # ========== UTILITY COMMANDS ==========
 
+# ========== UTILITY COMMANDS ==========
+
 @cli.command('doctor')
 @click.option('--format', 'output_format', type=click.Choice(['markdown', 'json']), default='markdown', help='Report format')
 @click.option('--output', type=click.Path(path_type=Path), help='Output file path')
@@ -1144,6 +1147,108 @@ def experiment():
     """Advanced experimental interface for RAG system parameter exploration"""
     pass
 
+
+@experiment.command('batch')
+@click.option('--queries', 'queries_path', required=True, type=click.Path(exists=True, path_type=Path), help='Path to queries JSON/JSONL')
+@click.option('--profile', default=None, help='Config profile to use (fast/balanced/quality)')
+@click.option('--collection', default='default', help='Collection to query')
+@click.option('--model-path', default=DEFAULT_LLM_PATH, help='LLM model path')
+@click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
+@click.option('--k', default=5, help='Number of documents to retrieve')
+@click.option('--output', 'output_path', type=click.Path(path_type=Path), help='Output JSONL file path (default: results/experiment_batch_*.jsonl)')
+@click.option('--dry-run', is_flag=True, help='Do not load models; emit empty answers for structure/demo')
+@click.pass_context
+def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path], dry_run: bool):
+    """Run a batch of queries and emit JSONL results"""
+
+    # Use module-level helper (defined later) for query loading
+    # (removed local definition to avoid duplication)
+
+    try:
+        # Prepare output path
+        ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+        if not output_path:
+            Path('results').mkdir(parents=True, exist_ok=True)
+            output_path = Path('results') / f"experiment_batch_{ts}.jsonl"
+        else:
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # Load queries
+        queries = _load_evaluation_queries(queries_path)
+        if not queries:
+            rprint(
+                f"[yellow]No queries found in: {queries_path}[/yellow]\n"
+                "[dim]Supported formats: JSONL with {'query': ...} per line; a JSON array of strings;\n"
+                "a JSON array of objects with 'query'; or a structured JSON with a 'categories' map.[/dim]"
+            )
+            return
+
+        # Switch profile if provided
+        config_manager: ConfigManager = ctx.obj['config_manager']
+        if profile:
+            config_manager.switch_profile(profile)
+
+        rag = None
+        if not dry_run:
+            # Initialize pipeline only when not dry-running
+            try:
+                rag = RAGPipeline(
+                    db_path=ctx.obj['db_path'],
+                    embedding_model_path=embedding_path,
+                    llm_model_path=model_path,
+                    profile_config=config_manager.get_profile(),
+                )
+                rag.set_corpus(collection)
+            except Exception as init_err:
+                rprint(f"[red]✗ Failed to initialize pipeline: {init_err}[/red]")
+                rprint("[dim]Hint: use --dry-run to validate input/output without loading models[/dim]")
+                sys.exit(1)
+
+        # Run queries and write JSONL
+        with output_path.open('w', encoding='utf-8') as f_out:
+            for q in queries:
+                try:
+                    cleaned = validate_query_input(q)
+                except click.BadParameter:
+                    # Skip invalid entries
+                    continue
+                t0 = datetime.now().isoformat()
+                if dry_run:
+                    result = {
+                        'answer': '',
+                        'sources': [],
+                        'metadata': {
+                            'query': cleaned,
+                            'retrieval_method': 'vector',
+                            'contexts_count': 0,
+                            'retrieval_time': 0.0,
+                            'generation_time': 0.0,
+                            'tokens_per_second': 0.0
+                        }
+                    }
+                else:
+                    result = rag.query(cleaned, k=k, collection_id=collection)
+                record = {
+                    'timestamp': t0,
+                    'query': cleaned,
+                    'profile': config_manager.get_current_profile_name(),
+                    'collection': collection,
+                    'k': k,
+                    'answer': result.get('answer', ''),
+                    'sources': result.get('sources', []),
+                    'metadata': result.get('metadata', {}),
+                }
+                f_out.write(json.dumps(record) + "\n")
+
+        rprint(f"[green]✓ Batch complete[/green] → [cyan]{output_path}[/cyan]")
+        rprint(f"Queries processed: {len(queries)} | Profile: {profile or config_manager.get_current_profile_name()} | Collection: {collection}")
+
+    except Exception as e:
+        rprint(f"[red]✗ Batch execution failed: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
 
 @experiment.command('sweep')
 @click.option('--param', required=True, help='Parameter to sweep (e.g., temperature, chunk_size)')
@@ -1353,33 +1458,68 @@ def list_experiments(status: str, limit: int):
 
 # Helper functions for experiment CLI
 
-def _load_evaluation_queries(queries_file: str) -> List[str]:
-    """Load evaluation queries from JSON file."""
-    queries_path = Path(queries_file)
-    
-    if not queries_path.exists():
-        # Use default queries if file doesn't exist
-        rprint(f"[yellow]⚠️  Queries file {queries_file} not found, using defaults[/yellow]")
+def _load_evaluation_queries(queries_file) -> List[str]:
+    """Load evaluation queries from JSON/JSONL file.
+
+    Supports:
+    - JSONL: one object per line with 'query' key
+    - JSON array of strings
+    - JSON array of objects with 'query'
+    - Structured JSON with 'queries' or 'categories' map
+    """
+    path = Path(queries_file)
+    if not path.exists():
+        # Provide a small default set if missing
+        rprint(f"[yellow]⚠️  Queries file {path} not found, using defaults[/yellow]")
         return [
             "What is machine learning?",
-            "How does artificial intelligence work?",
-            "Explain deep learning algorithms.",
-            "What are neural networks?",
-            "How do large language models work?"
+            "What is retrieval-augmented generation?",
+            "What is a vector database?",
         ]
-    
+
+    text = path.read_text(encoding='utf-8', errors='ignore')
+    if not text.strip():
+        return []
+
+    # Try JSONL first
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    objs = []
+    for ln in lines:
+        try:
+            objs.append(json.loads(ln))
+        except Exception:
+            objs = []
+            break
+    if objs:
+        queries = [str(o['query']) for o in objs if isinstance(o, dict) and 'query' in o]
+        if queries:
+            return queries
+
+    # Fallback to JSON
     try:
-        with open(queries_path) as f:
-            data = json.load(f)
-            if isinstance(data, list):
-                return data
-            elif isinstance(data, dict) and 'queries' in data:
-                return data['queries']
-            else:
-                raise ValueError("Invalid queries file format")
-    except Exception as e:
-        rprint(f"[red]❌ Failed to load queries from {queries_file}: {e}[/red]")
-        sys.exit(1)
+        data = json.loads(text)
+    except Exception:
+        return []
+
+    if isinstance(data, list) and all(isinstance(x, str) for x in data):
+        return data
+    if isinstance(data, list) and all(isinstance(x, dict) for x in data):
+        out = [str(x.get('query')) for x in data if 'query' in x]
+        if out:
+            return out
+    if isinstance(data, dict):
+        if 'queries' in data and isinstance(data['queries'], list):
+            return [str(q) for q in data['queries']]
+        if 'categories' in data and isinstance(data['categories'], dict):
+            acc: List[str] = []
+            for arr in data['categories'].values():
+                if isinstance(arr, list):
+                    for item in arr:
+                        if isinstance(item, dict) and 'query' in item:
+                            acc.append(str(item['query']))
+            if acc:
+                return acc
+    return []
 
 
 def _load_config(config_identifier: str):

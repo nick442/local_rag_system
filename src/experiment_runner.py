@@ -538,60 +538,30 @@ class ExperimentRunner:
             profile_config=profile_config
         )
         
-        # Handle chunking parameters by creating per-config collection
-        if hasattr(config, 'chunk_size') or hasattr(config, 'chunk_overlap'):
-            collection_id = self._ensure_chunked_collection(config)
-            rag_pipeline.set_corpus(collection_id)
+        # Prefer an explicit target corpus from the experiment config, else optionally
+        # derive a collection name from chunk parameters. In either case, set the
+        # pipeline corpus so downstream queries default to that collection.
+        try:
+            target_corpus = getattr(config, 'target_corpus', None)
+        except Exception:
+            target_corpus = None
+
+        derived_collection = None
+        if getattr(config, 'chunk_size', None) is not None or getattr(config, 'chunk_overlap', None) is not None:
+            cs = getattr(config, 'chunk_size', 512)
+            co = getattr(config, 'chunk_overlap', 128)
+            derived_collection = f"exp_cs{cs}_co{co}"
+
+        selected_collection = target_corpus or derived_collection
+
+        if selected_collection:
+            # Only set corpus; creation/rechunking is handled elsewhere via CLI/tools
+            rag_pipeline.set_corpus(selected_collection)
         
         return rag_pipeline
 
-    def _ensure_chunked_collection(self, config: ExperimentConfig) -> str:
-        """Ensure a collection exists with the specified chunking parameters."""
-        # Generate unique collection ID for this config
-        chunk_size = getattr(config, 'chunk_size', 512)
-        chunk_overlap = getattr(config, 'chunk_overlap', 128)
-        collection_id = f"exp_cs{chunk_size}_co{chunk_overlap}"
-        
-        # Check if collection already exists
-        try:
-            collections = self.db.list_collections()
-            if any(c['collection_id'] == collection_id for c in collections):
-                self.logger.info(f"Reusing existing collection: {collection_id}")
-                return collection_id
-        except Exception as e:
-            self.logger.warning(f"Could not check existing collections: {e}")
-        
-        # Create new collection with proper chunking
-        self.logger.info(f"Creating chunked collection: {collection_id} (size={chunk_size}, overlap={chunk_overlap})")
-        
-        # Use ReindexTool to create properly chunked collection
-        try:
-            from .reindex import ReindexTool
-            db_path = self.config_manager.get_param('database.path', 'data/rag_vectors.db')
-            reindex_tool = ReindexTool(db_path)
-            
-            # Source collection (configurable, default to production)
-            source_collection = "realistic_full_production"
-            
-            # Copy and rechunk documents
-            stats = reindex_tool.rechunk_documents(
-                collection_id=collection_id,
-                chunk_size=chunk_size,
-                chunk_overlap=chunk_overlap,
-                reembed=True,
-                backup=False
-            )
-            
-            if not stats.success:
-                raise RuntimeError(f"Rechunking failed: {stats.details.get('error', 'Unknown error')}")
-                
-            self.logger.info(f"Created collection {collection_id}: {stats.documents_processed} docs, {stats.chunks_processed} chunks")
-            return collection_id
-            
-        except Exception as e:
-            self.logger.error(f"Failed to create chunked collection {collection_id}: {e}")
-            # Fallback to default collection
-            return "default"
+    # Note: _ensure_chunked_collection removed in Phase 5. Collection lifecycle
+    # is managed by corpus/reindex tools and CLI.
     
     def _perform_statistical_analysis(self, metrics_a: List[Dict], metrics_b: List[Dict], 
                                     alpha: float = 0.05) -> Dict[str, Any]:

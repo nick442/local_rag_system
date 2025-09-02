@@ -220,6 +220,10 @@ class RAGPipeline:
         self.logger.info(f"Processing validated query: '{cleaned_query[:50]}{'...' if len(cleaned_query) > 50 else ''}'")
         
         start_time = time.time()
+        
+        # If no collection is provided, default to the pipeline's current corpus
+        if collection_id is None and self.current_corpus:
+            collection_id = self.current_corpus
         metrics = get_metrics()
         metrics.track(
             component="pipeline",
