@@ -47,6 +47,8 @@ class LLMWrapper:
         ) or None
 
         self.model = None
+        self._cache_key = None
+        self._effective_cache_param_keys = None
         self.logger = logging.getLogger(__name__)
         self._load_time = 0.0
         self._is_loaded = False
@@ -78,6 +80,26 @@ class LLMWrapper:
                 )
 
             cache = ModelCache.instance()
+
+            # Determine final cache key parameters used for this instance
+            default_param_keys = (
+                "n_ctx",
+                "n_batch",
+                "n_threads",
+                "n_gpu_layers",
+                "add_bos_token",
+                "echo",
+            )
+            self._effective_cache_param_keys = (
+                self._cache_param_keys
+                or cache._llm_cache_param_keys
+                or default_param_keys
+            )
+            key_params = tuple(
+                sorted((k, init_params.get(k)) for k in self._effective_cache_param_keys)
+            )
+            self._cache_key = (str(self.model_path), key_params)
+
             self.model = cache.get_llm_model(
                 str(self.model_path),
                 init_params=init_params,
@@ -309,41 +331,17 @@ class LLMWrapper:
             # Evict from ModelCache to actually free memory
             try:
                 cache = ModelCache.instance()
-                
-                # Reconstruct the same cache key used during loading
-                path_obj = Path(str(self.model_path)).expanduser()
-                resolved_path = str(path_obj.resolve(strict=True))
-                
-                init_params = {
-                    'n_ctx': self.n_ctx,
-                    'n_batch': self.n_batch,
-                    'n_threads': self.n_threads,
-                    'n_gpu_layers': self.n_gpu_layers,
-                    'verbose': False,
-                    'add_bos_token': True,
-                    'echo': False,
-                }
-                
-                # Use the same cache param keys logic as _load_model
-                default_param_keys = (
-                    "n_ctx",
-                    "n_batch", 
-                    "n_threads",
-                    "n_gpu_layers",
-                    "add_bos_token",
-                    "echo",
-                )
-                keys = self._cache_param_keys or default_param_keys
-                key_params = tuple(sorted((k, init_params.get(k)) for k in keys))
-                cache_key = (resolved_path, key_params)
-                
-                # Evict the cached model
-                evicted = cache.evict(cache_key)
-                if evicted:
-                    self.logger.info("Model evicted from cache successfully")
+
+                cache_key = getattr(self, "_cache_key", None)
+                if cache_key is None:
+                    self.logger.warning("No cache key found for model; skipping eviction")
                 else:
-                    self.logger.warning("Model was not found in cache during eviction")
-                    
+                    evicted = cache.evict(cache_key)
+                    if evicted:
+                        self.logger.info("Model evicted from cache successfully")
+                    else:
+                        self.logger.warning("Model was not found in cache during eviction")
+
             except Exception as e:
                 self.logger.warning(f"Failed to evict model from cache: {e}")
             
