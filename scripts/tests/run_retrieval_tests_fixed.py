@@ -39,6 +39,7 @@ from src.vector_database import VectorDatabase
 from src.retriever import create_retriever
 from src.llm_wrapper import create_llm_wrapper
 from src.prompt_builder import create_prompt_builder
+from src.metrics import enable_metrics
 
 
 @dataclass
@@ -557,6 +558,8 @@ async def main():
                        help='Path to test configuration file')
     parser.add_argument('--output', default='reports/tests',
                        help='Output directory for results')
+    parser.add_argument('--metrics', action='store_true', default=False,
+                        help='Enable JSONL metrics logging during test run')
     
     args = parser.parse_args()
     
@@ -566,6 +569,13 @@ async def main():
         return 1
     
     try:
+        # Optionally enable metrics logging
+        if args.metrics:
+            out_dir = Path(args.output)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            metrics_path = out_dir / 'metrics.jsonl'
+            enable_metrics(True, output_path=str(metrics_path))
+
         # Create and run test suite
         runner = RetrievalTestRunner(args.config, args.output)
         results = await runner.run_all_tests()
