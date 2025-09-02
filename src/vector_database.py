@@ -21,7 +21,9 @@ except Exception:  # pragma: no cover - handled by runtime fallback
     sqlite_vec = None
 import os
 
-from .document_ingestion import DocumentChunk
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .document_ingestion import DocumentChunk
 from .interfaces.vector_index_interface import VectorIndexInterface
 
 
@@ -277,7 +279,7 @@ class VectorDatabase(VectorIndexInterface):
             conn.commit()
             return True
     
-    def insert_chunk(self, chunk: DocumentChunk, embedding: np.ndarray, collection_id: str = "default") -> bool:
+    def insert_chunk(self, chunk: 'DocumentChunk', embedding: np.ndarray, collection_id: str = "default") -> bool:
         """
         Insert a document chunk with its embedding.
         
