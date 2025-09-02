@@ -33,11 +33,8 @@ class EmbeddingService:
         """
         self.model_path = Path(model_path)
         self.batch_size = batch_size
-        # Normalize device string to avoid cache key mismatches
-        if device is None:
-            self.device = self._get_optimal_device()
-        else:
-            self.device = device.strip().lower()
+        # Normalize device string to prevent cache misses and invalid names
+        self.device = (device or self._get_optimal_device()).strip().lower()
         self.model = None
         self.logger = logging.getLogger(__name__)
         
