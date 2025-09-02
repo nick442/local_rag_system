@@ -123,19 +123,20 @@ def ingest():
 @click.option('--collection', default='default', help='Target collection')
 @click.option('--max-workers', default=4, help='Number of parallel workers')
 @click.option('--batch-size', default=32, help='Embedding batch size')
+@click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
 @click.option('--dry-run', is_flag=True, help='Preview without processing')
 @click.option('--resume/--no-resume', default=True, help='Resume from checkpoint')
 @click.option('--deduplicate/--no-deduplicate', default=True, help='Skip duplicates')
 @click.pass_context
 def ingest_directory(ctx, path: Path, pattern: str, collection: str, max_workers: int, 
-                    batch_size: int, dry_run: bool, resume: bool, deduplicate: bool):
+                    batch_size: int, embedding_path: str, dry_run: bool, resume: bool, deduplicate: bool):
     """Ingest documents from directory with parallel processing"""
     
     async def run_ingestion():
         try:
             manager = create_corpus_manager(
                 db_path=ctx.obj['db_path'],
-                embedding_model_path=DEFAULT_EMBEDDING_PATH,
+                embedding_model_path=embedding_path,
                 max_workers=max_workers,
                 batch_size=batch_size
             )
@@ -180,15 +181,16 @@ def ingest_directory(ctx, path: Path, pattern: str, collection: str, max_workers
 @ingest.command('file')
 @click.argument('file_path', type=click.Path(exists=True, path_type=Path))
 @click.option('--collection', default='default', help='Target collection')
+@click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
 @click.pass_context
-def ingest_file(ctx, file_path: Path, collection: str):
+def ingest_file(ctx, file_path: Path, collection: str, embedding_path: str):
     """Ingest a single document file"""
     
     async def run_single_ingestion():
         try:
             manager = create_corpus_manager(
                 db_path=ctx.obj['db_path'],
-                embedding_model_path=DEFAULT_EMBEDDING_PATH
+                embedding_model_path=embedding_path
             )
             
             # Process single file (use directory ingestion with specific pattern)
@@ -967,13 +969,22 @@ def validate_query_input(question: str) -> str:
 @click.option('--model-path', default=DEFAULT_LLM_PATH, help='LLM model path')
 @click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
 @click.option('--k', default=5, help='Number of documents to retrieve')
+@click.option('--metrics/--no-metrics', default=False, help='Enable JSONL metrics logging')
 @click.pass_context
-def query(ctx, question: str, collection: str, model_path: str, embedding_path: str, k: int):
+def query(ctx, question: str, collection: str, model_path: str, embedding_path: str, k: int, metrics: bool):
     """Ask a single question to the RAG system"""
     try:
         # ✅ FIX: Validate input before processing
         validated_question = validate_query_input(question)
         
+        # Optionally enable JSONL metrics
+        if metrics:
+            try:
+                from src.metrics import enable_metrics
+                enable_metrics(True, output_path="logs/metrics.jsonl")
+            except Exception:
+                pass
+
         # Initialize RAG pipeline
         rag = RAGPipeline(
             db_path=ctx.obj['db_path'],

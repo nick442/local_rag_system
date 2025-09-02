@@ -10,6 +10,7 @@ from typing import Dict, Any, Optional, Generator, Callable
 import threading
 
 from .model_cache import ModelCache
+from .metrics import get_metrics
 
 
 class LLMWrapper:
@@ -258,6 +259,12 @@ class LLMWrapper:
             Dictionary with generated text and statistics
         """
         start_time = time.time()
+        metrics = get_metrics()
+        metrics.track(
+            component="llm",
+            event="generation_started",
+            params={k: v for k, v in kwargs.items() if k in ("max_tokens", "temperature", "top_p")},
+        )
         prompt_tokens = self.count_tokens(prompt)
         
         generated_text = self.generate(prompt, **kwargs)
@@ -268,7 +275,7 @@ class LLMWrapper:
         total_tokens = prompt_tokens + output_tokens
         tokens_per_second = output_tokens / generation_time if generation_time > 0 else 0
         
-        return {
+        result = {
             'generated_text': generated_text,
             'prompt_tokens': prompt_tokens,
             'output_tokens': output_tokens,
@@ -277,6 +284,19 @@ class LLMWrapper:
             'tokens_per_second': tokens_per_second,
             'context_remaining': self.n_ctx - total_tokens
         }
+        try:
+            metrics.track(
+                component="llm",
+                event="generation_completed",
+                prompt_tokens=prompt_tokens,
+                output_tokens=output_tokens,
+                total_tokens=total_tokens,
+                generation_time=round(generation_time, 6),
+                tokens_per_second=tokens_per_second,
+            )
+        except Exception:
+            pass
+        return result
     
     def generate_stream_with_stats(self, prompt: str, **kwargs) -> tuple:
         """
@@ -313,7 +333,7 @@ class LLMWrapper:
             first_token_latency = (stats['first_token_time'] - start_time) if stats['first_token_time'] else 0
             tokens_per_second = stats['output_tokens'] / total_time if total_time > 0 else 0
             
-            return {
+            result = {
                 'generated_text': stats['generated_text'],
                 'prompt_tokens': stats['prompt_tokens'],
                 'output_tokens': stats['output_tokens'],
@@ -323,6 +343,21 @@ class LLMWrapper:
                 'tokens_per_second': tokens_per_second,
                 'context_remaining': self.n_ctx - (stats['prompt_tokens'] + stats['output_tokens'])
             }
+            try:
+                metrics = get_metrics()
+                metrics.track(
+                    component="llm",
+                    event="generation_completed_stream",
+                    prompt_tokens=result['prompt_tokens'],
+                    output_tokens=result['output_tokens'],
+                    total_tokens=result['total_tokens'],
+                    generation_time=round(result['generation_time'], 6),
+                    first_token_latency=round(first_token_latency, 6),
+                    tokens_per_second=result['tokens_per_second'],
+                )
+            except Exception:
+                pass
+            return result
         
         return generator, get_final_stats
     

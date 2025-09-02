@@ -11,8 +11,13 @@ from typing import List, Union, Optional
 import gc
 
 import numpy as np
-import torch
-from tqdm import tqdm
+# Optional dep: torch. Import lazily in _get_optimal_device to allow CI mocks.
+# Optional dep: tqdm. Provide a no-op fallback if unavailable.
+try:
+    from tqdm import tqdm  # type: ignore
+except Exception:
+    def tqdm(iterable, **kwargs):  # type: ignore
+        return iterable
 
 from .document_ingestion import DocumentChunk
 from .model_cache import ModelCache
@@ -44,12 +49,15 @@ class EmbeddingService:
     
     def _get_optimal_device(self) -> str:
         """Determine the best device for embedding generation."""
-        if torch.backends.mps.is_available():
-            return "mps"
-        elif torch.cuda.is_available():
-            return "cuda"
-        else:
-            return "cpu"
+        try:
+            import torch  # type: ignore
+            if getattr(torch.backends, 'mps', None) and torch.backends.mps.is_available():
+                return "mps"
+            if torch.cuda.is_available():
+                return "cuda"
+        except Exception:
+            pass
+        return "cpu"
     
     def _load_model(self):
         """Load or acquire the SentenceTransformers model via ModelCache."""

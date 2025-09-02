@@ -4,15 +4,19 @@ High-level interface for retrieving relevant document chunks.
 """
 
 import logging
+import time
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple, Union
 import tiktoken
 
 import numpy as np
 
-from .embedding_service import EmbeddingService
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .embedding_service import EmbeddingService
 from .interfaces.retrieval_interface import RetrievalInterface
 from .interfaces.vector_index_interface import VectorIndexInterface
+from .metrics import get_metrics
 
 
 class RetrievalResult:
@@ -45,7 +49,7 @@ class RetrievalResult:
 class Retriever(RetrievalInterface):
     """High-level retrieval interface for the RAG system."""
     
-    def __init__(self, vector_db: VectorIndexInterface, embedding_service: EmbeddingService, 
+    def __init__(self, vector_db: VectorIndexInterface, embedding_service: 'EmbeddingService', 
                  max_context_tokens: int = 6000, encoding_name: str = "cl100k_base"):
         """
         Initialize the retriever.
@@ -77,14 +81,32 @@ class Retriever(RetrievalInterface):
         Returns:
             List of RetrievalResult objects ordered by relevance
         """
-        if method == "vector":
-            return self._vector_retrieve(query, k, collection_id)
-        elif method == "keyword":
-            return self._keyword_retrieve(query, k, collection_id)
-        elif method == "hybrid":
-            return self._hybrid_retrieve(query, k, collection_id)
-        else:
-            raise ValueError(f"Unknown retrieval method: {method}")
+        metrics = get_metrics()
+        t0 = time.time()
+        try:
+            if method == "vector":
+                results = self._vector_retrieve(query, k, collection_id)
+            elif method == "keyword":
+                results = self._keyword_retrieve(query, k, collection_id)
+            elif method == "hybrid":
+                results = self._hybrid_retrieve(query, k, collection_id)
+            else:
+                raise ValueError(f"Unknown retrieval method: {method}")
+            return results
+        finally:
+            elapsed = time.time() - t0
+            try:
+                metrics.track(
+                    component="retriever",
+                    event="retrieve",
+                    method=method,
+                    k=k,
+                    duration=round(elapsed, 6),
+                    collection_id=collection_id,
+                    results=len(results) if 'results' in locals() else 0,
+                )
+            except Exception:
+                pass
     
     def _vector_retrieve(self, query: str, k: int, collection_id: Optional[str] = None) -> List[RetrievalResult]:
         """Retrieve using vector similarity search."""
