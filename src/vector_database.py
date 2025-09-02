@@ -22,9 +22,10 @@ except Exception:  # pragma: no cover - handled by runtime fallback
 import os
 
 from .document_ingestion import DocumentChunk
+from .interfaces.vector_index_interface import VectorIndexInterface
 
 
-class VectorDatabase:
+class VectorDatabase(VectorIndexInterface):
     """SQLite-based vector database with sqlite-vec extension."""
     
     def __init__(self, db_path: str, embedding_dimension: int = 384):
@@ -668,3 +669,21 @@ def create_vector_database(db_path: str, embedding_dimension: int = 384) -> Vect
         Configured VectorDatabase instance
     """
     return VectorDatabase(db_path, embedding_dimension)
+
+
+def create_vector_index(
+    db_path: str,
+    embedding_dimension: int = 384,
+    backend: str = "sqlite",
+    **kwargs,
+) -> VectorIndexInterface:
+    """
+    Factory for vector index implementations.
+
+    Currently supports:
+    - backend='sqlite': returns VectorDatabase (sqlite-vec)
+    """
+    backend = (backend or "sqlite").lower()
+    if backend in ("sqlite", "sqlite-vec", "sqlite_vec"):
+        return VectorDatabase(db_path, embedding_dimension)
+    raise NotImplementedError(f"Unknown vector index backend: {backend}")

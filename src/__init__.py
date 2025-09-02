@@ -23,7 +23,8 @@ from .embedding_service import (
 
 from .vector_database import (
     VectorDatabase,
-    create_vector_database
+    create_vector_database,
+    create_vector_index,
 )
 
 from .model_cache import (
@@ -57,6 +58,7 @@ __all__ = [
     # Vector database
     "VectorDatabase",
     "create_vector_database",
+    "create_vector_index",
     
     # Model cache
     "ModelCache",

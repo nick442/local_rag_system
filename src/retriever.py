@@ -10,8 +10,9 @@ import tiktoken
 
 import numpy as np
 
-from .vector_database import VectorDatabase
 from .embedding_service import EmbeddingService
+from .interfaces.retrieval_interface import RetrievalInterface
+from .interfaces.vector_index_interface import VectorIndexInterface
 
 
 class RetrievalResult:
@@ -41,10 +42,10 @@ class RetrievalResult:
         }
 
 
-class Retriever:
+class Retriever(RetrievalInterface):
     """High-level retrieval interface for the RAG system."""
     
-    def __init__(self, vector_db: VectorDatabase, embedding_service: EmbeddingService, 
+    def __init__(self, vector_db: VectorIndexInterface, embedding_service: EmbeddingService, 
                  max_context_tokens: int = 6000, encoding_name: str = "cl100k_base"):
         """
         Initialize the retriever.
@@ -398,8 +399,14 @@ class Retriever:
         }
 
 
-def create_retriever(db_path: str, embedding_model_path: str, 
-                    embedding_dimension: int = 384, **kwargs) -> Retriever:
+def create_retriever(
+    db_path: str,
+    embedding_model_path: str,
+    embedding_dimension: int = 384,
+    retrieval_backend: str = "default",
+    vector_index_backend: str = "sqlite",
+    **kwargs,
+) -> Retriever:
     """
     Factory function to create a complete Retriever instance.
     
@@ -412,7 +419,7 @@ def create_retriever(db_path: str, embedding_model_path: str,
     Returns:
         Configured Retriever instance
     """
-    from .vector_database import create_vector_database
+    from .vector_database import create_vector_index
     from .embedding_service import create_embedding_service
     
     # Create embedding service first to derive true embedding dimension
@@ -421,8 +428,8 @@ def create_retriever(db_path: str, embedding_model_path: str,
         true_dim = embedding_service.get_embedding_dimension()
     except Exception:
         true_dim = embedding_dimension
-    # Create vector DB with validated/derived dimension
-    vector_db = create_vector_database(db_path, true_dim)
+    # Create vector index with validated/derived dimension
+    vector_db = create_vector_index(db_path, true_dim, backend=vector_index_backend)
     
-    # Create retriever
+    # Future: switch on retrieval_backend when alternates are available
     return Retriever(vector_db, embedding_service, **kwargs)
