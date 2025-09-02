@@ -122,11 +122,16 @@ class RAGPipeline:
             'retrieval': {
                 'default_k': 5,
                 'default_method': 'vector',
-                'include_metadata': True
+                'include_metadata': True,
+                'backend': 'default'
+            },
+            'vector_index': {
+                'backend': 'sqlite'
             },
             'chunking': {
                 'chunk_size': 512,
                 'chunk_overlap': 128,
+                'backend': 'token'
             }
         }
         
@@ -136,7 +141,7 @@ class RAGPipeline:
                 config[key] = value
             elif isinstance(value, dict):
                 config[key] = {**value, **config.get(key, {})}
-        
+
         return config
     
     def _initialize_components(self):
@@ -149,7 +154,9 @@ class RAGPipeline:
             self.retriever = create_retriever(
                 self.db_path, 
                 self.embedding_model_path,
-                embedding_dimension=384
+                embedding_dimension=384,
+                retrieval_backend=self.config.get('retrieval', {}).get('backend', 'default'),
+                vector_index_backend=self.config.get('vector_index', {}).get('backend', 'sqlite'),
             )
             
             # Create prompt builder
@@ -573,9 +580,11 @@ class RAGPipeline:
         """Reload the retriever component."""
         self.logger.info("Reloading retriever...")
         self.retriever = create_retriever(
-            self.db_path, 
+            self.db_path,
             self.embedding_model_path,
-            embedding_dimension=384
+            embedding_dimension=384,
+            retrieval_backend=self.config.get('retrieval', {}).get('backend', 'default'),
+            vector_index_backend=self.config.get('vector_index', {}).get('backend', 'sqlite'),
         )
     
     def unload_model(self):

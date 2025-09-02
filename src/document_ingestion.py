@@ -17,6 +17,7 @@ from bs4 import BeautifulSoup
 import html2text
 import markdown
 import PyPDF2
+from .interfaces.chunker_interface import ChunkerInterface
 
 
 @dataclass
@@ -208,7 +209,7 @@ class MarkdownLoader(DocumentLoader):
         return Document(content=content, metadata=metadata)
 
 
-class DocumentChunker:
+class DocumentChunker(ChunkerInterface):
     """Handles document chunking with token counting."""
     
     def __init__(self, chunk_size: int = 512, overlap: int = 128, encoding_name: str = "cl100k_base"):
@@ -276,7 +277,7 @@ class DocumentChunker:
 class DocumentIngestionService:
     """Main service for document ingestion."""
     
-    def __init__(self, chunk_size: int = 512, chunk_overlap: int = 128):
+    def __init__(self, chunk_size: int = 512, chunk_overlap: int = 128, chunker: Optional["ChunkerInterface"] = None):
         self.loaders = {
             '.txt': TextLoader(),
             '.pdf': PDFLoader(),
@@ -285,7 +286,7 @@ class DocumentIngestionService:
             '.md': MarkdownLoader(),
             '.markdown': MarkdownLoader()
         }
-        self.chunker = DocumentChunker(chunk_size=chunk_size, overlap=chunk_overlap)
+        self.chunker = chunker if chunker is not None else DocumentChunker(chunk_size=chunk_size, overlap=chunk_overlap)
         self.logger = logging.getLogger(__name__)
     
     def ingest_document(self, file_path: str) -> List[DocumentChunk]:
