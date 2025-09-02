@@ -1018,152 +1018,7 @@ def query(ctx, question: str, collection: str, model_path: str, embedding_path: 
 
 # ========== UTILITY COMMANDS ==========
 
-# ========== EXPERIMENT COMMANDS ==========
-
-@cli.group()
-def experiment():
-    """Experimentation and batch run commands"""
-    pass
-
-
-@experiment.command('batch')
-@click.option('--queries', 'queries_path', required=True, type=click.Path(exists=True, path_type=Path), help='Path to queries JSON/JSONL')
-@click.option('--profile', default=None, help='Config profile to use (fast/balanced/quality)')
-@click.option('--collection', default='default', help='Collection to query')
-@click.option('--model-path', default=DEFAULT_LLM_PATH, help='LLM model path')
-@click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
-@click.option('--k', default=5, help='Number of documents to retrieve')
-@click.option('--output', 'output_path', type=click.Path(path_type=Path), help='Output JSONL file path (default: results/experiment_batch_*.jsonl)')
-@click.option('--dry-run', is_flag=True, help='Do not load models; emit empty answers for structure/demo')
-@click.pass_context
-def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path], dry_run: bool):
-    """Run a batch of queries and emit JSONL results"""
-
-    def _load_queries(path: Path) -> List[str]:
-        # Supports JSONL (one JSON object per line) and JSON (list or structured)
-        text = path.read_text(encoding='utf-8', errors='ignore')
-        # Try JSONL first: if multiple lines parseable as JSON with 'query' keys, use them
-        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
-        queries: List[str] = []
-        parsed_as_jsonl = False
-        try:
-            objs = []
-            for ln in lines:
-                try:
-                    objs.append(json.loads(ln))
-                except Exception:
-                    objs = []
-                    break
-            if objs:
-                for obj in objs:
-                    if isinstance(obj, dict) and 'query' in obj:
-                        queries.append(str(obj['query']))
-                parsed_as_jsonl = len(queries) > 0
-        except Exception:
-            parsed_as_jsonl = False
-        if parsed_as_jsonl:
-            return queries
-        # Fallback: parse as JSON file
-        data = json.loads(text)
-        # Accept plain list of strings
-        if isinstance(data, list) and all(isinstance(x, str) for x in data):
-            return data
-        # Accept list of dicts with 'query'
-        if isinstance(data, list) and all(isinstance(x, dict) for x in data):
-            out = [str(x.get('query')) for x in data if 'query' in x]
-            if out:
-                return out
-        # Accept structured benchmark format with categories
-        if isinstance(data, dict):
-            if 'queries' in data and isinstance(data['queries'], list):
-                return [str(q) for q in data['queries']]
-            if 'categories' in data and isinstance(data['categories'], dict):
-                acc: List[str] = []
-                for arr in data['categories'].values():
-                    if isinstance(arr, list):
-                        for item in arr:
-                            if isinstance(item, dict) and 'query' in item:
-                                acc.append(str(item['query']))
-                if acc:
-                    return acc
-        raise click.BadParameter('Unsupported queries file format')
-
-    try:
-        # Prepare output path
-        ts = datetime.now().strftime('%Y%m%d_%H%M%S')
-        if not output_path:
-            Path('results').mkdir(parents=True, exist_ok=True)
-            output_path = Path('results') / f"experiment_batch_{ts}.jsonl"
-        else:
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-
-        # Load queries
-        queries = _load_queries(queries_path)
-        if not queries:
-            rprint("[yellow]No queries found in the provided file[/yellow]")
-            return
-
-        # Switch profile if provided
-        config_manager: ConfigManager = ctx.obj['config_manager']
-        if profile:
-            config_manager.switch_profile(profile)
-
-        rag = None
-        if not dry_run:
-            # Initialize pipeline only when not dry-running
-            rag = RAGPipeline(
-                db_path=ctx.obj['db_path'],
-                embedding_model_path=embedding_path,
-                llm_model_path=model_path,
-                profile_config=config_manager.get_profile(),
-            )
-            rag.set_corpus(collection)
-
-        # Run queries and write JSONL
-        with output_path.open('w', encoding='utf-8') as f_out:
-            for q in queries:
-                try:
-                    cleaned = validate_query_input(q)
-                except click.BadParameter:
-                    # Skip invalid entries
-                    continue
-                t0 = datetime.now().isoformat()
-                if dry_run:
-                    result = {
-                        'answer': '',
-                        'sources': [],
-                        'metadata': {
-                            'query': cleaned,
-                            'retrieval_method': 'vector',
-                            'contexts_count': 0,
-                            'retrieval_time': 0.0,
-                            'generation_time': 0.0,
-                            'tokens_per_second': 0.0
-                        }
-                    }
-                else:
-                    result = rag.query(cleaned, k=k, collection_id=collection)
-                record = {
-                    'timestamp': t0,
-                    'query': cleaned,
-                    'profile': config_manager.get_current_profile_name(),
-                    'collection': collection,
-                    'k': k,
-                    'answer': result.get('answer', ''),
-                    'sources': result.get('sources', []),
-                    'metadata': result.get('metadata', {}),
-                }
-                f_out.write(json.dumps(record) + "\n")
-
-        rprint(f"[green]✓ Batch complete[/green] → [cyan]{output_path}[/cyan]")
-        rprint(f"Queries processed: {len(queries)} | Profile: {profile or config_manager.get_current_profile_name()} | Collection: {collection}")
-
-    except Exception as e:
-        rprint(f"[red]✗ Batch execution failed: {e}[/red]")
-        if ctx.obj.get('verbose'):
-            import traceback
-            rprint(f"[dim]{traceback.format_exc()}[/dim]")
-        sys.exit(1)
+# ========== UTILITY COMMANDS ==========
 
 @cli.command('doctor')
 @click.option('--format', 'output_format', type=click.Choice(['markdown', 'json']), default='markdown', help='Report format')
@@ -1292,6 +1147,141 @@ def experiment():
     """Advanced experimental interface for RAG system parameter exploration"""
     pass
 
+
+@experiment.command('batch')
+@click.option('--queries', 'queries_path', required=True, type=click.Path(exists=True, path_type=Path), help='Path to queries JSON/JSONL')
+@click.option('--profile', default=None, help='Config profile to use (fast/balanced/quality)')
+@click.option('--collection', default='default', help='Collection to query')
+@click.option('--model-path', default=DEFAULT_LLM_PATH, help='LLM model path')
+@click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
+@click.option('--k', default=5, help='Number of documents to retrieve')
+@click.option('--output', 'output_path', type=click.Path(path_type=Path), help='Output JSONL file path (default: results/experiment_batch_*.jsonl)')
+@click.option('--dry-run', is_flag=True, help='Do not load models; emit empty answers for structure/demo')
+@click.pass_context
+def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path], dry_run: bool):
+    """Run a batch of queries and emit JSONL results"""
+
+    def _parse_value(val: str):
+        try:
+            if '.' in val:
+                return float(val)
+            return int(val)
+        except Exception:
+            return val
+
+    def _load_evaluation_queries(path: Path) -> List[str]:
+        text = path.read_text(encoding='utf-8', errors='ignore')
+        # Try JSONL first
+        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+        objs = []
+        for ln in lines:
+            try:
+                objs.append(json.loads(ln))
+            except Exception:
+                objs = []
+                break
+        if objs:
+            queries = [str(o['query']) for o in objs if isinstance(o, dict) and 'query' in o]
+            if queries:
+                return queries
+        # Fallback: JSON
+        data = json.loads(text)
+        if isinstance(data, list) and all(isinstance(x, str) for x in data):
+            return data
+        if isinstance(data, list) and all(isinstance(x, dict) for x in data):
+            out = [str(x.get('query')) for x in data if 'query' in x]
+            if out:
+                return out
+        if isinstance(data, dict):
+            if 'queries' in data and isinstance(data['queries'], list):
+                return [str(q) for q in data['queries']]
+            if 'categories' in data and isinstance(data['categories'], dict):
+                acc: List[str] = []
+                for arr in data['categories'].values():
+                    if isinstance(arr, list):
+                        for item in arr:
+                            if isinstance(item, dict) and 'query' in item:
+                                acc.append(str(item['query']))
+                if acc:
+                    return acc
+        raise click.BadParameter('Unsupported queries file format')
+
+    try:
+        # Prepare output path
+        ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+        if not output_path:
+            Path('results').mkdir(parents=True, exist_ok=True)
+            output_path = Path('results') / f"experiment_batch_{ts}.jsonl"
+        else:
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # Load queries
+        queries = _load_evaluation_queries(queries_path)
+        if not queries:
+            rprint("[yellow]No queries found in the provided file[/yellow]")
+            return
+
+        # Switch profile if provided
+        config_manager: ConfigManager = ctx.obj['config_manager']
+        if profile:
+            config_manager.switch_profile(profile)
+
+        rag = None
+        if not dry_run:
+            # Initialize pipeline only when not dry-running
+            rag = RAGPipeline(
+                db_path=ctx.obj['db_path'],
+                embedding_model_path=embedding_path,
+                llm_model_path=model_path,
+                profile_config=config_manager.get_profile(),
+            )
+            rag.set_corpus(collection)
+
+        # Run queries and write JSONL
+        with output_path.open('w', encoding='utf-8') as f_out:
+            for q in queries:
+                try:
+                    cleaned = validate_query_input(q)
+                except click.BadParameter:
+                    # Skip invalid entries
+                    continue
+                t0 = datetime.now().isoformat()
+                if dry_run:
+                    result = {
+                        'answer': '',
+                        'sources': [],
+                        'metadata': {
+                            'query': cleaned,
+                            'retrieval_method': 'vector',
+                            'contexts_count': 0,
+                            'retrieval_time': 0.0,
+                            'generation_time': 0.0,
+                            'tokens_per_second': 0.0
+                        }
+                    }
+                else:
+                    result = rag.query(cleaned, k=k, collection_id=collection)
+                record = {
+                    'timestamp': t0,
+                    'query': cleaned,
+                    'profile': config_manager.get_current_profile_name(),
+                    'collection': collection,
+                    'k': k,
+                    'answer': result.get('answer', ''),
+                    'sources': result.get('sources', []),
+                    'metadata': result.get('metadata', {}),
+                }
+                f_out.write(json.dumps(record) + "\n")
+
+        rprint(f"[green]✓ Batch complete[/green] → [cyan]{output_path}[/cyan]")
+        rprint(f"Queries processed: {len(queries)} | Profile: {profile or config_manager.get_current_profile_name()} | Collection: {collection}")
+
+    except Exception as e:
+        rprint(f"[red]✗ Batch execution failed: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
 
 @experiment.command('sweep')
 @click.option('--param', required=True, help='Parameter to sweep (e.g., temperature, chunk_size)')
