@@ -193,6 +193,16 @@ class TestModelCache(unittest.TestCase):
         # Loader should be invoked only once
         self.assertEqual(self.counters.get('st_loads', 0), 1)
 
+    def test_embedding_device_normalization(self):
+        # Variants of the same device string should normalize and hit cache
+        svc1 = self.embedding_service.EmbeddingService("models/embeddings/fake", device="CUDA ")
+        svc2 = self.embedding_service.EmbeddingService("models/embeddings/fake", device=" cuda")
+
+        self.assertEqual(svc1.device, "cuda")
+        self.assertEqual(svc2.device, "cuda")
+        self.assertIs(svc1.model, svc2.model)
+        self.assertEqual(self.counters.get('st_loads', 0), 1)
+
     def test_llm_model_cached_by_init_params(self):
         with tempfile.TemporaryDirectory() as tmpd:
             model_path = Path(tmpd) / "fake.gguf"
