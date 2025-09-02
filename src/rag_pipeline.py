@@ -580,9 +580,11 @@ class RAGPipeline:
         """Reload the retriever component."""
         self.logger.info("Reloading retriever...")
         self.retriever = create_retriever(
-            self.db_path, 
+            self.db_path,
             self.embedding_model_path,
-            embedding_dimension=384
+            embedding_dimension=384,
+            retrieval_backend=self.config.get('retrieval', {}).get('backend', 'default'),
+            vector_index_backend=self.config.get('vector_index', {}).get('backend', 'sqlite'),
         )
     
     def unload_model(self):
