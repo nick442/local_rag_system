@@ -463,7 +463,7 @@ class VectorDatabase(VectorIndexInterface):
             similarities.sort(key=lambda x: x[1], reverse=True)
             return similarities[:k]
     
-    def keyword_search(self, query: str, k: int = 5) -> List[Tuple[str, float, Dict[str, Any]]]:
+    def keyword_search(self, query: str, k: int = 5, collection_id: Optional[str] = None) -> List[Tuple[str, float, Dict[str, Any]]]:
         """
         Search for chunks using keyword search (FTS5).
         
@@ -478,20 +478,18 @@ class VectorDatabase(VectorIndexInterface):
             cursor = conn.cursor()
             
             try:
-                cursor.execute("""
-                    SELECT 
-                        f.chunk_id,
-                        bm25(f) as score,
-                        c.content,
-                        c.metadata_json,
-                        c.doc_id,
-                        c.chunk_index
-                    FROM chunks_fts f
-                    JOIN chunks c ON f.chunk_id = c.chunk_id
-                    WHERE chunks_fts MATCH ?
-                    ORDER BY score
-                    LIMIT ?
-                """, (query, k))
+                base_query = (
+                    "SELECT f.chunk_id, bm25(f) as score, c.content, c.metadata_json, c.doc_id, c.chunk_index "
+                    "FROM chunks_fts f JOIN chunks c ON f.chunk_id = c.chunk_id "
+                    "WHERE chunks_fts MATCH ?"
+                )
+                params: List[Any] = [query]
+                if collection_id:
+                    base_query += " AND c.collection_id = ?"
+                    params.append(collection_id)
+                base_query += " ORDER BY score LIMIT ?"
+                params.append(k)
+                cursor.execute(base_query, params)
                 
                 results = cursor.fetchall()
                 
@@ -514,7 +512,7 @@ class VectorDatabase(VectorIndexInterface):
                 return []
     
     def hybrid_search(self, query_embedding: np.ndarray, query_text: str, k: int = 5, 
-                     alpha: float = 0.7) -> List[Tuple[str, float, Dict[str, Any]]]:
+                     alpha: float = 0.7, collection_id: Optional[str] = None) -> List[Tuple[str, float, Dict[str, Any]]]:
         """
         Perform hybrid search combining vector and keyword search.
         
@@ -528,10 +526,10 @@ class VectorDatabase(VectorIndexInterface):
             List of (chunk_id, combined_score, chunk_data) tuples
         """
         # Get vector search results
-        vector_results = self.search_similar(query_embedding, k * 2)
+        vector_results = self.search_similar(query_embedding, k * 2, collection_id=collection_id)
         
         # Get keyword search results
-        keyword_results = self.keyword_search(query_text, k * 2)
+        keyword_results = self.keyword_search(query_text, k * 2, collection_id=collection_id)
         
         # Combine and score results
         combined_scores = {}

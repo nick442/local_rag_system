@@ -39,6 +39,7 @@ class VectorIndexInterface(ABC):
         query_text: str,
         k: int = 5,
         alpha: float = 0.7,
+        collection_id: Optional[str] = None,
     ) -> List[Tuple[str, float, Dict[str, Any]]]:
         raise NotImplementedError
 

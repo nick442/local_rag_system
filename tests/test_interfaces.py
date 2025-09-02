@@ -58,7 +58,7 @@ class TestInterfaces(unittest.TestCase):
             def keyword_search(self, query, k=5, collection_id=None):
                 return self.search_similar(np.zeros(384, dtype=np.float32), k)
 
-            def hybrid_search(self, query_embedding, query_text, k=5, alpha=0.7):
+            def hybrid_search(self, query_embedding, query_text, k=5, alpha=0.7, collection_id=None):
                 return self.search_similar(query_embedding, k)
 
             def get_chunk_by_id(self, chunk_id):
@@ -87,7 +87,10 @@ class TestInterfaces(unittest.TestCase):
         self.assertEqual(len(results), 2)
         self.assertTrue(hasattr(results[0], "chunk_id"))
 
+        # Also verify hybrid path accepts collection_id
+        results_h = retriever.retrieve("hello", k=2, method="hybrid", collection_id="demo")
+        self.assertEqual(len(results_h), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
-

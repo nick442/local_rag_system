@@ -14,7 +14,7 @@ class RetrievalInterface(ABC):
         k: int = 5,
         method: str = "vector",
         collection_id: Optional[str] = None,
-    ) -> List[Any]:
+    ) -> List["RetrievalResult"]:
         """Retrieve relevant contexts for a query."""
         raise NotImplementedError
 
@@ -22,4 +22,3 @@ class RetrievalInterface(ABC):
     def get_stats(self) -> Dict[str, Any]:
         """Return implementation statistics/metadata."""
         raise NotImplementedError
-
