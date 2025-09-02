@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Generator, Callable
 import threading
 
-from llama_cpp import Llama
 from .model_cache import ModelCache
 
 
@@ -73,8 +72,12 @@ class LLMWrapper:
             }
 
             def _loader():
+                # Lazy import to allow tests to patch 'llama_cpp' reliably and
+                # to avoid importing heavy backends at module import time.
+                from llama_cpp import Llama as LlamaCpp
+
                 self.logger.info(f"Loading LLM model from: {self.model_path}")
-                return Llama(
+                return LlamaCpp(
                     model_path=str(self.model_path),
                     **init_params
                 )
