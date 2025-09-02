@@ -13,6 +13,8 @@ from datetime import datetime
 from typing import Dict, Any, List, Optional, Tuple
 from dataclasses import dataclass, asdict
 
+import logging
+
 @dataclass
 class HealthCheckResult:
     """Result of a health check"""
@@ -35,9 +37,32 @@ class SystemHealthReport:
 class HealthChecker:
     """Comprehensive system health monitoring"""
     
-    def __init__(self, system_manager):
-        self.system = system_manager
-        self.logger = system_manager.logger
+    def __init__(self, config_or_system, components: Optional[Dict[str, Any]] = None):
+        """Initialize HealthChecker with ConfigManager or legacy SystemManager.
+
+        Supports both the new ConfigManager-based initialization and legacy
+        SystemManager objects that expose `.config`, `.components`, and `.logger`.
+        """
+        # Determine config manager
+        if hasattr(config_or_system, 'get_param') and hasattr(config_or_system, 'load_config'):
+            # Looks like a ConfigManager
+            self.config_manager = config_or_system
+            logger = getattr(self.config_manager, 'logger', None)
+        elif hasattr(config_or_system, 'config'):
+            # Legacy SystemManager: use its config
+            self.config_manager = getattr(config_or_system, 'config')
+            logger = getattr(config_or_system, 'logger', None)
+        else:
+            raise ValueError("HealthChecker requires a ConfigManager or an object with a 'config' attribute")
+
+        # Components: allow explicit override, else read from legacy system if present
+        if components is not None:
+            self.components = components
+        else:
+            self.components = getattr(config_or_system, 'components', {}) if hasattr(config_or_system, 'components') else {}
+
+        # Logger: prefer provided/attached logger, fallback to module logger
+        self.logger = logger or logging.getLogger(__name__)
         
     def run_all_checks(self) -> SystemHealthReport:
         """Run comprehensive health checks"""
@@ -176,12 +201,25 @@ class HealthChecker:
     def _check_models(self) -> HealthCheckResult:
         """Check model availability"""
         def check():
-            llm_path = Path(self.system.config.llm_model_path)
-            embedding_path = Path(self.system.config.embedding_model_path)
+            # Resolve model paths from config with sensible defaults
+            try:
+                from src.config_manager import ExperimentConfig  # for defaults
+                default_llm = ExperimentConfig().llm_model_path
+                default_embed = ExperimentConfig().embedding_model_path
+            except Exception:
+                # Fallback defaults if import fails
+                default_llm = 'models/gemma-3-4b-it-q4_0.gguf'
+                default_embed = 'sentence-transformers/all-MiniLM-L6-v2'
+
+            llm_path_str = self.config_manager.get_param('llm_model_path', default_llm)
+            embedding_path_str = self.config_manager.get_param('embedding_model_path', default_embed)
+
+            llm_path = Path(llm_path_str)
+            embedding_path = Path(embedding_path_str)
             
             models_status = {}
             
-            # Check LLM model
+            # Check LLM model (critical)
             if llm_path.exists():
                 file_size_mb = llm_path.stat().st_size / (1024 * 1024)
                 models_status['llm'] = {
@@ -197,7 +235,7 @@ class HealthChecker:
                     'error': 'File not found'
                 }
             
-            # Check embedding model (may be downloaded on first use)
+            # Check embedding model (may be a remote ID; local existence optional)
             if embedding_path.exists():
                 models_status['embedding'] = {
                     'path': str(embedding_path),
@@ -234,7 +272,8 @@ class HealthChecker:
     def _check_database(self) -> HealthCheckResult:
         """Check database connectivity and status"""
         def check():
-            db_path = Path(self.system.config.db_path)
+            db_path_str = self.config_manager.get_param('database.path', 'data/rag_vectors.db')
+            db_path = Path(db_path_str)
             
             try:
                 # Ensure directory exists
@@ -479,25 +518,41 @@ class HealthChecker:
     def _check_configuration(self) -> HealthCheckResult:
         """Check system configuration"""
         def check():
-            config = self.system.config
-            
+            # Gather key configuration values
+            log_level = self.config_manager.get_param('logging.level', 'INFO')
+            max_memory_gb = self.config_manager.get_param('performance.memory_limit_gb', 8)
+            db_path = self.config_manager.get_param('database.path', 'data/rag_vectors.db')
+
+            try:
+                from src.config_manager import ExperimentConfig
+                default_llm = ExperimentConfig().llm_model_path
+                default_embed = ExperimentConfig().embedding_model_path
+            except Exception:
+                default_llm = 'models/gemma-3-4b-it-q4_0.gguf'
+                default_embed = 'sentence-transformers/all-MiniLM-L6-v2'
+
+            llm_model_path = self.config_manager.get_param('llm_model_path', default_llm)
+            embedding_model_path = self.config_manager.get_param('embedding_model_path', default_embed)
+
             config_status = {
-                'db_path': str(config.db_path),
-                'llm_model_path': str(config.llm_model_path),
-                'embedding_model_path': str(config.embedding_model_path),
-                'log_level': config.log_level,
-                'max_memory_gb': config.max_memory_gb,
-                'min_disk_space_gb': config.min_disk_space_gb
+                'db_path': str(db_path),
+                'llm_model_path': str(llm_model_path),
+                'embedding_model_path': str(embedding_model_path),
+                'log_level': log_level,
+                'max_memory_gb': max_memory_gb
             }
             
             # Validate configuration
             issues = []
             
-            if not config.log_level in ['DEBUG', 'INFO', 'WARNING', 'ERROR']:
-                issues.append(f"Invalid log level: {config.log_level}")
+            if log_level not in ['DEBUG', 'INFO', 'WARNING', 'ERROR']:
+                issues.append(f"Invalid log level: {log_level}")
             
-            if config.max_memory_gb <= 0:
-                issues.append(f"Invalid max memory: {config.max_memory_gb}")
+            try:
+                if float(max_memory_gb) <= 0:
+                    issues.append(f"Invalid max memory: {max_memory_gb}")
+            except Exception:
+                issues.append(f"Invalid max memory value: {max_memory_gb}")
             
             details = {'configuration': config_status, 'validation_issues': issues}
             
@@ -521,10 +576,10 @@ class HealthChecker:
     def _check_component_status(self) -> HealthCheckResult:
         """Check loaded components status"""
         def check():
-            loaded_components = list(self.system.components.keys())
+            loaded_components = list(self.components.keys()) if hasattr(self, 'components') else []
             
             component_status = {}
-            for name, component in self.system.components.items():
+            for name, component in getattr(self, 'components', {}).items():
                 try:
                     # Try to get component info
                     if hasattr(component, 'get_status'):

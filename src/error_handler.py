@@ -52,9 +52,17 @@ class RecoveryResult:
 class ErrorHandler:
     """Centralized error handling and recovery system"""
     
-    def __init__(self, system_manager):
-        self.system = system_manager
-        self.logger = system_manager.logger.getChild('error_handler')
+    def __init__(self, config_manager):
+        """Initialize ErrorHandler with ConfigManager only.
+
+        SystemManager support has been removed. All configuration access
+        must go through ConfigManager.
+        """
+        if not (hasattr(config_manager, 'get_param') and hasattr(config_manager, 'load_config')):
+            raise ValueError("ErrorHandler requires a ConfigManager instance")
+
+        self.config_manager = config_manager
+        self.logger = logging.getLogger(__name__)
         
         # Error statistics
         self.error_stats = {
@@ -279,13 +287,6 @@ class ErrorHandler:
         
         # Step 2: Clear component caches if possible
         cleared_components = []
-        for name, component in self.system.components.items():
-            try:
-                if hasattr(component, 'clear_cache'):
-                    component.clear_cache()
-                    cleared_components.append(name)
-            except:
-                pass
         
         # Step 3: Check if memory was freed
         memory = psutil.virtual_memory()
@@ -352,10 +353,7 @@ class ErrorHandler:
                 message="Model file not found. Please check model path in configuration.",
                 details={
                     'suggestion': 'check_model_path',
-                    'current_config': {
-                        'llm_model': self.system.config.llm_model_path,
-                        'embedding_model': self.system.config.embedding_model_path
-                    }
+                    'current_config': self._get_current_model_config()
                 },
                 should_continue=False
             )
@@ -564,6 +562,21 @@ class ErrorHandler:
             'most_problematic_component': max(self.error_stats['by_component'].items(), key=lambda x: x[1])[0] if self.error_stats['by_component'] else None
         }
     
+    def _get_current_model_config(self) -> Dict[str, Any]:
+        """Get current model configuration from ConfigManager."""
+        try:
+            from src.config_manager import ExperimentConfig
+            default_llm = ExperimentConfig().llm_model_path
+            default_embed = ExperimentConfig().embedding_model_path
+        except Exception:
+            default_llm = 'models/gemma-3-4b-it-q4_0.gguf'
+            default_embed = 'sentence-transformers/all-MiniLM-L6-v2'
+
+        return {
+            'llm_model': self.config_manager.get_param('llm_model_path', default_llm),
+            'embedding_model': self.config_manager.get_param('embedding_model_path', default_embed)
+        }
+
     def reset_statistics(self):
         """Reset error statistics"""
         self.error_stats = {

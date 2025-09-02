@@ -24,7 +24,11 @@ class LLMWrapper:
             model_path: Path to the GGUF model file
             **kwargs: Configuration parameters from model_config.yaml
         """
-        self.model_path = Path(model_path)
+        # Normalize/resolve path safely but preserve existence check semantics
+        try:
+            self.model_path = Path(model_path).expanduser().resolve(strict=True)
+        except Exception:
+            self.model_path = Path(model_path).expanduser().resolve(strict=False)
         if not self.model_path.exists():
             raise FileNotFoundError(f"Model file not found: {model_path}")
         

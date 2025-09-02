@@ -64,17 +64,20 @@ class AutoTuner:
     Monitors metrics, identifies bottlenecks, and applies optimizations automatically.
     """
     
-    def __init__(self, system_manager, monitoring_interval: float = 30.0,
+    def __init__(self, config_manager_or_provider, monitoring_interval: float = 30.0,
                  optimization_threshold: float = 0.2):
         """
         Initialize auto-tuner.
         
         Args:
-            system_manager: Reference to system manager for accessing components
+            config_manager_or_provider: ConfigManager instance and/or an object exposing
+                a `get_component(name)` method to provide optional components.
             monitoring_interval: How often to collect metrics (seconds)
             optimization_threshold: Minimum performance degradation to trigger optimization
         """
-        self.system_manager = system_manager
+        # Support ConfigManager and an optional component provider (duck-typed)
+        self.config_manager = config_manager_or_provider if hasattr(config_manager_or_provider, 'get_param') else None
+        self._component_provider = config_manager_or_provider if hasattr(config_manager_or_provider, 'get_component') else None
         self.monitoring_interval = monitoring_interval
         self.optimization_threshold = optimization_threshold
         
@@ -99,11 +102,6 @@ class AutoTuner:
             BottleneckType.IO_BOTTLENECK: {'io_wait_ms': 2000, 'io_percent': 30}
         }
         
-        # Monitoring state
-        self._monitoring = False
-        self._monitor_thread = None
-        self._stop_event = threading.Event()
-        
         # Optimization strategies
         self.optimization_strategies = {
             BottleneckType.MEMORY_PRESSURE: self._optimize_memory_pressure,
@@ -114,11 +112,25 @@ class AutoTuner:
             BottleneckType.DATABASE_SLOW: self._optimize_database_performance,
             BottleneckType.IO_BOTTLENECK: self._optimize_io_performance
         }
-        
+
+        # Monitoring state
+        self._monitoring = False
+        self._monitor_thread = None
+        self._stop_event = threading.Event()
+
         self.logger.info(f"AutoTuner initialized - Monitoring interval: {monitoring_interval}s")
+
+    def _get_component(self, component_name: str):
+        """Get a named component from the optional provider, if available."""
+        if self._component_provider and hasattr(self._component_provider, 'get_component'):
+            try:
+                return self._component_provider.get_component(component_name)
+            except Exception:
+                return None
+        return None
     
     def collect_metrics(self) -> PerformanceMetrics:
-        """Collect current performance metrics from all system components."""
+        """Collect current performance metrics from available components."""
         try:
             # System metrics
             memory = psutil.virtual_memory()
@@ -151,7 +163,7 @@ class AutoTuner:
     def _get_token_throughput(self) -> float:
         """Get current token throughput from monitor component."""
         try:
-            monitor = self.system_manager.get_component('monitor')
+            monitor = self._get_component('monitor')
             if monitor and hasattr(monitor, 'get_current_stats'):
                 stats = monitor.get_current_stats()
                 return stats.get('token_throughput', 0.0)
@@ -162,7 +174,7 @@ class AutoTuner:
     def _get_retrieval_latency(self) -> float:
         """Get current retrieval latency."""
         try:
-            monitor = self.system_manager.get_component('monitor')
+            monitor = self._get_component('monitor')
             if monitor and hasattr(monitor, 'get_current_stats'):
                 stats = monitor.get_current_stats()
                 return stats.get('avg_retrieval_time_ms', 0.0)
@@ -173,7 +185,7 @@ class AutoTuner:
     def _get_generation_latency(self) -> float:
         """Get current generation latency."""
         try:
-            monitor = self.system_manager.get_component('monitor')
+            monitor = self._get_component('monitor')
             if monitor and hasattr(monitor, 'get_current_stats'):
                 stats = monitor.get_current_stats()
                 return stats.get('avg_generation_time_ms', 0.0)
@@ -184,7 +196,7 @@ class AutoTuner:
     def _get_cache_hit_rate(self) -> float:
         """Get current cache hit rate."""
         try:
-            cache_manager = self.system_manager.get_component('cache_manager')
+            cache_manager = self._get_component('cache_manager')
             if cache_manager and hasattr(cache_manager, 'get_cache_statistics'):
                 stats = cache_manager.get_cache_statistics()
                 return stats['global_stats'].get('hit_rate', 0.0)
@@ -195,7 +207,7 @@ class AutoTuner:
     def _get_db_query_time(self) -> float:
         """Get current database query time."""
         try:
-            db_optimizer = self.system_manager.get_component('db_optimizer')
+            db_optimizer = self._get_component('db_optimizer')
             if db_optimizer and hasattr(db_optimizer, 'performance_stats'):
                 stats = db_optimizer.performance_stats
                 if stats['queries_executed'] > 0:
@@ -298,7 +310,7 @@ class AutoTuner:
     def _optimize_memory_pressure(self) -> OptimizationAction:
         """Optimize memory pressure issues."""
         try:
-            memory_optimizer = self.system_manager.get_component('memory_optimizer')
+            memory_optimizer = self._get_component('memory_optimizer')
             if memory_optimizer:
                 # Perform emergency cleanup
                 cleanup_stats = memory_optimizer.emergency_cleanup()
@@ -323,7 +335,7 @@ class AutoTuner:
         """Optimize CPU bottleneck issues."""
         try:
             # Reduce batch sizes to lower CPU load
-            memory_optimizer = self.system_manager.get_component('memory_optimizer')
+            memory_optimizer = self._get_component('memory_optimizer')
             if memory_optimizer:
                 # Get current memory stats to determine optimal batch size
                 memory_stats = memory_optimizer.get_memory_usage()
@@ -352,7 +364,7 @@ class AutoTuner:
         """Optimize slow text generation."""
         try:
             # Try to optimize Metal usage
-            metal_optimizer = self.system_manager.get_component('metal_optimizer')
+            metal_optimizer = self._get_component('metal_optimizer')
             if metal_optimizer:
                 # Clear MPS cache to free up memory
                 cache_stats = metal_optimizer.clear_mps_cache()
@@ -377,7 +389,7 @@ class AutoTuner:
         """Optimize slow retrieval performance."""
         try:
             # Optimize database indices
-            db_optimizer = self.system_manager.get_component('db_optimizer')
+            db_optimizer = self._get_component('db_optimizer')
             if db_optimizer:
                 # Run query optimization
                 optimization_results = db_optimizer.optimize_query_plans()
@@ -401,7 +413,7 @@ class AutoTuner:
     def _optimize_cache_performance(self) -> OptimizationAction:
         """Optimize cache performance."""
         try:
-            cache_manager = self.system_manager.get_component('cache_manager')
+            cache_manager = self._get_component('cache_manager')
             if cache_manager:
                 # Optimize cache sizes based on usage patterns
                 new_sizes = cache_manager.optimize_cache_sizes()
@@ -425,7 +437,7 @@ class AutoTuner:
     def _optimize_database_performance(self) -> OptimizationAction:
         """Optimize database performance."""
         try:
-            db_optimizer = self.system_manager.get_component('db_optimizer')
+            db_optimizer = self._get_component('db_optimizer')
             if db_optimizer:
                 # Create missing performance indices
                 index_results = db_optimizer.create_performance_indices()
@@ -449,7 +461,7 @@ class AutoTuner:
     def _optimize_io_performance(self) -> OptimizationAction:
         """Optimize I/O performance."""
         try:
-            speed_optimizer = self.system_manager.get_component('speed_optimizer')
+            speed_optimizer = self._get_component('speed_optimizer')
             if speed_optimizer:
                 # Clear operation cache to free up I/O resources
                 cleared_counts = speed_optimizer.clear_cache()
