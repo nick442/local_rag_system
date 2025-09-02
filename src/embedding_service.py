@@ -80,6 +80,21 @@ class EmbeddingService:
                 "Embedding model path not found: %s", self.model_path, exc_info=True
             )
             raise
+        except PermissionError as e:
+            self.logger.error(
+                "Permission denied accessing embedding model path: %s",
+                self.model_path,
+                exc_info=True,
+            )
+            raise
+        except OSError as e:
+            self.logger.error(
+                "OS error while loading embedding model from %s: %s",
+                self.model_path,
+                e,
+                exc_info=True,
+            )
+            raise
         except Exception as e:
             # Preserve traceback and provide actionable context
             self.logger.error(
@@ -152,8 +167,19 @@ class EmbeddingService:
                     'memory': f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB" if torch.cuda.is_available() else "N/A"
                 })
         
-        except Exception as e:
-            self.logger.error(f"Error generating embeddings: {e}")
+        except torch.cuda.OutOfMemoryError as e:  # type: ignore[attr-defined]
+            self.logger.error("CUDA OOM during embedding generation: %s", e, exc_info=True)
+            raise
+        except MemoryError as e:
+            self.logger.error("System memory exhausted during embedding generation", exc_info=True)
+            raise
+        except ValueError as e:
+            # Likely invalid input batch or model args
+            self.logger.error("Invalid input for embedding generation: %s", e, exc_info=True)
+            raise
+        except RuntimeError as e:
+            # Torch/MPS runtime errors
+            self.logger.error("Runtime error during embedding generation: %s", e, exc_info=True)
             raise
         
         finally:

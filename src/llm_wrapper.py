@@ -37,6 +37,11 @@ class LLMWrapper:
         self.top_p = kwargs.get('top_p', 0.95)
         self.max_tokens = kwargs.get('max_tokens', 2048)
         
+        # Optional cache param keys for ModelCache keying behavior
+        self._cache_param_keys = tuple(
+            kwargs.get('cache_param_keys', []) or kwargs.get('llm_cache_param_keys', [])
+        ) or None
+
         self.model = None
         self.logger = logging.getLogger(__name__)
         self._load_time = 0.0
@@ -73,6 +78,7 @@ class LLMWrapper:
                 str(self.model_path),
                 init_params=init_params,
                 loader=_loader,
+                cache_param_keys=self._cache_param_keys,
             )
 
             self._load_time = time.time() - start_time

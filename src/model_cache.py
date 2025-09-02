@@ -85,10 +85,23 @@ class ModelCache:
         Returns:
             A cached model instance
         """
-        # Path validation for local filesystem paths
+        # Path validation for local filesystem paths with safe resolution
         path_obj = Path(model_path).expanduser()
         if path_obj.exists():
-            resolved = str(path_obj.resolve())
+            try:
+                resolved = str(path_obj.resolve(strict=True))
+            except PermissionError as e:
+                # Surface permission errors explicitly for local paths
+                self._logger.error(
+                    "Permission denied resolving embedding model path: %s", model_path
+                )
+                raise
+            except OSError as e:
+                # Unexpected resolution error – bubble up with context
+                self._logger.error(
+                    "Error resolving embedding model path '%s': %s", model_path, e
+                )
+                raise
         else:
             # Likely a model identifier (e.g., Hugging Face). Do not raise.
             # Keep original identifier as part of cache key and warn once.
@@ -139,7 +152,19 @@ class ModelCache:
         Returns:
             A cached model instance
         """
-        resolved_path = str(Path(model_path).expanduser().resolve())
+        # Safely resolve LLM model path (must be a local file)
+        path_obj = Path(model_path).expanduser()
+        try:
+            resolved_path = str(path_obj.resolve(strict=True))
+        except FileNotFoundError:
+            self._logger.error("LLM model path not found: %s", model_path)
+            raise
+        except PermissionError as e:
+            self._logger.error("Permission denied accessing LLM model path: %s", model_path)
+            raise
+        except OSError as e:
+            self._logger.error("Error resolving LLM model path '%s': %s", model_path, e)
+            raise
         # Only parameters that impact model construction should key the cache
         default_param_keys = (
             "n_ctx",
@@ -199,10 +224,38 @@ class ModelCache:
         Returns True if an entry was removed from either cache.
         """
         removed = False
-        if key in self._embedding_models:
+
+        # Attempt graceful resource cleanup if possible
+        def _cleanup(obj: Any) -> None:
+            for method_name in ("close", "shutdown", "unload", "release"):
+                try:
+                    method = getattr(obj, method_name, None)
+                    if callable(method):
+                        method()
+                        self._logger.debug(
+                            "Called cleanup method '%s' on cached model for key: %s",
+                            method_name,
+                            key,
+                        )
+                        return
+                except Exception as e:
+                    # Log and continue with eviction to avoid leaks
+                    self._logger.warning(
+                        "Error during cleanup '%s' for key %s: %s",
+                        method_name,
+                        key,
+                        e,
+                    )
+
+        obj = self._embedding_models.get(key)
+        if obj is not None:
+            _cleanup(obj)
             del self._embedding_models[key]
             removed = True
-        if key in self._llm_models:
+
+        obj = self._llm_models.get(key)
+        if obj is not None:
+            _cleanup(obj)
             del self._llm_models[key]
             removed = True
         # Remove associated lock if present

@@ -2396,3 +2396,34 @@ Implement Phase 2 of RAG system refactor to eliminate wasteful model reloading (
 
 This addresses all reviewer concerns while maintaining the 'excellent architecture' that was praised, making the ModelCache system production-ready.
 
+## PR Review Feedback Resolution (2025-09-02)
+
+**Fixed High Priority Issues from Claude PR Review**:
+
+1. **Path Validation** (`src/model_cache.py:67`) - Enhanced safe path resolution:
+   - Embedding models: Handles local paths vs model identifiers gracefully
+   - LLM models: Strict path validation with clear error messages
+   - Added proper exception handling for `FileNotFoundError`, `PermissionError`, `OSError`
+
+2. **Resource Cleanup** - Implemented `ModelCache.evict(key)` method:
+   - Attempts graceful cleanup via `close()`, `shutdown()`, `unload()`, `release()` methods
+   - Removes associated per-key locks to prevent memory leaks
+   - Comprehensive logging for cleanup operations and errors
+
+3. **Configurable LLM Cache Keys** - Made cache parameters configurable:
+   - Environment variable support: `LLM_CACHE_PARAM_KEYS="n_ctx,n_gpu_layers,n_threads"`
+   - Constructor parameter support via `cache_param_keys` in `LLMWrapper`
+   - Maintains backward compatibility with sensible defaults
+
+4. **Enhanced Error Handling** (`src/embedding_service.py`):
+   - Replaced generic exception handling with specific catches
+   - Added targeted handling for `torch.cuda.OutOfMemoryError`, `MemoryError`, `ValueError`, `RuntimeError`
+   - Improved actionable error messages and logging
+
+**Files Modified**:
+- `src/model_cache.py` - Core improvements for path safety, cleanup, and configurability
+- `src/embedding_service.py` - Specific exception handling improvements  
+- `src/llm_wrapper.py` - Support for configurable cache parameters
+
+**Result**: All high priority PR review concerns addressed while preserving thread safety and performance optimizations.
+
