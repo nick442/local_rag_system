@@ -1,0 +1,16 @@
+{
+  "retrieval_test_prompts": {
+    "test_sets": {
+      "smoke": {
+        "prompts": [
+          {
+            "id": "smoke_1",
+            "query": "What documents are available in the demo corpus?",
+            "expected_elements": ["document", "demo", "corpus"],
+            "expected_sources": 1
+          }
+        ]
+      }
+    }
+  }
+}
