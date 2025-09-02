@@ -59,6 +59,7 @@ python main.py ingest directory PATH [OPTIONS]
 - `--collection TEXT`: Target collection (default: default)
 - `--max-workers INTEGER`: Number of parallel workers (default: 4)
 - `--batch-size INTEGER`: Embedding batch size (default: 32)
+- `--embedding-path TEXT`: Embedding model path (overrides default)
 - `--dry-run`: Preview without processing
 - `--resume/--no-resume`: Resume from checkpoint (default: enabled)
 - `--deduplicate/--no-deduplicate`: Skip duplicates (default: enabled)
@@ -96,6 +97,7 @@ python main.py ingest file FILE_PATH [OPTIONS]
 **Purpose**: Process single document file
 **Options**:
 - `--collection TEXT`: Target collection (default: default)
+- `--embedding-path TEXT`: Embedding model path (overrides default)
 
 **Example**:
 ```bash
@@ -260,10 +262,11 @@ python main.py query "QUESTION" [OPTIONS]
 - `--model-path TEXT`: LLM model path 
 - `--embedding-path TEXT`: Embedding model path
 - `--k INTEGER`: Number of documents to retrieve (default: 5)
+- `--metrics/--no-metrics`: Enable JSONL metrics logging to `logs/metrics.jsonl`
 
 **Example**:
 ```bash
-python main.py query "What is machine learning?" --collection ai_papers --k 3
+python main.py query "What is machine learning?" --collection ai_papers --k 3 --metrics
 ```
 
 **Output**: Answer with source attribution
