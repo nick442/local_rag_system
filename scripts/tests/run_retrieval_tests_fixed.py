@@ -35,8 +35,8 @@ from dataclasses import dataclass, asdict
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 # Import components via package
-from src.vector_database import VectorDatabase
-from src.retriever import create_retriever
+from src.vector_database import VectorDatabase, create_vector_index
+from src.retriever import create_retriever, Retriever
 from src.llm_wrapper import create_llm_wrapper
 from src.prompt_builder import create_prompt_builder
 from src.metrics import enable_metrics
@@ -93,11 +93,34 @@ class SimpleRAGInterface:
     def _initialize_components(self):
         """Initialize RAG components"""
         # Create retriever
-        self.retriever = create_retriever(
-            self.db_path,
-            self.embedding_model_path,
-            embedding_dimension=384
-        )
+        use_mock_embed = os.getenv('RETRIEVAL_TESTS_MOCK_EMBED', '0') == '1'
+        if use_mock_embed:
+            class _MockEmbeddingService:
+                def __init__(self, dim: int = 384):
+                    import numpy as _np
+                    self._np = _np
+                    self._dim = dim
+
+                def embed_text(self, text: str):
+                    # Deterministic pseudo-embedding based on text hash
+                    rng = abs(hash(text)) % (2**32)
+                    self._np.random.seed(rng)
+                    return self._np.random.rand(self._dim).astype('float32')
+
+                def get_model_info(self):
+                    return {"model": "mock", "embedding_dimension": self._dim, "device": "cpu"}
+
+                def get_embedding_dimension(self):
+                    return self._dim
+
+            vec_index = create_vector_index(self.db_path, 384, backend="sqlite")
+            self.retriever = Retriever(vec_index, _MockEmbeddingService(), max_context_tokens=2048)
+        else:
+            self.retriever = create_retriever(
+                self.db_path,
+                self.embedding_model_path,
+                embedding_dimension=384
+            )
         
         # Create LLM wrapper (supports mock mode for CI)
         llm_params = {

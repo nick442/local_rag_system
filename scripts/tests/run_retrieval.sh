@@ -76,8 +76,8 @@ echo "Using Embeddings: $EMBEDDING_MODEL_PATH"
 
 # Ensure DB has content by ingesting a tiny sample
 echo "Ingesting sample_corpus into collection 'demo'..."
-python main.py ingest directory sample_corpus --collection demo --dry-run || true
-python main.py ingest directory sample_corpus --collection demo || true
+python main.py ingest directory sample_corpus --collection demo --embedding-path "$EMBEDDING_MODEL_PATH" --dry-run || true
+python main.py ingest directory sample_corpus --collection demo --embedding-path "$EMBEDDING_MODEL_PATH" || true
 
 # Run retrieval suite (pass through any CLI args)
 OUT_DIR="test_results"
@@ -85,4 +85,3 @@ mkdir -p "$OUT_DIR"
 python -m scripts.tests.run_retrieval_tests_fixed --config tests/retrieval_test_prompts.json --output "$OUT_DIR" "$@"
 
 echo "Done. Reports in $OUT_DIR"
-
