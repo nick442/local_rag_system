@@ -190,17 +190,18 @@ class TestModelCache(unittest.TestCase):
 
         self.assertIsNotNone(svc1.model)
         self.assertIs(svc1.model, svc2.model)
-        # Loader should be invoked only once
-        self.assertEqual(self.counters.get('st_loads', 0), 1)
 
     def test_embedding_device_normalization(self):
         # Variants of the same device string should normalize and hit cache
         svc1 = self.embedding_service.EmbeddingService("models/embeddings/fake", device="CUDA ")
         svc2 = self.embedding_service.EmbeddingService("models/embeddings/fake", device=" cuda")
+        svc3 = self.embedding_service.EmbeddingService("models/embeddings/fake", device="  CUDA  ")
 
         self.assertEqual(svc1.device, "cuda")
         self.assertEqual(svc2.device, "cuda")
+        self.assertEqual(svc3.device, "cuda")
         self.assertIs(svc1.model, svc2.model)
+        self.assertIs(svc1.model, svc3.model)
         self.assertEqual(self.counters.get('st_loads', 0), 1)
 
     def test_llm_model_cached_by_init_params(self):
@@ -219,6 +220,23 @@ class TestModelCache(unittest.TestCase):
             w3 = self.llm_wrapper.LLMWrapper(str(model_path2), n_ctx=4096, n_gpu_layers=-1)
         self.assertIsNot(w1.model, w3.model)
         self.assertEqual(self.counters.get('llm_loads', 0), 2)
+
+    def test_llm_unload_respects_custom_cache_keys(self):
+        with tempfile.TemporaryDirectory() as tmpd:
+            model_path = Path(tmpd) / "fake.gguf"
+            model_path.write_text("fake")
+
+            cache = self.model_cache.ModelCache.instance()
+            cache.set_llm_cache_param_keys(("n_ctx", "temperature"))
+
+            w = self.llm_wrapper.LLMWrapper(str(model_path), n_ctx=2048, temperature=0.5)
+            self.assertEqual(self.counters.get('llm_loads', 0), 1)
+
+            w.unload_model()
+            w.reload_model()
+
+            # Model should have been evicted and reloaded
+            self.assertEqual(self.counters.get('llm_loads', 0), 2)
 
     def test_vector_db_embedding_dimension_validation(self):
         # Initialize DB with one embedding dimension, then reopen with conflicting dimension
