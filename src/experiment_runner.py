@@ -560,18 +560,8 @@ class ExperimentRunner:
         
         return rag_pipeline
 
-    def _ensure_chunked_collection(self, config: ExperimentConfig) -> str:
-        """(Deprecated) Previously ensured a rechunked collection exists.
-
-        Phase 5 update: collection lifecycle (creation/rechunking) is managed by
-        corpus/reindex tools and CLI, not implicitly by experiments. This method
-        now derives a deterministic collection ID from chunk params and returns it
-        without attempting DB mutations. If absent at query time, retrieval simply
-        yields no results.
-        """
-        chunk_size = getattr(config, 'chunk_size', 512)
-        chunk_overlap = getattr(config, 'chunk_overlap', 128)
-        return f"exp_cs{chunk_size}_co{chunk_overlap}"
+    # Note: _ensure_chunked_collection removed in Phase 5. Collection lifecycle
+    # is managed by corpus/reindex tools and CLI.
     
     def _perform_statistical_analysis(self, metrics_a: List[Dict], metrics_b: List[Dict], 
                                     alpha: float = 0.05) -> Dict[str, Any]:

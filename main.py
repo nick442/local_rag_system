@@ -1161,16 +1161,10 @@ def experiment():
 def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path], dry_run: bool):
     """Run a batch of queries and emit JSONL results"""
 
-    def _parse_value(val: str):
-        try:
-            if '.' in val:
-                return float(val)
-            return int(val)
-        except Exception:
-            return val
-
     def _load_evaluation_queries(path: Path) -> List[str]:
         text = path.read_text(encoding='utf-8', errors='ignore')
+        if not text.strip():
+            return []
         # Try JSONL first
         lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
         objs = []
@@ -1218,7 +1212,11 @@ def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection
         # Load queries
         queries = _load_evaluation_queries(queries_path)
         if not queries:
-            rprint("[yellow]No queries found in the provided file[/yellow]")
+            rprint(
+                f"[yellow]No queries found in: {queries_path}[/yellow]\n"
+                "[dim]Supported formats: JSONL with {'query': ...} per line; a JSON array of strings;\n"
+                "a JSON array of objects with 'query'; or a structured JSON with a 'categories' map.[/dim]"
+            )
             return
 
         # Switch profile if provided
