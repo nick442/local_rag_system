@@ -1034,8 +1034,9 @@ def experiment():
 @click.option('--embedding-path', default=DEFAULT_EMBEDDING_PATH, help='Embedding model path')
 @click.option('--k', default=5, help='Number of documents to retrieve')
 @click.option('--output', 'output_path', type=click.Path(path_type=Path), help='Output JSONL file path (default: results/experiment_batch_*.jsonl)')
+@click.option('--dry-run', is_flag=True, help='Do not load models; emit empty answers for structure/demo')
 @click.pass_context
-def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path]):
+def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection: str, model_path: str, embedding_path: str, k: int, output_path: Optional[Path], dry_run: bool):
     """Run a batch of queries and emit JSONL results"""
 
     def _load_queries(path: Path) -> List[str]:
@@ -1107,14 +1108,16 @@ def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection
         if profile:
             config_manager.switch_profile(profile)
 
-        # Initialize pipeline
-        rag = RAGPipeline(
-            db_path=ctx.obj['db_path'],
-            embedding_model_path=embedding_path,
-            llm_model_path=model_path,
-            profile_config=config_manager.get_profile(),
-        )
-        rag.set_corpus(collection)
+        rag = None
+        if not dry_run:
+            # Initialize pipeline only when not dry-running
+            rag = RAGPipeline(
+                db_path=ctx.obj['db_path'],
+                embedding_model_path=embedding_path,
+                llm_model_path=model_path,
+                profile_config=config_manager.get_profile(),
+            )
+            rag.set_corpus(collection)
 
         # Run queries and write JSONL
         with output_path.open('w', encoding='utf-8') as f_out:
@@ -1125,7 +1128,21 @@ def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection
                     # Skip invalid entries
                     continue
                 t0 = datetime.now().isoformat()
-                result = rag.query(cleaned, k=k, collection_id=collection)
+                if dry_run:
+                    result = {
+                        'answer': '',
+                        'sources': [],
+                        'metadata': {
+                            'query': cleaned,
+                            'retrieval_method': 'vector',
+                            'contexts_count': 0,
+                            'retrieval_time': 0.0,
+                            'generation_time': 0.0,
+                            'tokens_per_second': 0.0
+                        }
+                    }
+                else:
+                    result = rag.query(cleaned, k=k, collection_id=collection)
                 record = {
                     'timestamp': t0,
                     'query': cleaned,
