@@ -197,10 +197,13 @@ class TestModelCache(unittest.TestCase):
         # Variants of the same device string should normalize and hit cache
         svc1 = self.embedding_service.EmbeddingService("models/embeddings/fake", device="CUDA ")
         svc2 = self.embedding_service.EmbeddingService("models/embeddings/fake", device=" cuda")
+        svc3 = self.embedding_service.EmbeddingService("models/embeddings/fake", device="  CUDA  ")
 
         self.assertEqual(svc1.device, "cuda")
         self.assertEqual(svc2.device, "cuda")
+        self.assertEqual(svc3.device, "cuda")
         self.assertIs(svc1.model, svc2.model)
+        self.assertIs(svc1.model, svc3.model)
         self.assertEqual(self.counters.get('st_loads', 0), 1)
 
     def test_llm_model_cached_by_init_params(self):
