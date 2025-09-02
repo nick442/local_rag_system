@@ -304,7 +304,49 @@ class LLMWrapper:
     def unload_model(self):
         """Unload the model to free memory."""
         if self.model:
-            self.logger.info("Unloading model to free memory")
+            self.logger.info("Unloading model and evicting from cache to free memory")
+            
+            # Evict from ModelCache to actually free memory
+            try:
+                cache = ModelCache.instance()
+                
+                # Reconstruct the same cache key used during loading
+                path_obj = Path(str(self.model_path)).expanduser()
+                resolved_path = str(path_obj.resolve(strict=True))
+                
+                init_params = {
+                    'n_ctx': self.n_ctx,
+                    'n_batch': self.n_batch,
+                    'n_threads': self.n_threads,
+                    'n_gpu_layers': self.n_gpu_layers,
+                    'verbose': False,
+                    'add_bos_token': True,
+                    'echo': False,
+                }
+                
+                # Use the same cache param keys logic as _load_model
+                default_param_keys = (
+                    "n_ctx",
+                    "n_batch", 
+                    "n_threads",
+                    "n_gpu_layers",
+                    "add_bos_token",
+                    "echo",
+                )
+                keys = self._cache_param_keys or default_param_keys
+                key_params = tuple(sorted((k, init_params.get(k)) for k in keys))
+                cache_key = (resolved_path, key_params)
+                
+                # Evict the cached model
+                evicted = cache.evict(cache_key)
+                if evicted:
+                    self.logger.info("Model evicted from cache successfully")
+                else:
+                    self.logger.warning("Model was not found in cache during eviction")
+                    
+            except Exception as e:
+                self.logger.warning(f"Failed to evict model from cache: {e}")
+            
             self.model = None
             self._is_loaded = False
     
