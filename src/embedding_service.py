@@ -35,8 +35,10 @@ class EmbeddingService:
         self.batch_size = batch_size
 
         raw_device = device or self._get_optimal_device()
-        # Normalize to ensure consistent cache keys and device handling
-        self.device = raw_device.strip().lower() if isinstance(raw_device, str) else raw_device
+        # Enforce device is a string; raise error if not
+        if device is not None and not isinstance(device, str):
+            raise TypeError(f"device argument must be a string or None, got {type(device).__name__}: {device!r}")
+        self.device = raw_device.strip().lower()
         self.model = None
         self.logger = logging.getLogger(__name__)
         
