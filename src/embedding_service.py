@@ -279,12 +279,27 @@ class EmbeddingService:
         }
     
     def clear_cache(self):
-        """Clear GPU memory cache."""
-        if self.device != "cpu":
-            torch.cuda.empty_cache() if torch.cuda.is_available() else None
-            if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
-                torch.mps.empty_cache()
-        gc.collect()
+        """Clear GPU/MPS memory cache with safe, optional torch handling."""
+        try:
+            import torch  # type: ignore
+        except Exception:
+            gc.collect()
+            return
+
+        try:
+            if self.device != "cpu":
+                try:
+                    if hasattr(torch, "cuda") and callable(getattr(torch.cuda, "is_available", None)) and torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+                except Exception:
+                    pass
+                try:
+                    if getattr(torch.backends, 'mps', None) and torch.backends.mps.is_available() and hasattr(torch, 'mps'):
+                        torch.mps.empty_cache()
+                except Exception:
+                    pass
+        finally:
+            gc.collect()
     
     def __del__(self):
         """Cleanup when service is destroyed."""
