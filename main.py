@@ -1419,8 +1419,9 @@ def compare(ctx, config_a: str, config_b: str, queries: str, significance: float
 @click.option('--corpus', default='default', help='Target corpus/collection')
 @click.option('--output', help='Output file for results')
 @click.option('--list-templates', is_flag=True, help='List available templates')
+@click.option('--collection-prefix', default=None, help='Override derived collection prefix (e.g., exp_full_cs)')
 @click.pass_context
-def template(ctx, template_name: str, queries: str, corpus: str, output: str, list_templates: bool):
+def template(ctx, template_name: str, queries: str, corpus: str, output: str, list_templates: bool, collection_prefix: str):
     """Run pre-defined experiment template"""
     try:
         from src.experiment_runner import create_experiment_runner
@@ -1453,10 +1454,17 @@ def template(ctx, template_name: str, queries: str, corpus: str, output: str, li
         
         # Override corpus in base config
         template.base_config.target_corpus = corpus
+        # Optionally override derived collection naming prefix
+        if collection_prefix:
+            try:
+                template.base_config.collection_prefix = collection_prefix
+            except Exception:
+                pass
         
         rprint(f"[blue]🔬 Running experiment template: {template.name}[/blue]")
         rprint(f"[dim]{template.description}[/dim]")
-        rprint(f"[dim]Parameters: {len(template.parameter_ranges)} | Corpus: {corpus}[/dim]")
+        extra = f" | Prefix: {collection_prefix}" if collection_prefix else ""
+        rprint(f"[dim]Parameters: {len(template.parameter_ranges)} | Corpus: {corpus}{extra}[/dim]")
         
         # Estimate runtime
         combinations = 1
@@ -1560,15 +1568,30 @@ def _load_evaluation_queries(queries_file) -> List[str]:
         if out:
             return out
     if isinstance(data, dict):
+        # Structured with top-level 'queries'
         if 'queries' in data and isinstance(data['queries'], list):
-            return [str(q) for q in data['queries']]
+            out: List[str] = []
+            for q in data['queries']:
+                if isinstance(q, str):
+                    out.append(q)
+                elif isinstance(q, dict):
+                    # Prefer 'query_text', fallback to 'query'
+                    if 'query_text' in q:
+                        out.append(str(q['query_text']))
+                    elif 'query' in q:
+                        out.append(str(q['query']))
+            if out:
+                return out
         if 'categories' in data and isinstance(data['categories'], dict):
             acc: List[str] = []
             for arr in data['categories'].values():
                 if isinstance(arr, list):
                     for item in arr:
-                        if isinstance(item, dict) and 'query' in item:
-                            acc.append(str(item['query']))
+                        if isinstance(item, dict):
+                            if 'query_text' in item:
+                                acc.append(str(item['query_text']))
+                            elif 'query' in item:
+                                acc.append(str(item['query']))
             if acc:
                 return acc
     return []

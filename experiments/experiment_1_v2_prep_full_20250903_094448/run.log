@@ -1,0 +1,48 @@
+Running reembed... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Reembed complete!
+⏱️  Processing time: 1.74s
+📁 Documents processed: 0
+📄 Chunks processed: 0
+Running reembed... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Reembed complete!
+⏱️  Processing time: 1.79s
+📁 Documents processed: 0
+📄 Chunks processed: 0
+⚖️  Starting A/B test comparison
+Config A: 
+experiments/experiment_1_v2_prep_full_20250903_094448/config_full_a.json | 
+Config B: 
+experiments/experiment_1_v2_prep_full_20250903_094448/config_full_b.json
+Queries: 52 | Significance: 0.05
+
+✅ A/B test completed!
+Experiment ID: ab_test_1756886580
+Total runtime: 6427.2s
+
+Comparison Results:
+⏱️  Config A avg time: 58.93s
+⏱️  Config B avg time: 64.42s
+📈 Improvement: -9.3%
+✅ Saved 104 experiment results to experiments/experiment_1_v2_prep_full_20250903_094448/ab_full_results.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_prep_full_20250903_094448/ab_full_results.json
+⚖️  Starting A/B test comparison
+Config A: 
+experiments/experiment_1_v2_prep_full_20250903_094448/config_full_a.json | 
+Config B: 
+experiments/experiment_1_v2_prep_full_20250903_094448/config_full_b.json
+Queries: 52 | Significance: 0.05
+
+✅ A/B test completed!
+Experiment ID: ab_test_1756900272
+Total runtime: 4331.8s
+
+Comparison Results:
+⏱️  Config A avg time: 44.81s
+⏱️  Config B avg time: 38.25s
+📈 Improvement: +14.7%
+✅ Saved 104 experiment results to experiments/experiment_1_v2_prep_full_20250903_094448/ab_full_results_fixed.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_prep_full_20250903_094448/ab_full_results_fixed.json

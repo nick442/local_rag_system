@@ -1,0 +1,9 @@
+{
+  "retrieval_k": 5,
+  "max_tokens": 1024,
+  "temperature": 0.8,
+  "chunk_size": 256,
+  "chunk_overlap": 64,
+  "n_ctx": 8192,
+  "target_corpus": "exp_full_cs256_co64"
+}

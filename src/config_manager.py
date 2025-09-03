@@ -81,6 +81,11 @@ class ExperimentConfig(ProfileConfig):
     corpus_size_limit: Optional[int] = None
     index_build_strategy: str = "incremental"  # incremental, batch, hybrid
     cache_strategy: str = "balanced"  # aggressive, balanced, minimal
+    
+    # Optional: derived collection naming prefix for chunking experiments
+    # Default behavior derives collections like "exp_cs256_co64".
+    # Setting collection_prefix to "exp_full_cs" derives "exp_full_cs256_co64".
+    collection_prefix: Optional[str] = None
 
 
 @dataclass  

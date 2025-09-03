@@ -560,10 +560,12 @@ class ExperimentRunner:
         if getattr(config, 'chunk_size', None) is not None or getattr(config, 'chunk_overlap', None) is not None:
             cs = getattr(config, 'chunk_size', 512)
             co = getattr(config, 'chunk_overlap', 128)
-            derived_collection = f"exp_cs{cs}_co{co}"
+            prefix = getattr(config, 'collection_prefix', None) or 'exp_cs'
+            # Compose collection id, e.g., prefix='exp_full_cs' → 'exp_full_cs256_co64'
+            derived_collection = f"{prefix}{cs}_co{co}"
 
-        # Prefer derived collection from chunk params to avoid A/B labeling (config_A/config_B) overriding it
-        selected_collection = derived_collection or target_corpus
+        # Prefer explicit target_corpus if provided; else derive from chunk params
+        selected_collection = target_corpus or derived_collection
 
         if selected_collection:
             # Only set corpus; creation/rechunking is handled elsewhere via CLI/tools
