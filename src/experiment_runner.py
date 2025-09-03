@@ -461,6 +461,7 @@ class ExperimentRunner:
             
             response = result['answer']
             sources = result['sources']
+            meta = result.get('metadata', {})
             
             duration = time.time() - start_time
             
@@ -470,7 +471,16 @@ class ExperimentRunner:
                 "response_length": len(response.split()) if response else 0,
                 "num_sources": len(sources) if sources else 0,
                 "retrieval_success": 1.0 if sources else 0.0,
-                "response_generated": 1.0 if response and response.strip() else 0.0
+                "response_generated": 1.0 if response and response.strip() else 0.0,
+                # Enhanced metrics from pipeline metadata
+                "retrieval_time": meta.get('retrieval_time'),
+                "generation_time": meta.get('generation_time'),
+                "prompt_tokens": meta.get('prompt_tokens'),
+                "output_tokens": meta.get('output_tokens'),
+                "total_tokens": meta.get('total_tokens'),
+                "contexts_count": meta.get('contexts_count'),
+                "tokens_per_second": meta.get('tokens_per_second'),
+                "context_remaining": meta.get('context_remaining'),
             }
             
             return ExperimentResult(
@@ -552,12 +562,18 @@ class ExperimentRunner:
             co = getattr(config, 'chunk_overlap', 128)
             derived_collection = f"exp_cs{cs}_co{co}"
 
-        selected_collection = target_corpus or derived_collection
+        # Prefer derived collection from chunk params to avoid A/B labeling (config_A/config_B) overriding it
+        selected_collection = derived_collection or target_corpus
 
         if selected_collection:
             # Only set corpus; creation/rechunking is handled elsewhere via CLI/tools
             rag_pipeline.set_corpus(selected_collection)
-        
+            # Record collection_id on config for provenance in exports
+            try:
+                setattr(config, 'collection_id', selected_collection)
+            except Exception:
+                pass
+
         return rag_pipeline
 
     # Note: _ensure_chunked_collection removed in Phase 5. Collection lifecycle

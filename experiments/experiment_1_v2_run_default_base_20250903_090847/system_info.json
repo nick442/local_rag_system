@@ -1,0 +1,7 @@
+{
+  "python_version": "3.11.13 | packaged by conda-forge | (main, Jun  4 2025, 14:52:34) [Clang 18.1.8 ]",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "db_path": "data/rag_vectors.db",
+  "llm_model_path": "models/gemma-3-4b-it-q4_0.gguf",
+  "embedding_snapshot": "models/embeddings/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/c9745ed1d9f207416be6d2e6f8de32d1f16199bf"
+}

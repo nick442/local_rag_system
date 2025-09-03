@@ -10,6 +10,7 @@ This module provides comprehensive re-indexing capabilities including:
 """
 
 import logging
+import json
 import sqlite3
 import time
 from datetime import datetime
@@ -242,23 +243,23 @@ class ReindexTool:
                             # Generate new embeddings
                             embeddings = embedding_service.embed_texts(chunk_texts)
                             
-                            # Update embeddings in database
+                            # Upsert embeddings in database
                             for chunk, embedding in zip(chunks, embeddings):
                                 embedding_bytes = embedding.astype(np.float32).tobytes()
                                 
-                                # Update embeddings table
+                                # Insert or replace in embeddings table
                                 cursor.execute("""
-                                    UPDATE embeddings SET embedding_vector = ?, created_at = ?
-                                    WHERE chunk_id = ?
-                                """, (embedding_bytes, datetime.now().isoformat(), chunk['chunk_id']))
+                                    INSERT OR REPLACE INTO embeddings (chunk_id, embedding_vector, created_at)
+                                    VALUES (?, ?, ?)
+                                """, (chunk['chunk_id'], embedding_bytes, datetime.now().isoformat()))
                                 
-                                # Update vector table if it exists
+                                # Upsert into vector table if it exists
                                 try:
                                     embedding_json = f"[{','.join(map(str, embedding.tolist()))}]"
                                     cursor.execute("""
-                                        UPDATE embeddings_vec SET embedding = ?
-                                        WHERE chunk_id = ?
-                                    """, (embedding_json, chunk['chunk_id']))
+                                        INSERT OR REPLACE INTO embeddings_vec (chunk_id, embedding)
+                                        VALUES (?, ?)
+                                    """, (chunk['chunk_id'], embedding_json))
                                 except sqlite3.OperationalError:
                                     pass  # Vector table may not exist
                             
@@ -798,6 +799,220 @@ class ReindexTool:
             stats.end_time = datetime.now()
             stats.processing_time = (stats.end_time - stats.start_time).total_seconds()
         
+        return stats
+
+    def clone_collection_with_chunking(
+        self,
+        source_collection: str,
+        target_collection: str,
+        chunk_size: Optional[int] = None,
+        chunk_overlap: Optional[int] = None,
+        reembed: bool = True,
+        backup: bool = True,
+    ) -> ReindexStats:
+        """Clone documents from a source collection into a new target collection and
+        re-chunk according to the provided parameters.
+
+        This creates isolated per-configuration collections (e.g., exp_cs256_co64)
+        without mutating the source.
+
+        If an embedding service is unavailable in this environment and reembed=True,
+        the method will gracefully continue without embeddings, allowing keyword
+        search to function while vector search remains unavailable.
+
+        Args:
+            source_collection: Existing collection to read document content from
+            target_collection: New collection ID to populate
+            chunk_size: New chunk size (defaults to self.default_chunk_size)
+            chunk_overlap: New chunk overlap (defaults to self.default_chunk_overlap)
+            reembed: Whether to generate embeddings for new chunks
+            backup: Whether to create a DB backup before mutation
+
+        Returns:
+            ReindexStats with operation results
+        """
+        if source_collection == target_collection:
+            raise ValueError("source_collection and target_collection must differ")
+
+        cs = chunk_size or self.default_chunk_size
+        co = chunk_overlap or self.default_chunk_overlap
+
+        stats = ReindexStats(
+            operation="clone_rechunk",
+            collection_id=target_collection,
+            start_time=datetime.now(),
+            details={
+                'source_collection': source_collection,
+                'chunk_size': cs,
+                'chunk_overlap': co,
+                'reembed': reembed,
+            },
+        )
+
+        try:
+            if backup:
+                backup_path = self._backup_database()
+                stats.details['backup_path'] = str(backup_path)
+
+            # If no embedding service is configured but embeddings requested, try init
+            if reembed and self.embedding_service is None and self.embedding_model_path:
+                try:
+                    self.embedding_service = EmbeddingService(self.embedding_model_path)
+                except Exception as e:
+                    self.logger.warning(f"Embedding service unavailable ({e}); proceeding without embeddings")
+                    reembed = False
+                    stats.details['reembed'] = False
+            elif reembed and self.embedding_service is None:
+                # No path available; skip embeddings
+                self.logger.warning("Embedding service not available; proceeding without embeddings")
+                reembed = False
+                stats.details['reembed'] = False
+
+            chunker = DocumentChunker(chunk_size=cs, overlap=co)
+
+            with sqlite3.connect(str(self.db_path)) as conn:
+                cursor = conn.cursor()
+
+                # Check if target already has chunks; if so, skip to avoid duplication
+                cursor.execute("SELECT COUNT(*) FROM chunks WHERE collection_id = ?", (target_collection,))
+                if (cursor.fetchone() or [0])[0] > 0:
+                    self.logger.info(f"Target collection '{target_collection}' already populated; skipping clone")
+                    stats.success = True
+                    stats.end_time = datetime.now()
+                    stats.processing_time = (stats.end_time - stats.start_time).total_seconds()
+                    return stats
+
+                # Get all documents from source collection
+                cursor.execute(
+                    "SELECT doc_id, source_path, ingested_at, metadata_json, content_hash, file_size "
+                    "FROM documents WHERE collection_id = ?",
+                    (source_collection,),
+                )
+                docs = cursor.fetchall()
+                stats.details['source_documents'] = len(docs)
+
+                for (src_doc_id, source_path, ingested_at, metadata_json, content_hash, file_size) in docs:
+                    try:
+                        # Reconstruct original content from source chunks
+                        cursor.execute(
+                            "SELECT content FROM chunks WHERE doc_id = ? AND collection_id = ? ORDER BY chunk_index",
+                            (src_doc_id, source_collection),
+                        )
+                        parts = [r[0] for r in cursor.fetchall()]
+                        if not parts:
+                            continue
+                        original_content = "\n".join(parts)
+
+                        # Create a new doc_id for the target collection (avoid PK conflict)
+                        new_doc_id = f"{target_collection}_{src_doc_id}"
+
+                        # Insert document row for target collection
+                        cursor.execute(
+                            """
+                            INSERT INTO documents (doc_id, source_path, ingested_at, metadata_json, content_hash, file_size, total_chunks, collection_id)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                            """,
+                            (
+                                new_doc_id,
+                                source_path,
+                                ingested_at,
+                                metadata_json,
+                                content_hash,
+                                file_size,
+                                0,
+                                target_collection,
+                            ),
+                        )
+
+                        # Re-chunk the reconstructed content
+                        # Token counting via chunker; we don't need full Document object here
+                        # Build temporary structure similar to DocumentChunker.chunk_document
+                        # Simulate a Document wrapper
+                        from dataclasses import dataclass
+
+                        @dataclass
+                        class _TmpDoc:
+                            content: str
+                            doc_id: str
+                            metadata: dict
+
+                        tmp_doc = _TmpDoc(content=original_content, doc_id=new_doc_id, metadata={})
+                        new_chunks = []
+                        # Reuse DocumentChunker logic by wrapping in public API
+                        # Create a simple Document-like object compatible with DocumentChunker
+                        # Use chunk_document from DocumentIngestionService/DocumentChunker path
+                        # Here, call chunker.chunk_document by creating a minimal Document-compatible shim
+                        from .document_ingestion import Document as _Doc
+                        doc_for_chunking = _Doc(content=original_content, metadata={})
+                        doc_for_chunking.doc_id = new_doc_id
+                        new_chunks_structs = chunker.chunk_document(doc_for_chunking)
+
+                        # Insert chunks (+ embeddings optionally)
+                        for i, ch in enumerate(new_chunks_structs):
+                            chunk_id = f"{new_doc_id}_chunk_{i}"
+                            # Insert chunk row
+                            cursor.execute(
+                                """
+                                INSERT INTO chunks (chunk_id, doc_id, chunk_index, content, token_count, metadata_json, created_at, collection_id)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                                """,
+                                (
+                                    chunk_id,
+                                    new_doc_id,
+                                    i,
+                                    ch.content,
+                                    ch.token_count,
+                                    json.dumps(ch.metadata or {}),
+                                    datetime.now().isoformat(),
+                                    target_collection,
+                                ),
+                            )
+
+                            # Generate & insert embeddings if available
+                            if reembed and self.embedding_service is not None:
+                                try:
+                                    emb = self.embedding_service.embed_text(ch.content)
+                                    embedding_bytes = emb.astype(np.float32).tobytes()
+                                    cursor.execute(
+                                        "INSERT OR REPLACE INTO embeddings (chunk_id, embedding_vector, created_at) VALUES (?, ?, ?)",
+                                        (chunk_id, embedding_bytes, datetime.now().isoformat()),
+                                    )
+                                    try:
+                                        embedding_json = f"[{','.join(map(str, emb.tolist()))}]"
+                                        cursor.execute(
+                                            "INSERT OR REPLACE INTO embeddings_vec (chunk_id, embedding) VALUES (?, ?)",
+                                            (chunk_id, embedding_json),
+                                        )
+                                    except sqlite3.OperationalError:
+                                        pass
+                                    stats.embeddings_generated += 1
+                                except Exception as e:
+                                    self.logger.warning(f"Embedding failed for chunk {chunk_id}: {e}")
+
+                        # Update total_chunks for document
+                        cursor.execute(
+                            "UPDATE documents SET total_chunks = (SELECT COUNT(*) FROM chunks WHERE doc_id = ?) WHERE doc_id = ?",
+                            (new_doc_id, new_doc_id),
+                        )
+
+                        stats.documents_processed += 1
+                        stats.chunks_processed += len(new_chunks_structs)
+
+                    except Exception as doc_err:
+                        self.logger.error(f"Failed to clone doc {src_doc_id} → {target_collection}: {doc_err}")
+                        stats.errors += 1
+
+                conn.commit()
+
+            stats.success = stats.errors == 0
+        except Exception as e:
+            self.logger.error(f"Clone+rechunk failed: {e}")
+            stats.success = False
+            stats.details['error'] = str(e)
+        finally:
+            stats.end_time = datetime.now()
+            stats.processing_time = (stats.end_time - stats.start_time).total_seconds()
+
         return stats
 
 

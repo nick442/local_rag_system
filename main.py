@@ -333,6 +333,58 @@ def delete_collection(ctx, collection_id: str, confirm: bool):
         sys.exit(1)
 
 
+@collection.command('clone')
+@click.argument('source')
+@click.option('--target', required=False, help='Target collection ID (default: derive from chunk params)')
+@click.option('--chunk-size', 'chunk_size', type=int, default=512, help='Chunk size for target collection')
+@click.option('--chunk-overlap', 'chunk_overlap', type=int, default=128, help='Chunk overlap for target collection')
+@click.option('--embedding-path', default=None, help='Embedding model path (optional; skip embeddings if unavailable)')
+@click.option('--no-embed', is_flag=True, help='Do not (re)generate embeddings for target collection')
+@click.option('--backup/--no-backup', default=True, help='Backup database before cloning')
+@click.pass_context
+def clone_collection(ctx, source: str, target: str, chunk_size: int, chunk_overlap: int, embedding_path: str, no_embed: bool, backup: bool):
+    """Clone a collection and (re)chunk into an isolated target collection.
+
+    Example:
+      python main.py collection clone default --chunk-size 256 --chunk-overlap 64
+      → creates target 'exp_cs256_co64' with isolated chunks (and embeddings if available)
+    """
+    try:
+        # Derive default target name if not provided
+        target_id = target or f"exp_cs{chunk_size}_co{chunk_overlap}"
+
+        rprint(f"[blue]📦 Cloning collection[/blue] → [cyan]{source}[/cyan] → [green]{target_id}[/green]")
+        rprint(f"[dim]chunk_size={chunk_size} | chunk_overlap={chunk_overlap} | embed={'no' if no_embed else 'yes'}[/dim]")
+
+        # Construct tool; pass embedding path if provided
+        from src.reindex import create_reindex_tool
+        tool = create_reindex_tool(ctx.obj['db_path'], embedding_model_path=embedding_path)
+
+        stats = tool.clone_collection_with_chunking(
+            source_collection=source,
+            target_collection=target_id,
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            reembed=not no_embed,
+            backup=backup,
+        )
+
+        if stats.success:
+            rprint(f"[green]✓ Clone complete[/green] → {target_id}")
+            rprint(f"Docs: {stats.documents_processed} | Chunks: {stats.chunks_processed} | Embeddings: {stats.embeddings_generated}")
+            if 'backup_path' in stats.details:
+                rprint(f"[dim]Backup: {stats.details['backup_path']}[/dim]")
+        else:
+            rprint(f"[red]❌ Clone failed[/red]: {stats.details.get('error', 'Unknown error')}")
+            sys.exit(1)
+
+    except Exception as e:
+        rprint(f"[red]❌ Failed to clone collection: {e}[/red]")
+        if ctx.obj.get('verbose'):
+            import traceback
+            rprint(f"[dim]{traceback.format_exc()}[/dim]")
+        sys.exit(1)
+
 @collection.command('export')
 @click.argument('collection_id')
 @click.argument('output_path', type=click.Path(path_type=Path))

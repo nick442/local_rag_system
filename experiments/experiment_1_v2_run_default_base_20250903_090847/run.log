@@ -1,0 +1,73 @@
+🔬 Running experiment template: Chunk Size and Overlap Optimization
+Systematic study of chunking strategies on retrieval quality and response 
+accuracy
+Parameters: 3 | Corpus: default
+Estimated: 60 configs × 3 queries ≈ 9.0min
+This will run 180 experiments. Continue? [y/N]: 
+✅ Template experiment 'Chunk Size and Overlap Optimization' completed!
+Experiment ID: template_Chunk Size and Overlap Optimization_1756883328
+Total runtime: 669.4s
+Configurations tested: 1
+✅ Saved 153 experiment results to experiments/experiment_1_v2_run_default_base_20250903_090847/results.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_run_default_base_20250903_090847/results.json
+⚖️  Starting A/B test comparison
+Config A: 
+experiments/experiment_1_v2_run_default_base_20250903_090847/config_a.json | 
+Config B: 
+experiments/experiment_1_v2_run_default_base_20250903_090847/config_b.json
+Queries: 3 | Significance: 0.05
+
+✅ A/B test completed!
+Experiment ID: ab_test_1756884056
+Total runtime: 14.5s
+
+Comparison Results:
+⏱️  Config A avg time: 3.11s
+⏱️  Config B avg time: 1.53s
+📈 Improvement: +50.7%
+✅ Saved 6 experiment results to experiments/experiment_1_v2_run_default_base_20250903_090847/ab_results.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_run_default_base_20250903_090847/ab_results.json
+⚖️  Starting A/B test comparison
+Config A: 
+experiments/experiment_1_v2_run_default_base_20250903_090847/config_a2.json | 
+Config B: 
+experiments/experiment_1_v2_run_default_base_20250903_090847/config_b2.json
+Queries: 3 | Significance: 0.05
+
+✅ A/B test completed!
+Experiment ID: ab_test_1756884729
+Total runtime: 19.8s
+
+Comparison Results:
+⏱️  Config A avg time: 3.73s
+⏱️  Config B avg time: 2.69s
+📈 Improvement: +27.7%
+✅ Saved 6 experiment results to experiments/experiment_1_v2_run_default_base_20250903_090847/ab_results_matching.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_run_default_base_20250903_090847/ab_results_matching
+.json
+⚖️  Starting A/B test comparison
+Config A: 
+experiments/experiment_1_v2_run_default_base_20250903_090847/config_a2.json | 
+Config B: 
+experiments/experiment_1_v2_run_default_base_20250903_090847/config_b2.json
+Queries: 3 | Significance: 0.05
+
+✅ A/B test completed!
+Experiment ID: ab_test_1756884800
+Total runtime: 26.6s
+
+Comparison Results:
+⏱️  Config A avg time: 4.84s
+⏱️  Config B avg time: 3.86s
+📈 Improvement: +20.2%
+✅ Saved 6 experiment results to experiments/experiment_1_v2_run_default_base_20250903_090847/ab_results_matching_2.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_run_default_base_20250903_090847/ab_results_matching
+_2.json

@@ -153,46 +153,76 @@ class EmbeddingService:
         )
         
         try:
+            # Ensure torch is available in this scope for no_grad/cache calls
+            try:
+                import torch  # type: ignore
+            except Exception:
+                torch = None  # type: ignore
             for start_idx in progress_bar:
                 end_idx = min(start_idx + self.batch_size, len(texts))
                 batch_texts = texts[start_idx:end_idx]
                 
                 # Generate embeddings for batch
-                with torch.no_grad():
+                if torch is not None:
+                    with torch.no_grad():
+                        batch_embeddings = self.model.encode(
+                            batch_texts,
+                            convert_to_numpy=True,
+                            normalize_embeddings=True,  # Normalize to unit vectors
+                            batch_size=len(batch_texts)
+                        )
+                else:
+                    # Fallback without torch context manager (CPU-only path)
                     batch_embeddings = self.model.encode(
                         batch_texts,
                         convert_to_numpy=True,
-                        normalize_embeddings=True,  # Normalize to unit vectors
+                        normalize_embeddings=True,
                         batch_size=len(batch_texts)
                     )
                 
                 all_embeddings.extend(batch_embeddings)
                 
                 # Clear cache to manage memory
-                if self.device != "cpu":
-                    torch.cuda.empty_cache() if torch.cuda.is_available() else None
-                    if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
-                        torch.mps.empty_cache()
+                if torch is not None and self.device != "cpu":
+                    try:
+                        if hasattr(torch, 'cuda') and callable(getattr(torch.cuda, 'is_available', None)) and torch.cuda.is_available():
+                            torch.cuda.empty_cache()
+                        if getattr(torch.backends, 'mps', None) and torch.backends.mps.is_available() and hasattr(torch, 'mps'):
+                            torch.mps.empty_cache()
+                    except Exception:
+                        pass
                 
                 # Update progress
-                progress_bar.set_postfix({
-                    'batch': f"{start_idx//self.batch_size + 1}/{(len(texts)-1)//self.batch_size + 1}",
-                    'memory': f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB" if torch.cuda.is_available() else "N/A"
-                })
+                try:
+                    mem = "N/A"
+                    if torch is not None and hasattr(torch, 'cuda') and torch.cuda.is_available():
+                        mem = f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB"
+                    progress_bar.set_postfix({
+                        'batch': f"{start_idx//self.batch_size + 1}/{(len(texts)-1)//self.batch_size + 1}",
+                        'memory': mem
+                    })
+                except Exception:
+                    pass
         
-        except torch.cuda.OutOfMemoryError as e:  # type: ignore[attr-defined]
-            self.logger.error("CUDA OOM during embedding generation: %s", e, exc_info=True)
-            raise
-        except MemoryError as e:
-            self.logger.error("System memory exhausted during embedding generation", exc_info=True)
-            raise
-        except ValueError as e:
-            # Likely invalid input batch or model args
-            self.logger.error("Invalid input for embedding generation: %s", e, exc_info=True)
-            raise
-        except RuntimeError as e:
-            # Torch/MPS runtime errors
-            self.logger.error("Runtime error during embedding generation: %s", e, exc_info=True)
+        except Exception as e:
+            # Re-raise CUDA OOM specifically if torch is available and the type matches
+            try:
+                import torch  # type: ignore
+                if isinstance(e, getattr(torch.cuda, 'OutOfMemoryError', RuntimeError)):
+                    self.logger.error("CUDA OOM during embedding generation: %s", e, exc_info=True)
+                    raise
+            except Exception:
+                pass
+            if isinstance(e, MemoryError):
+                self.logger.error("System memory exhausted during embedding generation", exc_info=True)
+                raise
+            if isinstance(e, ValueError):
+                self.logger.error("Invalid input for embedding generation: %s", e, exc_info=True)
+                raise
+            if isinstance(e, RuntimeError):
+                self.logger.error("Runtime error during embedding generation: %s", e, exc_info=True)
+                raise
+            # Unknown exception type: re-raise
             raise
         
         finally:
