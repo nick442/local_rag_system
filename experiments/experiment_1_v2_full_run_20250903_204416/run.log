@@ -1,0 +1,34 @@
+Running reembed... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Reembed complete!
+⏱️  Processing time: 1.81s
+📁 Documents processed: 0
+📄 Chunks processed: 0
+Running reembed... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Reembed complete!
+⏱️  Processing time: 1.79s
+📁 Documents processed: 0
+📄 Chunks processed: 0
+Running reembed... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Reembed complete!
+⏱️  Processing time: 1.76s
+📁 Documents processed: 0
+📄 Chunks processed: 0
+Running reembed... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Reembed complete!
+⏱️  Processing time: 1.80s
+📁 Documents processed: 0
+📄 Chunks processed: 0
+🔬 Running experiment template: Chunk Size and Overlap Optimization
+Systematic study of chunking strategies on retrieval quality and response 
+accuracy
+Parameters: 3 | Corpus: default | Prefix: exp_full_cs
+Estimated: 60 configs × 52 queries ≈ 156.0min
+This will run 3120 experiments. Continue? [y/N]: 
+✅ Template experiment 'Chunk Size and Overlap Optimization' completed!
+Experiment ID: template_Chunk Size and Overlap Optimization_1756926579
+Total runtime: 32837.2s
+Configurations tested: 1
+✅ Saved 2652 experiment results to experiments/experiment_1_v2_full_run_20250903_204416/results.json
+   Enhanced format includes full config provenance
+💾 Results saved to 
+experiments/experiment_1_v2_full_run_20250903_204416/results.json
