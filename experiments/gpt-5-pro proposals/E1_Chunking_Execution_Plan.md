@@ -1,240 +1,293 @@
-# Experiment 1 (E1) — Chunking Execution Plan
+# E1 — Chunking Execution Plan (Revised)
 
-Goal: Measure how chunking strategy and parameters impact retrieval quality and performance in our local RAG stack. We hold models, indexing backends, and evaluation constant, and vary chunk boundaries only.
+**Goal**  
+Quantify how **chunking strategy** and **parameters** (size, overlap, semantics, late‑chunking proxy) impact **retrieval quality** and **cost** in a local RAG stack. We **hold models, vector backend, PRAGMAs, tokenizer, and scoring constant** and vary **chunk boundaries only**. Results are reported at the **document level** with **paired statistical tests**.
 
-Scope: Fixed windows (sizes/overlaps), plus semantic and late-chunking variants. Start on a single corpus (TREC‑COVID) for speed; scale to the BEIR triad (SciFact, FiQA‑2018, TREC‑COVID) for robustness once the pipeline is validated.
+**Key Improvements over the original plan**  
+- **Doc‑aware ranking**: ensure fair, comparable **K docs** across variants (avoid long‑doc & multi‑chunk bias).  
+- **Sparse/Hybrid controls**: add minimal **BM25** and **Hybrid (RRF / α‑mix)** passes to show effects generalize beyond dense retrieval.  
+- **Cost ledger**: log **index size, embed/build time, RSS, latency p50/p95, chunk counts, dup@N** to plot **NDCG vs latency vs memory**.  
+- **Concrete semantic and late‑chunking definitions** sized for **16 GB**.  
+- **k‑sensitivity & ordering**: sweep **Kdocs ∈ {5,10,20}**, and enforce **relevance‑descending** doc ordering to mitigate “lost‑in‑the‑middle.”  
+- **Stratified 50‑query smoke set** with fixed seed for reproducibility.
 
 ---
 
-## 1) Corpus Acquisition
+## 0) Design Principles & Controls
 
-Primary: TREC‑COVID (BEIR split via `ir_datasets`). Optional follow‑ups: SciFact and FiQA‑2018.
+- **Constant factors:** embedder = MiniLM‑L6‑v2 (384‑dim), tokenizer = `cl100k_base`, vector store = sqlite‑vec (or Faiss if already selected), PRAGMAs (WAL, page_size, cache_size), scoring normalization, ANN parameters, candidate **Nchunks** and **per‑doc cap**.  
+- **Variable:** chunk boundaries only (size, overlap, backend).  
+- **Evaluation unit:** **documents** (fold chunks→docs; rank unique docs; score vs qrels).  
+- **Significance:** paired tests (t‑test + bootstrap) over queries; report mean ± **95% CI** and p‑values; note multiple‑testing where applicable.
 
-- Target layout (local, not committed):
-  - `datasets/trec_covid/docs/*.txt` — one text file per document (title + body)
-  - `datasets/trec_covid/queries.jsonl` — `{ "qid": str, "text": str }`
-  - `datasets/trec_covid/qrels.tsv` — `qid 0 docid relevance`
+---
 
-Acquisition steps (recommended):
-- Option A (scripted): add a lightweight `scripts/fetch_beir.py` later to export BEIR to the above layout.
-- Option B (manual): run a short Python one‑off (outside this plan) to dump docs to `datasets/trec_covid/docs/` and save queries/qrels.
+## 1) Corpus Acquisition & Validation
 
-Acceptance:
-- Files present with doc count matching BEIR specs; spot‑check ~20 docs; `queries.jsonl` and `qrels.tsv` exist and parse.
+**Primary:** **TREC‑COVID** (BEIR split via `ir_datasets`) → then **SciFact**, **FiQA‑2018** after pipeline validation.
+
+**Local layout (not committed):**
+```
+datasets/trec_covid/docs/*.txt      # one file per doc (title + body)
+datasets/trec_covid/queries.jsonl   # {"qid": str, "text": str}
+datasets/trec_covid/qrels.tsv       # qid \t 0 \t docid \t relevance
+```
+**Export options**  
+- _Option A (scripted)_: `scripts/fetch_beir.py` to dump to the above layout.  
+- _Option B (once‑off)_: small Python utility using `ir_datasets` to write docs/queries/qrels.
+
+**Validation & acceptance**  
+- **Doc ID parity**: assert `qrels.docids ⊆ docs_ids` (fail‑fast if not).  
+- Spot‑check ~20 docs for content integrity.  
+- Verify `queries.jsonl` and `qrels.tsv` parse; counts match BEIR specs.
 
 ---
 
 ## 2) Ingestion & Collections (per chunking variant)
 
-Strategy: isolate chunking by materializing each variant into a distinct `collection_id`. Retrieval already supports `collection_id`.
+We **materialize each chunking variant** into a distinct `collection_id`. Retrieval already scopes by collection.
 
-Current CLI defaults chunking to `size=512`, `overlap=128`. For E1 we plan multiple variants; because `main.py ingest` does not expose chunk params yet, we will:
-- Smoke‑test with the default first (to validate the pipeline).
-- Then add a small CLI enhancement (separate PR) to pass `--chunk-size` and `--chunk-overlap` through to `DocumentIngestionService`.
+**CLI enhancements (PR‑E1‑CLI):**
+- Add to `main.py ingest directory`:  
+  `--chunk-size INT`, `--chunk-overlap INT`, `--chunk-backend {fixed,semantic}`  
+- Thread through to `DocumentIngestionService`. Keep tokenizer fixed.  
+- Add **content cleanup** (HTML strip, whitespace normalize) before chunking.
 
-Commands (smoke test now; fixed defaults):
+**SQLite PRAGMAs (constant across variants):**  
+`journal_mode=WAL`, `synchronous=NORMAL`, `page_size=4096(or 8192)`, `cache_size=-200000`, `mmap_size=268435456`. Capture in logs.
 
+**Embedding dimension**  
+- Keep 384‑dim to avoid reindexing confounds. If switching to 768‑dim in later experiments, use a **new DB**.
+
+**Acceptance**  
+- Ingestion completes; **#docs** equals BEIR doc count; non‑zero **#chunks**; logs capture ingest/embedding times and DB size.
+
+---
+
+## 3) Chunking Variants (precisely defined)
+
+### 3.1 Fixed windows (grid)
+- **Sizes:** {128, 256, 512} tokens  
+- **Overlaps:** {0, 20, 50} tokens  
+- Sliding window; boundaries by tokenizer; store `chunk_index`, `token_span` metadata.
+
+### 3.2 Semantic splitter (deterministic, lightweight)
+- **Step 1:** Split on **section headings** (Markdown/HTML titles when available).  
+- **Step 2:** Within a section, split to **sentences** (spaCy).  
+- **Step 3:** **Greedy pack** sentences up to target size (e.g., 256); **no overlap**.  
+- **Policy:** include the **heading text** in the first chunk of each section (as metadata + prefix tokens).  
+- **Rationale:** preserves topical coherence; minimizes redundancy; cheap to run.
+
+### 3.3 Late‑chunking proxy (practical for 16 GB)
+- **Doc retrieval stage:** compute **doc vector** as mean of **sentence embeddings** (MiniLM). ANN over docs → **top‑M docs** (M=20–50).  
+- **Slice‑and‑score stage:** within these docs, slide a fixed window (256/50), score each chunk by `cosine(query, chunk)`.  
+- **Selection:** form **candidate chunk pool** only from these M docs; then apply **doc‑aware ranking** (Section 4).  
+- **Rationale:** emulate “encode first, split later” without long‑context encoders.
+
+---
+
+## 4) Retrieval & **Doc‑Aware Ranking** Protocol
+
+### 4.1 Retrieval modes for E1
+- **Dense (baseline):** MiniLM vectors via sqlite‑vec (constant ANN params).  
+- **BM25 (control):** Pyserini/FTS index; defaults.  
+- **Hybrid (control):** (a) **α‑mix** of z‑scored dense + BM25 with α ∈ {0.5}, (b) **RRF** (k=60).  
+> Controls are run on **two fixed variants** to demonstrate chunking effects generalize beyond dense.
+
+### 4.2 Candidate formation & **doc‑aware** ranking (mandatory)
+Given a query:
+1. Retrieve **top‑Nchunks** (e.g., N=100) by the selected mode.  
+2. **Per‑doc cap C**: keep at most **C=3** chunks per doc in the pool (mitigates long‑doc dominance).  
+   _Alternative_: apply **MMR** on chunks for diversity before folding.  
+3. **Fold to docs**: for each `doc_id`, keep the **best chunk** (by score, tie‑break by min chunk rank).  
+4. **Rank unique docs** by best‑chunk score (and best rank as tie‑break).  
+5. Evaluate **top‑Kdocs** (K=10 primary; see K‑sensitivity).
+
+Log **dup@N** = fraction of top‑Nchunks that belong to already‑seen docs.
+
+---
+
+## 5) Query Sets
+
+- **Primary:** official BEIR `queries.jsonl` + `qrels.tsv` for TREC‑COVID.  
+- **Stratified smoke set (50 queries):** fixed seed; stratify by **query length** (short/long) and **entity count** (0/1/2+). Persist file to `datasets/trec_covid/queries_small.jsonl`.
+
+> E1 focuses on retrieval; no LLM expansions used.
+
+---
+
+## 6) Metrics & **Performance Ledger**
+
+### 6.1 Retrieval metrics (doc‑level)
+- **Primary:** **NDCG@10** (graded qrels).  
+- **Also:** **MAP**, **MRR@10**, **Recall@{1,5,10,20}**.  
+- Compute **per query**, export per‑query JSONL for stats.
+
+### 6.2 Cost & system metrics (per variant)
+- **#docs**, **#chunks**, **avg tokens/chunk**, **overlap tokens**  
+- **Embedding throughput** (tokens/sec), **embed time**, **index build time**  
+- **DB size (MB)**, **RSS peak (MB)** during retrieval  
+- **Retrieval latency** p50/p95 (ms)  
+- **dup@N** at N=50 or 100
+
+All emitted to `results/e1_trec_covid/<variant>/ledger.jsonl`.
+
+---
+
+## 7) Smoke Test (small sweep)
+
+**Configs:** `fixed_256_20`, `fixed_512_50` (and existing `fixed_512_128` if helpful)  
+**Retrieval:** Dense (baseline), **plus BM25 & Hybrid** on `fixed_256_20` **only** (control).  
+**Kdocs:** 10; **Nchunks:** 100; **C (per‑doc cap):** 3.
+
+**Steps**
+1. Ingest each variant collection.  
+2. Run on 50‑query stratified set; produce doc‑aware rankings; compute metrics & ledger.  
+3. Sanity checks: non‑zero metrics, topical relevance on spot‑check, stable latency, memory within limits.  
+4. Log PRAGMAs and ANN params in each run.
+
+**Artifacts**
+```
+results/e1_trec_covid/test/metrics_<variant>.json
+results/e1_trec_covid/test/per_query_<variant>.jsonl
+results/e1_trec_covid/test/ledger_<variant>.jsonl
+```
+**Acceptance**: All runs complete; metrics/ledger exist; control (BM25/Hybrid) runs complete on one variant.
+
+---
+
+## 8) Full Grid Evaluation (TREC‑COVID) + K‑Sensitivity
+
+**Variants:** Fixed grid = sizes {128,256,512} × overlaps {0,20,50} ⇒ **9 variants**.  
+**Retrieval:** Dense only (primary grid).  
+**K‑sensitivity:** For **best two** fixed configs by NDCG@10, re‑evaluate with **Kdocs ∈ {5,10,20}**.  
+**Doc pool:** Nchunks=100 (constant); C=3.
+
+**Procedure**
+1. Ingest all variants (batch).  
+2. For each variant, run full query set; **doc‑aware** ranking; compute metrics; log ledger.  
+3. **Statistics:** Paired **t‑test** and **bootstrap** vs. reference `fixed_256_20`; report mean ± 95% CI and p‑values. Note exploratory vs. confirmatory; mention multiple‑testing.
+
+**Outputs**
+```
+results/e1_trec_covid/full/<variant>/metrics.json
+results/e1_trec_covid/full/<variant>/per_query.jsonl
+results/e1_trec_covid/full/<variant>/ledger.jsonl
+reports/e1_trec_covid/summary.csv
+reports/e1_trec_covid/plots/* (NDCG vs latency/memory; K-sensitivity)
+```
+
+---
+
+## 9) Scale‑Out (SciFact, FiQA‑2018)
+
+Repeat Sections **1–8** on **SciFact** and **FiQA‑2018** with the same grid (fixed only is acceptable if time‑boxed). Keep PRAGMAs and ANN params constant. Produce a **triad summary** table.
+
+---
+
+## 10) Operational Details & Failure Modes
+
+**Environment**  
+```
+source ~/miniforge3/etc/profile.d/conda.sh
+conda activate rag_env
+python ...
+```
+
+**Performance tips**  
+- Batch size for embeddings: 32; retrieval Kdocs ≤ 10 in primary grid; Nchunks=100; C=3.  
+- If memory tight: ingest in slices (10k docs) per collection; VACUUM after ingest.
+
+**Failures & mitigations**  
+- **sqlite‑vec missing** → fallback to manual dot‑product: record in ledger; expect slower latency, still valid.  
+- **Embedding dim mismatch** → new DB or re‑ingest.  
+- **Parsing errors** → log and skip; keep counts.
+
+---
+
+## 11) Work Items (PRs & Scripts)
+
+- **PR‑E1‑CLI:** `--chunk-size`, `--chunk-overlap`, `--chunk-backend {fixed,semantic}`; add cleanup step.  
+- **PR‑E1‑SEM:** implement **semantic splitter** (headings + sentences; greedy pack, no overlap).  
+- **PR‑E1‑LATE:** implement **late‑chunking proxy** (doc ANN → slice‑and‑score).  
+- **PR‑E1‑RANK:** add **doc‑aware ranking** utility (fold chunks→docs with per‑doc cap/MMR).  
+- **Script‑E1‑Eval:** evaluation runner: loads queries/qrels, executes retrieval per collection, doc‑aware ranking, metrics + ledger output.  
+- **Script‑BEIR‑Dump:** export BEIR datasets to local layout with ID normalization/validation.  
+- **Script‑Stats:** paired t‑test + bootstrap over per‑query deltas; emit CI tables.
+
+---
+
+## 12) Checklists
+
+**Smoke test (TREC‑COVID)**  
+- [ ] Docs dumped; qrels doc IDs ⊆ ingested doc IDs  
+- [ ] Ingested `trec_covid_fixed_256_20`, `trec_covid_fixed_512_50`  
+- [ ] 50‑query stratified run for dense; BM25 & Hybrid run on `fixed_256_20`  
+- [ ] Metrics & ledger JSON/JSONL written; PRAGMAs recorded
+
+**Full run (TREC‑COVID)**  
+- [ ] All 9 fixed variants ingested as separate collections  
+- [ ] Full query set evaluated per variant with **doc‑aware ranking**  
+- [ ] K‑sensitivity completed for top‑2 variants  
+- [ ] Summary tables, plots, and significance tests vs `fixed_256_20`
+
+**Scale‑out**  
+- [ ] SciFact and FiQA‑2018 acquired and validated  
+- [ ] Repeat pipeline; produce triad summary
+
+---
+
+## 13) Command Snippets
+
+**Status & collections**
 ```bash
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
-python main.py ingest directory datasets/trec_covid/docs \
-  --collection trec_covid_fixed_512_128 --dry-run
-
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
-python main.py ingest directory datasets/trec_covid/docs \
-  --collection trec_covid_fixed_512_128
-
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
+source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env
+python main.py status
 python main.py collection list
-
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
-python main.py analytics stats --collection trec_covid_fixed_512_128
 ```
 
-Planned CLI enhancement (separate PR):
-- Add `--chunk-size` and `--chunk-overlap` to `ingest directory` and thread into `DocumentIngestionService`.
-
-Post‑enhancement variant ingests (examples):
-
+**Ingest (fixed variants)**
 ```bash
-# Fixed 256/20
 python main.py ingest directory datasets/trec_covid/docs \
-  --collection trec_covid_fixed_256_20 --chunk-size 256 --chunk-overlap 20
+  --collection trec_covid_fixed_256_20 --chunk-size 256 --chunk-overlap 20 --chunk-backend fixed
 
-# Fixed 512/50
 python main.py ingest directory datasets/trec_covid/docs \
-  --collection trec_covid_fixed_512_50 --chunk-size 512 --chunk-overlap 50
-
-# Semantic 256/20 (requires semantic splitter integration; treat as future variant)
-python main.py ingest directory datasets/trec_covid/docs \
-  --collection trec_covid_semantic_256_20 --chunk-size 256 --chunk-overlap 20
+  --collection trec_covid_fixed_512_50 --chunk-size 512 --chunk-overlap 50 --chunk-backend fixed
 ```
 
-Embedding dimension note:
-- The DB is initialized with a fixed embedding dimension (defaults to 384 via MiniLM). Keep the same encoder across chunking runs to avoid dimension mismatch. If switching to 768‑dim encoders (e.g., E5/BGE), create a separate DB or reindex from scratch.
-
-Acceptance:
-- Each variant collection has comparable document counts and reasonable chunk counts; no empty chunks; ingestion completes without errors.
-
----
-
-## 3) Query Sets for E1
-
-Primary: official BEIR `queries.jsonl` + `qrels.tsv` for TREC‑COVID. E1 focuses on retrieval; no LLM expansions.
-
-- For quick tests, select a 50‑query subset (`datasets/trec_covid/queries_small.jsonl`).
-- For full runs, use all queries.
-
-Mapping chunks → docs for evaluation:
-- Retrieve chunk IDs but score at the document level by mapping `chunk_id → doc_id`, then deduplicate per doc before metric computation (NDCG@10, Recall@k, MRR@10).
-
----
-
-## 4) Test Run (small configuration sweep)
-
-Purpose: Validate end‑to‑end ingestion → retrieval → metrics on a small subset, measure runtime, and sanity‑check outcomes before scaling.
-
-Configurations:
-- Variants: `fixed_256_20`, `fixed_512_50` (plus the default `fixed_512_128` if helpful)
-- Retrieval: hold constant to `vector` (MiniLM 384‑dim); k = 10
-
-Steps:
-1) Ingest the two collections (see Section 2).
-2) Load 50 queries from `queries_small.jsonl`.
-3) For each collection, run retrieval via `RAGPipeline` (vector method) and capture top‑k chunk IDs; fold to doc IDs.
-4) Compute metrics using `src/evaluation_metrics.py` (NDCG@10 primary; Recall@1/5/20; MRR@10). Save JSON summary.
-
-Sanity checks:
-- Metric values are non‑zero; tops docs look topically correct on spot‑check.
-- Retrieval time/query is stable; memory use within local limits.
-
-Helpful manual smoke check:
-
+**Semantic (if PR‑E1‑SEM ready)**
 ```bash
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
+python main.py ingest directory datasets/trec_covid/docs \
+  --collection trec_covid_semantic_256_0 --chunk-size 256 --chunk-overlap 0 --chunk-backend semantic
+```
+
+**Single‑query sanity check**
+```bash
 python main.py query "What treatments were studied for COVID-19?" \
-  --collection trec_covid_fixed_256_20 --k 5 --metrics
+  --collection trec_covid_fixed_256_20 --k 10 --metrics
 ```
 
-Artifacts:
-- `results/e1_trec_covid/test/metrics_fixed_256_20.json`
-- `results/e1_trec_covid/test/metrics_fixed_512_50.json`
-
-Acceptance:
-- Both runs complete; metrics JSON exists; runtime estimates recorded.
-
----
-
-## 5) Big Run (full evaluation)
-
-Purpose: Produce statistically robust, thesis‑ready results for E1.
-
-Corpora:
-- Start: TREC‑COVID.
-- Scale: add SciFact and FiQA‑2018 once TREC‑COVID completes.
-
-Variants to run:
-- Fixed window grid: sizes ∈ {128, 256, 512}, overlaps ∈ {0, 20, 50} ⇒ 9 variants
-- Optional: Semantic 256/20
-- Optional: Late‑chunking 256 (requires pooled token embeddings; a separate ingestion path)
-
-Retrieval settings:
-- Retrieval method: `vector` (MiniLM 384‑dim)
-- k ∈ {5, 10} (primary: 10)
-- Keep LLM out of the loop for scoring (retrieval‑only metrics)
-
-Execution outline:
-1) Ingest all variant collections (batch with the enhanced CLI flags).
-2) Run evaluation script that:
-   - Iterates variants, runs retrieval for all queries, maps chunk → doc, computes metrics.
-   - Logs per‑query scores for statistical tests (paired t‑test/bootstrapping across queries).
-3) Aggregate results and produce summary tables/plots.
-
-Result storage:
-- `results/e1_trec_covid/full/<variant>/metrics.json`
-- `results/e1_trec_covid/full/<variant>/per_query.jsonl`
-- `reports/e1_trec_covid/summary.csv` and `reports/e1_trec_covid/plots/`
-
-Statistical analysis:
-- Paired significance against the reference `fixed_256_20`.
-- Report mean ± 95% CI for NDCG@10 and Recall@k.
-
-Acceptance:
-- All variant runs complete; summaries and per‑query outputs exist; significance tables generated; plots render.
-
----
-
-## 6) Operational Details
-
-Environment:
-- Always run via: `source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python ...`
-
-Performance tips:
-- Keep MiniLM (384‑dim) for E1 to avoid reindexing; batch size 32; k ≤ 10.
-- Use collections per variant to isolate indexes.
-- If memory becomes tight, process the corpus in slices (per 10k docs) per collection.
-
-Failure modes & mitigations:
-- sqlite‑vec not loaded: fallback path in `vector_database.py` uses manual similarity; performance drops but results remain valid.
-- Embedding dimension mismatch: new DB or re‑ingest with consistent encoder.
-- PDF parsing errors: ingestion logs and skips problematic pages; overall run continues.
-
----
-
-## 7) Work Items & Ownership
-
-- PR‑E1‑CLI: add `--chunk-size` and `--chunk-overlap` to `main.py ingest directory` and thread to `DocumentIngestionService`.
-- (Optional) PR‑E1‑SEM: add semantic splitter (heading/sentence aware) and wire as a `--chunk-backend semantic` option.
-- (Optional) PR‑E1‑LATE: add a late‑chunking pipeline that pools token embeddings to chunk vectors at retrieval time; store vectors to avoid re‑encoding.
-- Script‑E1‑Eval: small evaluation script that
-  - loads `queries.jsonl` and `qrels.tsv`,
-  - runs retrieval via `RAGPipeline` for a given `collection_id`,
-  - folds chunk→doc, computes metrics with `src/evaluation_metrics.py`,
-  - writes `metrics.json` and `per_query.jsonl`.
-
----
-
-## 8) Checklists
-
-Smoke test (TREC‑COVID):
-- [ ] Docs dumped to `datasets/trec_covid/docs/`
-- [ ] Ingested `trec_covid_fixed_512_128`
-- [ ] 50‑query small run completes; metrics JSON written
-
-Full run (TREC‑COVID):
-- [ ] All fixed window variants ingested as separate collections
-- [ ] Full query set evaluated for each variant
-- [ ] Summary tables and plots generated
-- [ ] Significance tests vs `fixed_256_20` reported
-
-Scale‑out:
-- [ ] SciFact and FiQA‑2018 acquired and ingested
-- [ ] Repeat the above pipeline; collect triad summary
-
----
-
-## 9) Command Snippets (for reference)
-
-Status and basic checks:
+**Analytics overview**
 ```bash
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python main.py status
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && python main.py collection list
+python main.py analytics stats --collection trec_covid_fixed_256_20
 ```
 
-Single query sanity check per collection:
+**Evaluation (script)**  
 ```bash
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
-python main.py query "What interventions reduced transmission?" \
-  --collection trec_covid_fixed_512_128 --k 5 --metrics
-```
-
-Analytics overview:
-```bash
-source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env && \
-python main.py analytics stats --collection trec_covid_fixed_512_128
+python scripts/e1_eval.py \
+  --dataset trec_covid \
+  --collections trec_covid_fixed_256_20 trec_covid_fixed_512_50 \
+  --retrieval dense \
+  --kdocs 10 --nchunks 100 --per_doc_cap 3
+# Optional control:
+python scripts/e1_eval.py --dataset trec_covid --collections trec_covid_fixed_256_20 --retrieval bm25 --kdocs 10
+python scripts/e1_eval.py --dataset trec_covid --collections trec_covid_fixed_256_20 --retrieval hybrid_rrf --kdocs 10
 ```
 
 ---
 
-Deliverables:
-- Clean ingestion logs; per‑variant metrics JSON; per‑query outputs; summary CSV; significance report; plots. These feed directly into the E1 section of the Results chapter.
+## 14) Deliverables
 
+- Per‑variant: `metrics.json`, `per_query.jsonl`, `ledger.jsonl`  
+- Corpus triad summary: `reports/*/summary.csv`, plots (NDCG@10 vs latency/memory; K‑sensitivity)  
+- Stats report: CI tables, p‑values, and interpretation
