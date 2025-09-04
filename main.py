@@ -128,9 +128,12 @@ def ingest():
 @click.option('--dry-run', is_flag=True, help='Preview without processing')
 @click.option('--resume/--no-resume', default=True, help='Resume from checkpoint')
 @click.option('--deduplicate/--no-deduplicate', default=True, help='Skip duplicates')
+@click.option('--chunk-size', default=512, show_default=True, help='Chunk size (tokens) for ingestion')
+@click.option('--chunk-overlap', default=128, show_default=True, help='Chunk overlap (tokens) for ingestion')
 @click.pass_context
 def ingest_directory(ctx, path: Path, pattern: str, collection: str, max_workers: int, 
-                    batch_size: int, embedding_path: str, dry_run: bool, resume: bool, deduplicate: bool):
+                    batch_size: int, embedding_path: str, dry_run: bool, resume: bool, deduplicate: bool,
+                    chunk_size: int, chunk_overlap: int):
     """Ingest documents from directory with parallel processing"""
     
     async def run_ingestion():
@@ -139,7 +142,9 @@ def ingest_directory(ctx, path: Path, pattern: str, collection: str, max_workers
                 db_path=ctx.obj['db_path'],
                 embedding_model_path=embedding_path,
                 max_workers=max_workers,
-                batch_size=batch_size
+                batch_size=batch_size,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap
             )
             
             with Progress() as progress:

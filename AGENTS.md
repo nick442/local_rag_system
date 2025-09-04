@@ -37,6 +37,8 @@
 - Commits: imperative mood with optional scope prefix, e.g., `ingest: add resume flag`, similar to `baseline: ...` in history. Keep changes focused.
 - PRs: clear description, linked issues, before/after behavior, sample CLI output, and updated tests/docs. Note config changes (DB/model paths) and include reproducible commands.
 
+IMPORTANT (experiments workflow): Always set the PR base to `GPT-5-Experiments` and create feature branches from `GPT-5-Experiments`. Do not target `main` until we decide to integrate.
+
 ## Security & Configuration Tips
 - Default paths live in `main.py`; override via CLI flags. Some tools respect `LLM_MODEL_PATH`.
 - Do not commit large models or private data. Verify sqlite-vec placement in `vendor/sqlite-vec/` and test loading before merging.

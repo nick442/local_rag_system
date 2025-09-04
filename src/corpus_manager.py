@@ -107,7 +107,9 @@ class CorpusManager:
         embedding_model_path: Optional[str] = None,
         max_workers: int = 4,
         checkpoint_interval: int = 10,
-        batch_size: int = 32
+        batch_size: int = 32,
+        chunk_size: int = 512,
+        chunk_overlap: int = 128
     ):
         """
         Initialize corpus manager with processing configuration.
@@ -130,7 +132,11 @@ class CorpusManager:
             model_path=embedding_model_path,
             batch_size=batch_size
         )
-        self.ingestion_service = DocumentIngestionService()
+        # Configure ingestion chunking parameters
+        self.ingestion_service = DocumentIngestionService(
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap
+        )
         
         # Setup logging
         self.logger = logging.getLogger(__name__)
