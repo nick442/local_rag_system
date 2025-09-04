@@ -23,9 +23,9 @@ models/
 # Build/debug artifacts
 vec0.dylib.dSYM/
 *.zip
+!corpus/*.zip
 *.tar.gz
 
 # IDE/editor
 .idea/
 .vscode/
-
