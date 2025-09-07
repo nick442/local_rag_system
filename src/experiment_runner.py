@@ -285,10 +285,12 @@ class ExperimentRunner:
                                        f"{result.metrics.get('response_time', 0):.2f}s")
                         
                     except Exception as e:
+                        # Normalize query for storage
+                        err_query_text = query.get('query') if isinstance(query, dict) else str(query)
                         error_result = ExperimentResult(
                             run_id=run_id,
                             config=config,
-                            query=query,
+                            query=err_query_text,
                             response="",
                             metrics={"error": 1.0},
                             duration_seconds=0.0,
@@ -443,24 +445,39 @@ class ExperimentRunner:
         
         return configurations
     
-    def _run_single_experiment(self, run_id: str, config: ExperimentConfig, query: str) -> ExperimentResult:
+    def _run_single_experiment(self, run_id: str, config: ExperimentConfig, query: Any) -> ExperimentResult:
         """Execute single experiment run."""
         start_time = time.time()
         
         try:
+            # Support queries as strings or objects with id/text
+            query_id = None
+            query_text = query
+            if isinstance(query, dict):
+                query_id = str(query.get('id') or query.get('query_id') or "") or None
+                query_text = query.get('query', '')
+            
             # Initialize RAG pipeline with experimental config
             rag_pipeline = self._create_rag_pipeline(config)
             
             # Execute query and get full response dict
             result = rag_pipeline.query(
-                query, 
+                query_text, 
                 k=getattr(config, 'retrieval_k', 5),
+                retrieval_method=getattr(config, 'retrieval_method', 'vector'),
+                similarity_threshold=getattr(config, 'similarity_threshold', None),
                 max_tokens=getattr(config, 'max_tokens', 1024),
-                temperature=getattr(config, 'temperature', 0.7)
+                temperature=getattr(config, 'temperature', 0.7),
+                collection_id=getattr(config, 'target_corpus', None)
             )
             
             response = result['answer']
             sources = result['sources']
+            retrieved_doc_ids = []
+            try:
+                retrieved_doc_ids = [ctx.get('doc_id') for ctx in result.get('contexts', []) if ctx.get('doc_id') is not None]
+            except Exception:
+                retrieved_doc_ids = []
             
             duration = time.time() - start_time
             
@@ -470,13 +487,18 @@ class ExperimentRunner:
                 "response_length": len(response.split()) if response else 0,
                 "num_sources": len(sources) if sources else 0,
                 "retrieval_success": 1.0 if sources else 0.0,
-                "response_generated": 1.0 if response and response.strip() else 0.0
+                "response_generated": 1.0 if response and response.strip() else 0.0,
+                "retrieval_method": getattr(config, 'retrieval_method', 'vector'),
+                "similarity_threshold": getattr(config, 'similarity_threshold', None),
+                "retrieved_doc_ids": retrieved_doc_ids
             }
+            if query_id is not None:
+                metrics["query_id"] = query_id
             
             return ExperimentResult(
                 run_id=run_id,
                 config=config,
-                query=query,
+                query=query_text,
                 response=response,
                 metrics=metrics,
                 duration_seconds=duration,
@@ -487,10 +509,16 @@ class ExperimentRunner:
             duration = time.time() - start_time
             self.logger.error(f"Experiment run {run_id} failed: {e}")
             
+            # Normalize query to a string for DB safety if it's a dict/object
+            try:
+                err_query_text = query.get('query') if isinstance(query, dict) else str(query)
+            except Exception:
+                err_query_text = str(query)
+
             return ExperimentResult(
                 run_id=run_id,
                 config=config,
-                query=query,
+                query=err_query_text,
                 response="",
                 metrics={"error": 1.0, "response_time": duration},
                 duration_seconds=duration,
@@ -531,11 +559,14 @@ class ExperimentRunner:
                          self.config_manager.get_param('llm_model_path', _default_llm)
         
         # Create RAG pipeline with profile configuration
+        import os
+        disable_llm = os.getenv('RAG_SWEEP_NO_LLM', '0') == '1' or os.getenv('DISABLE_LLM', '0') == '1'
         rag_pipeline = RAGPipeline(
             db_path=db_path,
             embedding_model_path=embedding_model_path,
             llm_model_path=llm_model_path,
-            profile_config=profile_config
+            profile_config=profile_config,
+            disable_llm=disable_llm
         )
         
         # Prefer an explicit target corpus from the experiment config, else optionally

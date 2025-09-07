@@ -10,6 +10,7 @@ import asyncio
 import json
 import logging
 import sys
+import os
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, List
@@ -1257,8 +1258,12 @@ def experiment_batch(ctx, queries_path: Path, profile: Optional[str], collection
 @click.option('--queries', default='test_data/benchmark_queries.json', help='JSON file with evaluation queries')
 @click.option('--output', help='Output file for results')
 @click.option('--corpus', default='default', help='Target corpus/collection')
+@click.option('--fusion', type=click.Choice(['maxnorm','zscore','rrf']), default='zscore', help='Hybrid fusion method')
+@click.option('--cand-mult', type=int, default=5, help='Candidate multiplier per method before fusion (e.g., 5 → 5×k)')
+@click.option('--rrf-k', type=int, default=60, help='RRF K parameter (only used when --fusion=rrf)')
 @click.pass_context
-def sweep(ctx, param: str, param_range: str, values: str, queries: str, output: str, corpus: str):
+def sweep(ctx, param: str, param_range: str, values: str, queries: str, output: str, corpus: str,
+          fusion: str, cand_mult: int, rrf_k: int):
     """Run parameter sweep experiment"""
     try:
         from src.experiment_runner import create_experiment_runner
@@ -1290,7 +1295,16 @@ def sweep(ctx, param: str, param_range: str, values: str, queries: str, output: 
         # Create base config and override corpus
         base_config = create_base_experiment_config()
         base_config.target_corpus = corpus
+        # If sweeping alpha (similarity_threshold), ensure retrieval method is hybrid
+        if param == 'similarity_threshold' and getattr(base_config, 'retrieval_method', 'vector') != 'hybrid':
+            base_config.retrieval_method = 'hybrid'
         
+        # Apply fusion and candidate settings via environment for retrieval layer
+        import os
+        os.environ['RAG_HYBRID_FUSION'] = fusion
+        os.environ['RAG_HYBRID_CAND_MULT'] = str(cand_mult)
+        os.environ['RAG_HYBRID_RRF_K'] = str(rrf_k)
+
         # Run experiment
         runner = create_experiment_runner()
         results = runner.run_parameter_sweep(
@@ -1458,7 +1472,7 @@ def list_experiments(status: str, limit: int):
 
 # Helper functions for experiment CLI
 
-def _load_evaluation_queries(queries_file) -> List[str]:
+def _load_evaluation_queries(queries_file) -> List:
     """Load evaluation queries from JSON/JSONL file.
 
     Supports:
@@ -1491,7 +1505,14 @@ def _load_evaluation_queries(queries_file) -> List[str]:
             objs = []
             break
     if objs:
-        queries = [str(o['query']) for o in objs if isinstance(o, dict) and 'query' in o]
+        # Preserve id when available
+        queries = []
+        for o in objs:
+            if isinstance(o, dict) and 'query' in o:
+                if 'id' in o or 'query_id' in o:
+                    queries.append({'id': o.get('id', o.get('query_id')), 'query': str(o['query'])})
+                else:
+                    queries.append(str(o['query']))
         if queries:
             return queries
 
@@ -1504,12 +1525,29 @@ def _load_evaluation_queries(queries_file) -> List[str]:
     if isinstance(data, list) and all(isinstance(x, str) for x in data):
         return data
     if isinstance(data, list) and all(isinstance(x, dict) for x in data):
-        out = [str(x.get('query')) for x in data if 'query' in x]
+        out: List = []
+        for x in data:
+            if 'query' in x:
+                if 'id' in x or 'query_id' in x:
+                    out.append({'id': x.get('id', x.get('query_id')), 'query': str(x['query'])})
+                else:
+                    out.append(str(x['query']))
         if out:
             return out
     if isinstance(data, dict):
         if 'queries' in data and isinstance(data['queries'], list):
-            return [str(q) for q in data['queries']]
+            # Preserve structure when queries are dicts
+            if all(isinstance(q, dict) for q in data['queries']):
+                out: List = []
+                for q in data['queries']:
+                    if 'query' in q:
+                        if 'id' in q or 'query_id' in q:
+                            out.append({'id': q.get('id', q.get('query_id')), 'query': str(q['query'])})
+                        else:
+                            out.append(str(q['query']))
+                return out
+            else:
+                return [str(q) for q in data['queries']]
         if 'categories' in data and isinstance(data['categories'], dict):
             acc: List[str] = []
             for arr in data['categories'].values():
@@ -1659,7 +1697,12 @@ def _save_experiment_results(results, output_file: str):
                 'max_tokens': getattr(result.config, 'max_tokens', None),
                 'profile': getattr(result.config, 'profile', None),
                 'collection_id': getattr(result.config, 'collection_id', None),
-                'retrieval_method': getattr(result.config, 'retrieval_method', 'vector')
+                'retrieval_method': getattr(result.config, 'retrieval_method', 'vector'),
+                'similarity_threshold': getattr(result.config, 'similarity_threshold', None),
+                # Include fusion settings for provenance if set via env
+                'hybrid_fusion': os.getenv('RAG_HYBRID_FUSION'),
+                'hybrid_candidate_multiplier': os.getenv('RAG_HYBRID_CAND_MULT'),
+                'hybrid_rrf_k': os.getenv('RAG_HYBRID_RRF_K')
             }
         
         # Create enhanced result entry

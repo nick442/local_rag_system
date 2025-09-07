@@ -25,6 +25,7 @@ class RAGPipeline:
                  llm_model_path: str,
                  config_path: Optional[str] = None,
                  profile_config: Optional['ProfileConfig'] = None,
+                 disable_llm: bool = False,
                  **kwargs):
         """
         Initialize the RAG pipeline.
@@ -42,6 +43,7 @@ class RAGPipeline:
         self.llm_model_path = llm_model_path
         self.config_path = config_path
         self.profile_config = profile_config
+        self.disable_llm = disable_llm
         
         self.logger = logging.getLogger(__name__)
         
@@ -166,12 +168,15 @@ class RAGPipeline:
                 self.config.get('chat_template')
             )
             
-            # Create LLM wrapper
-            self.logger.info("Creating LLM wrapper...")
-            self.llm_wrapper = create_llm_wrapper(
-                self.llm_model_path,
-                self.config.get('llm_params', {})
-            )
+            # Create LLM wrapper (optional)
+            if not self.disable_llm:
+                self.logger.info("Creating LLM wrapper...")
+                self.llm_wrapper = create_llm_wrapper(
+                    self.llm_model_path,
+                    self.config.get('llm_params', {})
+                )
+            else:
+                self.llm_wrapper = None
             
             self.logger.info("RAG pipeline initialized successfully")
             
@@ -187,6 +192,8 @@ class RAGPipeline:
               include_metadata: bool = True,
               stream: bool = False,
               collection_id: Optional[str] = None,
+              similarity_threshold: Optional[float] = None,
+              candidate_multiplier: Optional[int] = None,
               **generation_kwargs) -> Dict[str, Any]:
         """
         Execute a single RAG query.
@@ -259,6 +266,8 @@ class RAGPipeline:
                     k=k,
                     method=retrieval_method,
                     collection_id=collection_id,
+                    alpha=similarity_threshold if retrieval_method == 'hybrid' else None,
+                    candidate_multiplier=candidate_multiplier if retrieval_method == 'hybrid' else None,
                 )
             except TypeError:
                 # Backward-compatible fallback for retrievers without collection_id support
@@ -266,6 +275,8 @@ class RAGPipeline:
                     user_query,
                     k=k,
                     method=retrieval_method,
+                    alpha=similarity_threshold if retrieval_method == 'hybrid' else None,
+                    candidate_multiplier=candidate_multiplier if retrieval_method == 'hybrid' else None,
                 )
             
             retrieval_time = time.time() - retrieval_start
@@ -284,7 +295,8 @@ class RAGPipeline:
             prompt_start = time.time()
             
             # Check if we need to truncate contexts to fit
-            max_context = self.llm_wrapper.n_ctx
+            # Determine context window even when LLM is disabled
+            max_context = self.llm_wrapper.n_ctx if self.llm_wrapper is not None else self.config.get('llm_params', {}).get('n_ctx', 2048)
             contexts, prompt = self.prompt_builder.truncate_contexts_to_fit(
                 user_query,
                 contexts,
@@ -306,9 +318,18 @@ class RAGPipeline:
             
             if stream:
                 # Return streaming generator and metadata
-                generator, get_stats = self.llm_wrapper.generate_stream_with_stats(
-                    prompt, **llm_kwargs
-                )
+                if self.llm_wrapper is None:
+                    # Streaming not supported without LLM; return non-stream stub
+                    return {
+                        'generator': iter(()),
+                        'get_final_stats': lambda: {},
+                        'contexts': contexts,
+                        'prompt_tokens': prompt_tokens,
+                        'retrieval_time': retrieval_time,
+                        'query': user_query,
+                        'method': retrieval_method
+                    }
+                generator, get_stats = self.llm_wrapper.generate_stream_with_stats(prompt, **llm_kwargs)
                 
                 def streaming_response():
                     for token in generator:
@@ -327,9 +348,18 @@ class RAGPipeline:
             
             else:
                 # Non-streaming generation
-                result = self.llm_wrapper.generate_with_stats(
-                    prompt, **llm_kwargs
-                )
+                if self.llm_wrapper is None:
+                    result = {
+                        'generated_text': '',
+                        'generation_time': 0.0,
+                        'prompt_tokens': prompt_tokens,
+                        'output_tokens': 0,
+                        'total_tokens': prompt_tokens,
+                        'tokens_per_second': 0.0,
+                        'context_remaining': 0
+                    }
+                else:
+                    result = self.llm_wrapper.generate_with_stats(prompt, **llm_kwargs)
                 
                 generation_time = result['generation_time']
                 metrics.track(
@@ -362,6 +392,7 @@ class RAGPipeline:
                     'metadata': {
                         'query': user_query,
                         'retrieval_method': retrieval_method,
+                        'similarity_threshold': similarity_threshold,
                         'contexts_count': len(contexts),
                         'prompt_tokens': result['prompt_tokens'],
                         'output_tokens': result['output_tokens'],
@@ -502,6 +533,7 @@ class RAGPipeline:
             'metadata': {
                 'query': user_query,
                 'retrieval_method': retrieval_method,
+                'similarity_threshold': similarity_threshold,
                 'contexts_count': len(contexts),
                 'retrieval_time': retrieval_time,
                 'generation_time': result.get('generation_time', 0),

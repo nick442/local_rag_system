@@ -9,9 +9,17 @@ import os
 from pathlib import Path
 from typing import List, Union, Optional
 import gc
+import contextlib
 
 import numpy as np
-# Optional dep: torch. Import lazily in _get_optimal_device to allow CI mocks.
+# Optional dep: torch. Try safe import at module level so other methods can
+# reference it without NameError; fall back to None if unavailable.
+try:  # type: ignore
+    import torch  # type: ignore
+    _TORCH_AVAILABLE = True
+except Exception:  # pragma: no cover - environments without torch
+    torch = None  # type: ignore
+    _TORCH_AVAILABLE = False
 # Optional dep: tqdm. Provide a no-op fallback if unavailable.
 try:
     from tqdm import tqdm  # type: ignore
@@ -158,7 +166,8 @@ class EmbeddingService:
                 batch_texts = texts[start_idx:end_idx]
                 
                 # Generate embeddings for batch
-                with torch.no_grad():
+                no_grad_ctx = torch.no_grad() if _TORCH_AVAILABLE else contextlib.nullcontext()
+                with no_grad_ctx:
                     batch_embeddings = self.model.encode(
                         batch_texts,
                         convert_to_numpy=True,
@@ -169,19 +178,32 @@ class EmbeddingService:
                 all_embeddings.extend(batch_embeddings)
                 
                 # Clear cache to manage memory
-                if self.device != "cpu":
-                    torch.cuda.empty_cache() if torch.cuda.is_available() else None
-                    if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
-                        torch.mps.empty_cache()
+                if _TORCH_AVAILABLE and self.device != "cpu":
+                    try:
+                        if hasattr(torch, 'cuda') and torch.cuda.is_available():
+                            torch.cuda.empty_cache()
+                    except Exception:
+                        pass
+                    try:
+                        if getattr(torch.backends, 'mps', None) and torch.backends.mps.is_available() and hasattr(torch, 'mps'):
+                            torch.mps.empty_cache()
+                    except Exception:
+                        pass
                 
                 # Update progress
                 progress_bar.set_postfix({
                     'batch': f"{start_idx//self.batch_size + 1}/{(len(texts)-1)//self.batch_size + 1}",
-                    'memory': f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB" if torch.cuda.is_available() else "N/A"
+                    'memory': (
+                        f"{torch.cuda.memory_allocated() / 1024**2:.1f}MB"  # type: ignore[attr-defined]
+                        if (_TORCH_AVAILABLE and hasattr(torch, 'cuda') and torch.cuda.is_available()) else "N/A"
+                    )
                 })
         
-        except torch.cuda.OutOfMemoryError as e:  # type: ignore[attr-defined]
-            self.logger.error("CUDA OOM during embedding generation: %s", e, exc_info=True)
+        except Exception as e:
+            # Handle CUDA OOM explicitly when torch is available; otherwise re-raise
+            if _TORCH_AVAILABLE and isinstance(e, getattr(getattr(torch, 'cuda', object), 'OutOfMemoryError', tuple())):
+                self.logger.error("CUDA OOM during embedding generation: %s", e, exc_info=True)
+                raise
             raise
         except MemoryError as e:
             self.logger.error("System memory exhausted during embedding generation", exc_info=True)
