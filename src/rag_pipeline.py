@@ -270,14 +270,20 @@ class RAGPipeline:
                     candidate_multiplier=candidate_multiplier if retrieval_method == 'hybrid' else None,
                 )
             except TypeError:
-                # Backward-compatible fallback for retrievers without collection_id support
-                contexts = self.retriever.retrieve(
-                    user_query,
-                    k=k,
-                    method=retrieval_method,
-                    alpha=similarity_threshold if retrieval_method == 'hybrid' else None,
-                    candidate_multiplier=candidate_multiplier if retrieval_method == 'hybrid' else None,
-                )
+                # Backward-compatible fallback for retrievers with older signatures
+                try:
+                    contexts = self.retriever.retrieve(
+                        user_query,
+                        k=k,
+                        method=retrieval_method,
+                        collection_id=collection_id,
+                    )
+                except TypeError:
+                    contexts = self.retriever.retrieve(
+                        user_query,
+                        k=k,
+                        method=retrieval_method,
+                    )
             
             retrieval_time = time.time() - retrieval_start
             self.logger.info(f"Retrieved {len(contexts)} contexts in {retrieval_time:.3f}s")

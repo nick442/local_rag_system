@@ -16,6 +16,31 @@
 
 ## Directory Structure
 
+## CLI Quick Reference (Sweep Flags)
+
+The experiment sweep adds hybrid retrieval controls to explore fusion and candidate pooling:
+
+- `--fusion [maxnorm|zscore|rrf]` — Fusion method for hybrid scores (default: `zscore`).
+- `--cand-mult INTEGER` — Candidate multiplier per method before fusion (e.g., `5` → `5×k`).
+- `--rrf-k INTEGER` — RRF K parameter (only used when `--fusion=rrf`).
+
+Example (retrieval-only):
+
+```
+source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env
+RAG_SWEEP_NO_LLM=1 python main.py --db-path data/rag_vectors.db \
+  experiment sweep --param similarity_threshold --values "0.0,0.5,1.0" \
+  --queries test_data/fiqa_queries_subset_test_100.json --corpus fiqa_technical \
+  --fusion zscore --cand-mult 5 \
+  --output experiments/hybrid/results/fiqa_alpha_test_sanity.json
+```
+
+Environment overrides (used internally by the retriever when applicable):
+
+- `RAG_HYBRID_FUSION` (default `maxnorm`)
+- `RAG_HYBRID_CAND_MULT` (default `5`)
+- `RAG_HYBRID_RRF_K` (default `60`)
+
 ```
 experiments/hybrid/
 ├── 📄 README.md                              # This overview

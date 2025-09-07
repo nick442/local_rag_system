@@ -170,13 +170,25 @@ class Retriever(RetrievalInterface):
             rrf_k = int(os.getenv('RAG_HYBRID_RRF_K', '60'))
         except Exception:
             rrf_k = 60
-        results = self.vector_db.hybrid_search(
-            query_embedding, query, k, alpha,
-            collection_id=collection_id,
-            candidate_multiplier=candidate_multiplier,
-            fusion_method=fusion_method,
-            rrf_k=rrf_k,
-        )
+        # Try new interface with fusion args; fall back to legacy signatures
+        try:
+            results = self.vector_db.hybrid_search(
+                query_embedding, query, k, alpha,
+                collection_id=collection_id,
+                candidate_multiplier=candidate_multiplier,
+                fusion_method=fusion_method,
+                rrf_k=rrf_k,
+            )
+        except TypeError:
+            try:
+                results = self.vector_db.hybrid_search(
+                    query_embedding, query, k, alpha,
+                    collection_id=collection_id,
+                )
+            except TypeError:
+                results = self.vector_db.hybrid_search(
+                    query_embedding, query, k, alpha,
+                )
         
         return [
             RetrievalResult(
