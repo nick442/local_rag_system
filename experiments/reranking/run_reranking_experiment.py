@@ -7,10 +7,16 @@ enabled by setting the env var RAG_RERANKER_MODEL or passing --reranker-model.
 """
 import json
 import os
+import sys
 from pathlib import Path
 from typing import List
 
 import click
+
+# Ensure project root is on sys.path when run as a file
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from src.config_manager import ConfigManager
 from src.rag_pipeline import RAGPipeline
@@ -55,10 +61,14 @@ def main(queries: str, corpus: str, k: int, db_path: str, reranker_model: str, r
 
     records: List[dict] = []
     for q in q_list:
-        text = q['query'] if isinstance(q, dict) else str(q)
+        text = q['query'] if isinstance(q, dict) and 'query' in q else (q.get('text') if isinstance(q, dict) and 'text' in q else str(q))
+        qid = None
+        if isinstance(q, dict):
+            qid = str(q.get('id') or q.get('query_id') or '').strip() or None
         res = rag.query(text, k=k, retrieval_method='vector')
         records.append({
             'query': text,
+            'query_id': qid,
             'contexts': res.get('contexts', []),
             'metadata': res.get('metadata', {}),
         })
@@ -71,4 +81,3 @@ def main(queries: str, corpus: str, k: int, db_path: str, reranker_model: str, r
 
 if __name__ == '__main__':
     main()
-
