@@ -509,10 +509,16 @@ class ExperimentRunner:
             duration = time.time() - start_time
             self.logger.error(f"Experiment run {run_id} failed: {e}")
             
+            # Normalize query to a string for DB safety if it's a dict/object
+            try:
+                err_query_text = query.get('query') if isinstance(query, dict) else str(query)
+            except Exception:
+                err_query_text = str(query)
+
             return ExperimentResult(
                 run_id=run_id,
                 config=config,
-                query=query,
+                query=err_query_text,
                 response="",
                 metrics={"error": 1.0, "response_time": duration},
                 duration_seconds=duration,
