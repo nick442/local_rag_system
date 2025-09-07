@@ -68,7 +68,9 @@ class Retriever(RetrievalInterface):
     
     def retrieve(self, query: str, k: int = 5, 
                 method: str = "vector", 
-                collection_id: Optional[str] = None) -> List[RetrievalResult]:
+                collection_id: Optional[str] = None,
+                alpha: Optional[float] = None,
+                candidate_multiplier: Optional[int] = None) -> List[RetrievalResult]:
         """
         Retrieve relevant chunks for a query.
         
@@ -89,7 +91,12 @@ class Retriever(RetrievalInterface):
             elif method == "keyword":
                 results = self._keyword_retrieve(query, k, collection_id)
             elif method == "hybrid":
-                results = self._hybrid_retrieve(query, k, collection_id)
+                # Use provided alpha when available; fall back to internal default
+                results = self._hybrid_retrieve(
+                    query, k, collection_id,
+                    alpha=alpha if alpha is not None else 0.7,
+                    candidate_multiplier=candidate_multiplier,
+                )
             else:
                 raise ValueError(f"Unknown retrieval method: {method}")
             return results
@@ -144,13 +151,32 @@ class Retriever(RetrievalInterface):
             for chunk_id, score, data in results
         ]
     
-    def _hybrid_retrieve(self, query: str, k: int, collection_id: Optional[str] = None, alpha: float = 0.7) -> List[RetrievalResult]:
+    def _hybrid_retrieve(self, query: str, k: int, collection_id: Optional[str] = None, alpha: float = 0.7,
+                         candidate_multiplier: Optional[int] = None) -> List[RetrievalResult]:
         """Retrieve using hybrid vector + keyword search."""
+        import os
         # Generate query embedding
         query_embedding = self.embedding_service.embed_text(query)
         
         # Perform hybrid search with optional collection filtering
-        results = self.vector_db.hybrid_search(query_embedding, query, k, alpha, collection_id=collection_id)
+        # Allow environment override for candidate multiplier
+        if candidate_multiplier is None:
+            try:
+                candidate_multiplier = int(os.getenv('RAG_HYBRID_CAND_MULT', '5'))
+            except Exception:
+                candidate_multiplier = 5
+        fusion_method = os.getenv('RAG_HYBRID_FUSION', 'maxnorm')
+        try:
+            rrf_k = int(os.getenv('RAG_HYBRID_RRF_K', '60'))
+        except Exception:
+            rrf_k = 60
+        results = self.vector_db.hybrid_search(
+            query_embedding, query, k, alpha,
+            collection_id=collection_id,
+            candidate_multiplier=candidate_multiplier,
+            fusion_method=fusion_method,
+            rrf_k=rrf_k,
+        )
         
         return [
             RetrievalResult(

@@ -525,7 +525,10 @@ class VectorDatabase(VectorIndexInterface):
                 return []
     
     def hybrid_search(self, query_embedding: np.ndarray, query_text: str, k: int = 5, 
-                     alpha: float = 0.7, collection_id: Optional[str] = None) -> List[Tuple[str, float, Dict[str, Any]]]:
+                     alpha: float = 0.7, collection_id: Optional[str] = None,
+                     candidate_multiplier: int = 5,
+                     fusion_method: str = "maxnorm",
+                     rrf_k: int = 60) -> List[Tuple[str, float, Dict[str, Any]]]:
         """
         Perform hybrid search combining vector and keyword search.
         
@@ -538,38 +541,83 @@ class VectorDatabase(VectorIndexInterface):
         Returns:
             List of (chunk_id, combined_score, chunk_data) tuples
         """
+        # Candidate pools (fetch more from each method, then fuse)
+        try:
+            cm = int(candidate_multiplier)
+        except Exception:
+            cm = 5
+        fetch_n = max(k * cm, k)
+        
         # Get vector search results
-        vector_results = self.search_similar(query_embedding, k * 2, collection_id=collection_id)
+        vector_results = self.search_similar(query_embedding, fetch_n, collection_id=collection_id)
         
         # Get keyword search results
-        keyword_results = self.keyword_search(query_text, k * 2, collection_id=collection_id)
+        keyword_results = self.keyword_search(query_text, fetch_n, collection_id=collection_id)
         
-        # Combine and score results
-        combined_scores = {}
-        
-        # Normalize and weight vector scores
-        if vector_results:
-            max_vector_score = max(score for _, score, _ in vector_results)
-            for chunk_id, score, data in vector_results:
-                normalized_score = score / max_vector_score if max_vector_score > 0 else 0
-                combined_scores[chunk_id] = {
-                    'score': alpha * normalized_score,
-                    'data': data
-                }
-        
-        # Normalize and weight keyword scores
-        if keyword_results:
-            max_keyword_score = max(score for _, score, _ in keyword_results)
-            for chunk_id, score, data in keyword_results:
-                normalized_score = score / max_keyword_score if max_keyword_score > 0 else 0
-                if chunk_id in combined_scores:
-                    combined_scores[chunk_id]['score'] += (1 - alpha) * normalized_score
-                else:
+        # Combine and score results using selected fusion
+        combined_scores: Dict[str, Dict[str, Any]] = {}
+        fusion = (fusion_method or "maxnorm").lower()
+
+        # Build maps for scores and ranks
+        vec_scores = {cid: s for cid, s, _ in vector_results}
+        key_scores = {cid: s for cid, s, _ in keyword_results}
+        vec_data = {cid: d for cid, _, d in vector_results}
+        key_data = {cid: d for cid, _, d in keyword_results}
+        all_ids = set(vec_scores.keys()) | set(key_scores.keys())
+
+        if fusion == "zscore":
+            import numpy as np
+            v_vals = np.array(list(vec_scores.values())) if vec_scores else np.array([])
+            k_vals = np.array(list(key_scores.values())) if key_scores else np.array([])
+            v_mean, v_std = (float(v_vals.mean()), float(v_vals.std())) if v_vals.size else (0.0, 1.0)
+            k_mean, k_std = (float(k_vals.mean()), float(k_vals.std())) if k_vals.size else (0.0, 1.0)
+            if v_std == 0.0:
+                v_std = 1.0
+            if k_std == 0.0:
+                k_std = 1.0
+            for cid in all_ids:
+                zv = ((vec_scores.get(cid, 0.0) - v_mean) / v_std)
+                zk = ((key_scores.get(cid, 0.0) - k_mean) / k_std)
+                score = alpha * zv + (1 - alpha) * zk
+                data = vec_data.get(cid, key_data.get(cid))
+                combined_scores[cid] = { 'score': float(score), 'data': data }
+
+        elif fusion == "rrf":
+            # Reciprocal Rank Fusion
+            v_ranks = {cid: idx+1 for idx, (cid, _, _) in enumerate(vector_results)}
+            k_ranks = {cid: idx+1 for idx, (cid, _, _) in enumerate(keyword_results)}
+            K = int(rrf_k) if rrf_k and rrf_k > 0 else 60
+            for cid in all_ids:
+                rv = v_ranks.get(cid, len(v_ranks) + K)
+                rk = k_ranks.get(cid, len(k_ranks) + K)
+                sv = 1.0 / (K + rv)
+                sk = 1.0 / (K + rk)
+                score = alpha * sv + (1 - alpha) * sk
+                data = vec_data.get(cid, key_data.get(cid))
+                combined_scores[cid] = { 'score': float(score), 'data': data }
+
+        else:
+            # Default: per-list max normalization (legacy)
+            if vector_results:
+                max_vector_score = max(score for _, score, _ in vector_results)
+                for chunk_id, score, data in vector_results:
+                    normalized_score = score / max_vector_score if max_vector_score > 0 else 0
                     combined_scores[chunk_id] = {
-                        'score': (1 - alpha) * normalized_score,
+                        'score': alpha * normalized_score,
                         'data': data
                     }
-        
+            if keyword_results:
+                max_keyword_score = max(score for _, score, _ in keyword_results)
+                for chunk_id, score, data in keyword_results:
+                    normalized_score = score / max_keyword_score if max_keyword_score > 0 else 0
+                    if chunk_id in combined_scores:
+                        combined_scores[chunk_id]['score'] += (1 - alpha) * normalized_score
+                    else:
+                        combined_scores[chunk_id] = {
+                            'score': (1 - alpha) * normalized_score,
+                            'data': data
+                        }
+
         # Sort by combined score and return top k
         sorted_results = sorted(
             [(chunk_id, item['score'], item['data']) for chunk_id, item in combined_scores.items()],
