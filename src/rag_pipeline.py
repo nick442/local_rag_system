@@ -11,6 +11,7 @@ import yaml
 
 from .retriever import Retriever, RetrievalResult, create_retriever
 from .prompt_builder import PromptBuilder, create_prompt_builder
+from .reranker_service import create_reranker_service, RerankerService
 from .llm_wrapper import LLMWrapper, create_llm_wrapper
 from .config_manager import ProfileConfig
 from .metrics import get_metrics
@@ -26,6 +27,8 @@ class RAGPipeline:
                  config_path: Optional[str] = None,
                  profile_config: Optional['ProfileConfig'] = None,
                  disable_llm: bool = False,
+                 reranker_model: Optional[str] = None,
+                 rerank_top_k: Optional[int] = None,
                  **kwargs):
         """
         Initialize the RAG pipeline.
@@ -44,6 +47,8 @@ class RAGPipeline:
         self.config_path = config_path
         self.profile_config = profile_config
         self.disable_llm = disable_llm
+        self.reranker_model = reranker_model
+        self.rerank_top_k = rerank_top_k
         
         self.logger = logging.getLogger(__name__)
         
@@ -54,6 +59,7 @@ class RAGPipeline:
         self.retriever = None
         self.llm_wrapper = None
         self.prompt_builder = None
+        self.reranker: Optional[RerankerService] = None
         
         # Session state
         self.conversation_history = []
@@ -167,6 +173,20 @@ class RAGPipeline:
             self.prompt_builder = create_prompt_builder(
                 self.config.get('chat_template')
             )
+            
+            # Optional reranker (no-op unless configured)
+            rerank_cfg = self.config.get('reranking', {}) if isinstance(self.config, dict) else {}
+            rr_model = self.reranker_model or rerank_cfg.get('model')
+            rr_top_k = self.rerank_top_k if self.rerank_top_k is not None else rerank_cfg.get('top_k')
+            try:
+                self.reranker = create_reranker_service(rr_model, rr_top_k)
+                if self.reranker and self.reranker.enabled:
+                    self.logger.info("Reranker enabled: %s (top_k=%s)", rr_model, rr_top_k)
+                else:
+                    self.logger.info("Reranker disabled (no model configured)")
+            except Exception as e:
+                self.logger.warning("Failed to initialize reranker (disabled): %s", e)
+                self.reranker = None
             
             # Create LLM wrapper (optional)
             if not self.disable_llm:
@@ -285,6 +305,13 @@ class RAGPipeline:
                         method=retrieval_method,
                     )
             
+            # Optional reranking step
+            if self.reranker and self.reranker.enabled:
+                try:
+                    contexts = self.reranker.rerank(cleaned_query, contexts)
+                except Exception as e:
+                    self.logger.warning("Reranker failed; using original order: %s", e)
+
             retrieval_time = time.time() - retrieval_start
             self.logger.info(f"Retrieved {len(contexts)} contexts in {retrieval_time:.3f}s")
             metrics.track(
