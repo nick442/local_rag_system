@@ -64,12 +64,20 @@ def main(results: str, qrels: str, k: int, output: str):
             continue  # Require query IDs for BEIR alignment
         doc_ids = []
         for c in ctxs:
-            # Contexts are dicts with doc_id field
-            did = c.get('doc_id') if isinstance(c, dict) else None
-            if did is None and isinstance(c, dict):
-                # Fallback to metadata
+            # Prefer deriving BEIR corpus-id from metadata filename/source when available
+            did = None
+            if isinstance(c, dict):
                 meta = c.get('metadata') or {}
-                did = meta.get('doc_id')
+                fname = meta.get('filename') or meta.get('source')
+                if fname:
+                    try:
+                        from pathlib import Path as _P
+                        did = _P(str(fname)).stem  # e.g., '12345.txt' -> '12345'
+                    except Exception:
+                        did = None
+                if did is None:
+                    # Fallbacks
+                    did = meta.get('doc_id') or c.get('doc_id')
             if did is not None:
                 doc_ids.append(str(did))
         query_results[str(qid)] = doc_ids
@@ -104,4 +112,3 @@ def main(results: str, qrels: str, k: int, output: str):
 
 if __name__ == '__main__':
     main()
-
