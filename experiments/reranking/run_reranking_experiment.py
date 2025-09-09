@@ -25,12 +25,17 @@ from src.rag_pipeline import RAGPipeline
 @click.command()
 @click.option('--queries', required=True, help='JSON file with evaluation queries')
 @click.option('--corpus', required=True, help='Target corpus/collection (e.g., fiqa_technical)')
-@click.option('--k', default=5, show_default=True, help='Top-k contexts to return')
+@click.option('--k', default=5, show_default=True, help='Top-k contexts to return (final)')
 @click.option('--db-path', default='data/rag_vectors.db', show_default=True)
 @click.option('--reranker-model', default=None, help='CrossEncoder model name (enables reranking)')
 @click.option('--rerank-topk', type=int, default=None, help='Optional top-k truncation after reranking')
+@click.option('--retrieval-method', type=click.Choice(['vector', 'keyword', 'hybrid']), default='vector', show_default=True,
+              help='First-stage retrieval method')
+@click.option('--alpha', type=float, default=None, help='Hybrid fusion alpha (if method=hybrid)')
+@click.option('--candidate-multiplier', type=int, default=None, help='Hybrid candidate multiplier (if method=hybrid)')
 @click.option('--output', required=True, help='Output JSON file for results')
-def main(queries: str, corpus: str, k: int, db_path: str, reranker_model: str, rerank_topk: int, output: str):
+def main(queries: str, corpus: str, k: int, db_path: str, reranker_model: str, rerank_topk: int,
+         retrieval_method: str, alpha: float, candidate_multiplier: int, output: str):
     cfg = ConfigManager()
 
     # Prefer explicit model; fallback to env var
@@ -59,18 +64,39 @@ def main(queries: str, corpus: str, k: int, db_path: str, reranker_model: str, r
     out_path = Path(output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Determine first-stage retrieval size: ensure reranker sees enough candidates
+    k_retrieve = max(k, rerank_topk or k)
+
     records: List[dict] = []
     for q in q_list:
         text = q['query'] if isinstance(q, dict) and 'query' in q else (q.get('text') if isinstance(q, dict) and 'text' in q else str(q))
         qid = None
         if isinstance(q, dict):
             qid = str(q.get('id') or q.get('query_id') or '').strip() or None
-        res = rag.query(text, k=k, retrieval_method='vector')
+        res = rag.query(
+            text,
+            k=k_retrieve,
+            retrieval_method=retrieval_method,
+            similarity_threshold=alpha,
+            candidate_multiplier=candidate_multiplier,
+        )
+        # Only keep final top-k contexts for evaluation
+        ctxs = res.get('contexts', [])
+        if isinstance(ctxs, list) and len(ctxs) > k:
+            ctxs = ctxs[:k]
         records.append({
             'query': text,
             'query_id': qid,
-            'contexts': res.get('contexts', []),
+            'contexts': ctxs,
             'metadata': res.get('metadata', {}),
+            'retrieval': {
+                'method': retrieval_method,
+                'k_retrieve': k_retrieve,
+                'alpha': alpha,
+                'candidate_multiplier': candidate_multiplier,
+                'reranker_model': reranker_model,
+                'rerank_topk': rerank_topk,
+            }
         })
 
     with out_path.open('w') as f:
