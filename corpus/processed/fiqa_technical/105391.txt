@@ -1,0 +1,1 @@
+MoneyChimp is great for this. It only offers full year returns, but it compounds the results correctly, including dividends. For mid year results, just adjust a bit based on the data you can find from Google or Yahoo to add some return (or loss) for the months.

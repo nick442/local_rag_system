@@ -1,0 +1,1 @@
+Let's say I have a large company with a sub-unit which accounts for 40% of their revenues. The company is traded at a foreign stock exchange, but have the sub-unit that is located domestically. The beta of the company can be easily found online or calculated manually. How do I determine the beta of a sub-unit of a multinational company?

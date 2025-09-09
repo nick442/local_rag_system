@@ -1,0 +1,1 @@
+"This is called ""change"" or ""movement"" - the change (in points or percentage) from the last closing value. You can read more about the ticker tape on Investopedia, the format you're referring to comes from there."

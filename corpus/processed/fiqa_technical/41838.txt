@@ -1,0 +1,1 @@
+Sure. Download the hash list: https://rapidshare.com/files/3253529642/combo_not.zip Unzip and stick in your favourite text editor. Then go here: http://hash.online-convert.com/sha1-generator Stick your pw in that first box. Hit 'Calculate hash'. Take the first plain hex string in the green box and search for it in the hash list in your text editor.

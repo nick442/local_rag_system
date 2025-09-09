@@ -1,0 +1,1 @@
+If a password has been reversed, will another line be added to the file containing the 0's, or will the line itself be replaced? Some hashes seem to be in the file twice, once starting with 0000 and the other a full 40 char hash. It is possible that two different hashes have the same last 35 characters, but exceedingly unlikely assuming the hashes are randomly distributed.

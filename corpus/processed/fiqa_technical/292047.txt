@@ -1,0 +1,1 @@
+If you have a PO Box, the system may want your PO Box zip and PO Box number instead of your street address. I tried many times and it wouldn't work, but when I used my PO Box zip and PO Box number (as street number), it finally worked. Thanks, Powersurge!

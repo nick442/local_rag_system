@@ -1,0 +1,1 @@
+Anyone able to recommend a good resource on computing discounted cash flows? I'm looking for something that will walk me through calculating DCFs working from the balance sheet, income statement, etc. Textbook or online resources both work!

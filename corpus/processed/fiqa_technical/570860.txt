@@ -1,0 +1,1 @@
+Generally loan goes against an asset, in your case though it appear that you don't have any fixed assets related to this loan. So it seems like you got a cash loan (current asset/checking account?) which you spent (expenses). Since you're doing it retroactively, you'll probably just put totals in the expenses without detailing them.

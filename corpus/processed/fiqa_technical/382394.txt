@@ -1,0 +1,1 @@
+How can you correlate a company stock's performance with overall market performance. No you can't. There is no simple magic formulae that will result in profits. There are quite a few statistical algorithms that specialists have built, that work most of the times. But they are incorrect most of the times as well.

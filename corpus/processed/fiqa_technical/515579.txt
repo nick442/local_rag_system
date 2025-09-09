@@ -1,0 +1,1 @@
+If I understand you correctly, you are noticing that a stock's price can change drastically when the time changes from pre-market trading hours to open market hours. This could occur because a much smaller pool of investors make trades during pre-market and after-market hours. When the regular market opens there is a large influx of trades, causing the prices to jump.

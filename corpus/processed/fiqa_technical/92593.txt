@@ -1,0 +1,1 @@
+Edgar Online is the SEC's reporting repository where public companies post their forms, these forms contain financial data Stock screeners allow you to compare many companies based on many financial metrics. Many sites have them, Google Finance has one with a decent amount of utility

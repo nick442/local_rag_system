@@ -1,0 +1,1 @@
+The offering price is the price at which that IPO is, well, offered. Think of it as a suggested retail price. The opening price is the actual price at which trading begins, on a particular day, for a stock. That price depends on demand/overnight-orders/what-have-you. Think of this as the actual price in the store.

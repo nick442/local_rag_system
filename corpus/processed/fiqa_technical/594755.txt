@@ -1,0 +1,1 @@
+Risk in finance is defined as standard deviation of returns. This is a measure of size of your returns, both negative and positive. Since the mean return is positive (at least for the stock market and fixed income), if you double the standard deviation your mean return also doubles along with it. In this way you are compensated by the market for taking on more risk.

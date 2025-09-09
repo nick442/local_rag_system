@@ -1,0 +1,1 @@
+Generally, unless you're doing a wire transfer, bank transactions are processed in batches overnight. So the credit card company won't be able to confirm your transfer until the next business day (it may take even longer for them to actually receive the money).

@@ -1,0 +1,1 @@
+"A credit default swap is like insurance on a bond, but it isn't. The cash flows just move similarly. They didn't buy insurance on anything. They just bought a contract. A put ""is like"" downside insurance on a stock. But of course you can still buy them. Investing in TIPS ""is like"" buying inflation insurance, but it isn't."

@@ -1,0 +1,1 @@
+This is the information required to wire money into your account from abroad. They would only need the account number and the ABA (routing) number to withdraw, and it is printed on every check you give.

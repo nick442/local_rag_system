@@ -1,0 +1,1 @@
+It's not so much of a technical issue as much as the tradeoff in energy efficiency, weight, powertrain loss, and several other variables. With a casual consideration for transmission choice, a CVE seems like it'd actually be the optimal choice if we could make one that wouldn't rapidly disassemble itself with such massive amounts of low end torque.

@@ -1,0 +1,1 @@
+Another problem is maintaining the possibility for current financial analysts - who know their formula and VBA well- to tinker with the business logic. Replacing the underlying system - even partially - means potentially disrupting ownership and requires careful negotiation and change management. Quite challenging in my experience.

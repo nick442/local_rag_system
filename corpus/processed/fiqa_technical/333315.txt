@@ -1,0 +1,1 @@
+There's no requirement to use these OTP systems to process Internet transactions. Some merchants are using them, some are not. PayPal does not since they are not the receiver of the money but rather a merchant processor - so they don't assume any risk anyway and wouldn't bother.

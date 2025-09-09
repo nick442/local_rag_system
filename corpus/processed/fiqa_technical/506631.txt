@@ -1,0 +1,1 @@
+"It means that you are expected to have received a separate piece of communication (""advice"") which confirms who the payment came from. This is common with CHAPS payments and overseas transactions."

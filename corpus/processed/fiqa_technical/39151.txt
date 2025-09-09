@@ -1,0 +1,1 @@
+At one point you could log into your HSBC account from the command line, but gosh, I've never heard of a bank that has a command line interface!

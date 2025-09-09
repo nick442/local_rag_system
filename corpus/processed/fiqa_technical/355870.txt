@@ -1,0 +1,1 @@
+Have a look at swift codes website, but on wikipedia, there seems to be some variation in the interpretation of the standard. Broadly, it should be that a swift code refers to a particular branch, but it is possible that there is a cost associated with running a swift code, so some banks may prefer to share swift codes across branches. You should check and confirm.

@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "dataset": "fiqa",
+    "source": "experiments/hybrid/analysis/fiqa_dynamic_alpha_analysis.json",
+    "note": "Subset of 20 queries with ids preserved for evaluation experiments"
+  },
+  "queries": [
+    {"id": "0", "query": "What is considered a business expense on a business trip?"},
+    {"id": "1", "query": "How to calculate return on investment for rental property?"},
+    {"id": "2", "query": "Tax implications of selling stocks at a loss"},
+    {"id": "3", "query": "Best practices for small business bookkeeping"},
+    {"id": "4", "query": "How does compound interest work on savings accounts?"},
+    {"id": "5", "query": "What is the difference between Roth IRA and traditional IRA?"},
+    {"id": "6", "query": "Credit score factors and how to improve it"},
+    {"id": "7", "query": "Mortgage refinancing pros and cons"},
+    {"id": "8", "query": "Investment portfolio diversification strategies"},
+    {"id": "9", "query": "Business loan requirements for startups"},
+    {"id": "10", "query": "How to value company stock options"},
+    {"id": "11", "query": "Tax deductions for home office expenses"},
+    {"id": "12", "query": "Emergency fund recommendations and savings goals"},
+    {"id": "13", "query": "Real estate investment vs stock market returns"},
+    {"id": "14", "query": "401k contribution limits and employer matching"},
+    {"id": "15", "query": "Insurance needs assessment for young professionals"},
+    {"id": "16", "query": "Debt consolidation options and strategies"},
+    {"id": "17", "query": "Foreign exchange rate impact on investments"},
+    {"id": "18", "query": "Estate planning basics and will preparation"},
+    {"id": "19", "query": "Cryptocurrency taxation and reporting requirements"}
+  ]
+}
+

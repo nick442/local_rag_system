@@ -1,0 +1,1 @@
+This is a retarded statement. Excel was never meant to be used for gigantic complex models based on large data sets but it's still incredibly valuable. I've been using it for 20 years in my career and when it comes to building quick and dirty analyses and forecasting models I will run circles around anybody trying to use R or Python.

@@ -1,0 +1,1 @@
+The two answers so far are right, but there's a third factor - for many stocks, there's after hours trading. So the official 4PM close is not what the stock's last trade was when they open again. Regardless, even that after hour price is not the starting point as Muro points out.

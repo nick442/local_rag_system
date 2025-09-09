@@ -1,0 +1,1 @@
+>correlation doesn't imply causation My least favorite phrase. It's something dumb people say to sound smart. All artificial intelligence models, all economic models and even climate models assume correlation implies causation. It's even how the human mind operates. You see a snake. It bites you. You will correlate snakes with painful bites. That's how we learn.

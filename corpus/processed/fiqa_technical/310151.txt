@@ -1,0 +1,1 @@
+Not really in corporate finance, but I can see this being use to academics if it's good. As you mention, professionals usually have access to Bloomberg terminals and other data tools which kind of obsolete a third party project. Academics, on the other hand, are often lacking access to those kinds of resources.

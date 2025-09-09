@@ -1,0 +1,1 @@
+Tell your broker. You can usually opt to have certain positions be FIFO and others LIFO. Definitely possible with Interactive Brokers.

@@ -1,0 +1,109 @@
+2025-09-04 21:36:43,692 - INFO - Starting baseline measurement with 30 queries
+2025-09-04 21:36:43,692 - INFO - Progress: 1/30
+2025-09-04 21:36:43,692 - INFO - Running query fin_01: What is compound interest and how is it calculated...
+2025-09-04 21:37:17,886 - INFO - Query fin_01 completed in 34.19s
+2025-09-04 21:37:17,886 - INFO - Progress: 2/30
+2025-09-04 21:37:17,886 - INFO - Running query fin_02: How do index funds differ from actively managed mu...
+2025-09-04 21:38:04,167 - INFO - Query fin_02 completed in 46.28s
+2025-09-04 21:38:04,168 - INFO - Progress: 3/30
+2025-09-04 21:38:04,168 - INFO - Running query fin_03: What factors affect credit scores and how can they...
+2025-09-04 21:38:52,055 - INFO - Query fin_03 completed in 47.89s
+2025-09-04 21:38:52,056 - INFO - Progress: 4/30
+2025-09-04 21:38:52,056 - INFO - Running query fin_04: How to calculate the present value of future cash ...
+2025-09-04 21:39:31,246 - INFO - Query fin_04 completed in 39.19s
+2025-09-04 21:39:31,247 - INFO - Progress: 5/30
+2025-09-04 21:39:31,247 - INFO - Running query fin_05: What is the difference between stocks and bonds?...
+2025-09-04 21:40:17,742 - INFO - Query fin_05 completed in 46.49s
+2025-09-04 21:40:17,744 - INFO - Results saved to: experiments/chunking/results/baseline_intermediate_5.json
+2025-09-04 21:40:17,744 - INFO - Progress: 6/30
+2025-09-04 21:40:17,744 - INFO - Running query fin_06: How does inflation impact investment returns?...
+2025-09-04 21:40:54,849 - INFO - Query fin_06 completed in 37.10s
+2025-09-04 21:40:54,850 - INFO - Progress: 7/30
+2025-09-04 21:40:54,850 - INFO - Running query fin_07: What is diversification in portfolio management?...
+2025-09-04 21:41:18,612 - INFO - Query fin_07 completed in 23.76s
+2025-09-04 21:41:18,612 - INFO - Progress: 8/30
+2025-09-04 21:41:18,612 - INFO - Running query fin_08: How to evaluate a company's financial health using...
+2025-09-04 21:42:13,327 - INFO - Query fin_08 completed in 54.71s
+2025-09-04 21:42:13,328 - INFO - Progress: 9/30
+2025-09-04 21:42:13,328 - INFO - Running query fin_09: What are the tax implications of different retirem...
+2025-09-04 21:43:00,973 - INFO - Query fin_09 completed in 47.64s
+2025-09-04 21:43:00,973 - INFO - Progress: 10/30
+2025-09-04 21:43:00,973 - INFO - Running query fin_10: How do options contracts work in trading?...
+2025-09-04 21:43:57,272 - INFO - Query fin_10 completed in 56.30s
+2025-09-04 21:43:57,274 - INFO - Results saved to: experiments/chunking/results/baseline_intermediate_10.json
+2025-09-04 21:43:57,274 - INFO - Progress: 11/30
+2025-09-04 21:43:57,274 - INFO - Running query fin_11: What is the efficient market hypothesis?...
+2025-09-04 21:44:17,128 - INFO - Query fin_11 completed in 19.85s
+2025-09-04 21:44:17,128 - INFO - Progress: 12/30
+2025-09-04 21:44:17,128 - INFO - Running query fin_12: How to perform discounted cash flow analysis?...
+2025-09-04 21:45:09,178 - INFO - Query fin_12 completed in 52.05s
+2025-09-04 21:45:09,179 - INFO - Progress: 13/30
+2025-09-04 21:45:09,179 - INFO - Running query fin_13: What are the risks and benefits of real estate inv...
+2025-09-04 21:45:48,749 - INFO - Query fin_13 completed in 39.57s
+2025-09-04 21:45:48,750 - INFO - Progress: 14/30
+2025-09-04 21:45:48,750 - INFO - Running query fin_14: How does the Federal Reserve influence interest ra...
+2025-09-04 21:46:27,343 - INFO - Query fin_14 completed in 38.59s
+2025-09-04 21:46:27,344 - INFO - Progress: 15/30
+2025-09-04 21:46:27,344 - INFO - Running query fin_15: What is dollar cost averaging in investing?...
+2025-09-04 21:47:00,670 - INFO - Query fin_15 completed in 33.33s
+2025-09-04 21:47:00,672 - INFO - Results saved to: experiments/chunking/results/baseline_intermediate_15.json
+2025-09-04 21:47:00,672 - INFO - Progress: 16/30
+2025-09-04 21:47:00,672 - INFO - Running query sci_01: What is the relationship between DNA and protein s...
+2025-09-04 21:47:31,520 - INFO - Query sci_01 completed in 30.85s
+2025-09-04 21:47:31,521 - INFO - Progress: 17/30
+2025-09-04 21:47:31,521 - INFO - Running query sci_02: How do vaccines work to provide immunity?...
+2025-09-04 21:47:59,325 - INFO - Query sci_02 completed in 27.80s
+2025-09-04 21:47:59,325 - INFO - Progress: 18/30
+2025-09-04 21:47:59,325 - INFO - Running query sci_03: What is the difference between mitosis and meiosis...
+2025-09-04 21:48:35,563 - INFO - Query sci_03 completed in 36.24s
+2025-09-04 21:48:35,563 - INFO - Progress: 19/30
+2025-09-04 21:48:35,563 - INFO - Running query sci_04: How does photosynthesis convert light into chemica...
+2025-09-04 21:48:52,344 - INFO - Query sci_04 completed in 16.78s
+2025-09-04 21:48:52,345 - INFO - Progress: 20/30
+2025-09-04 21:48:52,345 - INFO - Running query sci_05: What is CRISPR gene editing technology?...
+2025-09-04 21:49:26,964 - INFO - Query sci_05 completed in 34.62s
+2025-09-04 21:49:26,965 - INFO - Results saved to: experiments/chunking/results/baseline_intermediate_20.json
+2025-09-04 21:49:26,965 - INFO - Progress: 21/30
+2025-09-04 21:49:26,965 - INFO - Running query sci_06: How do antibiotics work against bacterial infectio...
+2025-09-04 21:50:05,072 - INFO - Query sci_06 completed in 38.11s
+2025-09-04 21:50:05,073 - INFO - Progress: 22/30
+2025-09-04 21:50:05,073 - INFO - Running query sci_07: What is the role of the immune system in cancer pr...
+2025-09-04 21:50:39,989 - INFO - Query sci_07 completed in 34.92s
+2025-09-04 21:50:39,990 - INFO - Progress: 23/30
+2025-09-04 21:50:39,990 - INFO - Running query sci_08: How do enzymes catalyze biochemical reactions?...
+2025-09-04 21:50:56,865 - INFO - Query sci_08 completed in 16.88s
+2025-09-04 21:50:56,866 - INFO - Progress: 24/30
+2025-09-04 21:50:56,867 - INFO - Running query sci_09: What is the structure and function of cell membran...
+2025-09-04 21:51:35,170 - INFO - Query sci_09 completed in 38.30s
+2025-09-04 21:51:35,171 - INFO - Progress: 25/30
+2025-09-04 21:51:35,171 - INFO - Running query sci_10: How does climate change affect biodiversity?...
+2025-09-04 21:52:01,352 - INFO - Query sci_10 completed in 26.18s
+2025-09-04 21:52:01,355 - INFO - Results saved to: experiments/chunking/results/baseline_intermediate_25.json
+2025-09-04 21:52:01,355 - INFO - Progress: 26/30
+2025-09-04 21:52:01,355 - INFO - Running query sci_11: What is the process of cellular respiration?...
+2025-09-04 21:52:27,406 - INFO - Query sci_11 completed in 26.05s
+2025-09-04 21:52:27,406 - INFO - Progress: 27/30
+2025-09-04 21:52:27,406 - INFO - Running query sci_12: How do stem cells differentiate into specialized c...
+2025-09-04 21:52:52,409 - INFO - Query sci_12 completed in 25.00s
+2025-09-04 21:52:52,409 - INFO - Progress: 28/30
+2025-09-04 21:52:52,409 - INFO - Running query sci_13: What is the difference between innate and adaptive...
+2025-09-04 21:53:29,227 - INFO - Query sci_13 completed in 36.82s
+2025-09-04 21:53:29,227 - INFO - Progress: 29/30
+2025-09-04 21:53:29,227 - INFO - Running query sci_14: How do neurotransmitters work in the brain?...
+2025-09-04 21:54:12,137 - INFO - Query sci_14 completed in 42.91s
+2025-09-04 21:54:12,137 - INFO - Progress: 30/30
+2025-09-04 21:54:12,138 - INFO - Running query sci_15: What are the mechanisms of genetic inheritance?...
+2025-09-04 21:54:47,294 - INFO - Query sci_15 completed in 35.16s
+2025-09-04 21:54:47,295 - INFO - Results saved to: experiments/chunking/results/baseline_intermediate_30.json
+2025-09-04 21:54:47,296 - INFO - Baseline measurement completed in 1083.60s
+2025-09-04 21:54:47,298 - INFO - Results saved to: experiments/chunking/results/baseline_complete.json
+2025-09-04 21:54:47,298 - INFO - ============================================================
+2025-09-04 21:54:47,298 - INFO - BASELINE MEASUREMENT COMPLETE
+2025-09-04 21:54:47,298 - INFO - ============================================================
+2025-09-04 21:54:47,298 - INFO - Total queries: 30
+2025-09-04 21:54:47,298 - INFO - Successful: 30
+2025-09-04 21:54:47,298 - INFO - Success rate: 100.0%
+2025-09-04 21:54:47,298 - INFO - Average execution time: 36.12s
+2025-09-04 21:54:47,298 - INFO - Average retrieval time: 3.13s
+2025-09-04 21:54:47,298 - INFO - Average response time: 0.00s
+2025-09-04 21:54:47,298 - INFO - Results saved to: experiments/chunking/results/baseline_complete.json

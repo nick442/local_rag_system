@@ -1,0 +1,1 @@
+As you can see at https://www.google.com/finance?q=NASDAQ%3AAAPL the number of apple shares at this very moment is 5.25B, so if you have 1 share you own 1 / 5.25B of the company.

@@ -1,0 +1,1 @@
+Mortgage rates tend to track the yield on the 10-year Treasury note. The CBOE Interest Rate 10-Year T-Note, TNX, is a security directly related to this rate. Divide the CBOE price of TNX by 10 to get the yield. One can also track the 10Y T-Note yield at yahoo finance using ticker symbol (^TNX). One can also track the 10Y T-Note yield at yahoo finance using ticker symbol (^TNX).

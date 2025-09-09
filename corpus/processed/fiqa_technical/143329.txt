@@ -1,0 +1,1 @@
+QuickBooks enterprise provide audit trail for recover the details of the deleted transaction so that you can re-create the transaction. The audit trail is only capturing information related to new, deleted, and modified transactions. If you are unable to locate the delete transaction contact QuickBooks Enterprise site - https://www.wizxpert.com/quickbooks-enterprise-support/

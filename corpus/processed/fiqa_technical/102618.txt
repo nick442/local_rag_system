@@ -1,0 +1,1 @@
+Highest possible is meaningless. Ex: Use 17x Leverage on E-mini S&P 500 Futures, perfectly long before an uptick and short before a downtick every minute. Goes to the moon in a day of 1,440 minutes. You are supposed to use a Buy-and-Hold SPY, with leverage that makes the Standard Deviation of SPY same as your Portfolio/Algorithm, as benchmark.

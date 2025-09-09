@@ -1,0 +1,1 @@
+Yes, selling premium is selling an option that contains premium over it's intrinsic value. Out-of-the-money options contain no intrinsic value, at the money and near the money options contain premium over the intrinsic value. The deeper in-the-money go, the less premium there is.

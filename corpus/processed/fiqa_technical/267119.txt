@@ -1,0 +1,1 @@
+I'd look at VXX, I believe it closely tracks what you are looking to do. http://www.ipathetn.com/product/VXX/ However, as already noted in other responses, this isn't trading VIX itself (in fact it is impossible to do so). Instead, this ETF gives exposure to short-term SP500 futures contracts, which in theory should be very correlated to market volatility.

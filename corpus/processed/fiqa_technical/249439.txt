@@ -1,0 +1,1 @@
+Maybe I'm being naive but I would think that Amazon would have some kind of automated metrics that flag abuse. If your order to return ratio is out of whack, they should put in some limitations on returns for you. It would be easy to do and protect their business as well as 3rd parties.

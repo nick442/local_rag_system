@@ -1,0 +1,1 @@
+These are unrelated. If I subscribe to the paper and pay a month by check, they will just keep billing and delivering the paper. The virtual card would work for a service that will cancel when the billing attempt fails. i.e. A service that won't just keep active without being paid in advance.

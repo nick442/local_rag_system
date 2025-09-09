@@ -1,0 +1,1 @@
+"I've taken Calculus I-III, ODEs, Linear Algebra, PDEs and a few numerical methods classes. No back ground in statistics. I ""speak"" Python, Matlab, and some C++. Is this enough formal background to self-educate? Also, wouldn't it make the most sense to write things in C++ or a lower level language? Seems like speed of algorithms would be of utmost importance here."

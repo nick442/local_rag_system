@@ -1,0 +1,1 @@
+You can use Google Finance Stock Screener for screening US stocks. Apparently it doesn't have the specific criterion (Last Price % diff from 52 week low) you are (were!) looking for. I believe using its api you can get it, although it won't exactly be a very direct solution.

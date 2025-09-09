@@ -1,0 +1,1 @@
+Gnucash uses aqbanking, so I'd suggest looking at aqbanking to see if it will do what you want. It seems to be actively developed (as of 26.2.2011), but the main page is in German and my German is a bit rusty.. You might also try asking on the gnucash-users list.

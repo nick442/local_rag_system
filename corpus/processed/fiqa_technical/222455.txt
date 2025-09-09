@@ -1,0 +1,1 @@
+From reading the manual, SP means summary punching. Summary punching is the automatic preparation of one total card to replace a group of detail cards.

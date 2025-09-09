@@ -1,0 +1,1 @@
+Convexity refers to vega. Gamma refers to delta. Negative carry refers to time decay.

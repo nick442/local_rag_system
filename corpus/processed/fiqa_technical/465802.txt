@@ -1,0 +1,1 @@
+Purchase accounting requires that you mark assets, including PP&E to fair value. So let's say you bought a machine 5 years ago for $1,000 - you might have depreciated it to $250 on your balance sheet but it might actually be worth $900.

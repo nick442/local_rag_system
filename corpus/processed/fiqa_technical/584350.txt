@@ -1,0 +1,1 @@
+"When there is a trade the shares were both bought and sold. In any trade on the secondary market there has to be both a buyer and a seller for the trade to take place. So in ""lasttradesize"" a buyer has bought the shares from a seller."

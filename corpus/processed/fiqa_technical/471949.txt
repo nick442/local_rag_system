@@ -1,0 +1,1 @@
+The way banks generally work is that the front line staff input the ltv, and various data, and are just given a price for the day/week/month. There might be a few bps of maneuverability, but there's not much negotiation to be had. The bank picks its price based on statistical analysis and market knowledge.

@@ -1,0 +1,1 @@
+Buy as much data as you can, make a model, automate the back testing, see if it works over the past decade or so. If the returns are offering a superior risk adjusted return then you have a valid model, if not try an other model. If you don't know how to program, learn how to.

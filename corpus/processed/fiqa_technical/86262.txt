@@ -1,0 +1,1 @@
+The SWIFT network is federated. The connection routing is via country server to regional servers. All these are maintained by SWIFT. The Banks have corresponded relationship with other banks. They play a role in actual settlement and take some risk. L/C is very risky business. It is expensive.

@@ -1,0 +1,1 @@
+Some people can't even see the pattern. It drives others completely nuts. (For those that don't know what we're talking about: Every other pixel is Green/Red or Green/Blue on AMOLED -- not RGB. This causes a diagonal pattern to emerge. http://en.wikipedia.org/wiki/AMOLED )

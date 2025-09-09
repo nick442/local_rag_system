@@ -1,0 +1,1 @@
+Actually, while unsubscribing from Hulu the other day, the process prompted a SWF object which chrome decided to direct download instead of stream thankfully. I also have seen several local affiliate news sites that still require flash to view their content. It's still out there, just not as ubiquitous.

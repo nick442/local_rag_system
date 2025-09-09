@@ -1,0 +1,1 @@
+"I was afraid of this. If you are using 12 P/Y and 12 C/Y, then your interest rate should not be divided by 12. Also, you should use ""END"" as this means monthly payments are made at the end of the month - a usual default."

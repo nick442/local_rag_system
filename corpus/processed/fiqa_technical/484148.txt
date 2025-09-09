@@ -1,0 +1,1 @@
+Its a new way of computing sales tax. Wikipedia has a nice article on this http://en.wikipedia.org/wiki/FairTax

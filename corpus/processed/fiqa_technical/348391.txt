@@ -1,0 +1,1 @@
+> Business Insider analyzed data from the 2015 American Community Survey, an annual survey by the US Census Bureau that talks to 1% of all US ***households*** about various economic, social, and housing demographics. Emphasis mine. Why are they comparing incomes of *individuals* to *households*? Is it just clickbait or is there a point?

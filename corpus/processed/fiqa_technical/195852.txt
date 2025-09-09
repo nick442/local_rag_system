@@ -1,0 +1,1 @@
+It's possible the recipient of the payment is not setup to receive funds form PayPal from a credit card, too.

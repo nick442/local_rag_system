@@ -1,0 +1,1 @@
+One of the most useful ways to depict Open, High, Low, Close, and Volume is with a Candlestick Chart. I like to use the following options from Stockcharts.com: http://stockcharts.com/h-sc/ui?s=SPY&p=D&yr=0&mn=3&dy=0&id=p57211761385

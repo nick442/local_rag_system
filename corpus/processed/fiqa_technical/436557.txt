@@ -1,0 +1,1 @@
+I'm mainly interested in scraping market data in order to create screening tools involving stock price technicals, stock fundamentals, derivatives, interest rate data, and futures contracts. I'm not aware of anyone making a screening tool that can integrate all of these things simultaneously. What is the best environment to create a tool like this?

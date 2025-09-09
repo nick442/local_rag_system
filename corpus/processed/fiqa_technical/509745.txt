@@ -1,0 +1,1 @@
+When you look at the charts in Google Finance, they put the news on the right hand side. The time stamp for each news item is indicated with a letter in the chart. This often shows what news the market is reacting to. In your example: Clicking on the letter F leads to this Reuters story: http://www.reuters.com/article/2011/02/04/usa-housing-s-idUSWAT01486120110204

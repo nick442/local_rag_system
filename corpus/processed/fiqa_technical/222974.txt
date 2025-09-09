@@ -1,0 +1,1 @@
+It really depends on the hedge fund, my hedge fund gives back all rebates for routes that are public knowledge back to the client. Also the rebate is based on the route, not the stock, so it may not offset all expenses on each ETFs. Most of the BATS IEX and other routes have public websites where you can get the infos on what are the rebates for each.

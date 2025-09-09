@@ -1,0 +1,1 @@
+"If you enter the transactions as you execute them (and categorize them then), Quicken will attempt to Match downloaded transactions with ones already in the register. ""Memorized transactions"" with known parties can also help. My credit card downloads actually come with a rough categorization provided by the vendor; that may or may not be accurate enough to save you some work."

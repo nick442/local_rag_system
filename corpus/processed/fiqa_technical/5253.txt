@@ -1,0 +1,1 @@
+You buy something on margin. It goes down. You get a margin call. It's not more complex than that. The value of your account has to be X% of the asset you control. The fact that the ETF is bull, bear, triple long/short, doesn't really matter.

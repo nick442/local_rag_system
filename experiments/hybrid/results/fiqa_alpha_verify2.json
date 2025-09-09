@@ -1,0 +1,3975 @@
+{
+  "metadata": {
+    "export_timestamp": "2025-09-06T20:29:01.166079",
+    "claude_version": "Experiment_v2_fixes"
+  },
+  "experiment_id": "sweep_1757183332",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 8.937865972518921,
+  "created_at": "2025-09-06T18:29:01.164796+00:00",
+  "completed_at": "2025-09-06T18:29:01.164797+00:00",
+  "total_results": 120,
+  "results": [
+    {
+      "run_id": "sweep_1757183332_run_0_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "0",
+        "query": "What is considered a business expense on a business trip?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 3.911638021469116
+      },
+      "duration_seconds": 3.911638021469116,
+      "timestamp": "2025-09-06T18:28:56.138510+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "What is considered a business expense on a business trip?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.215219+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "1",
+        "query": "How to calculate return on investment for rental property?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004865169525146484
+      },
+      "duration_seconds": 0.004865169525146484,
+      "timestamp": "2025-09-06T18:28:56.220999+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "How to calculate return on investment for rental property?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.301579+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "2",
+        "query": "Tax implications of selling stocks at a loss"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005099058151245117
+      },
+      "duration_seconds": 0.005099058151245117,
+      "timestamp": "2025-09-06T18:28:56.307387+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Tax implications of selling stocks at a loss",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.380384+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "3",
+        "query": "Best practices for small business bookkeeping"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004933834075927734
+      },
+      "duration_seconds": 0.004933834075927734,
+      "timestamp": "2025-09-06T18:28:56.386002+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Best practices for small business bookkeeping",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.462659+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "4",
+        "query": "How does compound interest work on savings accounts?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0047719478607177734
+      },
+      "duration_seconds": 0.0047719478607177734,
+      "timestamp": "2025-09-06T18:28:56.468249+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "How does compound interest work on savings accounts?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.545809+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "5",
+        "query": "What is the difference between Roth IRA and traditional IRA?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004865169525146484
+      },
+      "duration_seconds": 0.004865169525146484,
+      "timestamp": "2025-09-06T18:28:56.551332+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.635478+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "6",
+        "query": "Credit score factors and how to improve it"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004957914352416992
+      },
+      "duration_seconds": 0.004957914352416992,
+      "timestamp": "2025-09-06T18:28:56.641133+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Credit score factors and how to improve it",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.717844+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "7",
+        "query": "Mortgage refinancing pros and cons"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004853963851928711
+      },
+      "duration_seconds": 0.004853963851928711,
+      "timestamp": "2025-09-06T18:28:56.723456+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Mortgage refinancing pros and cons",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.800824+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "8",
+        "query": "Investment portfolio diversification strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004321098327636719
+      },
+      "duration_seconds": 0.004321098327636719,
+      "timestamp": "2025-09-06T18:28:56.805724+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Investment portfolio diversification strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.879679+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "9",
+        "query": "Business loan requirements for startups"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004581928253173828
+      },
+      "duration_seconds": 0.004581928253173828,
+      "timestamp": "2025-09-06T18:28:56.884901+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Business loan requirements for startups",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:56.963729+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "10",
+        "query": "How to value company stock options"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0048410892486572266
+      },
+      "duration_seconds": 0.0048410892486572266,
+      "timestamp": "2025-09-06T18:28:56.969173+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "How to value company stock options",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.054450+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "11",
+        "query": "Tax deductions for home office expenses"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004585981369018555
+      },
+      "duration_seconds": 0.004585981369018555,
+      "timestamp": "2025-09-06T18:28:57.059635+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Tax deductions for home office expenses",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.135536+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "12",
+        "query": "Emergency fund recommendations and savings goals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004824161529541016
+      },
+      "duration_seconds": 0.004824161529541016,
+      "timestamp": "2025-09-06T18:28:57.140997+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Emergency fund recommendations and savings goals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.217414+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "13",
+        "query": "Real estate investment vs stock market returns"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004703998565673828
+      },
+      "duration_seconds": 0.004703998565673828,
+      "timestamp": "2025-09-06T18:28:57.222755+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Real estate investment vs stock market returns",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.298005+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "14",
+        "query": "401k contribution limits and employer matching"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004848003387451172
+      },
+      "duration_seconds": 0.004848003387451172,
+      "timestamp": "2025-09-06T18:28:57.303699+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "401k contribution limits and employer matching",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.381548+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "15",
+        "query": "Insurance needs assessment for young professionals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004802703857421875
+      },
+      "duration_seconds": 0.004802703857421875,
+      "timestamp": "2025-09-06T18:28:57.386992+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Insurance needs assessment for young professionals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.470203+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "16",
+        "query": "Debt consolidation options and strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004762172698974609
+      },
+      "duration_seconds": 0.004762172698974609,
+      "timestamp": "2025-09-06T18:28:57.475605+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Debt consolidation options and strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.550139+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "17",
+        "query": "Foreign exchange rate impact on investments"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004616975784301758
+      },
+      "duration_seconds": 0.004616975784301758,
+      "timestamp": "2025-09-06T18:28:57.555489+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Foreign exchange rate impact on investments",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.631444+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "18",
+        "query": "Estate planning basics and will preparation"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004611015319824219
+      },
+      "duration_seconds": 0.004611015319824219,
+      "timestamp": "2025-09-06T18:28:57.636696+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Estate planning basics and will preparation",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.708446+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "19",
+        "query": "Cryptocurrency taxation and reporting requirements"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004841804504394531
+      },
+      "duration_seconds": 0.004841804504394531,
+      "timestamp": "2025-09-06T18:28:57.713910+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_0_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.793320+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "0",
+        "query": "What is considered a business expense on a business trip?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004939079284667969
+      },
+      "duration_seconds": 0.004939079284667969,
+      "timestamp": "2025-09-06T18:28:57.798947+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "What is considered a business expense on a business trip?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.877404+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "1",
+        "query": "How to calculate return on investment for rental property?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004900932312011719
+      },
+      "duration_seconds": 0.004900932312011719,
+      "timestamp": "2025-09-06T18:28:57.883011+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "How to calculate return on investment for rental property?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:57.960969+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "2",
+        "query": "Tax implications of selling stocks at a loss"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004664182662963867
+      },
+      "duration_seconds": 0.004664182662963867,
+      "timestamp": "2025-09-06T18:28:57.966284+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Tax implications of selling stocks at a loss",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.038838+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "3",
+        "query": "Best practices for small business bookkeeping"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005254030227661133
+      },
+      "duration_seconds": 0.005254030227661133,
+      "timestamp": "2025-09-06T18:28:58.044753+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Best practices for small business bookkeeping",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.120986+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "4",
+        "query": "How does compound interest work on savings accounts?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004486083984375
+      },
+      "duration_seconds": 0.004486083984375,
+      "timestamp": "2025-09-06T18:28:58.126082+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "How does compound interest work on savings accounts?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.203749+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "5",
+        "query": "What is the difference between Roth IRA and traditional IRA?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004890918731689453
+      },
+      "duration_seconds": 0.004890918731689453,
+      "timestamp": "2025-09-06T18:28:58.209371+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.289796+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "6",
+        "query": "Credit score factors and how to improve it"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0050089359283447266
+      },
+      "duration_seconds": 0.0050089359283447266,
+      "timestamp": "2025-09-06T18:28:58.295662+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Credit score factors and how to improve it",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.374484+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "7",
+        "query": "Mortgage refinancing pros and cons"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0045909881591796875
+      },
+      "duration_seconds": 0.0045909881591796875,
+      "timestamp": "2025-09-06T18:28:58.379638+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Mortgage refinancing pros and cons",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.459041+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "8",
+        "query": "Investment portfolio diversification strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004759073257446289
+      },
+      "duration_seconds": 0.004759073257446289,
+      "timestamp": "2025-09-06T18:28:58.464416+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Investment portfolio diversification strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.540288+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "9",
+        "query": "Business loan requirements for startups"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.00469517707824707
+      },
+      "duration_seconds": 0.00469517707824707,
+      "timestamp": "2025-09-06T18:28:58.545604+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Business loan requirements for startups",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.623359+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "10",
+        "query": "How to value company stock options"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0052661895751953125
+      },
+      "duration_seconds": 0.0052661895751953125,
+      "timestamp": "2025-09-06T18:28:58.629293+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "How to value company stock options",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.714477+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "11",
+        "query": "Tax deductions for home office expenses"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005153656005859375
+      },
+      "duration_seconds": 0.005153656005859375,
+      "timestamp": "2025-09-06T18:28:58.720412+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Tax deductions for home office expenses",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.800937+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "12",
+        "query": "Emergency fund recommendations and savings goals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004651069641113281
+      },
+      "duration_seconds": 0.004651069641113281,
+      "timestamp": "2025-09-06T18:28:58.806421+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Emergency fund recommendations and savings goals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.880257+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "13",
+        "query": "Real estate investment vs stock market returns"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004950046539306641
+      },
+      "duration_seconds": 0.004950046539306641,
+      "timestamp": "2025-09-06T18:28:58.885835+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Real estate investment vs stock market returns",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:58.963319+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "14",
+        "query": "401k contribution limits and employer matching"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004509925842285156
+      },
+      "duration_seconds": 0.004509925842285156,
+      "timestamp": "2025-09-06T18:28:58.968429+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "401k contribution limits and employer matching",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.046176+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "15",
+        "query": "Insurance needs assessment for young professionals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005697727203369141
+      },
+      "duration_seconds": 0.005697727203369141,
+      "timestamp": "2025-09-06T18:28:59.052712+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Insurance needs assessment for young professionals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.135638+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "16",
+        "query": "Debt consolidation options and strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004854917526245117
+      },
+      "duration_seconds": 0.004854917526245117,
+      "timestamp": "2025-09-06T18:28:59.141323+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Debt consolidation options and strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.224402+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "17",
+        "query": "Foreign exchange rate impact on investments"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004315853118896484
+      },
+      "duration_seconds": 0.004315853118896484,
+      "timestamp": "2025-09-06T18:28:59.229486+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Foreign exchange rate impact on investments",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.303577+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "18",
+        "query": "Estate planning basics and will preparation"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004793882369995117
+      },
+      "duration_seconds": 0.004793882369995117,
+      "timestamp": "2025-09-06T18:28:59.309019+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Estate planning basics and will preparation",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.386377+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "19",
+        "query": "Cryptocurrency taxation and reporting requirements"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004518032073974609
+      },
+      "duration_seconds": 0.004518032073974609,
+      "timestamp": "2025-09-06T18:28:59.391499+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_1_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.465225+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "0",
+        "query": "What is considered a business expense on a business trip?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004882097244262695
+      },
+      "duration_seconds": 0.004882097244262695,
+      "timestamp": "2025-09-06T18:28:59.470962+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "What is considered a business expense on a business trip?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.553455+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "1",
+        "query": "How to calculate return on investment for rental property?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005116939544677734
+      },
+      "duration_seconds": 0.005116939544677734,
+      "timestamp": "2025-09-06T18:28:59.559335+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "How to calculate return on investment for rental property?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.642026+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "2",
+        "query": "Tax implications of selling stocks at a loss"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004642009735107422
+      },
+      "duration_seconds": 0.004642009735107422,
+      "timestamp": "2025-09-06T18:28:59.647499+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Tax implications of selling stocks at a loss",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.725128+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "3",
+        "query": "Best practices for small business bookkeeping"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005759000778198242
+      },
+      "duration_seconds": 0.005759000778198242,
+      "timestamp": "2025-09-06T18:28:59.731587+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Best practices for small business bookkeeping",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.806913+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "4",
+        "query": "How does compound interest work on savings accounts?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.00470280647277832
+      },
+      "duration_seconds": 0.00470280647277832,
+      "timestamp": "2025-09-06T18:28:59.812389+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "How does compound interest work on savings accounts?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.889076+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "5",
+        "query": "What is the difference between Roth IRA and traditional IRA?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004829883575439453
+      },
+      "duration_seconds": 0.004829883575439453,
+      "timestamp": "2025-09-06T18:28:59.894834+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:28:59.976899+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "6",
+        "query": "Credit score factors and how to improve it"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005151987075805664
+      },
+      "duration_seconds": 0.005151987075805664,
+      "timestamp": "2025-09-06T18:28:59.983148+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Credit score factors and how to improve it",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.062853+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "7",
+        "query": "Mortgage refinancing pros and cons"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004981040954589844
+      },
+      "duration_seconds": 0.004981040954589844,
+      "timestamp": "2025-09-06T18:29:00.069640+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Mortgage refinancing pros and cons",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.145981+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "8",
+        "query": "Investment portfolio diversification strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0052030086517333984
+      },
+      "duration_seconds": 0.0052030086517333984,
+      "timestamp": "2025-09-06T18:29:00.152050+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Investment portfolio diversification strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.227313+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "9",
+        "query": "Business loan requirements for startups"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004685163497924805
+      },
+      "duration_seconds": 0.004685163497924805,
+      "timestamp": "2025-09-06T18:29:00.232741+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Business loan requirements for startups",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.310365+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "10",
+        "query": "How to value company stock options"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005243778228759766
+      },
+      "duration_seconds": 0.005243778228759766,
+      "timestamp": "2025-09-06T18:29:00.316459+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "How to value company stock options",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.399744+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "11",
+        "query": "Tax deductions for home office expenses"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.005301952362060547
+      },
+      "duration_seconds": 0.005301952362060547,
+      "timestamp": "2025-09-06T18:29:00.405837+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Tax deductions for home office expenses",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.485136+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "12",
+        "query": "Emergency fund recommendations and savings goals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004945993423461914
+      },
+      "duration_seconds": 0.004945993423461914,
+      "timestamp": "2025-09-06T18:29:00.490946+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Emergency fund recommendations and savings goals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.564057+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "13",
+        "query": "Real estate investment vs stock market returns"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004964113235473633
+      },
+      "duration_seconds": 0.004964113235473633,
+      "timestamp": "2025-09-06T18:29:00.569683+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Real estate investment vs stock market returns",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.646271+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "14",
+        "query": "401k contribution limits and employer matching"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0044748783111572266
+      },
+      "duration_seconds": 0.0044748783111572266,
+      "timestamp": "2025-09-06T18:29:00.651534+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "401k contribution limits and employer matching",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.736695+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "15",
+        "query": "Insurance needs assessment for young professionals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0046308040618896484
+      },
+      "duration_seconds": 0.0046308040618896484,
+      "timestamp": "2025-09-06T18:29:00.742000+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Insurance needs assessment for young professionals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.826070+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "16",
+        "query": "Debt consolidation options and strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004784107208251953
+      },
+      "duration_seconds": 0.004784107208251953,
+      "timestamp": "2025-09-06T18:29:00.831671+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Debt consolidation options and strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.913926+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "17",
+        "query": "Foreign exchange rate impact on investments"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004615068435668945
+      },
+      "duration_seconds": 0.004615068435668945,
+      "timestamp": "2025-09-06T18:29:00.919390+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Foreign exchange rate impact on investments",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:00.998319+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "18",
+        "query": "Estate planning basics and will preparation"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004544973373413086
+      },
+      "duration_seconds": 0.004544973373413086,
+      "timestamp": "2025-09-06T18:29:01.003553+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Estate planning basics and will preparation",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:01.078791+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "19",
+        "query": "Cryptocurrency taxation and reporting requirements"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.004625082015991211
+      },
+      "duration_seconds": 0.004625082015991211,
+      "timestamp": "2025-09-06T18:29:01.084267+00:00",
+      "error_message": "'RAGPipeline' object has no attribute 'disable_llm'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183332_run_2_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:29:01.163547+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    }
+  ]
+}

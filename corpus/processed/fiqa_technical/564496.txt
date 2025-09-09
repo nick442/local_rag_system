@@ -1,0 +1,1 @@
+Possibly you could use it as a hedging instrument if it's correlated in some way with another asset you're holding. Even though it seems you're losing money with such a bond, that loss might be less than the hedging costs associated with other instruments.

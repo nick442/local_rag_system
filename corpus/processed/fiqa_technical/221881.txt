@@ -1,0 +1,1 @@
+"Covered calls, that is where the writer owns the underlying security, aren't the only type of calls one can write. Writing ""uncovered calls,"" wherein one does NOT own the underlying, are a way to profit from a price drop. For example, write the call for a $5 premium, then when the underlying price drops, buy it back for $4, and pocket the $1 profit."

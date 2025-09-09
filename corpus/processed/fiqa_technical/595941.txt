@@ -1,0 +1,1 @@
+Sure. Depending on how you configure your order, it will either be fulfilled partially or wait until it can be fulfilled. You can set a time limit on your order (usually its either 1 day or 60 days, but may vary between brokerages), and allow or disallow partial fulfilment.

@@ -1,0 +1,1 @@
+IBM have been irrelevant to most developers for many years. MS are realising OSS has won and they are flocking to it. They are contributing to linux, even making their own distro, docker, kubernetes and have open sourced a heap of software including .net They realise they need to win over developers and customers

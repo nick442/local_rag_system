@@ -1,0 +1,1 @@
+The 'normal' series of events when trading a stock is to buy it, time passes, then you sell it. If you believe the stock will drop in price, you can reverse the order, selling shares, waiting for the price drop, then buying them back. During that time you own say, -100 shares, and are 'short' those shares.

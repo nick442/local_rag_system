@@ -1,0 +1,1 @@
+ES1 is the Bloomberg symbol for the CME E-mini S&P 500 front-month continuous contract. ES2, ES3, etc. will likewise yield the 2nd and 3rd months. Which exact futures contract this symbol refers to will change about once a month.

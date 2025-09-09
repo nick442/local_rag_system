@@ -1,0 +1,526 @@
+{
+  "metadata": {
+    "timestamp": "2025-09-04T21:36:43.692759",
+    "queries_file": "experiments/chunking/queries/chunking_queries.json",
+    "total_queries": 30,
+    "configuration": {
+      "chunk_size": 512,
+      "chunk_overlap": 0,
+      "retrieval_k": 5,
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "llm_model": "gemma-3-4b-it-q4_0.gguf"
+    }
+  },
+  "baseline_results": [
+    {
+      "query_id": "fin_01",
+      "query_text": "What is compound interest and how is it calculated?",
+      "collection": "fiqa_technical",
+      "category": "factual",
+      "expected_chunks": 2,
+      "status": "success",
+      "execution_time": 34.19225788116455,
+      "metrics": {
+        "retrieval_time": 4.358,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 814
+      },
+      "answer_sample": "Answer:\nCompound interest is the process where the interest earned in each period is \nadded to the principal, and the next period\u2019s interest is calculated on the new,\nlarger principal. This allows you..."
+    },
+    {
+      "query_id": "fin_02",
+      "query_text": "How do index funds differ from actively managed mutual funds?",
+      "collection": "fiqa_technical",
+      "category": "comparative",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 46.28089785575867,
+      "metrics": {
+        "retrieval_time": 4.077,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1642
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of how index funds differ from actively managed mutual funds,\nbased on the provided context:\n\n*   **Management Style:** Index funds are designed to match the performance of ..."
+    },
+    {
+      "query_id": "fin_03",
+      "query_text": "What factors affect credit scores and how can they be improved?",
+      "collection": "fiqa_technical",
+      "category": "explanatory",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 47.887036085128784,
+      "metrics": {
+        "retrieval_time": 4.036,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1812
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, here\u2019s a breakdown of the factors affecting \ncredit scores and how they can be improved:\n\n**Factors Affecting Credit Scores:**\n\n*   **Payment History:** This is..."
+    },
+    {
+      "query_id": "fin_04",
+      "query_text": "How to calculate the present value of future cash flows?",
+      "collection": "fiqa_technical",
+      "category": "procedural",
+      "expected_chunks": 3,
+      "status": "success",
+      "execution_time": 39.1902871131897,
+      "metrics": {
+        "retrieval_time": 3.654,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1140
+      },
+      "answer_sample": "Answer:\nHere\u2019s how to calculate the present value of future cash flows, based on the \nprovided context:\n\n1.  **Spreadsheet with Cash Flows & XIRR:** You can create a spreadsheet and use\nthe XIRR funct..."
+    },
+    {
+      "query_id": "fin_05",
+      "query_text": "What is the difference between stocks and bonds?",
+      "collection": "fiqa_technical",
+      "category": "comparative",
+      "expected_chunks": 3,
+      "status": "success",
+      "execution_time": 46.49457097053528,
+      "metrics": {
+        "retrieval_time": 4.711,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1718
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of the differences between stocks and bonds, based on the \nprovided context:\n\n**Stocks:**\n\n*   **Ownership:** Stocks represent ownership in a company.\n*   **Potential Return..."
+    },
+    {
+      "query_id": "fin_06",
+      "query_text": "How does inflation impact investment returns?",
+      "collection": "fiqa_technical",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 37.10470795631409,
+      "metrics": {
+        "retrieval_time": 3.915,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1029
+      },
+      "answer_sample": "Answer:\nInflation decreases the purchasing power of returns. Here\u2019s how it works, \naccording to the provided context:\n\n*   **Real vs. Nominal Returns:** Inflation affects the *real* value of returns,\n..."
+    },
+    {
+      "query_id": "fin_07",
+      "query_text": "What is diversification in portfolio management?",
+      "collection": "fiqa_technical",
+      "category": "factual",
+      "expected_chunks": 2,
+      "status": "success",
+      "execution_time": 23.76144790649414,
+      "metrics": {
+        "retrieval_time": 4.416,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 465
+      },
+      "answer_sample": "Answer:\nDiversification is spreading your investments around so that one point of risk \ndoesn\u2019t sink your whole portfolio. It\u2019s a method of risk management that \ninvolves investing in different types ..."
+    },
+    {
+      "query_id": "fin_08",
+      "query_text": "How to evaluate a company's financial health using ratios?",
+      "collection": "fiqa_technical",
+      "category": "procedural",
+      "expected_chunks": 6,
+      "status": "success",
+      "execution_time": 54.71403789520264,
+      "metrics": {
+        "retrieval_time": 4.418,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 2034
+      },
+      "answer_sample": "Answer:\nHere\u2019s how to evaluate a company\u2019s financial health using ratios, based on the \nprovided context:\n\n1.  **Calculate Financial Ratios:** Equity analysts use ratios to compare a \ncompany\u2019s perfor..."
+    },
+    {
+      "query_id": "fin_09",
+      "query_text": "What are the tax implications of different retirement accounts?",
+      "collection": "fiqa_technical",
+      "category": "analytical",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 47.644246101379395,
+      "metrics": {
+        "retrieval_time": 3.911,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1912
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of the tax implications of different retirement accounts, \nbased on the provided context:\n\n**Retirement Accounts (like 401(k), IRA, etc.)**\n\n*   **Pre-tax Contributions:** M..."
+    },
+    {
+      "query_id": "fin_10",
+      "query_text": "How do options contracts work in trading?",
+      "collection": "fiqa_technical",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 56.29885911941528,
+      "metrics": {
+        "retrieval_time": 3.405,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1918
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of how options contracts work, based on the provided context:\n\n*   **Types of Options:** There are two main types:\n    *   **Call Options:** Give the buyer the right to *buy..."
+    },
+    {
+      "query_id": "fin_11",
+      "query_text": "What is the efficient market hypothesis?",
+      "collection": "fiqa_technical",
+      "category": "factual",
+      "expected_chunks": 2,
+      "status": "success",
+      "execution_time": 19.85370397567749,
+      "metrics": {
+        "retrieval_time": 4.579,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 383
+      },
+      "answer_sample": "Answer:\nAccording to the provided context, the efficient market hypothesis states that \nprices reflect all available information, and the expected price tomorrow is \njust the price today. It doesn't s..."
+    },
+    {
+      "query_id": "fin_12",
+      "query_text": "How to perform discounted cash flow analysis?",
+      "collection": "fiqa_technical",
+      "category": "procedural",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 52.04982304573059,
+      "metrics": {
+        "retrieval_time": 4.429,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 2050
+      },
+      "answer_sample": "Answer:\nOkay, here's a breakdown of how to perform discounted cash flow (DCF) analysis, \nbased on the provided context:\n\n1.  **Project Future Cash Flows:** Start by projecting your company's future \nc..."
+    },
+    {
+      "query_id": "fin_13",
+      "query_text": "What are the risks and benefits of real estate investment?",
+      "collection": "fiqa_technical",
+      "category": "analytical",
+      "expected_chunks": 6,
+      "status": "success",
+      "execution_time": 39.570026874542236,
+      "metrics": {
+        "retrieval_time": 4.074,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1347
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of the risks and benefits of real estate investment, based on\nthe provided context:\n\n**Risks:**\n\n*   **Lack of Diversification:** Investing heavily in real estate can lead t..."
+    },
+    {
+      "query_id": "fin_14",
+      "query_text": "How does the Federal Reserve influence interest rates?",
+      "collection": "fiqa_technical",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 38.59265875816345,
+      "metrics": {
+        "retrieval_time": 4.359,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1271
+      },
+      "answer_sample": "Answer:\nThe Federal Reserve influences interest rates through several mechanisms, as \ndescribed in the provided contexts:\n\n*   **Setting a Target (Federal Funds Rate):** The Federal Reserve sets a tar..."
+    },
+    {
+      "query_id": "fin_15",
+      "query_text": "What is dollar cost averaging in investing?",
+      "collection": "fiqa_technical",
+      "category": "factual",
+      "expected_chunks": 2,
+      "status": "success",
+      "execution_time": 33.32620286941528,
+      "metrics": {
+        "retrieval_time": 4.196,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1139
+      },
+      "answer_sample": "Answer:\nDollar cost averaging is a method of regularly investing money as it becomes \navailable, such as $100 from each paycheck. It\u2019s a way to reduce risk by \nspreading out investments over time, rat..."
+    },
+    {
+      "query_id": "sci_01",
+      "query_text": "What is the relationship between DNA and protein synthesis?",
+      "collection": "scifact_scientific",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 30.847698211669922,
+      "metrics": {
+        "retrieval_time": 2.342,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1062
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, here\u2019s a breakdown of the relationship between \nDNA and protein synthesis:\n\n*   **Replication Protein A (RPA)** is a protein essential for DNA metabolism, \nincl..."
+    },
+    {
+      "query_id": "sci_02",
+      "query_text": "How do vaccines work to provide immunity?",
+      "collection": "scifact_scientific",
+      "category": "explanatory",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 27.80317497253418,
+      "metrics": {
+        "retrieval_time": 1.502,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1034
+      },
+      "answer_sample": "Answer:\nBased on the provided context, here\u2019s how vaccines work to provide immunity:\n\n*   **T cell memory:** Vaccines aim to stimulate the development of T cell \nmemory, which provides enhanced protec..."
+    },
+    {
+      "query_id": "sci_03",
+      "query_text": "What is the difference between mitosis and meiosis?",
+      "collection": "scifact_scientific",
+      "category": "comparative",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 36.23653984069824,
+      "metrics": {
+        "retrieval_time": 2.145,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1262
+      },
+      "answer_sample": "Answer:\nBased on the provided context, here\u2019s a breakdown of the differences between \nmitosis and meiosis:\n\n*   **Mitosis:** In mitosis, cells assemble a bipolar spindle with duplicated \ncentrosomes t..."
+    },
+    {
+      "query_id": "sci_04",
+      "query_text": "How does photosynthesis convert light into chemical energy?",
+      "collection": "scifact_scientific",
+      "category": "procedural",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 16.78045892715454,
+      "metrics": {
+        "retrieval_time": 1.408,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 261
+      },
+      "answer_sample": "Answer:\nI'm sorry, but the provided context information does not contain information \nabout how photosynthesis converts light into chemical energy. It discusses \ntopics such as cryptochromes, channelr..."
+    },
+    {
+      "query_id": "sci_05",
+      "query_text": "What is CRISPR gene editing technology?",
+      "collection": "scifact_scientific",
+      "category": "factual",
+      "expected_chunks": 3,
+      "status": "success",
+      "execution_time": 34.61890196800232,
+      "metrics": {
+        "retrieval_time": 1.609,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1287
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, CRISPR gene editing technology is a system that \nallows for precise modification of genomes. Here\u2019s a breakdown of how it works, \naccording to the texts:\n\n*   *..."
+    },
+    {
+      "query_id": "sci_06",
+      "query_text": "How do antibiotics work against bacterial infections?",
+      "collection": "scifact_scientific",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 38.10666799545288,
+      "metrics": {
+        "retrieval_time": 2.993,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1536
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, here\u2019s a breakdown of how antibiotics work \nagainst bacterial infections:\n\n*   **Traditional View (Context 1):** Traditionally, it was thought that \nbactericida..."
+    },
+    {
+      "query_id": "sci_07",
+      "query_text": "What is the role of the immune system in cancer prevention?",
+      "collection": "scifact_scientific",
+      "category": "analytical",
+      "expected_chunks": 6,
+      "status": "success",
+      "execution_time": 34.91603088378906,
+      "metrics": {
+        "retrieval_time": 1.024,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1417
+      },
+      "answer_sample": "Answer:\nBased on the provided context, here\u2019s a breakdown of the immune system\u2019s role in\ncancer prevention and treatment:\n\n*   **Immune Response & Tissue Injury:** The immune system\u2019s response to \npat..."
+    },
+    {
+      "query_id": "sci_08",
+      "query_text": "How do enzymes catalyze biochemical reactions?",
+      "collection": "scifact_scientific",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 16.875483989715576,
+      "metrics": {
+        "retrieval_time": 2.295,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 284
+      },
+      "answer_sample": "Answer:\nThe provided context does not contain information about how enzymes catalyze \nbiochemical reactions. It discusses topics like threonine metabolism in *E. \ncoli*, biofuel production, lysine pro..."
+    },
+    {
+      "query_id": "sci_09",
+      "query_text": "What is the structure and function of cell membranes?",
+      "collection": "scifact_scientific",
+      "category": "factual",
+      "expected_chunks": 3,
+      "status": "success",
+      "execution_time": 38.30321478843689,
+      "metrics": {
+        "retrieval_time": 1.919,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1538
+      },
+      "answer_sample": "Answer:\nBased on the provided context, here\u2019s a summary of what we know about cell \nmembrane structure and function:\n\nCell membranes are complex supramolecular aggregates that act as barriers \nbetween..."
+    },
+    {
+      "query_id": "sci_10",
+      "query_text": "How does climate change affect biodiversity?",
+      "collection": "scifact_scientific",
+      "category": "analytical",
+      "expected_chunks": 6,
+      "status": "success",
+      "execution_time": 26.180479049682617,
+      "metrics": {
+        "retrieval_time": 4.533,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 715
+      },
+      "answer_sample": "Answer:\nBased on the provided context, it\u2019s difficult to give a direct answer to how \nclimate change affects biodiversity. However, Context 5 discusses how human \nactivities, specifically increased gr..."
+    },
+    {
+      "query_id": "sci_11",
+      "query_text": "What is the process of cellular respiration?",
+      "collection": "scifact_scientific",
+      "category": "procedural",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 26.050511121749878,
+      "metrics": {
+        "retrieval_time": 2.05,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1111
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, here\u2019s a summary of the process of cellular \nrespiration:\n\nCellular respiration is a fundamental process observed in yeast, particularly \nduring metabolic cycle..."
+    },
+    {
+      "query_id": "sci_12",
+      "query_text": "How do stem cells differentiate into specialized cell types?",
+      "collection": "scifact_scientific",
+      "category": "explanatory",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 25.00230097770691,
+      "metrics": {
+        "retrieval_time": 1.606,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1045
+      },
+      "answer_sample": "Answer:\nBased on the provided context, stem cells differentiate into specialized cell \ntypes through several mechanisms. Here\u2019s a breakdown of what the texts suggest:\n\n*   **Self-renewal and Different..."
+    },
+    {
+      "query_id": "sci_13",
+      "query_text": "What is the difference between innate and adaptive immunity?",
+      "collection": "scifact_scientific",
+      "category": "comparative",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 36.81786012649536,
+      "metrics": {
+        "retrieval_time": 1.673,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1437
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of the difference between innate and adaptive immunity based \non the provided context:\n\n*   **Innate Immunity:** This is the first line of defense and includes cells \nlike n..."
+    },
+    {
+      "query_id": "sci_14",
+      "query_text": "How do neurotransmitters work in the brain?",
+      "collection": "scifact_scientific",
+      "category": "explanatory",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 42.90897798538208,
+      "metrics": {
+        "retrieval_time": 2.41,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1601
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, here\u2019s how neurotransmitters work in the brain, \npieced together from the information:\n\n*   **Parallel Processing in the Retina:** The initial synapse in the re..."
+    },
+    {
+      "query_id": "sci_15",
+      "query_text": "What are the mechanisms of genetic inheritance?",
+      "collection": "scifact_scientific",
+      "category": "procedural",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 35.15593719482422,
+      "metrics": {
+        "retrieval_time": 1.881,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1299
+      },
+      "answer_sample": "Answer:\nBased on the provided context, here\u2019s a summary of the mechanisms of genetic \ninheritance as described:\n\n*   **Autosomal Dominant Inheritance:** The context regarding familial hiatal \nhernia s..."
+    }
+  ]
+}

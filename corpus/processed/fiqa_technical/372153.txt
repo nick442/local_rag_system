@@ -1,0 +1,1 @@
+Yep, you have it pretty much right. The volume is the number of shares traded that day. The ticker is giving you the number of shares bought at that price in a given transaction, the arrow meaning whether the stock is up or down on the day at that price. Institutional can also refer to pensions, mutuals funds, corporates; generally any shareholder that isn't an individual person.

@@ -1,0 +1,1 @@
+"When we calculate the realized yield of a bond, we assume the coupons are invested at an interest rate. I assume it is some kind of vehicle that guarantees a return, thinking it is government bond, savings account or something. Investing in a benchmark bond index might be risky though for this ""interest rate""."

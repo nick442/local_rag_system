@@ -1,0 +1,1 @@
+Take a look at http://en.wikipedia.org/wiki/Payment_gateway There is essentially a lead time between when the transaction is made and when it is settled, 2-3 business days is the lead time for settlement. The link explains the process step-by-step

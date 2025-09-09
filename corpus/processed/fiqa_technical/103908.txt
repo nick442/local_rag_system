@@ -1,0 +1,1 @@
+Convert operating leases into debt. Don't take MCD's word for cost of debt, calculate it on your own based on the credit rating they should have. Check your numerator as well on your DCF, make sure you're considering reinvestment, etc.

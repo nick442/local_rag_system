@@ -1,0 +1,1 @@
+Well, this whole project started because that supplier mentioned they can send their invoices electronically (EDI Electronic Data Interchange). When a brilliant manager heard about it, they jumped on the idea.. even though it's 2 invoices per month.

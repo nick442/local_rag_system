@@ -1,0 +1,1 @@
+Run a screen on CapIQ. Ask one of the analysts to walk you through the various inputs / filters you can use to run screens (business description, geography, company type, size, industry classification, etc). If you stay in M&A you'll be doing a lot of these. Better to learn best methods now rather than later.

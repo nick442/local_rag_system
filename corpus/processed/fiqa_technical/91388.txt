@@ -1,0 +1,1 @@
+So the bank can (theoretically) compare that signature to the ID you provide, showing that the names and signatures match and that you are the person to whom the check was written.

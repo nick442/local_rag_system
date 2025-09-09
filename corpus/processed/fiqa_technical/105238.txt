@@ -1,0 +1,1 @@
+In the style of the Bank of England's Inflation Calculator, you can do the calculation like so. The third column is an index made from the inflation figures and the forth column shows the inflation-adjusted values. Using the index to calculate the difference in costs, for example: The formulas used to produce the table above are shown below.

@@ -1,0 +1,1 @@
+If its JavaScript-based you can check the source code to see if any messages are being sent, again this doesn't mean the code's malicious. if there's any type of form submission you can't tell. You could always implement it yourself, SHA1 is publicly accessible although not the easiest algorithm to build.

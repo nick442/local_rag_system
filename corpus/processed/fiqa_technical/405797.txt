@@ -1,0 +1,1 @@
+Not sure I understand your question correctly, but you could use ACH to transfer funds between banks without a fee (most banks don't charge, the big ones might, for outgoing). The downside of course is that an ACH takes 2 to 5 days depending on both the originating and receiving banks. A wire is instantaneous but there is always a fee.

@@ -1,0 +1,1 @@
+Form 1099-misc reports PAYMENTS, not earnings. This does not imply the EARNINGS are not taxable in the year they were earned.

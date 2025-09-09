@@ -1,0 +1,1 @@
+You can have a pretty good guess by looking at price pattern and order flow (size of the trades) a) price should be traded in a range b) relatively large size orders, speed.

@@ -1,0 +1,1 @@
+"https://bills.mint.com ended up having credo in their system but you can't find it if you search from their top bar. In their current design you need to click ""money"" in the top nav and then search in the box in the middle of the page."

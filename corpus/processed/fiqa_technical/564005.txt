@@ -1,0 +1,1 @@
+Brains use about 20W. For 7 billion people, that's 140 GW. According to [wikipedia](http://en.wikipedia.org/wiki/World_energy_consumption), world energy consumption is about 15 TW. Of course, you would have to budget for inter-consciousness communications, but this might be more approachable than it seems.

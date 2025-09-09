@@ -1,0 +1,1 @@
+> For example, if you're one of the growing AI companies of the world who sees a unique trained-up xNN as core IP or trade secret, I would be hesitant deploying such a thing to Aliyun. I'd be hesitant to deploy trade secrets to any machines not directly owned and managed.

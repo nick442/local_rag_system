@@ -1,0 +1,1 @@
+The product type and transaction direction are not linked. When you short sell a stock, you are still dealing with shares of an equity security. When you take delivery of a bond, you are buying that bond and holding a long position even though it's a debt security.

@@ -1,0 +1,1 @@
+NL7 is right and his B-S reference, a good one. Time decay happens to occur in a way that 2X the time gives an option 1.414X (the square root of 2) times the value, so half the time means about .707 of the value. This valuation model should help the trader decide on exactly how far out to go for a given trade.

@@ -1,0 +1,1 @@
+"RealPay has developed a user friendly early debit order solution that operates in the NAEDO (Non-Authenticated Early Debit Order) payment stream. This system enables users to electronically deduct time sensitive future dated instalments directly from clients’ bank accounts."""

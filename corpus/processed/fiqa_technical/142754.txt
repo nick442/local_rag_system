@@ -1,0 +1,1 @@
+I have a basic template for creating a balance sheet, cashflow statement and P&L. From here you can put in your assumptions, and expenses, then plug in your forecasted revenue (which you need to create on a separate spreadsheet. Would something like this help?

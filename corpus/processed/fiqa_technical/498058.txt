@@ -1,0 +1,1 @@
+Yeah recent attacks can be a cause for concern, especially where devices such as ATM's are involved. I've seen XP running in various supermarkets for the 'self service checkouts' too. I still occasionally maintain some small isolated POS systems that use XP because the drivers simply don't exist on Windows 10, and I don't have the time to debug and fix the drivers either.

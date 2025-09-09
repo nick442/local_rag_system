@@ -1,0 +1,1 @@
+I'm not a professional, but my understanding is that US funds are not considered PFICs regardless of the fact that they are held in a foreign brokerage account. In addition, be aware that foreign stocks are not considered PFICs (although foreign ETFs may be).

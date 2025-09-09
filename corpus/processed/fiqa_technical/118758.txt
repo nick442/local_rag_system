@@ -1,0 +1,1 @@
+You can open the configuration panel of the Netgear router via the IP address 192.168.1.1 or via www.routerlogin.net. From this panel, you can change the password, set parental controls, set guest network, view network map and there are much more settings to configure.

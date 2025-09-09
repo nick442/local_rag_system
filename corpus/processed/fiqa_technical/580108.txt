@@ -1,0 +1,1 @@
+The volatility measures how fast the stock moves, not how much. So you need to know the period during which that change occurred. Then the volatility naturally is higher the faster is the change.

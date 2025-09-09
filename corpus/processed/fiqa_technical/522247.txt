@@ -1,0 +1,1 @@
+I'd start by looking at how and where socket connections are used. What threads are running, what does the CPU profile of the program look like. Black box testing combined with a fairly quick audit of the codebase (you have to be familiar with the language already, of course) isn't too difficult for most OSS.

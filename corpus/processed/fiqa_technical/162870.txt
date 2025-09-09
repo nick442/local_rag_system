@@ -1,0 +1,1 @@
+What you're referring to is Visa Easy Payment Services (VEPS). Other payment processors have similar programs. Basically, certain merchants (based on merchant category code - or MCC), are not required to obtain a signature under $50. This limit was raised to $50 from $25 last year. Here is the press release from Visa describing the increase, and the program in general.

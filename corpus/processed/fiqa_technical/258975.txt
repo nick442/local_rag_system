@@ -1,0 +1,1 @@
+as no advantage from exerting American call option early,we can use Black schole formula to evaluate the option.However, American put option is more likely to be exercised early which mean Black schole does not apply for this style of option

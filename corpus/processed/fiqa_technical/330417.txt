@@ -1,0 +1,1 @@
+"Hello! I am working on a project where I am trying to determine the profit made by a vendor if they hold our funds for 5 days in order to collect the interest on those funds during that period before paying a third party. Currently I am doing ""Amount x(Fed Funds Rate/365)x5"" but my output seems too low. Any advice?"

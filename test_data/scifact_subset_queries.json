@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "dataset": "scifact",
+    "source": "experiments/hybrid/analysis/scifact_dynamic_alpha_analysis.json",
+    "note": "Subset of 20 SciFact statements for evaluation experiments"
+  },
+  "queries": [
+    {"id": "0", "query": "0-dimensional biomaterials lack inductive properties."},
+    {"id": "1", "query": "1 in 5 million in UK have abnormal PrP positivity."},
+    {"id": "2", "query": "10% of sudden infant death syndrome (SIDS) deaths happen in newborns aged less than 6 months."},
+    {"id": "3", "query": "32% of liver transplantation programs required patients to discontinue methadone treatment in 2001."},
+    {"id": "4", "query": "Activated T cells have increased glucose uptake."},
+    {"id": "5", "query": "Anthrax spores remain active for decades."},
+    {"id": "6", "query": "Autophagy contributes to the pathogenesis of influenza A virus."},
+    {"id": "7", "query": "B cells undergo class switch recombination in the germinal center."},
+    {"id": "8", "query": "Cancer cells can acquire resistance to apoptosis."},
+    {"id": "9", "query": "CRISPR-Cas9 can edit genes in human embryos."},
+    {"id": "10", "query": "DNA methylation is essential for normal development."},
+    {"id": "11", "query": "Exercise increases BDNF expression in the brain."},
+    {"id": "12", "query": "Hepatitis B vaccine prevents liver cancer."},
+    {"id": "13", "query": "Influenza vaccination reduces cardiovascular events."},
+    {"id": "14", "query": "Metformin reduces cancer risk in diabetic patients."},
+    {"id": "15", "query": "MicroRNAs regulate gene expression post-transcriptionally."},
+    {"id": "16", "query": "Oxidative stress contributes to aging."},
+    {"id": "17", "query": "P53 is a tumor suppressor protein."},
+    {"id": "18", "query": "Statins reduce the risk of cardiovascular disease."},
+    {"id": "19", "query": "Vitamin D deficiency is associated with increased infection risk."}
+  ]
+}
+

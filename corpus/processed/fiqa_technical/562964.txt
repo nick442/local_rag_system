@@ -1,0 +1,1 @@
+"I have a Roth IRA with Scottrade, and they allow me to write cash secured puts, as well as covered calls. I can also purchase calls or puts, if I choose. When I write a cash secured put, it automatically deducts the amount required to purchase the shares at the strike price from my ""cash available for transactions""."

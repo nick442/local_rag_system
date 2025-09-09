@@ -1,0 +1,1 @@
+During a circuit breaker, no trading occurs. These policies have been implemented to maintain exchange liquidity since the NYSE nearly went bankrupt during the 1987 crash because many members had become insolvent. If an order is filled before the halt, it will stand unless busted. During the Flash Crash, many orders were busted.

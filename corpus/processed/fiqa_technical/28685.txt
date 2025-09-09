@@ -1,0 +1,1 @@
+if I put a limit sell at $22.00 now, will it not sell until it's at $22.00 and I will continue to keep the stock? Basically yes. But note that brokers generally don't allow such limit orders to persist indefinitely. The default may even be that they're only valid until the end of the day, and usually the maximum validity is 30 or 60 days.

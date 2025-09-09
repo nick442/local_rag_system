@@ -1,0 +1,1 @@
+If you look at it from the hedging perspective, if you're unsure you're going to need to hedge but want to lock in an option premium price if you do need to do so, I could see this making sense.

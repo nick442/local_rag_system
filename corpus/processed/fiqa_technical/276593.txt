@@ -1,0 +1,1 @@
+You could look up the P/E of an equivalent ETF, or break the ETF into components and look those up. Each index has its own methodology, usually weighted by market cap. See here: http://www.amex.com/etf/prodInf/EtAllhold.jsp?Product_Symbol=DIA

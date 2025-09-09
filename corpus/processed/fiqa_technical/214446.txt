@@ -1,0 +1,1 @@
+R = I ^ P R = return (2 means double) I = (Intrest rate / 100) + 1 [1.104 = 10.4%] P = number of periods (7 years) 2 = 1.104 ^ 7 (you double your money in seven years with a yearly Intrest rate of 10.4%) I = R^(1/P) 1.104 = 2^(1/7) P = log(R) / log(I) 7 = log(2) / log(1.104)

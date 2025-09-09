@@ -1,0 +1,1 @@
+When the check is deposited, the bank verifies the signature in the check matches your signature in file.

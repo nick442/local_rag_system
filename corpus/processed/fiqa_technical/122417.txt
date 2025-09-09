@@ -1,0 +1,1 @@
+Assuming you're in the US, you can also access CPI for major cities / regions. The US Bureau of Labor Statistics (BLS) publishes a PDF each month with details on how prices of services, food, and other goods has increased or decreased: http://www.bls.gov/cpi/tables.htm

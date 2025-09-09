@@ -1,0 +1,1 @@
+On closer look, it appears that Google Finance relies on the last released 10-k statement (filing date 10/30/2013), but outstanding shares as of last 10-Q statement. Using these forms, you get ($37,037M / 5.989B ) = $6.18 EPS. I think this is good to note, as you can manually calculate a more up to date EPS value than what the majority of investors out there are relying on.

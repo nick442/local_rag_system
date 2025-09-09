@@ -1,0 +1,1 @@
+You might what to check out Interactive Brokers. If your India stock is NSE listed they might be able to do it since they support trading on that exchange. I would talk to a customer service rep there first. https://www.interactivebrokers.com/en/index.php?f=exchanges&p=asia

@@ -1,0 +1,1 @@
+For those without a couple hours to digest this - this paper describes how they've been able to measure the secondary effects of credit default swap agreements between banks, and how when the losses materialize in one bank, it can affect the creditworthiness of others protecting it.

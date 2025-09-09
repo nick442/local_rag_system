@@ -1,0 +1,1 @@
+There are three parties involved here: there's the store that issued you the card, then they have some bank that's actually handling the account, and there is some network (VISA, MasterCard, etc.) that the transactions go through. So one avenue to consider is seeing whether all three are aware of you canceling the card.

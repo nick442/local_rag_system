@@ -1,0 +1,1 @@
+Depending on the structure of you're portfolio, it could be that your portfolio is delta neutral to take advantage of diminishing time value on options, short straddles/strangles would be an example.

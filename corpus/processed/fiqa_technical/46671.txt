@@ -1,0 +1,1 @@
+But if you add a security to the index you also remove one from the index, thus both a buy and sell. If weights change some go up, some go down thus some need to be purchased and some need to be sold. So I still don't see how ETFs are net sinks beyond their simple AUM.

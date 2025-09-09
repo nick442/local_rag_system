@@ -1,0 +1,1 @@
+Network is communication of two or more devices it could be LAN (i.e. Local Area Network) or Wireless connection. LAN and wireless connection, explain the size and infrastructure of the network. Before you use any sensitive information on any of your devices like Computer, Phone or Tablet it is always recommended to have a Secure Network.

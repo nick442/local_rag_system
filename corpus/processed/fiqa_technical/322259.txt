@@ -1,0 +1,1 @@
+When banks create a loan, it is said they write the debit account out of thin air (liability), balanced by the loan (asset). When the person who gets the loans spends the money, the bank has to pay it. If the bank only has 10% reserves of the money it loans, how does the bank pay out it's loans? Does it borrow the money from the Fed and then pay it back?

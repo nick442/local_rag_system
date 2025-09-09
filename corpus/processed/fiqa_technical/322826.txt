@@ -1,0 +1,1 @@
+As Ross says, SPX is the index itself. This carries no overheads. It is defined as a capitalization-weighted mixture of the stocks of (about) 500 companies. SPY is an index fund that tries to match the performance of SPX. As an index fund it has several differences from the index:

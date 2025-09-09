@@ -1,0 +1,1 @@
+Both of these are futures contracts on the Ibovespa Brasil Sao Paulo Stock Exchange Index; the mini being exactly that, a mini version (or portion) of the regular futures contract. The mini counterpart makes trading the index more affordable to individual investors and hence increase liquidity.

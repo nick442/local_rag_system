@@ -1,0 +1,1 @@
+Actually, yes. Two parties can write a contract and specify how money will change hands, it's called a swap. It's not unusual to write a contract that mimics an existing financial instrument. However, there are disadvantages to both sides to trading a swap rather than a more standard, liquid instrument, so usually it won't happen unless there's an excellent reason.

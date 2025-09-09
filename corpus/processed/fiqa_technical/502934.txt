@@ -1,0 +1,1 @@
+Python or C are the most useful if you're on the quantitative side of things, that space can be a bit difficult to break in to without a quantitative degree, though. Outside of that, excel, SQL, VBA etc. are useful tools if you're in a more spreadsheet-y role. Your question has been asked more than a few times, so a subreddit search will probably turn up more detailed answers.

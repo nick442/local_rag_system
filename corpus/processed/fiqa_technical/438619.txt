@@ -1,0 +1,1 @@
+Well, you could always use both. Just concatenate the two. Then the passwords are still safe in the event the DB is the only thing compromised (because of the unknown static salt) and they can't build a rainbow table even if they get the static salt because of the unique salt.

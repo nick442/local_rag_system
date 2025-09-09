@@ -1,0 +1,1 @@
+Its due to the type of track. nearly all automatic trains dont have object detection. They assume a clear track. That works great for elevated trains and isnt bad for a small metro. ones that drive the rail infrastructure, arent yet for similar reasons to cars and everything else. you dont want a 150 car train carrying fuel to not be able to detect a car stuck on the tracks.

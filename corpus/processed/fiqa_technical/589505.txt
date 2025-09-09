@@ -1,0 +1,1 @@
+When you submit for reimbursement, the cash you get should be FIFO (first in, first out) and a large bill should empty out 2011 first, automatically tapping 12 for remaining amount owed. I doubt you need to do anything.

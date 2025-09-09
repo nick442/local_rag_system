@@ -1,0 +1,1 @@
+(12 * 100) * 1.01 = 1212 Assuming the $12 ask can absorb your whole 100 share order.

@@ -1,0 +1,1 @@
+Yes. It seems to me you got it right. On my site, Stock Options Cafe, my last post was an illustration of a bullish call spread. In this case, I bought a 50 call, and sold the 60 call. This is a debit order as I was paying money, not collecting a new premium.

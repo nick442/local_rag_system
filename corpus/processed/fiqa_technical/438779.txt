@@ -1,0 +1,1 @@
+You can pull up the VIX index on Google Finance by entering INDEXCBOE:VIX

@@ -1,0 +1,1 @@
+You need the Present Value, not Future Value formula for this. The loan amount or 1000 is paid/received now (not in the future). The formula is $ PMT = PV (r/n)(1+r/n)^{nt} / [(1+r/n)^{nt} - 1] $ See for example http://www.calculatorsoup.com/calculators/financial/loan-calculator.php With PV = 1000, r=0.07, n=12, t=3 we get PMT = 30.877 per month

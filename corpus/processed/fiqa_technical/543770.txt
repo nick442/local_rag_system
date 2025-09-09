@@ -1,0 +1,1 @@
+Some platforms/brokers have HTB indication for a stock symbol, meaning Hard To Borrow. That usually means you can't sell it short at the moment.

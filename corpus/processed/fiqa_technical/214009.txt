@@ -1,0 +1,1 @@
+I have a very hard time believing you pay 60% of gross. Otherwise, I believe you're right in the way this works: Suppose you make $100k and pay 25% of that in taxes. 100,000 * .25 = 25,000 But if you spend $1,000 pretax, then it's as if you were paid $99,000 99,000 * .25 = $24,750 So the difference is $250. Which is the same as that $1,000 * .25.

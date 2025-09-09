@@ -1,0 +1,1 @@
+On 2012/05/18 at 15:34:00 UTC (11:34:00 EDT) FB was in chaos mode. The most recent public US trade at that moment was at $40.94, but in the next one second (i.e. before the clock hit 15:34:01) there were several dozen trades as low as $40.76 and as high as $41.00. On 2012/05/30 at 17:21:00 UTC (13:21:00 EDT) the most recent public US trade for FB was at $28.28.

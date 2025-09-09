@@ -1,0 +1,1 @@
+consider capital requirements and risk timeframes. With options, the capital requirements are far smaller than owning the underlying securities with stops. Options also allow one to constrain risk to a timeframe of ones own choosing (the expiration date of the contract). If you own or are short the underlying security, there is no time horizon.

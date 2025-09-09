@@ -1,0 +1,1 @@
+You're correct. The VIX price is calculated based on the price of all of SPX options which are expiring (IIRC 2) weeks after the expiration of that VIX contract. It's an index measuring implied vol not realized vol. VIX futures/options are calculated slightly differently than the VIX index.

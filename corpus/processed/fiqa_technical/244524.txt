@@ -1,0 +1,1 @@
+Daily > Weekly > Monthly. This statement says that if you use daily returns you will get more noise than if you used weekly or monthly returns. Much of the research performed uses monthly returns, although weekly returns have been used as well. For HFT you would need to detrend the data in order to spot true turning points.

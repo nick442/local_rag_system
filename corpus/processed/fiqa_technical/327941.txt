@@ -1,0 +1,1 @@
+You or the broker place an order to buy the share with the stock exchange. There has to be a matching sell order by someone. Once a match is made, you pay the money and get the share.

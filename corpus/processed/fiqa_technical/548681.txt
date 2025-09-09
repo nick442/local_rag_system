@@ -1,0 +1,1 @@
+If your old bank has online billpay, you might be able to either use that to send a check to yourself, or do an ACH transfer directly into your new account.

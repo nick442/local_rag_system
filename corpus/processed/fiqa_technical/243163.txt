@@ -1,0 +1,1 @@
+With the netural position delta strategy under high IV returns short vega,there is a possibility to profit from a decline in IV. Of course, if volatility rises higher, the position will lose money. It is therefore best to establish short vega delta-neutral positions when implied volatility is at levels that are in the 90th percentile ranking.

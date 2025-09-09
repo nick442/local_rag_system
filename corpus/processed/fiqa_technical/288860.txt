@@ -1,0 +1,1 @@
+Something like cost = a × avg_spreadb + c × volatilityd × (order_size/avg_volume)e. Different brokers have different formulas, and different trading patterns will have different coefficients.

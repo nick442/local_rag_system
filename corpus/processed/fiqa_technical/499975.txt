@@ -1,0 +1,1 @@
+Maybe one of my issues is that I have a 5 year model with a terminal value. The repayment of debt principal is outside this time frame so I don't assume any repayment. If you're valuing a company share price though you don't model all debt repayments.

@@ -1,0 +1,1 @@
+The put will expire and you will need to purchase a new one. My advise will be that the best thing is to sell more calls so your delta from the short call will be similr to the delta from the equity holding.

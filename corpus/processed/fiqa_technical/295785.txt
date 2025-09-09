@@ -1,0 +1,1 @@
+What you said is technically correct. But the implication OP might get from that statement is wrong. If the Fed buys bonds and nominal yields go down (Sometimes they might even go up if it meant the market expected the Fed's actions to cause more inflation), inflation expectations don't go down unless real yields as measured by TIPs stay still.

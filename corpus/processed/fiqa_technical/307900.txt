@@ -1,0 +1,1 @@
+"derivatives! learn about how they are priced, traded, and used within a portfolio for hedging and speculating. there are calculators for ""net present value calculations,"" and you are never going to walk into an interview and say, ""Hey! I can look at a formula and price something."""

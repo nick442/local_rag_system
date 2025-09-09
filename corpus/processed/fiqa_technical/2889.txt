@@ -1,0 +1,1 @@
+No. Floppy disks are simple magnetic media you could make yourself in your basement. FLASH memory, hard drives, etc have more code in their embedded controllers than that entire launch control system. If the floppy has enough storage why would you want to unnecessarily add a bunch of complexity for such a critical task as nuclear security.

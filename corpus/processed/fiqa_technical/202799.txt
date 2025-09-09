@@ -1,0 +1,1 @@
+Doesn't VIX win on volatility, not market direction? I.e. if the market is steady, or trending up or down predictably, vix should be low, but if it's jumping around in all different directions, vix would be high? Or am I not understanding what it's supposed to model?

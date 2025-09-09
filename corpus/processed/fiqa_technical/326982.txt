@@ -1,0 +1,1 @@
+Agree to some degree. In actual profitable tradings (HFT mostly), the math part is relatively simple, but the knowledge of exchange API, plumbing and execution speed much harder to come by and multiple order of magnitude harder to get right than the math involved.

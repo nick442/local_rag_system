@@ -1,0 +1,1 @@
+Ugh. Please don't use Damode's models. Guy is brilliant but his model are absolute shit and super annoying to audit. Much better to read the theory and build his shit from scratch in a way that effects the theory. Then use his models to check that your output is in the right ballpark. You will get a MUCH better grasp of modeling and of valuation this way.

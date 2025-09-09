@@ -1,0 +1,1 @@
+When I place an order with Scottrade I also have to specify if I am wanting to trade outside of normal hours.

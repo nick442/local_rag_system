@@ -1,0 +1,1 @@
+I don't understand the logic of converting a cost of funds of 4% to a monthly % and then subtracting that number from an annual one (the 1.5%). Unfortunately without seeing the case I really can't help you..there was likely much you have left out from above.

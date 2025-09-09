@@ -1,0 +1,1 @@
+Sounds like some kind of quantitative research role would be up your alley. What kind of programming experience do you have? At my firm there are a bunch of quants who work primarily in MATLAB/R, but also work with scripting languages like Python and associated data packages (pandas, numpy, etc.).

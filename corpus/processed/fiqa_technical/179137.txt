@@ -1,0 +1,1 @@
+"In scale, it can be. Which is, for example, why my current Comcast service is ""unlimited bandwidth"". Increased internet speed does very little additional strain to a server farm. This isn't a faucet you turn on and only get X amount of water out of it. We're talking about something much more technical than that. With scale, it is parabolic upwards in terms of speed offering."

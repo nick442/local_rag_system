@@ -1,0 +1,1 @@
+If the payment is sent to incorrect swift code, the receiving bank will return the payment.

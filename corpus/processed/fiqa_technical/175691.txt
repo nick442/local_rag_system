@@ -1,0 +1,1 @@
+Reports -> Income & Expense -> Cash Flow Options -> Set Start Date/End Date to match billing cycle -> Accounts -> Clear All -> Select Credit Card only -> Money Out To adjust Refund and Chargeback, you need to cancel out with Money In items except Bank.

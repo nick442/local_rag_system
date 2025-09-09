@@ -1,0 +1,1 @@
+Generally, speaking the (Rm-Rf) is around around 7% and the Rf tends to be around 6-7%. 1.66% for Rf is wayyyyy too low. If you used a beta of 0.5, an Rf of 6%, and an (Rm-Rf) of 7%, that would give you an Re (cost of equity) of 9.5% The cost of equity should not be less than the cost of debt. If it is, you know you need to revisit your assumptions.

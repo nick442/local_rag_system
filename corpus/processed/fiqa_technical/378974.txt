@@ -1,0 +1,1 @@
+Calculation. To calculate the DJIA, the sum of the prices of all 30 stocks is divided by a divisor, the Dow Divisor. The divisor is adjusted in case of stock splits, spinoffs or similar structural changes, to ensure that such events do not in themselves alter the numerical value of the DJIA.

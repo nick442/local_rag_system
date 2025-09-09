@@ -1,0 +1,1 @@
+Banking is highly regulated, but you may want to have a look at Basel II which is kind of an international standard on how to create banking regulations. Your country/state may have considered this when creating its own local regulation; the United States do.

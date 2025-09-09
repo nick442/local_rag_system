@@ -1,0 +1,1 @@
+The dynamics of different contracts and liquidity can be quite different on the last day on the month and for intraday trade make sure you use bid-ask data as opposed to historical trades. I'm not saying whether it works or not, but im just giving you ideas to improve your testing.

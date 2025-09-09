@@ -1,0 +1,1 @@
+If you are a US resident (not necessarily citizen) then yes, you do have to pay capital gains taxes on any capital gains, including interest from assets oversees (like interest from a savings account). Additionally you have to report all your foreign bank accounts according to FATCA (https://www.irs.gov/businesses/corporations/foreign-account-tax-compliance-act-fatca).

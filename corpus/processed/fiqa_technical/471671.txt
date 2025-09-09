@@ -1,0 +1,1 @@
+If you have access, factset and bloomberg have this. However, these aren't standardized due to non-existent reporting regulations, therefore each company may choose to categorize regions differently. This makes it difficult to work with a large universe, and you'll probably end up doing a large portion manually anyways.

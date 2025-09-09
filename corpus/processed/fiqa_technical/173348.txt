@@ -1,0 +1,1 @@
+very simple. RBI has stopped connecting Indian Bank's to Paypal, for deposit or withdrawal. You need to use a third party website (Online wallet etc) to send whatever money you have in the Paypal account. Connect your Bank account with the third party website, and withdraw the money

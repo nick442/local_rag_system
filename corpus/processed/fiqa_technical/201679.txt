@@ -1,0 +1,1 @@
+Mutual Funds are relatively evaluated and this is likely what you want. Your answer is likely the information ratio. If your interested, Active Portfolio Management by Grinold, Kahn is probably a good book to read. That being said, hedge funds will generally have absolute mandates and will be more likely to use a sharpe ratio.

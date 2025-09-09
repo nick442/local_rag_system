@@ -1,0 +1,1 @@
+"Orders large enough to buy down the current Bid and Ask Book are common. This is the essential strategy through which larger traders ""Strip"" the Bid or Ask in order to excite motion in a direction that is favorable to their interests. Smaller traders will often focus on low float/small cap tickers, as both conditions tend to favor volatility on relatively small volume."

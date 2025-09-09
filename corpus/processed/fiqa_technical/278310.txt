@@ -1,0 +1,1 @@
+Don´t forget that changing volatility will have an impact on the time value too! So at times it can happen that your time value is increasing instead of decreasing, if the underlying (market) volatility moves up strongly. Look for articles on option greeks, and how they are interdependent. Some are well explaining in simple language.

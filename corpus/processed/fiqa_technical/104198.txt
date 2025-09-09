@@ -1,0 +1,1 @@
+Returns reported by mutual funds to shareholders, google, etc. are computed after all the funds' costs, including Therefore the returns you see on google finance are the returns you would actually have gotten.

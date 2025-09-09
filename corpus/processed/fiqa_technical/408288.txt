@@ -1,0 +1,1 @@
+>You have to sell 3-5x more LT than you're buying ST in order to be delta neutral, because the ST is much more volatile. I assume that you talking about positions by their DV01 and not by the notional exposure?

@@ -1,0 +1,1 @@
+Instead of a simple buy signal, you need to be able to rank your investments from strong to weak on the buy scale and sell the weaker investments that you already own to buy the stronger investments that you have received signals from.

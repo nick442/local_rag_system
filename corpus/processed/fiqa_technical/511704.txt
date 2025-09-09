@@ -1,0 +1,1 @@
+"Can you give the context? A bond usually only has one ""tenor,"" so weighted average tenor could apply to all the bonds that a single firm owes? Or an industry or the market or a specific bond rating or whatever. But we usually use duration as it's more useful"

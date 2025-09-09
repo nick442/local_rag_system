@@ -1,0 +1,1 @@
+You can calculate the fully diluted shares by comparing EPS vs diluted (adjusted) EPS as reported in 10K. I don't believe they report the number directly, but it is a trivial math exercise to reach it. The do report outstanding common stock (basis for EPS).

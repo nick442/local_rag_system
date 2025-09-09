@@ -1,0 +1,1 @@
+A few things: time in trade, price maximum move against you during that time, price maximum move for you during that time, Where you got out in relation to maximum of the move (how much of the move did you capture in that trade -- from lowest to highest), what was your risk to return (R) -- return / risk.

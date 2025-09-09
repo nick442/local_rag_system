@@ -1,0 +1,1 @@
+They used some software that took like an hour to load the trades but it did all the portfolio allocation and stuff at the same time The reason it took so long was because it pooled all the clients who had that particular trading strat

@@ -1,0 +1,1 @@
+We get funding based upon productivity (i.e. papers published), mostly. No one checks the reproducibility of the results, or at least not for many years. This creates an incentive to publish nonsense. Many do, as it turns out.

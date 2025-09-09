@@ -1,0 +1,1 @@
+I think the best answer that doesn't make the buyer look like a moron is this. Buyer had previously sold a covered call. They wanted to act on a different opportunity so they did a closing buy/write with a spread of a couple cents below asking for the stock, but it dipped a couple cents and the purchase of those options to close resolved at 4 cents due to lack of sellers.

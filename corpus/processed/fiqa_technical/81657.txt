@@ -1,0 +1,1 @@
+"Usually you gotta build those tools for yourself :P, you can usually build em in excel as its fairly easy and sort to see what is the most profitable, you can code most of the heavy lifting in excel, monte carlo/""complex"" methods you probably won't even need.. I'm a strong proponent of R however what you're doing is not that complex.. edit: I accidently a word."

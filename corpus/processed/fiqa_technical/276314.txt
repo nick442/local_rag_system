@@ -1,0 +1,1 @@
+Selling options is a great idea, but tweak it a bit and sell credit spreads on both sides of the market, i.e. sell OTM bear call spreads and OTM bull put spreads. This is also known as an iron condor, and limits risk, and allows for much more flexibility.

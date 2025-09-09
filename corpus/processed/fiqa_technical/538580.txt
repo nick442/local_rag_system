@@ -1,0 +1,1 @@
+If you plan to take profit at $1.00 then your profit will be $40. Then, if you set your stop at $0.88 then your loss if you get stopped will be $20. So your Reward : Risk = 2:1. Note, that this does not take into account brokerage in and out and any slippage from the price gapping past your stop loss.

@@ -1,0 +1,1 @@
+That's technically true but there will still be a max level they can hit before the signal clips. Part of why commercials are so jarring is because they are heavily compressed (eliminating those peaks and valleys and basically making the entire commercial blare at just below the max volume) vs a movie or tv show that would use more dynamic range of volume levels.

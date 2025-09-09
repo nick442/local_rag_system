@@ -1,0 +1,1 @@
+So have different rules for industries whose product cycles are 2 to 3 years. * Computer software patents are good for a year * Computer hardware patents are good for two years * Pick some other industries that need adjustment. * Leave the rest as is. * Revisit every 5 to 10 years to assign patent lengths on a per-industry basis.

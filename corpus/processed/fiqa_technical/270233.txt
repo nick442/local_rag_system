@@ -1,0 +1,1 @@
+"The \^ symbol means exponentiation. You're multiplying by 216 instead. So rephrasing that in Excel functions (without just using ""=FV(0.004308,216,-175)""), you'd have ""=((POWER(1.004308,216)-1)/0.004308)*175"". Note that I originally mentioned the difference between .004308 and 0.0517/12 because it makes roughly a $2.56 difference in the answer."

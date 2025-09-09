@@ -1,0 +1,1 @@
+What it means is that the stock has already moved down. Options and other derivatives follow the price of the underlying they are not a precursor to what the underlying is going to do. In other words, the price of a derivative is derived from the underlying.

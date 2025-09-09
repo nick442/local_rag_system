@@ -1,0 +1,1 @@
+We aren't faking it. IT is an extremely complex job so we often have to learn or relearn a technology at the whim of some bean counter because they want to save a few bucks or a junior executive because they attended a seminar and want to try that cool new thing they heard about (cough, DevOps, cough..)

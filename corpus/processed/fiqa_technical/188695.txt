@@ -1,0 +1,1 @@
+hledger fits your criteria, have you tried it ? Here's the web interface.

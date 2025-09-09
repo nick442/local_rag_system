@@ -1,0 +1,1 @@
+"In addition to what @George Marian said, a very large portion of trades are from computer programs trained to make trades when certain apparent patterns are observed. Since these programs are not all designed in the same way, much of the supply and demand is a result of different algorithms with different ""opinions"" on what the stock is doing."

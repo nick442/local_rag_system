@@ -1,0 +1,1 @@
+"You can type formatted text in reddit by using control characters, but the control characters are sometimes just normal characters that someone may want to type. In this case, to type a ""literal"" *, you must ""escape"" the control character with a \ before it."

@@ -1,0 +1,1 @@
+A currency broker will give you the closest rate to the interbank rate. Retail banks and money transfer companies take a spread (the difference between the interbank rate and the rate that they charge you) that is significantly higher than a broker. So search for a broker and get quotes for the amount you wish to transfer.

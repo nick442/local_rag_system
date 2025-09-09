@@ -1,0 +1,1 @@
+This has been going on forever. Hardened battlefield laptops were made by a small startup; I saw a demo of a realtime digital chart that was created by a bunch of guys in an office park (I think that got bought by one of the big contractors) And I'll wager there are a thousand startups creating military solutions with Raspberry Pi (both ultraportable and massive scaling)

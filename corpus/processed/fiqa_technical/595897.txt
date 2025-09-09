@@ -1,0 +1,1 @@
+Whoops, an obvious one there. So much for audit! We were doing a Basel liquidity report at a bank. One set of numbers in Oracle always balanced with SAP. We were told to use their corrections to apply to the rest. It turns out that they ignored the transactions in Oracle and had loaded the balance sheet data from SAP in Oracle. Of course the data will match!

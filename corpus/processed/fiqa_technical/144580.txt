@@ -1,0 +1,1 @@
+I'm pretty sure it's merchant-dependent. If a credit card transaction doesn't go through, PayPal will automatically charge your bank account. Some merchants may want that extra insurance.

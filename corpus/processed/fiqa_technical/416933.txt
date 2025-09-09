@@ -1,0 +1,1 @@
+Let's say the money-giver gets apples by you and he gives you money for them. The money you now have is worth to get apples. If the money now would change its value to negative, the roles would change opposites and you'd owe the money-giver (whom you already gave apples to) even more apples. That's simply insane. The worst money value can be is zero.

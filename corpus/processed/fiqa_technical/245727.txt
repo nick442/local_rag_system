@@ -1,0 +1,1 @@
+Calculate the theoretical forward price using covered interest parity, then compare it to the actual forward price of $1.04/euro. Buy the cheap one and sell the expensive one (this will involve borrowing dollars or euros at the US or Euro interest rate to buy the other currency and longing or shorting the 6-month forward to perfectly hedge your currency exposure).

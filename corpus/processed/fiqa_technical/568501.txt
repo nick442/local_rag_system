@@ -1,0 +1,1 @@
+It's used as a reference column: In journals folio coloumn is used to mention the reference or “address” of ledger in which the journal entry has been posted thus giving an easy access and also easily understanding whether all the entries has been posted in the relevant accounts or not.

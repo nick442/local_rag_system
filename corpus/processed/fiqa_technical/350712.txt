@@ -1,0 +1,1 @@
+I cannot believe noone mentioned this so far: Every decision you make is independent from previous decisions (that is, if you only care about your expected gain). This means that your decision whether to buy the option should be the same whether you bought the same option before or not.

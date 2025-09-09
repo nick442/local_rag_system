@@ -1,0 +1,1 @@
+>One reason RIM is determined to stay the course (for now) is that it has >a hidden gem: Its private, global, more-or-less cryptographically secure ?>network. Might be a stupid question, but what really is the big deal with their secure network. Doesn't something like Exchange ActiveSync have enough security (by using TLS)?

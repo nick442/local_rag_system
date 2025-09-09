@@ -1,0 +1,1 @@
+"Although this is an old question, it's worth pointing out that the Google Stock Screener now supports stocks traded on the London Stock Exchange. From the country dropdown on the left, select ""United Kingdom"" and use the screener as before."

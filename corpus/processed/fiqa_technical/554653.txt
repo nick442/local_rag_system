@@ -1,0 +1,1 @@
+Other metrics like Price/Book Value or Price/Sales can be used to determine if a company has above average valuations and would be classified as growth or below average valuations and be classified as value. Fama and French's 3 Factor model would be one example that was studied a great deal using an inverse of Price/Book I believe.

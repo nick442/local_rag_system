@@ -1,0 +1,1 @@
+You won't be using my SQL. It probably lists Oracle because that's the ERP system the company uses, and it'd be good for the FP&A guy to be familiar with the system. Be an expert in Excel, you will probably be using it the majority of your workday.

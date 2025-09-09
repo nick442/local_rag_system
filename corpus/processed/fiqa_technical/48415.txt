@@ -1,0 +1,1 @@
+You could keep an eye on BankSimple perhaps? I think it looks interesting at least.. too bad I don't live in the US.. They are planning to create an API where you can do everything you can do normally. So when that is released you could probably create your own command-line interface :)

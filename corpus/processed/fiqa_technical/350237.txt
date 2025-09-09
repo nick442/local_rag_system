@@ -1,0 +1,1 @@
+Some businesses verify the shipping address with the credit card company, and refuse to ship to an alternate address without additional, offline verification. Of course, this is only useful for physical goods.

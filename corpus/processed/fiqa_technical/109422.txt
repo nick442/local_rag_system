@@ -1,0 +1,1 @@
+No, you cannot withdraw the money until settlement day. Some brokers will allow you to trade with unsettled funds, but you cannot withdraw it until it is settled. Think about it, when you buy stock you have to pay for them by T+3, so if you sell you actually don't receive the funds until T+3.

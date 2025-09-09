@@ -1,0 +1,1 @@
+You could sum the P/E ratio of all the companies in the industry and divide it by the number of companies to find the average P/E ratio of the industry. Average P/E ratio of industry = Sum of P/E ratio of all companies in Industry / Number of companies in industry

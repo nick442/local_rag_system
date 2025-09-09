@@ -1,0 +1,1 @@
+You have stumbled upon a classic trading strategy known as the carry trade. Theoretically you'd expect the exchange rate to move against you enough to make this a bad investment. In reality this doesn't happen (on average). There are even ETFs that automate the process for you (and get better transaction costs and lending/borrowing rates than you ever could): DBV and ICI.

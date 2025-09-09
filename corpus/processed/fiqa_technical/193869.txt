@@ -1,0 +1,1 @@
+> Mostly it's about things like the origin of the graph though - look how many of the graphs on that page start in the mid fifties, not zero, thus magnifying things drastically. I agree, I've made the argument with other graphs. FWIW, That's what FRED does by default, so that you can see the differences due to their magnification.

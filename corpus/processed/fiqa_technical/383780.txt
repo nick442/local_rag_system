@@ -1,0 +1,1 @@
+"I'm with you here, I can't imagine who in IB would be ""financial modeling"" with Excel. Matlab, R, or even more general purpose languages like C are much more common. Even things like cookie-cutter monte carlo simulations or many-step binomial trees are a pain with excel."

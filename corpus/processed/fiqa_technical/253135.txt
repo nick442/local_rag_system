@@ -1,0 +1,1 @@
+"Where can I download all stock symbols of all companies ""currently listed"" and ""delisted"" as of today? That's incredibly similar . You can also do it with a Bloomberg terminal but there's no need to pay to do this because he data changes so slowly."

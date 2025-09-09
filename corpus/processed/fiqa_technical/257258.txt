@@ -1,0 +1,1 @@
+You would need to use Trading Accounts. You can enable this, File->Properties->Account settings tab, and check Use Trading Accounts. For more details see the following site: http://wiki.gnucash.org/wiki/Trading_Accounts

@@ -1,0 +1,1 @@
+Unfortunately, there is no facility to do bulk transaction edits in GnuCash, so you are out of luck for your existing hundred. (I don't know whether there is a way to initially import a transaction as split.) However, once you have entered this split once, it can be used as a template for new transactions, using autocomplete or by entering it in the Scheduled Transaction Editor.

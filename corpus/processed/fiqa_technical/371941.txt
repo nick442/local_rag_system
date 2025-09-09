@@ -1,0 +1,1 @@
+If the cards are tied to a specific vendor, they will work only at that vendor. If they're generic cards just charged with a specific amount of money, they should work at any vendor who accepts that card network.. though there may be specific exceptions.

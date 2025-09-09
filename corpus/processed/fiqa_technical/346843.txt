@@ -1,0 +1,1 @@
+I would look for an alternative wire transfer service that will charge less. I use ofx, but note that they don't do transfers to roubles. The rate adjusts by amount being transferred and there is a $15 fee for under $5000. Upside is it is bank-to-bank. 2 days tops.

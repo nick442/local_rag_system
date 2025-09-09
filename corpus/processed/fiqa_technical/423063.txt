@@ -1,0 +1,1 @@
+"The answer to each of your questions is no. It is important to appreciate that the ""quoted"" ticker price may be delayed by say 15 minutes, and thus is not ""real-time."""

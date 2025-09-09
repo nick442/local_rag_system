@@ -1,0 +1,1 @@
+I assume you're after a price time series and not a list of S&P 500 constituents? Yahoo Finance is always a reasonable starting point. Code you're after is ^GSPC: https://finance.yahoo.com/quote/%5EGSPC/history?p=^GSPC There's a download data button on the right side.

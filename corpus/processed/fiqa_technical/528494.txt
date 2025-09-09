@@ -1,0 +1,1 @@
+1. Rebate 2. Bid-Ask spread 3. Tactically increasing/decreasing inventory based on their view of the market 4. Picking off idiot traders (OTC markets, basically not passing orders on to the market when the counterparty has a low performance history).

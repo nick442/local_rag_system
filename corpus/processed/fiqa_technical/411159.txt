@@ -1,0 +1,1 @@
+Bloomberg is really just a huge database. You can look up just about anything you need to know. Launchpad is much better than the old NW market monitors. The Excel API is useful. If it wasn't where all my brokers are I would consider something different like Eikon. It has some limitations but it's a useful system and parts of my job would be a pain without it.

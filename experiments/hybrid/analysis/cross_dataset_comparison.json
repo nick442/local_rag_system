@@ -1,0 +1,31 @@
+{
+  "comparison_data": {
+    "fiqa": {
+      "optimal_alpha": 0.5,
+      "performance": 0.7342039232636676,
+      "trend": "balanced"
+    },
+    "scifact": {
+      "optimal_alpha": 0.5,
+      "performance": 0.15526923338572185,
+      "trend": "balanced"
+    }
+  },
+  "hypothesis_results": {
+    "fiqa": {
+      "expected_alpha": 0.35,
+      "actual_alpha": 0.5,
+      "difference": 0.15000000000000002,
+      "validation_status": "partial",
+      "reason": "keyword-biased for financial terminology"
+    },
+    "scifact": {
+      "expected_alpha": 0.65,
+      "actual_alpha": 0.5,
+      "difference": 0.15000000000000002,
+      "validation_status": "partial",
+      "reason": "vector-biased for semantic matching"
+    }
+  },
+  "analysis_timestamp": "2025-09-06T23:37:31.443181"
+}

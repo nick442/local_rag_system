@@ -1,0 +1,1 @@
+Your example shows a 4% dividend. If we assume the stock continues to yield 4%, the math drops to something simple. Rule of 72 says your shares will double in 18 years. So in 18 years, 1000 shares will be 2000, at whatever price it's trading. Shares X (1.04)^N years = shares after N years. This is as good an oversimplification as any.

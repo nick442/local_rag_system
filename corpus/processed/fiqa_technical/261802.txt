@@ -1,0 +1,1 @@
+Open, high, low, close, volume. The hint is that volume on new years day is 0. DC's comment is actually a better answer than mine - when given any data set, you should really know the meaning of each cell/number.

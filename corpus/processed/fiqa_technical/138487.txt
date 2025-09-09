@@ -1,0 +1,1 @@
+Well i dont know of any calculator but you can do the following 1) Google S&P 500 chart 2) Find out whats the S&P index points (P1) on the first date 3) Find out whats the S&P index points (P2) on the second date 4) P1 - P2 = result

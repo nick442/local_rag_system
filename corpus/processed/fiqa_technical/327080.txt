@@ -1,0 +1,1 @@
+The T+3 settlement date only affects cash accounts. In a cash account, you need to wait until the T+3 settlement date for your funds to be available to make your next trade. But if you convert your cash account into a margin account, then you do not need to wait until the T+3 settlement date for your next trade - your broker will allow you to make another trade immediately.

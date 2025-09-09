@@ -1,0 +1,1 @@
+It's not. I'm saying in a public context, your consensus mechanism is either proof of work or proof of stake, and both require a blockchain native currency. In a private context, you know who all the nodes are, so you don't have to worry about Sybil attacks, and can use traditional consensus algorithms that rely on no more than a third of nodes collaborating on criminal fraud.

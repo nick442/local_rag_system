@@ -1,0 +1,1 @@
+Stock trades are always between real buyers and real sellers. In thinly-traded small stocks, for example, you may not always be able to find a buyer when you want to sell. For most public companies, there is enough volume that individual investors can just about always fill their market orders.

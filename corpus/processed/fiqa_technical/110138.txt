@@ -1,0 +1,1 @@
+"Find a stock screener that has data for the BSE and NSE. You may be able to look directly at volatility but a good stock screener will have the technical analysis indicator called ""average true range"", ATR for short. This will let you see the average range of price moves over several days."

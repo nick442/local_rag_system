@@ -1,0 +1,1 @@
+IRR of an investment can give an idea as to the flexibility of the cash flows to absorb changes in the discount rate, whereas NPV may be positive because of an overly conservative discount rate; so you like to look at both along with other metrics to get a better idea. The profitability is in the difference between the investment's IRR and your cost of capital.

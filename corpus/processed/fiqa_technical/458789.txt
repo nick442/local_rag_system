@@ -1,0 +1,1 @@
+The setup is a purchase of 200 shares at $40 with a cash deposit of $4000 and margin loan of $4000 which a year later grew to $4240. With a margin requirement of 30%, the loan can be 70% or a total stock value of $6057. 1) $30.29 2) -24.3% (The stock fell to $30.29 from $40) 3) -54.6% (Your $4000 fell to $1817)

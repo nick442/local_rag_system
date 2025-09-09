@@ -1,0 +1,1 @@
+You can follow the intra-day NAV of an ETF, for instance SPY, by viewing its .IV (intra-day value) ticker which tracks it's value. http://finance.yahoo.com/q?s=spy http://finance.yahoo.com/q?s=^SPY-IV Otherwise, each ETF provider will update their NAV after business each day on their own website. https://www.spdrs.com/product/fund.seam?ticker=spy

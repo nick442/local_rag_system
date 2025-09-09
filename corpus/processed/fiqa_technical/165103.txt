@@ -1,0 +1,1 @@
+Most bank registers (where you write down entries) show deposits (+) to account as a CREDIT. Payments, fees, and withdrawals are DEBITs to your bank accounnt. On loans such as credit card accounts, a credit to your loan account is a payment or other reductions of the amount you owe. A charge to your account is a DEBIT to you loan account. They did this just to confuse us!

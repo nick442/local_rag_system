@@ -1,0 +1,1 @@
+Older systems seem to have far better uptime & stability compared to newer versions of Windows. My Windows 10 desktop seems to force a restart at least once a month, yet Windows 2k/98/95 would run for years without crashing.

@@ -1,0 +1,1 @@
+Can someone recommend a textbook (or other resource) that provides a rigorous introduction to finance for someone with a mathematical background? Ideally, something that provides both a theoretical background for the pricing of assets generally and moves to mores specific instruments with quantitative exercises along the way?

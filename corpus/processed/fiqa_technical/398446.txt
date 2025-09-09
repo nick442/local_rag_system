@@ -1,0 +1,1 @@
+Honestly this sounds like a bug. In the early days of HFT, quote stuffing looked like this, but everyone created anti manipulation algos that do Fourier transforms to catch that kind of behavior. Modern manipulation is much cleverer than this. Source: I have designed anti manipulation algos for a HFT firm.

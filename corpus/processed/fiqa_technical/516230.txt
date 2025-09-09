@@ -1,0 +1,1 @@
+What matters is the combination of the loan amount and the time (hours/days/whatever) you've loaned out the money. $100 * 10 hours * 30 times = 30K dollar-hours The other loan is $100 * 24 hours * 30 days = 72K dollar-hours But using your math the original loan is 30X the amount of the second.

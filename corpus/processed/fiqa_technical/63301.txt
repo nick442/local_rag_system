@@ -1,0 +1,1 @@
+You are the one lending yourself the shares to sell;you purchase the stock at market price and sell at the strike price of the option to the put seller when you exercise the option.

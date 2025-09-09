@@ -1,0 +1,1 @@
+Fairly straightforward to match the result from the calculator soup link. There is a formula to calculate n from the future value s (using natural logs) In Excel This was derived as shown To calculate n from the inflation-adjusted future value si requires using a solver since an algebraic formula cannot be formulated. As demonstrated Calculations done using Mathematica 7.

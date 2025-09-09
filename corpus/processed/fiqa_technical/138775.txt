@@ -1,0 +1,1 @@
+You will have to rebalance every time your Boolean Buy flag is true. You buy 20% of each fund then next week you have to sell down to 10% of your first 5 funds and buy 10% of the second 5.

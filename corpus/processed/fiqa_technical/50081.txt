@@ -1,0 +1,1 @@
+What percent of a company are you buying when you purchase stock? The percent of a company represented by a single share can be calculated by percent = 1/number_of_shares*100% Apple comprises 5,250,000,000 shares, so one share makes up about 1.9e-8% of a company, or 0.000000019% of Apple.

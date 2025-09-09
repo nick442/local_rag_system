@@ -1,0 +1,1 @@
+There was good logic at the time, if Microsoft wanted Windows on a tablet, then they had to make a version of Windows for the RT chipset. Two years after they made that decision, Intel had gotten their chipsets energy-efficient enough to run tablets, so WindowsRT was obsolete at launch.

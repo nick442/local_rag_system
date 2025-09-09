@@ -1,0 +1,1 @@
+"The ""Actual Applied Rate"" of 7.5% is the total amount of interest charged over the life of the loan, $2,204.82, divided by the loan amount divided by three years. This amount is lower than the actual interest rate of 13.69% because interest charges are based on loan principle which reduces over the life of the loan."

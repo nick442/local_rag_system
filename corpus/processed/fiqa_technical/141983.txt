@@ -1,0 +1,1 @@
++1. Most ETFs (namely the passive index-tracking ones) will be taking liquidity via market on close orders, since they absolutely need to be filled. Active ETFs, which may have more discretion, may be able to provide liquidity during the day based on market conditions and get rebates that way.

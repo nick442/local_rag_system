@@ -1,0 +1,1 @@
+CAPM is a pricing model. Not a risk model. > If you're talking about corporate finance where a firm is considering an investment such as a new project, then a determining a WACC and using it as a discount rate for your cash flow is a basic strategy. Once again.. WACC is a pricing model and has nothing to do with risk modeling.

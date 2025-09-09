@@ -1,0 +1,1 @@
+"Cars depreciate the most their first year after introduction. So you could buy a ""new"" car in year 2 for the optimal price, and at year 4 (when you finish paying yours off) you could buy the next car in year 2 (this is surprisingly similar to rolling options in a buy-write strategy, an arguably more constructive use of your money)"

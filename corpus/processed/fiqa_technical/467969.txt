@@ -1,0 +1,1 @@
+"Sure thing. There is a pretty well established level of understanding that interviewers expect from undergrads (expecially from finance majors) which will fall under the technical questions part of the interview. You can find them on wso, vault guide to ib, and elsewhere. You can ask people at specific banks, but they'll mostly recite ""know your technicals."""

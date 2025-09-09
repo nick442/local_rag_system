@@ -1,0 +1,1 @@
+A standing order is still the right way to do this. Most bank accounts have online access and will let your customer setup the standing order online, without having to fill in a paper form.

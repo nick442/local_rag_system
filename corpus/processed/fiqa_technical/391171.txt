@@ -1,0 +1,1 @@
+"You can find gold historical prices on the kitco site. See the ""View Data"" button."

@@ -1,0 +1,1 @@
+Right now I'm busy trying a graphlab recommender that works with the MovieLens data set. Recommender systems are worth studying because search results are being generated according to these algorithms. When you Google something you don't see what everyone else sees. The search results were tailed to your search history and Google user profile.

@@ -1,0 +1,1 @@
+If you're taking a Terminal DCF, you shouldn't be using 1-year risk free rates, so the 2.77% is probably much more accurate. That being said, we're in a historically low-rate environment, so even the 2.77% is probably a bit low. Here's another data point that puts the WACC at 8%: [http://www.wikiwealth.com/wacc-analysis:mcd](http://www.wikiwealth.com/wacc-analysis:mcd)

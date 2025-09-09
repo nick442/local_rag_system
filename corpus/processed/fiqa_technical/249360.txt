@@ -1,0 +1,1 @@
+You could use the Gordon growth model implied expected return: P = D/(r-g) --> r = D/P (forward dividend yield) + g (expected dividend growth). But obviously there is no such thing as a good market return proxy.

@@ -1,0 +1,1 @@
+Japan has not implemented the IBAN system (yet), at least according to the Wikipedia list. IBAN is a European thing, slowly spreading around the globe, and hasn't reached Japan and many other countries yet. SWIFT is your friend here. Adoption of the IBAN at various levels (as of January 1, 2014):

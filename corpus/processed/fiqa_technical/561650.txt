@@ -1,0 +1,1 @@
+Don't get huffy. You're making assumptions that ATM machines are networked in exactly the same way. For any machine to get compromised, the malware needs a way in. You assume that the banks are just as stupid about leaving their ATMs attached to improperly secured networks as Iran was. Give me a break with this crap.

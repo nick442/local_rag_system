@@ -1,0 +1,1 @@
+"One practical application would be to protect yourself from a ""flash crash"" type scenario where a stock suddenly plunges down to a penny due to transient market glitches. If you had a stop-loss order that executed at a penny (for a non-penny stock) it would be probably be voided by the exchange, but you might not want to take that risk."

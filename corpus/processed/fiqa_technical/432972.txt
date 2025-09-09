@@ -1,0 +1,1 @@
+If it's raising $25 million with a debt to equity ratio of 50% then it's raising $8.33 million of debt and $16.67 million of equity. You've priced it as if it were raising $25 million of debt and $25 million of equity, which would be raising $50 million with a debt to equity ratio of 100%.

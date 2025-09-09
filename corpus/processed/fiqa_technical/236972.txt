@@ -1,0 +1,1 @@
+Plaid is exactly what you are looking for! It's docs are easy to understand, and you can sign up to their API and use their free tier to get started. An example request to connect a user to Plaid and retrieve their transactions data (in JSON):

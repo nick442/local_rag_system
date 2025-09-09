@@ -1,0 +1,1 @@
+I don't think you understand options. If it expires, you can't write a new call for the same expiration date as it expired that day. Also what if the stock price decreases further to $40 or even more? If you think the stock will move in either way greatly, and you wish to be profit from it, look into straddles.

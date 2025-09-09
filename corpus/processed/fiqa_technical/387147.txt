@@ -1,0 +1,1 @@
+"Write means sell to open. It is called that because options writers are creating (i.e. writing) new contracts. No such thing as ""reading"" an option."

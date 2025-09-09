@@ -1,0 +1,1 @@
+backups. fucking backups. from day one of our software project i was warning about backups. four years later, no vendor support, no tested backup and going live with the system. year after that (off the legacy system) the thing goes kaput. good thing I had left before then. fucking amateurs.

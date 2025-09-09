@@ -1,0 +1,1 @@
+No, it's not even remotely accurate in the current sense. Both markets have counterparties directly executing against one another, and both have auctions. The auction mechanics are different (with NYSE's Specialist/DMM model) but during normal market hours there isn't much difference.

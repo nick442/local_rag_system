@@ -1,0 +1,1 @@
+Yes, I am in the USA and almost 90% of our sales (orders) come via EDI, and thus 90% of outbound invoices. But to setup EDI for an inbound EDI invoices with one supplier for 2 invoices per month is ridiculous.

@@ -1,0 +1,1 @@
+You're realizing the perils of using a DCF analysis. At best, you can use them to get a range of possible values and use them as a heuristic, but you'll probably find it difficult to generate a realistic estimate that is significantly different than where the price is already.

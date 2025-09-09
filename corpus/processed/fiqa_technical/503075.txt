@@ -1,0 +1,1 @@
+To add to @Victor 's answer; if you are entering a market order, and not a limit order (where you set the price you want to buy or sell at), then the Ask price is what you can expect to pay to purchase shares of stock in a long position and the Bid price is what you can expect to receive when you sell stock you own in a long position.

@@ -1,0 +1,1 @@
+No, you don't. But you do need to file FBAR to report your foreign accounts if you have $10K or more at any given day in all of them combined, when you're a US resident. You need to file FBAR annually by the end of June (note: it must be received by FinCEN by the end of June, but nowadays you file it electronically anyway).

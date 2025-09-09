@@ -1,0 +1,1 @@
+There is no margin call. Inverse ETFs use derivatives that would lose value in the case you describe though this doesn't force a margin call as you may be misunderstanding how these funds are constructed.

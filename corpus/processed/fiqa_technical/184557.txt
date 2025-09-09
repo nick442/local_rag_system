@@ -1,0 +1,1 @@
+Make a portfolio with gold and put options for gold. If the price rises again, sell a part of your gold and use it to buy new put options. If the price goes down, then use your put options to sell gold at a favorable price.

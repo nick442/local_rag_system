@@ -1,0 +1,1 @@
+If you create a block good enough to stop cellular data it will stop radio communications. This will prevent firefighters (should a fire ever occur) from communicating. A lawyer would just need to demonstrate that a single death or injury resulted directly from causing a fire fighter to operate in a diminished capacity by implementing their radio wave blocking system.

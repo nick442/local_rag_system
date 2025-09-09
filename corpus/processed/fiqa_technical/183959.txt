@@ -1,0 +1,1 @@
+> 500 million active consumers worldwide, with about 1,500 data points per person. 500 million is a lot of people to keep track of, but 1500 data points per person probably isn't enough to get a reliable answer out of a machine learning algorithm. Unless each 'data point' is meant to mean something they definitively 'know' about each user.

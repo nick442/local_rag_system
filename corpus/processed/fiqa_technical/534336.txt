@@ -1,0 +1,1 @@
+"You must have $x of taxable income that year in order to make a contribution of $x to IRA for that year. It doesn't matter where the actual ""money"" that you contribute comes from -- for tax purposes, all that matters is the total amount of taxable income and the total amount of contributions; how you move your money around or divide it up is irrelevant."

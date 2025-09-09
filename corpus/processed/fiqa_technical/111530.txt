@@ -1,0 +1,1 @@
+I noticed a lot more things getting painless with Stata that would have been annoying in ecxel. In stata this could have been one command entered. But I'm sure there are ways to do things more elegantly in excel I just don't know how. Stata was a learning effort of about a week to do what I was doing.

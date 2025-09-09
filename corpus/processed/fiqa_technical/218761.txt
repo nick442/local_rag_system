@@ -1,0 +1,1 @@
+Those fields are used in a bank-to-bank transfers that do not use SWIFT. SWIFT is a messaging system, however with the fields you have listed, banks can exchange messages directly without having to use SWIFT. Your bank may not support bank-to-bank transfers, in which you need to notify your client that it needs to be a SWIFT transfer.

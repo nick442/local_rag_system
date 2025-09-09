@@ -1,0 +1,1 @@
+Thanks for the answer! Yeah it is pretty insane that they have to keep 100%. I'm also seeing that in-flows from clients wouldn't be seen as a operating deposit but rather as non-operating, wouldn't this mean that the short-term wholesale fundings wouldn't be calculated in LCR? So Basel III want the banks to have more HQLA which comes at a cost . Or did I misunderstand that part?

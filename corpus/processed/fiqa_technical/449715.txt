@@ -1,0 +1,1 @@
+This article makes it seem like it was a really high tech hack, but it wasn't. It was a fairly benign exploit that had been fixed for months. There are certainly some crazy state-sponsored exploits that have come public recently, like that nsa wikileaks drop, stuxnet, etc. This is not anywhere near that caliber. This was caused by sloppy management of infrastructure.

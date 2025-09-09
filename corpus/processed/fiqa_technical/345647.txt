@@ -1,0 +1,1 @@
+Ok, so here's the strategy I decided to go with in the meantime: Allocate E1 to A_corp and E3 to A_ira. Here are my considerations which I assume at this stage to be right:

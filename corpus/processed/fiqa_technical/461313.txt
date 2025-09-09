@@ -1,0 +1,1 @@
+I tried direct indexing the S&P500 myself and it was a lot of work. Lots of buys and sells to rebalance, tons of time in spreadsheets running calculations/monitoring etc, dealing with stocks being added or removed from the index, adding money (inflows). Etc. All of the work is the main reason I stopped. I came to realize the 0.05% I pay Vanguard is a great deal.

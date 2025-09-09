@@ -1,0 +1,1 @@
+At time = 0, no interest has accrued. That's normal. And the first payment is due after a month, when there's a month's interest and a bit of principal due. Note - I missed weekly payments. You'd have to account for this manually, add a month's interest, then calculate based on weekly payments.

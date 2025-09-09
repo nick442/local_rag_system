@@ -1,0 +1,1 @@
+If interest rates are negative, a 0% load might still be profitable.

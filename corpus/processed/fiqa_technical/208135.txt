@@ -1,0 +1,1 @@
+NN/ES based approaches are much more non-transparent compare to traditional statistical learning approaches. Worse are the RL algos (i.e., actual learning instead of just classification), most dont have closed form formuli and are not optimal. Machine learning 1.0/big data was limited by data and compute. Machine learning 2.0 is only limited by compute.

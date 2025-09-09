@@ -1,0 +1,1 @@
+Ordinary investors who own mutual funds (like vanguard or whatever) are subject to HFT scalping. Mutual funds, pensions, etc are all operating in the markets with HFTs who are front running them for a tiny spread profit. Million of ordinary investors are invested in those funds and therefore are getting charged this spread by the HFTs.

@@ -1,0 +1,1 @@
+If you think about it, the value of an option comes from the chance that the price at the expiration date can exceed the strike price. As it gets closer to the expiration date, the chance is getting smaller, because there is simply not enough time for an out-of-money option to hit that strike. Therefore, the value of an option decays.

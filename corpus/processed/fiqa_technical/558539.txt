@@ -1,0 +1,1 @@
+You will need to merge CRSP with the Compustat Annual Fundamentals database, since CRSP only contains stock price/return data, whereas Compustat has data on total assets and other accounting variables. What software are you using? It's usually very easy to filter the data after loading it into your software.

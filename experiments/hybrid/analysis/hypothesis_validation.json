@@ -1,0 +1,26 @@
+{
+  "fiqa": {
+    "expected_alpha": 0.35,
+    "dynamic_alpha": 0.4125,
+    "difference": 0.0625,
+    "strategies": {
+      "financial_balanced": 11,
+      "semantic_dominant": 1,
+      "keyword_dominant": 1,
+      "balanced": 7
+    },
+    "validation_status": "validated"
+  },
+  "scifact": {
+    "expected_alpha": 0.65,
+    "dynamic_alpha": 0.4125,
+    "difference": 0.23750000000000004,
+    "strategies": {
+      "scientific_semantic": 1,
+      "keyword_dominant": 5,
+      "medical_balanced": 8,
+      "balanced": 6
+    },
+    "validation_status": "rejected"
+  }
+}

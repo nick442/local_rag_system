@@ -1,0 +1,1 @@
+The point of that question is to test if the user can connect shares and stock price. However, that being said yeah, you're right. Probably gives off the impression that it's a bit elementary. I'll look into changing it asap.

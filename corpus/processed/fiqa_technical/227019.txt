@@ -1,0 +1,1 @@
+This is fine, but I'd probably spend a moment introducing WACC and it's estimation. It's also useful to link up the enterprise value to share price, so just also mentioning the debt subtraction to get equity value and division by shares for price. Keep in mind you're usually given like a minute to answer this, so you can afford to be a bit more detailed in some parts.

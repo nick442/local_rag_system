@@ -1,0 +1,1 @@
+Yes, you call the broker and tell him to use those shares to deliver to the short position.

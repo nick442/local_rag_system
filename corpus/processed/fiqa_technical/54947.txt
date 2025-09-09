@@ -1,0 +1,1 @@
+"Buy the ETF with ticker ""SPY"". This will give you exposure to exactly the S&P 500 stocks, This is similar to the mutual fund suggestion by Ben Miller, except that the ETF has several advantages over mutual funds, especially as regards taxes. You can find information on the difference between ETF and mutual fund in other questions on this site or by searching the web."

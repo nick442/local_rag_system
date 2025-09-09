@@ -1,0 +1,1 @@
+Fuel injection systems have a special device called Electronic Control Unit which controls power to the fuel pump. It is specially programmed to shut off the fuel pump if it detects zero or low pressure. This safety feature avoids the risk of fire in the engine compartment in case of terminal or collisions failures.

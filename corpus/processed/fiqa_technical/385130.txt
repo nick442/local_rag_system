@@ -1,0 +1,1 @@
+The purpose is to be a racket. Assuming you're in the same tax bracket, you pay exactly as much tax later as you would now. If you're in a higher bracket, you pay more! And even if you pay less (assuming they don't change tax law before you retire) you give up direct control of your assets in exchange for a promise which may not be honored.

@@ -1,0 +1,1 @@
+These issues have probably been part of IBM's computing security standards for some time. I'd imagine it just makes news when specific situations such as Dropbox or Siri get called out. Most major companies have similar policies regarding their data. Encrypt your disks. Don't store stuff on non-company servers. Etc.

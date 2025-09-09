@@ -1,0 +1,1 @@
+No. You can initiate SWIFT payments from Bank A, whenever Bank A is open for business. The transaction takes around 2-5 days for it to complete depending on the currency pair and countries involved. Once you initiate the payment, the Bank A sends it to SWIFT Network which in turn send it to Bank B. Whenever Bank B is open for business it would process the payment.

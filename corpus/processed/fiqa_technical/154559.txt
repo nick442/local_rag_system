@@ -1,0 +1,1 @@
+I've used yahoo to perform the exercise you're asking about. It allows you to download price data, month end if you wish, and by manipulating via a spreadsheet to add a column for purchases, you can easily see how your £100/mo would end after so long a time period.

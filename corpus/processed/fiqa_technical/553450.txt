@@ -1,0 +1,1 @@
+One problem is that P/E ratio only looks at the last announced earnings. Let's take your manufacturing plant with a P/E of 12.5. Then they announce a major problem that will hurt future earnings and the price drops in half. Now the P/E is 6.25. It looks great, but since there aren't any new earnings that reflect the problem, it's very misleading.

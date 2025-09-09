@@ -1,0 +1,1 @@
+There isn't really a correct answer. The 1 year beta will capture any recent changes in the firm's business, but it is estimated less accurately due to fewer data points. But a beta of 0.22 for a distressed firm is very suspicious, since we would expect the stock to be more risky, not less.

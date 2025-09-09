@@ -1,0 +1,1 @@
+Why does it bother you? Company probably invested tons of money to build this embedded system, verify it, and probably certify it with whatever regulators they deal with in banking. Moreover, this is very closed system with no general access to it. For all we know, it can still run DOS, and if it does what it supposed to it is totally fine.

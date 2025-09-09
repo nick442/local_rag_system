@@ -1,0 +1,1 @@
+Depending on the currencies you want to trade there are mini-futures available with a contract value of 12.500 (for example EUR/USD) or standard futures with a contract value of 125.000. You will find an overview at the Globex CME website For a broker to trade the futures I would recommend Interactive Brokers. They offer real-time trading at very low commission.

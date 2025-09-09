@@ -1,0 +1,1 @@
+There is no free ride at most brokers. You will likely be charged a margin fee for that trade even though you only held the margin shares for part of one day. The margin fee would be the annual margin interest rate calculated down to a one day holding period,so it would be smaller. Check your broker's policies but most work like this.

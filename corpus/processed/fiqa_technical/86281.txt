@@ -1,0 +1,1 @@
+You can use the Securities Exchange Commission's EDGAR search engine to search all available SEC related filings. https://www.sec.gov/edgar/searchedgar/companysearch.html Top tip: use the fast search on the right to search for the company ticker rather than by company name.

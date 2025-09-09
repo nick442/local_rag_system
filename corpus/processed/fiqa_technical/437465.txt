@@ -1,0 +1,1 @@
+Yahoo provides dividend data from their Historical Prices section, and selecting Dividends Only, along with the dates you wish to return data for. Here is an example of BHP's dividends dating back to 1998. Further, you can download directly to *.csv format if you wish: http://real-chart.finance.yahoo.com/table.csv?s=BHP.AX&a=00&b=29&c=1988&d=06&e=6&f=2015&g=v&ignore=.csv

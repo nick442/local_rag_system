@@ -1,0 +1,1 @@
+If I is the initial deposit, P the periodic deposit, r the rent per period, n the number of periods, and F the final value, than we can combine two formulas into one to get the following answer: F = I*(1+r)n + P*[(1+r)n-1]/r In this case, you get V = 1000*(1.05)20 + 100*[(1.05)20-1]/0.05 = 5959.89 USD. Note that the actual final value may be lower because of rounding errors.

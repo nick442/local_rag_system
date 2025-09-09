@@ -1,0 +1,1 @@
+I'm concerned enough that the *hash* alone is out there to change it. It's one level of security on which you should be able to rely: unique pw, pw is hashed, hashing is (hopefully) salted, login is via SSL, etc etc. The fact that the hash alone is out there - even if I think it's fairly unguessable - is enough for me to decide to change it.

@@ -1,0 +1,1 @@
+Stop order is triggered when the market reaches the price you set. Until then - its not on the books. Your understanding is wrong in that you don't go to read the definition of the term.

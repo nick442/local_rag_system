@@ -1,0 +1,1 @@
+No. Net profit is calculated after taxes. Loan interest is an expense, so it will result in the company paying less taxes (it acts as a tax shield), so net profit should still be positive. How much will depend on tax and interest rate. Only the portion of the $1.000.000 that correspond to interest is an expense. Principal payments are not.

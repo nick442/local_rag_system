@@ -1,0 +1,1 @@
+Bond prices move inversely to their yields. So when you sell bonds and create a supply side deluge, bond prices will fall. Since bond prices are falling, yields go up. (The dollar amount that the bond pays out is the same. It's simply that since the bond price has fallen, that dollar amount paid out expressed in percentage terms of the bond price has risen).

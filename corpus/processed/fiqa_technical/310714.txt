@@ -1,0 +1,1 @@
+"Yes if and only if you properly use P/Y and C/Y. For your familiarity, I recommend also trying it with I = 7.56% / 12, and P/Y and C/Y = 1. I like to think of P/Y and C/Y as ""per period"" and prefer to divide the interest rate by the number of periods per year, but so long as you keep everything coherent in the solver, you will get the correct answer with both approaches."

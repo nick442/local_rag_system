@@ -1,0 +1,1 @@
+Yes E[x] is expected value of x. E[x|y] = expected value of x, given y. c, k are some constants Let E[s_{n+1}|s_n=c] = c, but if E[s_{n+1}|s_n,s_{n-1},..,s_{n-m}] ->some constant k as m->\infty (call this equation 1) then rebalancing makes sense. Notes:

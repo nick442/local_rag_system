@@ -1,0 +1,1 @@
+I know nice and free stock screener for UK (and 20+ exchanges) - https://unicornbay.com/screener?f=exchange_str|%3D|LSE;&s=MarketCapitalization|desc&p=1|20 from Unicorn Bay. It supports both fundamental and technical analysis.

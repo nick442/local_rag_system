@@ -1,0 +1,1 @@
+There is no way to know anything about who has shorted stuff or how concentrated the positions are in a few investors. Short positions are not even reported in 13(F) institutional filings. I'll take the bonus points, though, and point you to the US Equity Short Interest data source at quandl.

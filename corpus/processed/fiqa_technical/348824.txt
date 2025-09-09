@@ -1,0 +1,1 @@
+"got asked a similar question to this.. ""how many tennis balls can fit in an suv?"". I found these tough, as its hard to calculate the area of spheres on scratch paper (4/3pi r^3). Got any tips?"

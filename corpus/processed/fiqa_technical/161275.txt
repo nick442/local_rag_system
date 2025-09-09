@@ -1,0 +1,1 @@
+Definitely not impossible to have a self-driving car guided only by cameras and radar. Humans drive based on vision alone. Whether the AI required is forthcoming that's a question that GM is ill positioned to answer. They suck at building cars, let alone software.

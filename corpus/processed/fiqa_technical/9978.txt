@@ -1,0 +1,1 @@
+"Recently I did some experiments with EUR/USD cross and, according to my findings it turned out that the maximum volatility occurs in the range 9-12AM (EST). Each currency pair has its own ""top volatility"" time window, so it really depends on what you want to trade."

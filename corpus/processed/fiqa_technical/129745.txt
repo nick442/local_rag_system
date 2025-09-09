@@ -1,0 +1,1 @@
+I don't see it in any of the exchange feeds I've gone through, including the SIPs. Not sure if there's something wrong with Nasdaq Last Sale (I don't have that feed) but it should be putting out the exact same data as ITCH.

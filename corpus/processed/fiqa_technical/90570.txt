@@ -1,0 +1,1 @@
+The adjusted close price takes into account stock splits (and possibly dividends). You want to look at the adjusted close price. Calculating percentage changes gets computationally tricky because you need to account for splits and dividends.

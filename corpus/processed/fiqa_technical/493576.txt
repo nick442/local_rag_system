@@ -1,0 +1,1 @@
+There is a way I discovered of finding the current exchange rate before committing to buy, go to send payments, put in your own second email, pay 1gbp as the amount and it will give you the exchange rate and fees in your own currency, in my case euro, before you have to click on send payment

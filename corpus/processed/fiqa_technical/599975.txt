@@ -1,0 +1,1 @@
+"Did your CTO let a major group use ""admin/admin"" as the administrator password? And did the job posting for your CTO have a note saying the primary responsibility could be learned or did they look for someone who already knew their shit? Read TFA, they explicitly said ""security can be learned"". This was a case of pre-choosing the person for the position."

@@ -1,0 +1,1 @@
+You're only counting one year. Let's say 30 years of data, minutewise, for 2,000 stocks, and 50 characters per data line. That's 1.5TB of data. Since the market has grown, that's an overestimate - 30 years ago there weren't 2,000 stocks in the NYSE - but it still gives us ballpark of roughly 1 TB. Not an easy download.

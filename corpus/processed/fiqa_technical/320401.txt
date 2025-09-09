@@ -1,0 +1,1 @@
+The point im trying to make is that VaR is useless as a risk metric and it should not be a necessary part of any risk management arsenal as it does little to answer the question that losses will be limited to X K% of the time and it instils a sense of false security.

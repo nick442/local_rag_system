@@ -1,0 +1,1 @@
+I found the answer. It was the Stock Ticker that I was looking for. So, if I understand correctly the price at certain moment is the price of the latest sale and can be used to get a global picture of what certain stock is worth at that certain instant.

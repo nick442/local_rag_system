@@ -1,0 +1,1 @@
+For ATMs you should check if the ATM you're going to use accepts the network you're in. If the ATM has the same logo (it should probably have a whole bunch of logos) that is on your card - it should work. I have not encountered an ATM that wouldn't accept a VISA card in Europe, and I travel a lot.

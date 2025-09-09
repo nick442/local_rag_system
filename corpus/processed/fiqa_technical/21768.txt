@@ -1,0 +1,1 @@
+Being long the call is being long the option. The call is a type of option. A put is a type of option If you buy a call, you are long an option and long the underlying asset. If you buy a put, you are long an option and short the underlying asset.

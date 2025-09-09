@@ -1,0 +1,1 @@
+Should be noted that pacoverflow's answer is wrong. Yahoo back-adjusts all the previous (not current or future) values based on a cumulative adjustment factor. So if there's a dividend ex-date on December 19, Yahoo adjusts all the PREVIOUS (December 18 and prior) prices with a factor which is: 1 - dividend / Dec18Close

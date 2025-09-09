@@ -1,0 +1,1 @@
+Simple math: 50-25=25, hence decline from 50 to 25 is a 50% decline (you lose half), while an advance from 25 to 50 is 100% gain (you gain 100%, double your 25 to 50). Their point is that if you have more upswings than downswings - you'll gain more on long positions during upswings than on short positions during downswings on average. Again - simple math.

@@ -1,0 +1,1 @@
+When you do finance problems the first thing you need to think about is how the interest is accrued. Is it monthly semi annually or yearly? Once you understand the period of time on the interest and payments it’ll help you understand these problems more. Also a good thing to memorize is converting from EAR to APR. and APR to EAR. You’ll use that a lot. Good luck!

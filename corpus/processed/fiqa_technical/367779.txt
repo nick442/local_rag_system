@@ -1,0 +1,1 @@
+C++ for lean and low latency computing, VBA if you're just trying to do excel macros, or python if you want scripting outside of excel. Note that C++ is much much more complicated and has a MUCH higher learning threshold than the other 2.

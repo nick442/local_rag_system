@@ -1,0 +1,1 @@
+I'm a programmer, and worked for a company doing natural language analysis and parsing. Yes, it is possible to figure out what reviews are more valuable than others by passsing it through an algorithm. How the heck do you think spam filters work?

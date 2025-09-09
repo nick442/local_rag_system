@@ -1,0 +1,1 @@
+Yodlee is the back-end which communicates with the banks, and Mint just provide a pretty layer on top. You can sign up for an account with Yodlee directly, which may give you the flexibility you need.

@@ -1,0 +1,1 @@
+One reason to not do that is if you consider that one of the loans is at risk of being called in early. e.g. You have a line of credit which is close to its limit, and the bank decides to reduce that limit, forcing you to quickly come up with the money to pay it down below the new limit, which can really throw a wrench into your plans.

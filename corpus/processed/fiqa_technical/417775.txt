@@ -1,0 +1,1 @@
+All subreddits have their spam filtered by reddit's spam filter, but it tends to get trained on a per subreddit basis regarding domains, users and maybe more. No one really knows exactly how it works except admins though.

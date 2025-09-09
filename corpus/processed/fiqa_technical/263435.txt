@@ -1,0 +1,1 @@
+At the time we were working on it, PHP had support for SHA and MD5 built-in only. If it had it to do all over again today I'd use something like Blowfish. As to the answer to your first question, I considered the possibility that someone could make rainbow tables specifically for SHA 256 to address having two hashes as inputs. Such a thing is feasibly possible.

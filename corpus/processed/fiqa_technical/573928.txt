@@ -1,0 +1,1 @@
+( t2 / t1 ) - 1 Where t2 is the value today, t1 is the value 12 months ago. Be sure to include dividend payments, if there were any, to t2. That will give you total return over 12 months.

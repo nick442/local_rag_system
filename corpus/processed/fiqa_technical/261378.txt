@@ -1,0 +1,1 @@
+hledger is a free software, cross-platform double-entry accounting tool I've been working on for a while. It has command-line and web-based interfaces to your local data, and some other interesting features. There's also ledger (http://wiki.github.com/jwiegley/ledger/) which is command-line only. These are. different, but worth a look for some folks.

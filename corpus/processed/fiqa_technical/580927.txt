@@ -1,0 +1,1 @@
+"Historically they were conceived as a way to cut losses when the market turned against you. You would tell your broker something like ""buy me 100 shares of Anaconda and stop me if it goes below $110"" You can read references to this in old books like Reminiscences of a Stock Operator, the ABC of Options pricing, or the Day Trader's Bible."

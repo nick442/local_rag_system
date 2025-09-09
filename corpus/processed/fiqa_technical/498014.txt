@@ -1,0 +1,1 @@
+It looks like GOOG did not have a pre-market trade until 7:14 am ET, so Google Finance was still reporting the last trade it had, which was in the after-hours session yesterday. FB, on the other hand, was trading like crazy after-hours yesterday and pre-market today as it had an earnings report yesterday.

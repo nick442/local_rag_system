@@ -1,0 +1,1 @@
+I would presume this goes entirely through the credit card network rather than the banking network. I am guessing that it's essentially the same operation as if you had returned something purchased on a card to the store for credit, but I'm not sure whether it really looks like a vendor credit to the network or if it is marked as a different type of transaction.

@@ -1,0 +1,1 @@
+Looking at VAR for managing your risk is like looking at an abacus for your calculating needs - technically seems like its up for the job but totally useless in practice. VAR is only useful in the context of allocating risk limits and MS is sending a message here that they're in the market for increasing their risk-taking.

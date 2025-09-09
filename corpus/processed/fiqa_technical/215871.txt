@@ -1,0 +1,1 @@
+If 3D printers get to the point of being able to make machine critical parts (or really anything besides small plastic parts) this might be true. We are a really long way from being able to print something like an electric motor, or a crankshaft, or a turbocharger, etc.

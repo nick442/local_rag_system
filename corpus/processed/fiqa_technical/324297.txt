@@ -1,0 +1,1 @@
+Yes, assuming that your cash flow is constantly of size 5 and initial investment is 100, the following applies: IRR of 5% over 3 years: Value of CashFlows: 4.7619 + 4.5351 + 4.3192 = 13.6162 NPV: 100 - 13.6162 = 86.3838 Continuous compounding: 86.3838 * (1.05^3) = 100

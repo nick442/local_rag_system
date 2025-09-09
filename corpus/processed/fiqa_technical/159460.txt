@@ -1,0 +1,1 @@
+As far as I'm aware, PINs are only used for in-person transactions, not 'remote' (over the Internet or phone).

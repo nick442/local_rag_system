@@ -1,0 +1,1 @@
+"On the iOS Uber app right now, you can chose between ""Never"" and ""Always On"". Every time I use the Uber app I need to activate the option, then turn it off again after I'm done. It's quite annoying, considering most apps give you the ""When using app"" option instead of ""Always""."

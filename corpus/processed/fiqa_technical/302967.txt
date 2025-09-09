@@ -1,0 +1,1 @@
+On NASDAQ the ^ is used to denote other securities and / to denote warrents for the underlying company. Yahoo maybe using some other designators for same.

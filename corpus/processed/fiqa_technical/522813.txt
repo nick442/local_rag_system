@@ -1,0 +1,1 @@
+There's only one real list that states what people think stock prices should be, and that's the stocks order book. That lists the prices at which stock owners are willing to buy stocks now, and the price that buyers are willing to pay. A secondary measure is the corresponding options price. Anything else is just an opinion and not backed by money.

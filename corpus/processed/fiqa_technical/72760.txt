@@ -1,0 +1,1 @@
+Linear algebra prior to taking diff eq or concurrent to diff eq could make a difference but physics should not be a big deal. If you have access to Maple, you'll be able to CRUSH pretty much anything they through at you. It's a computer math system. source: masters in math

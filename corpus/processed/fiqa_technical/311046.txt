@@ -1,0 +1,1 @@
+I think you would definitely need to distinguish between sites with different business models, some would want to bill by content downloaded, others by number of page visits,..). Time spent there doesn't seem like a good measurement with the current, request-based model of how the web works.

@@ -1,0 +1,1 @@
+No, this is not generally possible, as each security purchase is booked as a separate order => hence separate transaction. You can do this through purchasing of a fund, i.e.: purchasing one share of a ETF will get you a relative share of the ETF holdings, but the actual holdings are not up to you then.

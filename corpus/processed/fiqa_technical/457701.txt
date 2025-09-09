@@ -1,0 +1,1 @@
+SEP IRA deduction goes to line 28 of your 1040, which is above the line (i.e.: pre-AGI). It should not be included in your taxable income (AGI) for Federal purposes.

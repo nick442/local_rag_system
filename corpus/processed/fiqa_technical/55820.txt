@@ -1,0 +1,1 @@
+This is just a shot in the dark but it could be intermarket data. If the stock is interlisted and traded on another market exchange that day then the Yahoo Finance data feed might have picked up the data from another market. You'd have to ask Yahoo to explain and they'd have to check their data.

@@ -1,0 +1,1 @@
+This may be a good or a bad deal, depending on the fair market value (FMV) of the stock at the time of exercise. Let's assume the FMV is $6, which is the break even point. In general this would probably be treated as two transactions. So overall you would be cash neutral, but your regular tax income would be increased by $30,000 and your AMT income by $60,000.

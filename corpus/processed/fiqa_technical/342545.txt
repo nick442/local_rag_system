@@ -1,0 +1,1 @@
+Worked for a SaaS based company that married data sources to existing IP and analog video feeds. E.g. for an ATM you'd match transactions against the PinHole And/or overhead cameras and run analytics over that data. Edit for clarity. You either MITM it if it's insecure for 'live' data or you parse it centrally and pull data in batches each night.

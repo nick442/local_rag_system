@@ -1,0 +1,1 @@
+Well the idea is after getting the employees to put their best attempt to transition their processes to excel, afterwards the leftover advanced processes that absolutely require excel will be given an exception (until a better solution can be researched and prototyped). But at the moment until then I have to find out ways to get these advanced functionality in other ways!

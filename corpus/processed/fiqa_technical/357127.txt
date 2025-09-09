@@ -1,0 +1,1 @@
+Since the market is in general rather efficient, the price of the ETF will most of the time reflects the prices of the underlying securities. However, there are times when ETF price deviates from its fundamental value. This is called trading at a premium/discount. This creates arbitrage opportunity, which is actually being studied in finance literature.

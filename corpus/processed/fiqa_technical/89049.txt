@@ -1,0 +1,1 @@
+There are two different ages, one where you can start withdrawing from the account, and a higher age where you must start withdrawing (at a minimum rate). The withdrawals are treated like regular income, so they get taxed according to the same rates, and with the same deductions, as a salary.

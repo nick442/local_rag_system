@@ -1,0 +1,1 @@
+For a short term loan, the interest is closer to straight line, e.g. A $10K loan at 10% for 3 years will have approximately $1500 in interest. (The exact number is $1616, not too far off). You will save 2.41% on the rate, so you'll the extra payment you'll send to the mortgage will save you about 10000*35*(2.41/12)/2 or about $350 over the 3 year period.

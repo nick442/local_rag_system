@@ -1,0 +1,1 @@
+Also, this would be a sick way to predict the weather. What if there were options on rain that had week long maturities? One could back out from the price and different maturities the probability of it raining on a certain day.

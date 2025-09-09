@@ -1,0 +1,1 @@
+For simplicity, I would subtract the expense from the gross income before accounting for taxes. Using your example, if g is gross income, r is your tax rate, and e is your deductible expense: You got the same answer because of the distributive property of multiplication, but I believe conceptually it makes more sense to deduct the expense before accounting for taxes.

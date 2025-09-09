@@ -1,0 +1,1 @@
+The company that's apparently going to pay this rent wants to treat it as a business expense. They are asking for your SSN because they expect to issue a 1099-MISC. (They probably gave you a Form W-9? It's not mandatory but it's common to request a taxpayer ID on this form.) There are a couple of issues at play here:

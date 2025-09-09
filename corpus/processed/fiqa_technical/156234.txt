@@ -1,0 +1,1 @@
+"It is explained on their website. Just look for the word ""routing"" on the Features page: Choose Your Venues Liquidity Pools Group 1: Bats Europe Group 2: Liquidity Partner (LP) Add this group to access dark pool liquidity. Group 3: Exchanges and MTFs Choose to access additional Exchanges and MTFs across Europe."

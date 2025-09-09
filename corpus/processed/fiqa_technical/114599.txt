@@ -1,0 +1,1 @@
+You can try SplashMoney. It works on many platforms, including iPhone, iPod and Mac, but also Palm OS, Android, Blackberry and windows. I've been using it —since more than two years now— with my old Palm OS PDA and it works great. As I work mainly with Linux, I've tested very few times its synchronization with its desktop companion running on windows.

@@ -1,0 +1,1 @@
+Yes, add the stocks/mutual funds that you want and then you would just need to add all the transactions that you theoretically would have made. Performing the look up on the price at each date that you would have sold or bought is quite tedious as well as adding each transaction.

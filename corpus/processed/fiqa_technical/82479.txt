@@ -1,0 +1,1 @@
+Too calculate these values, information contained in the company's financial statements (income, balance, or cashflow) will be needed along with the price. Google finance does not maintain this information for BME. You will need to find another source for this information or analyze another another symbol's financial section (BAC for example).

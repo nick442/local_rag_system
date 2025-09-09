@@ -1,0 +1,1 @@
+The value at expiration does not depend on the price path for a plain vanilla European or American option. At expiration, the value would simply be: max[K - S_T, 0], where: K is the strike price, and S_T is the underlying price at expiration.

@@ -1,0 +1,1 @@
+If you really did have a large share size, a market order would move the price more so in your desired direction. Although your cost basis would be less ideal. Just use limit orders and scale in to a position. You can also exercise puts to be short stock

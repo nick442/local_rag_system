@@ -1,0 +1,1 @@
+I second the vote for GnuCash. It runs on Linux, Windows, and Mac. It is double-entry accounting, so there is a little bit of a learning curve, but it sounds like you should probably have something a little more powerful than Mint for your situation.

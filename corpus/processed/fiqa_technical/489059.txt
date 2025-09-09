@@ -1,0 +1,1 @@
+Given a routing number / account number, it's easy to print a check with those details. All you need is a MICR font. No EFT needed. I would recommend that instead, you get his account information, and set up a direct withdrawal. Of course, then you could potentially use HIS account fraudulently, but that would be true even if he just wrote you a check.

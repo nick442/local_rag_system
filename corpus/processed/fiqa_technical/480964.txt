@@ -1,0 +1,1 @@
+You can ask for 305rs, but as long as shares are available at lower prices you won't sell. Only when your ask becomes the lowest available price will someone buy from you. See many past questions about how buyers and sellers are matched by the market.

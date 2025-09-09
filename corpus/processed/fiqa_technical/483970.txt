@@ -1,0 +1,1 @@
+You have an incredibly narrow definition of AI. I'm currently researching ATC systems as a potential thesis topic and genetic algorithms are very commonly used in this area. I would argue that any definition of AI that doesn't include genetic algorithms is too narrow. A large chunk of my AI course was dedicated to genetic algorithms.

@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "dataset": "tiny_test",
+    "source": "test", 
+    "total_queries": 3,
+    "format": "experiment_queries_v1.0"
+  },
+  "queries": [
+    {"id": "1", "query": "What is ROI in finance?"},
+    {"id": "2", "query": "How do bonds work?"},
+    {"id": "3", "query": "Tax deductions for business"}
+  ]
+}

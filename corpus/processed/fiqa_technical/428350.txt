@@ -1,0 +1,1 @@
+I once worked on creating a payroll system that essentially automated the process for a company of 40k employees. There were 2 coders working for 18 months and we put 12 payroll people out of a job when we were finished. Needless to say once they realized what we were doing the work environment became quite uncomfortable.

@@ -1,0 +1,1 @@
+Both Wells Fargo and Chase are participants in clearXchange, which enables the various QuickPay type services to work with each other. They may be using this system rather than an ACH wire transfer to transfer your money (and to verify the account).

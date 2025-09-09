@@ -1,0 +1,1 @@
+When you want the transaction to be concluded in the current year vs an expiration in the next year.

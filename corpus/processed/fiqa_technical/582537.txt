@@ -1,0 +1,1 @@
+Just so everyone knows. A core model refers to a forecast of the Balance Sheet, income statement, and Statement of Cash Flows. From this you can solve for Free Cash Flow to Equity and solve for some more price values, like Sum of Parts.

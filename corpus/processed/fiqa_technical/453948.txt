@@ -1,0 +1,1 @@
+In computing, you'd generally return naa%, for 'not a number'. Could you not put '-%' to show there is no value at this point? Surely the people seeing this aren't idiots and understand the charge on 0 is 0?

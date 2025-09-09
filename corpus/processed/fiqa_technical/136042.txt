@@ -1,0 +1,1 @@
+Yes, if the call expires worthless, leaving you with stock. Then you can exercise your put when the stock goes below put strike price.

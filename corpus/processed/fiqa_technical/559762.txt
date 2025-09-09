@@ -1,0 +1,1 @@
+Really I don't understand why they would run anything like an ATM or voting machine with more than a command line. They could also be using hardware the equivalent of a high school scientific calculator and do the same job. Putting in anything resembling a modern processor or computer into a single-purpose security device just screams incompetence to me.

@@ -1,0 +1,1 @@
+It's all about the question's wording. Here they are saying interest is 1.25% *per month* - not per year. This is why in your earlier post, I encouraged you to internalize what P/Y and C/Y mean in the solver. It's best to think of things in terms of *per period of time*. I hope this helps, but more practice certainly will.

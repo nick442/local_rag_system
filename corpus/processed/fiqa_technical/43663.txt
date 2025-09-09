@@ -1,0 +1,1 @@
+OANDA has a free online tool (a Java applet) that will do what you're asking. Description: Currency Graph FXGraph: Plot the change between two currencies over any time period Make a customized graph of historical exchange rates for two of over 190 currencies, for any time period since 1990. [..] Visit Currency Graph | OANDA.

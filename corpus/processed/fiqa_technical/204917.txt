@@ -1,0 +1,1 @@
+"This formula is not calculating ""Earnings"". Instead, it is calculating ""Free Cash Flow from Operations"". As the original poster notes, the ""Earnings"" calculation subtracted out depreciation and amortization. The ""Free Cash Flow from Operations"" adds these values back, but for two different reasons:"

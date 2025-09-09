@@ -1,0 +1,1 @@
+In the strictest sense, there are bills,notes, and bonds, named when issued based on their time to maturity. Even though it's called a bond ETF it may have a duration short enough to be made of T-bills, less than a year to maturity. Simply put, for bonds, risk comes from the duration, time to maturity.

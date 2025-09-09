@@ -1,0 +1,1 @@
+thanks. I have real time quotes, but in the contest, if you put in a market order the trade might happen at the delayed quote price and not the real time price. Does anyone know at which price it will trade, delayed or real time?

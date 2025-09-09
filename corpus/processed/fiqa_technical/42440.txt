@@ -1,0 +1,1 @@
+You can give YQL a try. I'm not sure it can do the query you want, but for example you can do: (try it here) And this best thing about it - it's free.

@@ -1,0 +1,1 @@
+This is called the gordon growth model (or dividend discount model). This is one way to value a stock, but in practice no one uses it because the assumptions are that companies will return value to investors solely via regular dividends, and that the growth rate and the required rate of return from investors are constants; among other issues.

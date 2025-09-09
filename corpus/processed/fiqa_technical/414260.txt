@@ -1,0 +1,1 @@
+If you're willing to use OFX or QIF files, most Canadian banks can spit output more data than 90 days. The files are typically used to import into Quicken-like local programs, but can be easily parsed for your webapp, I imagine.

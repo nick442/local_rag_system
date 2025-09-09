@@ -1,0 +1,1 @@
+Banks use quite a few parameters to arrive at the decision for card approval. The credit score is just one input. There are multiple other inputs it would source, for example total years in job, the number of years in current job, income streams, etc .. the exact formula is a trade secret and varies from Bank to Bank

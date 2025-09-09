@@ -1,0 +1,1 @@
+"Is there ever any ambiguity on what that that exact strike is in delta space, or does everyone back it out from the pricing model the same way? I ask, because in my product nearly everyone runs a heavier delta to the put (the severity of that varies). So on trades that are ""tied up"", everyone participating on it can have slightly different deltas that they are modeling"

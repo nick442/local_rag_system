@@ -1,0 +1,1 @@
+If you believe the stock market will be down 20-30% in the next few months, sell your stock holdings, buy a protective put option for the value of the holdings that you want to keep. That would be hedging against it. Anything more is speculating that the market will fall.

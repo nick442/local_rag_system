@@ -1,0 +1,1 @@
+Central banks don't generally post exchange rates with other currencies, as they are not determined by central banks but by the currency markets. You need a source for live exchange rate data (for example www.xe.com), and you need to calculate the prices in other currencies dynamically as they are displayed -- they will be changing continually, from minute to minute.

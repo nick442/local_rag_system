@@ -1,0 +1,1 @@
+You can make your table more useful by adding more columns like this: This makes it really easy to keep track of categories of spending. You just sum a column to get all of your restaurant spending.

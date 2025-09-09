@@ -1,0 +1,1 @@
+If you buy puts, there are no guaranteed proceeds though. If you short against the box, you've got immediate proceeds with a nice capital loss if it doesn't work out. Conversely, you could write a covered call, take the contract proceeds, and write off the long position losses. Nobody ever factors tax consequences into the equation here.

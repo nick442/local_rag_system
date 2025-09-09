@@ -1,0 +1,1 @@
+While that sounds reasonable, it looks like most of the actual trading is done on the basis of changes rather than value. At a guess, this is because computing the balance sheet anew with every change inhibits the speed with which transactions can be processed.

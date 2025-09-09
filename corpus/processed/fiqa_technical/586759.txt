@@ -1,0 +1,1 @@
+Your understanding is incorrect. The date of record is when you have to own the stock by. The ex-dividend date is calculated so that transaction before that date settles in time to get you listed as owner by the date of record. If you buy the stock before the ex-dividend date, you get the dividend. If you buy it on or after the ex-dividend date, the seller gets the dividend.

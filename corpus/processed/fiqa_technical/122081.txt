@@ -1,0 +1,1 @@
+r/shittydataisbeautiful/ The first 20 data points looks at his net worth on average every 2.25 yeras. The last three data points look at it on average every 7.67 years. I sure as hell hope his net worth grows by more every 7 years than every 2 years. On top of that, this should be on a log scale as exponential growth is a pretty widely accepted concept of finance.

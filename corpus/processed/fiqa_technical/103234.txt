@@ -1,0 +1,1 @@
+In some cases, especially but not only for subprime loans, they are actually testing whether you will lie to them. (Discovered this when working on a loan origination applicatíon for car dealers -- they explicitly did not want us to autocomplete some values because that might remind applicants that answers would be checked.)

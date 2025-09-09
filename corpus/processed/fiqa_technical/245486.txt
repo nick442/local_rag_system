@@ -1,0 +1,1 @@
+Correct, but as of right now the primary point of entry into crypto *is* fiat. As soon as you make that exchange, any downstream transaction from your wallet can be tracked back to you if your wallet is linked to your identity. But it does make it much more difficult once you exchange one crypto for another.

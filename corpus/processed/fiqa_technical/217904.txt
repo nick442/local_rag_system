@@ -1,0 +1,1 @@
+Adding assets (equity) and liabilities (debt) never gives you anything useful. The value of a company is its assets (including equity) minus its liabilities (including debt). However this is a purely theoretical calculation. In the real world things are much more complicated, and this isn't going to give you a good idea of much a company's shares are worth in the real world

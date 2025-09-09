@@ -1,0 +1,1 @@
+Just the Y-axis is manipulated, doesn't make it garbage. How else would you graphically demonstrate the strong correlation all in one graph given that the levels of the two series differ so much .. Would it be more convincing if he gave you the correlation coefficient over the relevant period (which I bet would be pretty close to 1 and would convey the same point as the graph).

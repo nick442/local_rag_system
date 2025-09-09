@@ -1,0 +1,1 @@
+generally Forward P/E is computed as current price / forward earnings. The rationale behind this is that buying the stock costs you the current price, and it gives you a claim on the future earnings.

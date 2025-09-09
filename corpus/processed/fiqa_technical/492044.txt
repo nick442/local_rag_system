@@ -1,0 +1,1 @@
+Sap just developed a fraud detection module for their ERP suite in conjuction with EY. It offers live fraud scanning so you can stop a flagged transaction before a transfer is carried out. I saw a presentation an it looks pretty powerfull although it is only in the early stages.

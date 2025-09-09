@@ -1,0 +1,1 @@
+"Banks don't generally ""Post"" transactions on Friday-Sunday, meaning any transfers made on those days don't show up until someone processes it on Monday. I would expect the money to show today, and call your bank tomorrow if it doesn't."

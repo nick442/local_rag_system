@@ -1,0 +1,1 @@
+Sources such as Value Line, or S&P stock reports will show you dividend payout ratios (the American usage. These are the inverse of dividend cover ratios, with dividends being in the numerator, and earnings in the denominator. For instance, if the dividend cover ratio is 2, the dividend payout ratio is 1/2= 50%.

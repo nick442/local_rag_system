@@ -1,0 +1,1 @@
+It's a covered call. When I want to create a covered call position, I don't need to wait before the stock transaction settles. I enter it as one trade, and they settle at different times.

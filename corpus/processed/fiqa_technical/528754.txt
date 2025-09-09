@@ -1,0 +1,1 @@
+You can employ a hedging strategy using short selling, put options, or other methods that will partially neutralize your exposure to the overall market. e.g. You could short sell a market-wide index such as the S&P500, while going long (buying) the company you are interested in. Investopedia has a nice primer on this: Also, see this related question here:

@@ -1,0 +1,1 @@
+The Sharpe ratio is, perhaps, the method you are looking for. That said, not really sure beta is a meaningful metric, as there are plenty of safe bets to be made on volatile stocks (and, conversely, unsafe bets to be made on non-volatile ones).

@@ -1,0 +1,1 @@
+Check your calculation of A**. I was able to duplicate their calculations using excel. Make you sure have accounted for all the terms, it can be easy to be one off. They are making a guess at the interest rate which will be wrong, then they are adjusting it to see how wrong it is, then making another adjustment. They will repeat until they see no movement in the guesses.

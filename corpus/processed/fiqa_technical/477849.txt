@@ -1,0 +1,1 @@
+I've never worked with DeltaV myself, but all my cohorts in Oil and Gas seem to use it. I would love to live in the world of a DCS system. They commissioned a system where I used to work that was such that one of our presses could send out POP3 messages and order it's own spare parts based on it's own internal system of checks and balances.

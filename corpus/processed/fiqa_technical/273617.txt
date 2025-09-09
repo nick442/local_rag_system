@@ -1,0 +1,1 @@
+Emergency Account Vault (Windows) I use it to store info about all of my accounts/assets in an encrypted document. It's more for keeping track of everything that is in your name than managing money. Good for situations when you need to quickly look up info about a specific account you own.

@@ -1,0 +1,1 @@
+even in Bloomberg intraday data you're limited to 140days. If you want more you need cash, a lot of cash. Just the sheer size of data is ridiculous. Unless you're Blackrock or some big firms like that then probably can't afford to buy it and store it - it won't fit on one Excel file haha

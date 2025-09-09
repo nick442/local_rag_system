@@ -1,0 +1,1 @@
+A company generally sells a portion of its ownership in an IPO, with existing investors retaining some ownership. In your example, they believe that the entire company is worth $25MM, so in order to raise $3MM it is issuing stock representing 12% of the ownership stake (3/25), which dilutes some or all of the existing stockholders' claims.

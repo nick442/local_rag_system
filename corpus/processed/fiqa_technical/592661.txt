@@ -1,0 +1,1 @@
+Google 'information ratio'. It is better suited to what you want than the Sharpe or Sortino ratios because it only evaluates the *excess* return you get from your investment, ie. return from your investment minus the return from a benchmark investment. The benchmark here could be an index like the S&P500.

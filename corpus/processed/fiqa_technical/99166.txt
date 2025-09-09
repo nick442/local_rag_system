@@ -1,0 +1,1 @@
+Yeah get a little raspberry-Pi sized device, drown that fucker in epoxy so it can't be removed and tampered with by some smart arse, and put some sort of shielding in there too, job done. If you need to update the software, beyond a certain point, slap in a new module.

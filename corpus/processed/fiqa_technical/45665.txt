@@ -1,0 +1,1 @@
+We use YNAB to handle our household budget - their latest version allows cloud sync between Android/iOS devices and various desktop installs. I have the budget folder shared with my wife's Dropbox account so we both an view the budget, enter spending, and make changes.

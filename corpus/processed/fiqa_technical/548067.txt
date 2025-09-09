@@ -1,0 +1,1 @@
+No, it means what it says. Prices change, hence price of the derivative can go down even if the price of the underlying doesn't change (e.g. theta decay in options).

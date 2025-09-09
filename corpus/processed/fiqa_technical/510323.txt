@@ -1,0 +1,1 @@
+Ah, pardon me, so it's not *either* 10x return or zero, but also includes points in between there? Is it path dependent? Do you have any history on the asset? The usual crutches for dealing with unknown probabilities are using risk neutrality or arbitrage pricing, but if the market is inefficient then that will be an estimation at best.

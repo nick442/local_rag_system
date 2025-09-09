@@ -1,0 +1,1 @@
+These are some pretty basic and well-known techniques using NLP that have been studied for years in academic journals. It's interesting, but the article makes it seem like no one had ever thought of this before.

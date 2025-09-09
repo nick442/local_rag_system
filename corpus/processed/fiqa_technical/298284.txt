@@ -1,0 +1,1 @@
+When you short a stock and the stock goes ex-div. you have to pay out an amount equal to the dividend. So in your example, GG would short the stock at $10.00, buy back at $9.00 and be charged $1.00 for the dividend. Net effect $0.00.

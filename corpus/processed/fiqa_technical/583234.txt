@@ -1,0 +1,1 @@
+It is. The outstanding value is the net cash flow, but it will always be higher than cash outflow due to a constant growth rate/expected return. I was slightly confused when my manager told me to find the IRR before and after cash inflows (the whole life of the investment). Especially as IRR after cash inflows is higher than the former.

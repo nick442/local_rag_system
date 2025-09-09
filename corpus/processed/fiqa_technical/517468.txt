@@ -1,0 +1,1 @@
+This refers to the shape of the yield curve. The greater the spread, the steeper the yield curve (difference between short term rates and long term rates). The shape of the yield curve has huge impacts on bank earnings, as they borrow short term (deposits) and lend long term (loans). The greater the spread the bigger their margins.

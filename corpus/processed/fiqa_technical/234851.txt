@@ -1,0 +1,1 @@
+You can use interactive brokers. It allows you to have a single account to trade stocks and currencies from several countries.

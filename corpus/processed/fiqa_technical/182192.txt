@@ -1,0 +1,1 @@
+Alex's answer is very helpful. However, I would like to add why it might be convenient to use money factor instead of APR when computing lease payments. Money factor makes it easier to compute the lease payments manually. Lease payments have two parts: Here is how to calculate them: Where, This is a computation that anyone can perform without any tools.

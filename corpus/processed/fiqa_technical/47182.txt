@@ -1,0 +1,1 @@
+R would work, and would be what I'd use, but I only make scripts for myself, so sometimes they're dirty and I just call them from my R environment. I guess it depends if it's a tool for individual use, or an app you want to sell or have others use. If it's a standalone app others have to use, I'd probably use Java.

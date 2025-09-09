@@ -1,0 +1,1 @@
+That's not unreasonable if you're working in reactor control safety, or an autopilot, and therefore it is considered worthwhile running multiple systems in parallel that cross-check each other. I'm guessing you weren't.. Edit: Minor phrasing tweaks for clarity.

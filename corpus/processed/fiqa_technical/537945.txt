@@ -1,0 +1,1 @@
+It's either a broad benchmark sp500, msci world, lehman agg, and or a cash index. Most will not use a specific benchmark. While the broad benchmark may not be applicable from my experience its usually there as a proxy for the overall market.

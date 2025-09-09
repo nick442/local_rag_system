@@ -1,0 +1,1 @@
+Personally, I have entry and exit signal generating functions, which also have sizing, stop and target functions.. E.g. based on some entry you have an optimal bet, take profit and stop loss. Algorithmic execution is generally used for large orders to prevent walking the book.

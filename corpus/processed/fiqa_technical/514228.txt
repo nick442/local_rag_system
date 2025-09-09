@@ -1,0 +1,1 @@
+You need the salt to make a rainbow table. I can definitely see both sides to this argument, but I've never been convinced unique salts were more secure than a static salt consider they must be saved in the database.

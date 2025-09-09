@@ -1,0 +1,136 @@
+{
+  "dataset": "fiqa",
+  "total_queries": 20,
+  "average_alpha": 0.4125,
+  "alpha_std": 0.1059186008215743,
+  "alpha_min": 0.2,
+  "alpha_max": 0.7,
+  "strategy_distribution": {
+    "financial_balanced": 11,
+    "semantic_dominant": 1,
+    "keyword_dominant": 1,
+    "balanced": 7
+  },
+  "query_analysis": [
+    {
+      "query_id": "0",
+      "query": "What is considered a business expense on a business trip?",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "1",
+      "query": "How to calculate return on investment for rental property?",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "2",
+      "query": "Tax implications of selling stocks at a loss",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "3",
+      "query": "Best practices for small business bookkeeping",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "4",
+      "query": "How does compound interest work on savings accounts?",
+      "strategy": "semantic_dominant",
+      "alpha": 0.7
+    },
+    {
+      "query_id": "5",
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "strategy": "keyword_dominant",
+      "alpha": 0.2
+    },
+    {
+      "query_id": "6",
+      "query": "Credit score factors and how to improve it",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "7",
+      "query": "Mortgage refinancing pros and cons",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "8",
+      "query": "Investment portfolio diversification strategies",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "9",
+      "query": "Business loan requirements for startups",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "10",
+      "query": "How to value company stock options",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "11",
+      "query": "Tax deductions for home office expenses",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "12",
+      "query": "Emergency fund recommendations and savings goals",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "13",
+      "query": "Real estate investment vs stock market returns",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "14",
+      "query": "401k contribution limits and employer matching",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "15",
+      "query": "Insurance needs assessment for young professionals",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "16",
+      "query": "Debt consolidation options and strategies",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "17",
+      "query": "Foreign exchange rate impact on investments",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    },
+    {
+      "query_id": "18",
+      "query": "Estate planning basics and will preparation",
+      "strategy": "balanced",
+      "alpha": 0.5
+    },
+    {
+      "query_id": "19",
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "strategy": "financial_balanced",
+      "alpha": 0.35
+    }
+  ]
+}

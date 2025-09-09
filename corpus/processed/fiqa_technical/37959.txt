@@ -1,0 +1,1 @@
+FINRA lets you view recent trades, but as stated in the other answer bonds are illiquid and often do not trade frequently. Therefore recent trades prices are only a rough estimate of the current price that would be accepted. http://finra-markets.morningstar.com/BondCenter/Default.jsp

@@ -1,0 +1,1 @@
+Instead of a price chart can use a performance chart, which is usually expressed as a percentage increase from the original purchase price. To factor in the dividends, you can either add in all of your dividends to the final price, or subtract the accumulated dividends from your cost basis (the initial price).

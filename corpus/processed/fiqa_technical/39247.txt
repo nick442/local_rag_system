@@ -1,0 +1,1 @@
+James Roth provides a partial solution good for stock picking but let's speed up process a bit, already calculated historical standard deviations: Ibbotson, very good collection of research papers here, examples below Books

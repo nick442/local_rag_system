@@ -1,0 +1,1 @@
+Dow Jones: http://en.wikipedia.org/wiki/Historical_components_of_the_Dow_Jones_Industrial_Average NASDAQ: http://en.wikipedia.org/wiki/NASDAQ-100 (scroll down) S&P Tricky. From what I can find, you need to be in Harvard Business School, a member of CRSP, or have access to Bloomberg's databases. S&P did have the info available years ago, but no longer that I can find.

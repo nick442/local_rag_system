@@ -1,0 +1,1 @@
+Bollinger Bands are placed standard deviations away from the moving average. Therefore if the price is volatile, the bands diverge from the mean. During consolidation the bands would converge. They do not provide a clear indication of whether the price is trending or not.

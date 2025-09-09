@@ -1,0 +1,1 @@
+just start on quantopian. you wont know what you are doing. take someones algorithm, break it. figure out why its broken, fix it. figure out why it works. brainstorm ideas. code them. bugfix. realize you dont know enough. google search. . . profit thats what I did.

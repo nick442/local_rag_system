@@ -1,0 +1,1 @@
+You can setup your Netgear router manually by using the web address www.routerlogin.net. Type the same in the address bar of the browser window and login using the default username and password. You can change the settings of your router from this administration panel like Parental Controls, Guest Network etc.

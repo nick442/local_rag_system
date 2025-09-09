@@ -1,0 +1,1 @@
+Adding on to all the fine answers, you can consider selling a covered call. You will have to own a minimum of 100 shares. It will offer a bit of protection, but limit your upside. If your confident long term, but expect a broader market pull back then a covered call might give you that small protection your looking for.

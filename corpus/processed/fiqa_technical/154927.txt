@@ -1,0 +1,1 @@
+While the S&P500 is not a total return index, there is an official total return S&P500 that includes reinvested dividends and which is typically used for benchmarking. For a long time it was not available for free, but it can currently be found on yahoo finance using the ticker ^SP500TR.

@@ -1,0 +1,1 @@
+Depends on the exchange, and it's usually not going to be free. I use IB's API, and I've heard good things about IQFeed. You can get some free book data from Bats, but again you probably won't see your own transactions go by. http://batstrading.com/market_data/

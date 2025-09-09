@@ -1,0 +1,1 @@
+Market makers are required to buy options contracts as a condition of being a market maker. It is what keeps the markets functioning and liquid. As to whether or not your trade can be closed at a profit depends on many variables - how much you paid, what the underlying security is, etc CBOE Options expiration FAQs

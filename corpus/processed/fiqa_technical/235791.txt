@@ -1,0 +1,1 @@
+"Are you being facetious? If so, are you really that dense? Viruses don't have to be on ""the network"" to cause damage. Someone accessing sensitive information from a compromised device could unknowingly leak company secrets. Smartphones and tablets do get viruses, and it only takes one device to see one file that happens to contain sensitive information."

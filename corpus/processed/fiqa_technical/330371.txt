@@ -1,0 +1,1 @@
+No it wont. Almost everything that can be automated already has. Things that havent been automated that involve any human level of decision making wont be automated for a very long time. Engineers cant even reliably get a robot to recognize an object like a chair.

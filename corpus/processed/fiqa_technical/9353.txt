@@ -1,0 +1,1 @@
+How would I go about doing this? Are there any tax laws I should be worried about? Just report it as a regular sale of asset on your form 8949 (or form 4797 if used for trade/business/rental). It will flow to your Schedule D for capital gains tax. Use form 1116 to calculate the foreign tax credit for the taxes on the gains you'd pay in India (if any).

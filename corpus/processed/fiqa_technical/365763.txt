@@ -1,0 +1,1 @@
+Most commonly, unless you read 'fair value target price,' an analyst's target price is a 12-month target price. Typically, there is a firm wide policy determining which time horizon to use. No analyst would provide an open ended target price, it doesn't make any sense (you discount cash flows to a certain period, adjust for inflation, etc). So there is always a time horizon.

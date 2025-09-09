@@ -1,0 +1,1 @@
+I use StockCharts for spread charting. To take your question as an example, here is the chart of Apple against Nasdaq.

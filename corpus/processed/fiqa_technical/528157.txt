@@ -1,0 +1,1 @@
+Your answer looks correct. It's the buyer of the option that's long, not the seller (you). If you're doing a lot of trading, you might get hit with wash-sale rules and you could be taxed at the short-term capital gains rate, which is higher than for long-term gains. But those aren't direct fees.

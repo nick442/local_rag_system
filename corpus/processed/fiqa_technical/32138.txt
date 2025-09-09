@@ -1,0 +1,1 @@
+If you look at S&P 500's closing price for the first trading day on December and January for the last 20 years, you will see that for 10 of these years, stocks did better overall and for 10 others they did worse. Thus you can see that the price of stocks do no necessarily increase. You can play around with the data here

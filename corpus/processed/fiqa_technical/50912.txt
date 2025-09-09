@@ -1,0 +1,1 @@
+This is more a question for /r/personalfinance, but I'll answer it anyways. Just use the RATE formula in excel. =RATE(numperiods,monthly payment,amount financed)*12 Just make sure the number of periods is in months, the payment is negative, and to multiply the whole thing by 12 to get the annual interest rate.

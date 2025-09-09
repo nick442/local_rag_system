@@ -1,0 +1,1 @@
+You can average the betas across the different cross listings. EX: Exchange 1 - Beta .8 Exchange 2 - Beta .6 Exchange 3 - Beta .7 (.8 + .6 + .7) / 3 = avg Beta .7 You can do simple average as based above or you can do a weighted average and take into account other factors.

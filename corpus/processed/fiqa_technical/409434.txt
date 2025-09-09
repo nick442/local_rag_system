@@ -1,0 +1,1 @@
+TWRR = (2012Q4 x 2013Q1 x 2013Q2) ^ (1/3) = ?? (1.1 * .809 * 1.29) ^ (1/3) = 1.047 or 4.7% return. No imaginary numbers needed. But. Your second line there is wrong $15,750 - $15,000 - $4,000 ? The $15K already contains the $4k, why did you subtract it again? This a homework problem?

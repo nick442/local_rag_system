@@ -1,0 +1,1 @@
+To make matters worse, many, perhaps most, of the common POS systems seem to be based on Windows XP and are running AV, neither of which have ever been updated. Merchants have no idea how much they're at risk. Fortunately, there are non-Windows POS systems, and POS that will run on newer versions of Windows. But merchants have to demand those.

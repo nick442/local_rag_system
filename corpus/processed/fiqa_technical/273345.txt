@@ -1,0 +1,1 @@
+Yes, Regulation T is specified as the equity percentage of assets. So, yes, one can buy double the amount of equity in initial buying power but no more. A broker shouldn't even permit purchases that would violate margin regulation. Maintenance margin is at 25%, so equity must remain above 25% of the total or the brokerage will force liquidations.

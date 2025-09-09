@@ -1,0 +1,1 @@
+Because of the way checks are processed, you can't write a check for $100 million or more: http://www.bankingquestions.com/checksyoureceived/q_limitfunds.html The field used for 'amount' has 10 digits, so anything at/above 10^10 cents (which would require 11 digits) can't be processed, at least not by normal means.

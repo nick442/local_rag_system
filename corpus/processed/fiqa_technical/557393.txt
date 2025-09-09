@@ -1,0 +1,1 @@
+They are networked machines and they talk to all the banks in order to look up the details of your account to provide you with that money. The protocol they use has known vulnerabilities. A blackhat conference about 5 years ago they made one of the machines output money onto the street.

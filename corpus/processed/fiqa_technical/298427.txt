@@ -1,0 +1,1 @@
+$3,679,163.80 I made these assumptions that you did not state: Then using Excel, we find that with a starting point of $3,679,163.80, we can achieve your goal. The formula for Yearly Budget is =G$1*((1.035)^(A3-2012)) and the formula for Money left at year end is =(D4/1.05)+C4 For 2067, enter $0 leftover, and for 2066, enter $397,988.47 leftover. G$1 is $60,000 G$2 is 0.05

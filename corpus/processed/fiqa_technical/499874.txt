@@ -1,0 +1,1 @@
+In the equity world, if a stock trades at 110 and is going to pay a dividend of 10 in a few days, an option expiring after the ex date would take the dividend into account and would trade as if the stock were trading at 100. (Negative) interest rates may also lead to a similar effect. In the commodity world the cost of carry needs to be taken into account.

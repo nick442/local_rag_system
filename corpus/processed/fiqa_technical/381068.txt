@@ -1,0 +1,1 @@
+You can consider opening accounts either in Paypal or Google Wallet. In this way, you link your bank information to these accounts and the only information you need to provide your tenant is your e-mail id. Its safe and in this scenario -- just money transfer through bank account, there is no fee either for the sender (your tenant) or the receiver (you).

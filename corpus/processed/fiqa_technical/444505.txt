@@ -1,0 +1,1 @@
+What happened here is pretty obvious: You were trying to sell 2000 shares and apparently didn't mark your order to permit partial execution. While they had a buyer at 94.66 they didn't want 2000 shares. Thus your order went unfilled.

@@ -1,0 +1,1 @@
+Usually the ADR fee comes out of dividend payments and is modest. The ADR that I am most familiar with (Vodafone - VOD) pays dividends twice a year and deducts either $0.02 or $0.01 per share. IMO, the ADR fee is not really a material factor. ADRs do have some disadvantages though:

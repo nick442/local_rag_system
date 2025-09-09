@@ -1,0 +1,1 @@
+IngDirect has this concept of sub accounts inside a main account - that might be perfect for what you are looking for. To clarify, you basically have one physical account with logical sub account groupings.

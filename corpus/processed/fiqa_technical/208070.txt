@@ -1,0 +1,1 @@
+I think your confusion has arisen because in every transaction there is a buyer and a seller, so the market maker buys you're selling, and when you're buying the market maker is selling. Meaning they do in fact buy at the ask price and sell at the bid price (as the quote said).

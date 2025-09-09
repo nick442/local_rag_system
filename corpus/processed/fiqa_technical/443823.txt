@@ -1,0 +1,1 @@
+> ShadowStats includes long-term discouraged workers in their Unemployment Rate, a number derived by including the BLS' reported U6 Unemployment rate. U6 already includes discouraged workers. To get his stat so high, ShadowStats also includes retirees as unemployed. To my knowledge, no one else does this.

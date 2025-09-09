@@ -1,0 +1,1 @@
+Let's make a few assumptions: You have several ways of achieving (almost) that, in ascending complexity: Note that each alternative will have a cost which can be small (forwards, futures) or large (CFDs, debit) and the hedge will never be perfect, but you can get close. You will also need to decide whether you hedge the unrealised P&L on the position and at what frequency.

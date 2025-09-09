@@ -1,0 +1,1 @@
+The main difference is that VOO trades on US stock exchanges while VUSA/VUSD trade on the London Stock Exchange. (VUSA is listed in British pounds while VUSD is listed in US dollars.) They are essentially the same product, but the fees and legal hurdles for a European citizen to trade on the LSE may be quite different from those on US stock exchanges.

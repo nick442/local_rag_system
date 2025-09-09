@@ -1,0 +1,1 @@
+"Here's a formula; I had to go over to SEMath, use their MathJax to compose the answer and then paste this screen shot. As a result, I can't fix a typo: ""ST"" is the same as ""St"""

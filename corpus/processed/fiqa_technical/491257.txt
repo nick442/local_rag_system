@@ -1,0 +1,1 @@
+Yes, Alpha Vantage. As MasticatedTesticle points out, it is worth asking where it originally comes from, but it looked to me like a solid source for, in particular, intraday trading data. Additionally, Yahoo finance is done on R (zoo, PerformanceAnalytics libraries don't work anymore as far as I can tell). The numbers look right to me tho, let me know if things are off.

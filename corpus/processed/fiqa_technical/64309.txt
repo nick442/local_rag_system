@@ -1,0 +1,1 @@
+Spent another couple hours of my life troubleshooting the slow performance waking/starting Windows 8.1last week. Go on google, find a non-MSDN forum for suggestions on how to proceed - the usual drill. How many more years must I do this?

@@ -1,0 +1,1 @@
+Salary pay does not compute to hourly wages. As a salary employee you aren't being paid for hours worked, you are being paid for a week of work. Sometimes that requires more time other times less. You could just as well divide your salary by the amount of overtime you work and each week you work 40 hours say that you are being over paid or paid for time not worked.

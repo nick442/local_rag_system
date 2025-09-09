@@ -1,0 +1,1 @@
+Acorns rounds up purchases to the nearest dollar and invests that extra change. Digit is a standard savings account but it automatically withdraws money from your checking account based on your spending patterns.

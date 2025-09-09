@@ -1,0 +1,1 @@
+>The PriceCheck app is capable of doing the search by taking a picture of the product or speaking the product name, which isn't an option on the Amazon App as far as I'm aware. These features have been in the Amazon app for Android since at least last April when I first got a smart phone. I didn't know about the student app, weird.

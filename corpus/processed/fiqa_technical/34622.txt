@@ -1,0 +1,1 @@
+There is no simple way to convert an ISIN into a stock ticker symbol. The only way to even attempt to do so is to map the ISIN to a CUSIP or SEDOL or other national identifier and then map that identifier to a stock ticker symbol.

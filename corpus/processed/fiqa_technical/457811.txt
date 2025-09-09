@@ -1,0 +1,1 @@
+Mutual funds don't have intraday prices. They have net asset values which are calculated periodically (daily or weekly or any other period depending on the fund).

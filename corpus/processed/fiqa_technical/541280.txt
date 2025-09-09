@@ -1,0 +1,1 @@
+You can call it a stock rating of say between 0 to 5 or 0 to 10 or whatever scale you want to use. It should not be called a recommendation but rather a rating based on the criterial you have analysed. Also a scale from say 0 to 5 is better than using terms like buy, hold and sell.

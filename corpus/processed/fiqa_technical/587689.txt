@@ -1,0 +1,1 @@
+Yes, somebody could buy the shares, receive the dividend, and then sell the shares back. However, the price he would get when he sells the shares back is, ignoring other reasons for the price to change, exactly the amount he paid minus the dividend.

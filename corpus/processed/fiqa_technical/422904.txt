@@ -1,0 +1,1 @@
+How S&P 500 returns are calculated is jotted down here. You should follow the same methodology i.e. base-weighted aggregate methodology to calculate your own returns. Anything different and it would be an incorrect comparison.

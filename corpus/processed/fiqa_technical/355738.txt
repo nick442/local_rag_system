@@ -1,0 +1,1 @@
+"Doesn't ""no rebalancing"" mean ""start with a portfolio and let it fly?"" Seems like incorporation of rebalancing is more sophisticated than not. Just ""buy"" your portfolio at the start and see where it ends up with no buying/selling, as compared with where it ends up if you do rebalance. Or is it not that simple?"

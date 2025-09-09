@@ -1,0 +1,1 @@
+I guess you are from US? EDI solutions are starting to be standard in most EU countries. The invoices we get are through EDI solutions and we can automate most of them. We recently upgraded our invoice process solution and now we need one less AP position.

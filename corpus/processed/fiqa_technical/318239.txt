@@ -1,0 +1,1 @@
+Another one to alert consumers: [RFID Credit Cards Are Easy Prey for Hackers](http://www.pcworld.com/businesscenter/article/249138/rfid_credit_cards_are_easy_prey_for_hackers_demo_shows.html) If you have a paypass capable card, then you have a RF chip in it. All it takes is someone to walk around with a RF reader to pull your credit card info and then use it. ($350 in equipment)

@@ -1,0 +1,1 @@
+Having trouble understanding currency arbitrage for one example. Conditions: US 3% interest per 6 months Germany 3.6% interest per 6 months Spot rate is $1.09/euro 6-month Forward is $1.04/euro How do I make this into an arbitrage opportunity? There is supposed to be a profit but I keep getting negatives. Any help would be greatly appreciated.

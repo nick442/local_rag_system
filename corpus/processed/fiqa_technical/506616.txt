@@ -1,0 +1,1 @@
+"It's standard to price oil in US$. That means that if the US$ gets stronger, the prices of oil drops even if its ""intrinsic value"" remains constant. Same thing happens for other commodities, such as gold. Think of the oil price in barrels/$. If the denominator (value of the $) goes up, then the ratio tends to go down."

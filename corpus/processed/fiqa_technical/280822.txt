@@ -1,0 +1,1 @@
+So apparently ACH and eCheck are interchangeable. The confusion arises from PayPal's ambiguous use of terminology. According to this thread ( https://www.paypal-community.com/t5/Sending-money-Archive/how-do-i-change-from-a-echeck-to-an-instant-payment/td-p/92459 ) the payment process PayPal takes is a bit complicated, but if you try to send money to another person via PayPal:

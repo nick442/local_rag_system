@@ -1,0 +1,1 @@
+a) Are there any predictive factors for the success/failure of your trades. i.e. Volatility has some predictive power on the failure of the trades, therefore, you may want to fine tune the strategy such that when vol > x, it stays out (or even reverses). b) i'll make a quick subreddit.

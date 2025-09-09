@@ -1,0 +1,1 @@
+The missing information is at the end of the first line: the price is from NASDAQ (most specifically Nasdaq Global Select), which is a stock exchange in the USA, so the price is in US Dollars.

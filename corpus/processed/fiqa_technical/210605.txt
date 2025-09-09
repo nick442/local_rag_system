@@ -1,0 +1,1 @@
+You run the regression R_{i,t} = a + bR_{m,t} + e_t, then a + e_t is the variation that isn't shared with the market's variation.

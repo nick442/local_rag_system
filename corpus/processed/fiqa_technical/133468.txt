@@ -1,0 +1,1 @@
+Python. R is (not quite) moribund at this point. These days Python can do everything better and more efficiently (while, with libraries written in C, but that doesn't matter). The proportion of Python to R is only going up.

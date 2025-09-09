@@ -1,0 +1,1 @@
+Even with scenario and stress testing, VaR is still rather useless. Im sure your VaR simulator was a great piece of work but at the end of the day when things go crazy VaR as a model fails when you need it the most. Risk management in the larger banks is reporting while at funds is more active.

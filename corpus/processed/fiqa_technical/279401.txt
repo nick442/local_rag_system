@@ -1,0 +1,1 @@
+"Writing options means ""selling"" options and ""put"" options are contracts to sell a defined security (the underlying), at a specific date (expiration date) and at a specific price (strike price). So, writing put options simply mean selling to others contracts to sell. Your profit is limited to the premium but your loss may be unlimited in a falling market."

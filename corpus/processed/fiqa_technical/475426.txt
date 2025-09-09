@@ -1,0 +1,1 @@
+"Google Docs spreadsheets have a function for filling in stock and fund prices. You can use that data to graph (fund1 / fund2) over some time period. Syntax: =GoogleFinance(""symbol"", ""attribute"", ""start_date"", ""num_days|end_date"", ""interval"") where: This analysis won’t include dividends or distributions. Yahoo provides adjusted data, if you want to include that."

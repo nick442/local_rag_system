@@ -1,0 +1,1 @@
+If you sold bought a call option then as you stated sold it to someone else what you are doing is selling the call you bought. That leaves you with no position. This is the case if you are talking about the same strike, same expiration.

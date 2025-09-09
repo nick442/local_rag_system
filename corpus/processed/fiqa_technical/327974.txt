@@ -1,0 +1,1 @@
+It does sometimes open one day the same as it closed the previous day. Take a look at ESCA, it closed October 29th at 4.50, at opened November 1st at 4.50. It's more likely to change prices overnight than it is between two successive ticks during the day, because a lot more time passes, in which news can come out, and in which people can reevaluate the stock.

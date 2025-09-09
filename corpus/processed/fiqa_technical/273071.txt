@@ -1,0 +1,1 @@
+Mint has worked fairly well for tracking budgets and expenses, but I use GnuCash to plug in the holes. It offers MSFT$ like registers; the ability to track cash expenses, assets, and liabilities; and the option to track individual investment transactions. I also use GnuCash reports for my taxes since it gives a clearer picture of my finances than Mint does.

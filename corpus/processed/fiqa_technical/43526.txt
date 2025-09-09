@@ -1,0 +1,1 @@
+Simply static support or resistance levels are ones that do not change with time. Two examples include horizontal lines and trend lines. Dynamic support or resistance levels are ones that change with time. A common example of a dynamic support/resistance are Moving Averages.

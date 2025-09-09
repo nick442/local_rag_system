@@ -1,0 +1,1 @@
+R/stockmarket is probably the best. When I have some free time I can test that strategy back as long as you would like in quantstrat, although the only problem with testing futures is joining the consolidated contracts, however I can test it with SPY as SPY returns and ES_F track very closely.

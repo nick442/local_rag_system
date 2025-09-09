@@ -1,0 +1,1 @@
+The beta of a stock can be interpreted as the average relative movement of a stock with respect to the movement of a market index. In your case, the stock will move on average by 0.8. Thus over a longer time horizon, not on a daily, weekly basis.

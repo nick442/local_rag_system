@@ -1,0 +1,1 @@
+Gläubiger ID ungültig seems to indicate that the side trying to pull money from your account used a Gläuber-ID that has expired or has been revoked. (Just in case someone has the same question, two years later.)

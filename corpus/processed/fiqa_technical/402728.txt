@@ -1,0 +1,1 @@
+My card keeps a separate 'cash advance' limit, that's lower than the regular rate. I believe balance transfers also trigger that limit and (much higher) interest rate.

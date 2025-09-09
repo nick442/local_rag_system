@@ -1,0 +1,1 @@
+"You can have a look at betabrokers. It's an simulated stock trading platform which is entirely email-based. You start with 10 000$ and you make transactions with commands in the subject line of the email (e.g. ""buy 250$ AAPL"" or ""cover 20 shares of AAPL""). It should be straightforward to add an email interface to your python script."

@@ -1,0 +1,1 @@
+My understanding is that all ETF options are American style, meaning they can be exercised before expiration, and so you could do the staggered exercises as you described.

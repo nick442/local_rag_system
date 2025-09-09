@@ -1,0 +1,1 @@
+I wouldn't say 90% but it is a lot. Oracle Financials is also quite big. Excel is used for reporting. To give you an idea of how one big organisation does it, the balance sheet is SAP. Transactions are done with Oracle, the two are reconciled and reported via Excel.

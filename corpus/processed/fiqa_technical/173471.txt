@@ -1,0 +1,1 @@
+I wonder if it's detecting the same IP so that it won't set off any alarms. Edit: I just realized that I had a Mac I could borrow. Same results for NYC. PC using IE9 and Mac using Safari (both have Flashblock on Mozilla and wanted to eliminate that from the equation)
