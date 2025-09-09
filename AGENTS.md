@@ -40,3 +40,12 @@
 ## Security & Configuration Tips
 - Default paths live in `main.py`; override via CLI flags. Some tools respect `LLM_MODEL_PATH`.
 - Do not commit large models or private data. Verify sqlite-vec placement in `vendor/sqlite-vec/` and test loading before merging.
+
+## Reranking Experiment Handoff (BEIR v2.2)
+- Branch: `feat/experiment-v2-2-reranking-beir`
+- Start here: `experiments/reranking/HANDOFF_RERANKING.md` (quick commands) and `experiments/Opus_proposals_v2/v2_2_reranking_BEIR.md` (Section 11: current results + next steps).
+- Env for all commands: `source ~/miniforge3/etc/profile.d/conda.sh && conda activate rag_env`
+- DB: `data/rag_vectors.db`; collections: `fiqa_technical`, `scifact_scientific`.
+- Runner: `experiments/reranking/run_reranking_experiment.py` (supports `--retrieval-method`, `--alpha`, `--candidate-multiplier`, `--reranker-model`, `--rerank-topk`).
+- Evaluator: `experiments/reranking/evaluate_reranking.py` (maps BEIR corpus-ids from filename/source stem).
+- Results live under `experiments/reranking/results/`; commit small JSONs only.
