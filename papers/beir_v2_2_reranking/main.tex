@@ -1,0 +1,81 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Two-Stage Retrieval with Cross-Encoder Reranking on BEIR FiQA and SciFact}
+
+\author{\IEEEauthorblockN{RAG Team}
+\IEEEauthorblockA{OpenAI Opus Experiments}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study two-stage retrieval for Retrieval-Augmented Generation (RAG) on BEIR datasets, combining first-stage vector/keyword/hybrid retrieval with cross-encoder reranking. Using test-only BEIR queries with ground-truth qrels and k=10 evaluation, we compare MiniLM cross-encoders and the BAAI/BGE reranker across FiQA (financial QA) and SciFact (scientific claim verification). On FiQA, hybrid first-stage retrieval plus MiniLM--L12 reranking improves NDCG@10 from 0.3766 to 0.4009 and Recall@10 from 0.4591 to 0.4708. On SciFact, vector-only first stage with BGE reranking yields a large NDCG@10 improvement from 0.6406 to 0.8109, with Recall@10 improving from 0.7832 to 0.8168.
+\end{abstract}
+
+\section{Introduction}
+Two-stage retrieval pipelines improve precision in IR and RAG systems. The first stage retrieves a candidate set; a cross-encoder reranker re-orders them by semantic relevance. We evaluate this design on BEIR FiQA and SciFact using an SQLite+sqlite-vec vector index, FTS5 keyword search, optional hybrid fusion, and cross-encoder reranking.
+
+\section{Related Work}
+BEIR~\cite{thakur2021beir} provides reusable corpora, queries, and qrels. Cross-encoder reranking via MS MARCO MiniLM variants and Sentence-BERT~\cite{reimers2019sentencebert} yields strong ranking quality. BGE reranker~\cite{baai2023bge} demonstrates state-of-the-art performance across domains. Hybrid fusion (max-norm, z-score, RRF) enhances candidate diversity.
+
+\section{Datasets}
+\textbf{FiQA} (fiqa\_technical): 648 test queries. \textbf{SciFact} (scifact\_scientific): 300 test queries. Test-only queries include explicit IDs; evaluation aligns retrieved docs via source filename stem.
+
+\section{Methods}
+First stage: vector, keyword, or hybrid (\\(\alpha \in \{0.3,0.5,0.7,0.9\}\\), candidate multiplier \(\in \{3,5,10\}\)). Second stage: MiniLM CrossEncoders (L--6, L--12), BGE (BAAI/bge-reranker-base); rerank-topk \(\in\{20,50,100\}\). Evaluation: NDCG@10, Recall@10; final contexts truncated to k=10.
+
+\section{Results}
+\subsection{FiQA (k=10)}
+\begin{table}[h]
+\centering
+\caption{FiQA summary (k=10).}
+\begin{tabular}{lcc}
+\toprule
+Setting & NDCG@10 & Recall@10 \\
+\midrule
+Baseline (vector) & 0.3766 & 0.4591 \\
+Hybrid+MiniLM-L12 (topk50) & 0.4009 & 0.4708 \\
+Hybrid+MiniLM-L12 (topk100) & 0.3935 & 0.4802 \\
+BGE (vector, topk100) & 0.3456 & 0.4193 \\
+BGE (hybrid, a=0.3, cm=5, topk50) & 0.3592 & 0.4351 \\
+\bottomrule
+\end{tabular}
+\label{tab:fiqa}
+\end{table}
+
+\subsection{SciFact (k=10)}
+\begin{table}[h]
+\centering
+\caption{SciFact summary (k=10).}
+\begin{tabular}{lcc}
+\toprule
+Setting & NDCG@10 & Recall@10 \\
+\midrule
+Baseline (vector) & 0.6406 & 0.7832 \\
+BGE (vector, topk50) & 0.8109 & 0.8168 \\
+BGE (vector, topk100) & 0.8100 & 0.8011 \\
+\bottomrule
+\end{tabular}
+\label{tab:scifact}
+\end{table}
+
+\section{Analysis}
+FiQA: Hybrid+MiniLM-L12 is best overall; increasing candidate multiplier and rerank-topk raises recall with minor NDCG trade-offs. SciFact: BGE substantially improves NDCG; topk50 yielded better recall than topk100 for k=10.
+
+\section{Limitations}
+Only FiQA and SciFact; latency not profiled; evaluator depends on filename-based ID mapping; limited hyperparameter grid.
+
+\section{Reproducibility}
+All results and scripts reside under \texttt{experiments/reranking/}. See the summary and final report for commands and artifacts.
+
+\section{Conclusion}
+Two-stage retrieval with reranking improves retrieval quality; optimal configuration is dataset-dependent. FiQA favors hybrid+MiniLM-L12; SciFact benefits most from BGE with vector-only first stage.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
