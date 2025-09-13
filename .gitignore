@@ -29,3 +29,6 @@ vec0.dylib.dSYM/
 .idea/
 .vscode/
 
+
+# Allow Markdown reports in reports/
+!reports/*.md
