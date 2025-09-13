@@ -1,0 +1,1 @@
+Look at morningstar holdings.It will list the top 25 holdings and their current price.This will give you a good idea of the intra-day price of the fund.

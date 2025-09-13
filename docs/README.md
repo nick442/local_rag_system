@@ -17,3 +17,8 @@ This repository organizes docs into two kits:
 
 Legacy docs have been archived under `docs/archive/` for reference.
 
+## Enhanced User Guide
+
+For a comprehensive, task‑oriented walkthrough of all enhanced capabilities (retrieval, hybrid search, reranking, experiments, evaluation, packaging, env and troubleshooting), see:
+
+- `docs/ENHANCED_RAG_USER_GUIDE.md`

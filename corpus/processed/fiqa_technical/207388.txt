@@ -1,0 +1,1 @@
+I second the above poster, but would suggest R over SAS or SPSS if you choose to do a stat focused language. Similarly, Python may be more useful than Java. As the chopsticks said though, really anything is good just to enter the frame of thinking.

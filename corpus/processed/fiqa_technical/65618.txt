@@ -1,0 +1,1 @@
+I assume that when you say 'the DOW' that you actually mean the general market. The ticker symbol for the general market is SPY (called a 'Spider'). The ticker symbol for Nasdaq is QQQ. SPY currently pays 2.55% in dividends in a year. QQQ currently pays 1.34% in dividends in a year.

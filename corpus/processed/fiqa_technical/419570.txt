@@ -1,0 +1,1 @@
+I would guess that's their response. I could see a use for multiple accounts on a single number. For example, I might want two different payment methods depending on if it's business related or personal. Without someone doing data analysis, they probably never noticed it was happening. And nobody on the design team thought of systematic fraud as a use case.

@@ -1,0 +1,1 @@
+If you are looking to analyze stocks and don't need the other features provided by Bloomberg and Reuters (e.g. derivatives and FX), you could also look at WorldCap, which is a mobile solution to analyze global stocks, at FactSet and S&P CapitalIQ. Please note that I am affiliated with WorldCap.

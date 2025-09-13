@@ -1,0 +1,1 @@
+Double check with your broker, but if a series isn't open yet for trading, you can't trade it. If there is a series trading without open interest (rare), simply work your open, as options are created at trade. If you have enough money, do this https://money.stackexchange.com/questions/21839/list-of-cflex-2-0-brokers

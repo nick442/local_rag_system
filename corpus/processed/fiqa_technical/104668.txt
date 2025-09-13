@@ -1,0 +1,1 @@
+Thanks for your feedback! I do see the 2 million cell limit being issues with big datasets sometimes. I think it just reassures me that if other companies have made the transition and are running well after, then we can get through this transition as well lol

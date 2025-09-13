@@ -1,0 +1,1 @@
+The payments might be on time, but the aren't made the same numbers of days apart: The percentage of the daily payment for interest is decreasing, but the numbers of days wasn't constant.

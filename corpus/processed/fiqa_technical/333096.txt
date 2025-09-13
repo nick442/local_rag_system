@@ -1,0 +1,1 @@
+I want to say those are safe beause of SSL. However I know that isn't true because someone got caught issuing a master SSL certificate that let a company forge any other SSL certificate. It only worked within that company, but it proves that it is possible.

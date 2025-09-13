@@ -1,0 +1,1 @@
+A reason not to split your stock is that the value of the company might fall back again, and if its stock price falls below $1 it will be delisted from the NYSE. So if the value of your company grows tenfold so the shares go from $5 to $50, you do a ten-for-one split, and then its value shrinks back to where it started, you're off the stock exchange.

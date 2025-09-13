@@ -1,0 +1,1 @@
+According to my calculations, you always lose money on group B. x = average monthly balance Income for a year = 0.015 * (12 * x) = 0.18 * x Cost of funds for one month = 0.04 * x Cost of funds for one year = 12 * (0.04 * x) = 0.48 * x Profit? at end of year = income_for_year - cost_of_funds_for_one_year = (0.18 * x) - (0.48 * x) = forever loss

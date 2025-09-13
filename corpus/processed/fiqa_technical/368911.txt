@@ -1,0 +1,1 @@
+There's two possibilities. One is that the broker declared your account abandoned and turned over your account to the state. If that happened, it should turn up here: http://missingmoney.com The second is that the broker is still holding your stock. I'd start by contacting the company's transfer agent.

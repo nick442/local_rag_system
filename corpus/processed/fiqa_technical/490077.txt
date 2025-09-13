@@ -1,0 +1,1 @@
+Different stakeholders receive cash flows at different times. The easiest way for me to remember is if you're a debt holder vs equity owner on an income statement. Interest payments are made before net income, so debt holders are repaid before any residual cash flows go to equity owners.

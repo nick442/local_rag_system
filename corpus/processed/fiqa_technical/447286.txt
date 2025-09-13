@@ -1,0 +1,1 @@
+Here is an excellent article on the 7-Day yield and how to calculate the interest you would receive. So if you invested $1000 for 30 days: (0.0001 * $1000) / 365 ~= $0.000274 per day. Multiply by 30 days to yield $0.008 in interest.

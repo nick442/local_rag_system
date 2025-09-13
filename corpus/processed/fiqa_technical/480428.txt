@@ -1,0 +1,1 @@
+"> This is why, seriously, I think we need to get moral philosophers involved in AI projects, so we can *embed some ethics at the core*. Am programmer. This is impossible with our current understanding of neural networks. Second only to ""who's morals would we use?""."

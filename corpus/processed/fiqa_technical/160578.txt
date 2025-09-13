@@ -1,0 +1,1 @@
+"If you're still in school, try taking a Training The Street course in financial modeling and excel. Almost all the BB IB's use them and it's very practical for financial modeling (ie using iterative loops properly in Excel and debugging someone else's models). As someone who did both Finance and Comp Sci undergrad, TTS was extremely useful for ""real world"" application."

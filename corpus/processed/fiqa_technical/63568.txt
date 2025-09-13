@@ -1,0 +1,1 @@
+Each of your prototype or iteration should have a specific goal. In a lot of cases, it becomes difficult for a prototype to do a lot of things at a time. It could be because of anything, cost, logistics, development of the product, pitching process etc. the necessity is for several iterations that are required. It is best to get hardcore granular in such situations.

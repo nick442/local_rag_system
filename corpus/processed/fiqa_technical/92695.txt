@@ -1,0 +1,1 @@
+Yes there will be enough liquidity to sell your position barring some sort of Flash Crash anomaly. Volume generally rises on the day of expiration to increase this liquidity. Don't forget that there are many investment strategies--buying to cover a short position is closing out a trade similar to your case.

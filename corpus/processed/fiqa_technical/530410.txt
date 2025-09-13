@@ -1,0 +1,1 @@
+For the employee, this is an identical tax situation to an at-the-money option purchase. They're buying an asset with a specific cost basis. For the company, you are just issuing shares from treasury as authorized.. debit cash, credit additional paid-in-capital and equity. There is no tax consequence for this money received.

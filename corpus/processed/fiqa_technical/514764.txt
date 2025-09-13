@@ -1,0 +1,1 @@
+"I am looking at a 1040A. Line 11a asks for total IRA distributions. 11b asks for the taxable amount. Enter ""QCD"" as explanation and remove the Qualified Charitable Deduction amount from 11a to get 11b which is added to your income if there's any positive balance."

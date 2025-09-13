@@ -1,0 +1,1 @@
+I assume that when this actually matters for calculations with money on the line (if there is a need to calculate the probability of hitting a knockout, getting called out of a position, stop loss, etc.) many of these people will use the actual formulas that will give them the correct answers.

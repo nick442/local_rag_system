@@ -1,0 +1,1 @@
+The CBOE site, as well as some other sites and trading platforms, will show the bid/ask and statistics for that option at each individual options exchange, in addition to statistics and the best bid/offer across all exchanges. cboe.com: Delayed Quote Help lists what the single-letter codes mean. A is for the AMEX options exchange, B is for BOX, X is for PHLX, etc.

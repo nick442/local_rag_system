@@ -1,0 +1,1 @@
+Fair value can mean many different things depending on the context. And it has nothing to do with the price at which your market order would be executed. For example if you buy market, you could get executed below 101 if there are hidden orders, at 101 if that sell order is large enough and it is still there when your order reaches the market, or at a higher price otherwise.

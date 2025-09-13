@@ -1,0 +1,1 @@
+"Google Finance certainly has data for Tokyo Stock Exchange (called TYO on Google) listings. You could create a ""portfolio"" consisting of the stocks you care about and then visit it once per day (or write a script to do so)."

@@ -1,0 +1,1 @@
+It's an over-the-counter stock quote system. Read all about it. Or visit it.

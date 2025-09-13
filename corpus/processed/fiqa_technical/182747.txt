@@ -1,0 +1,1 @@
+"A Bloomberg terminal connected to Excel provides the value correcting splits, dividends, etc. Problem is it cost around $25,000. Another one which is free and I think that takes care of corporate action is ""quandl.com"". See an example here."

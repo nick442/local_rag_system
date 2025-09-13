@@ -1,0 +1,1 @@
+"> this should 100% be an opt-in That goes for all this tracking stuff: if it is clear opt-in, it's fine. The tricky part is that when we opt in we often tend to think, ""oh, they're using this to do X to do [some reasonable/benign/positive thing]."" Once you've agreed, though, they can use it for whatever they want, often in ways that you'd never even imagine. :("

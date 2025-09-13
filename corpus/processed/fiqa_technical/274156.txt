@@ -1,0 +1,1 @@
+It's sort of the sum of stock prices, but bigger companies are weighed more heavily.

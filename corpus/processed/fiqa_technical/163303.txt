@@ -1,0 +1,1 @@
+What you want is the average change in rate of the Australian Dollar against multiple other currencies, to even out the effect of moves in a single other currency. People often look at the trade-weighted exchange rate to get an idea of this, as it allows you to look at the currencies that are most relevant, rather than every tiny other currency having an equal weight.

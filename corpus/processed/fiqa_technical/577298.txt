@@ -1,0 +1,1 @@
+Also with HTTP2 it's the default protocol. Also in Sepetember Let's Encrypt will be able to generate ECDSA root and intermediates which can be used to sign end-entity certificates. ECDSA is alot less expensive to terminate than normal RSA based certificates so the age old concern that SSL is heavy on your infrastructure is going as well.

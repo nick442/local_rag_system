@@ -1,0 +1,1 @@
+You can buy a put and exercise it. The ideal option in this case will have little time premium left and very near the money. Who lent you the shares? The person that sold you the option! In reality, when you exercise, assignment can be random, but everything is [supposedly] accounted for as the option seller had to put up margin collateral to sell the option.

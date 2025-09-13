@@ -1,0 +1,1 @@
+"Most people cannot use pgp/gpg and setting it up would, in order to do that correctly, require voice fingerprint verification. Don't. Just write a word doc and either encrypt it when saving using the ""save as"" function or encrypt it using zip and email that to them. Then call them and tell them the password. Done."

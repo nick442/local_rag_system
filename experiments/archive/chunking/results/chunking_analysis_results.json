@@ -1,0 +1,51 @@
+{
+  "summary_stats": {
+    "total_experiments": 510,
+    "avg_quality_score": 1.0,
+    "avg_response_time": 22.454293890092888,
+    "configurations_tested": 17
+  },
+  "optimal_configurations": {
+    "best_overall_quality": {
+      "config": {
+        "chunk_size": 128,
+        "chunk_overlap": 32,
+        "retrieval_k": 5
+      },
+      "quality_score": 1.0,
+      "response_time": 14.034276572863261,
+      "efficiency": 0.08874119676497745
+    },
+    "best_efficiency": {
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 64,
+        "retrieval_k": 5
+      },
+      "efficiency": 0.09876304496495576,
+      "quality_score": 1.0,
+      "response_time": 11.72282371520996
+    },
+    "fastest_response": {
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 64,
+        "retrieval_k": 5
+      },
+      "response_time": 11.72282371520996,
+      "quality_score": 1.0,
+      "efficiency": 0.09876304496495576
+    },
+    "most_reliable": {
+      "config": {
+        "chunk_size": 128,
+        "chunk_overlap": 32,
+        "retrieval_k": 5
+      },
+      "retrieval_success": 1.0,
+      "response_generated": 1.0,
+      "quality_score": 1.0
+    },
+    "parameter_analysis": {
+      "chunk_size": {
+        "best_value": 

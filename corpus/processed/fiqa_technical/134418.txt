@@ -1,0 +1,1 @@
+Don't all of the major bitcoin processors limit the risk to basically zero for the large multinationals that choose to accept bitcoin? I haven't been involved recently, but I know when bitpay and coinbase were starting, whatever bitcoin you received was automatically transferred to USD at the current rate, unless you opted out and chose to keep the bitcoin.

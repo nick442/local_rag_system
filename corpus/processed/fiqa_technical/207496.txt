@@ -1,0 +1,1 @@
+Up until your strategy's money losing leg is stopped out, you have zero PnL, while a straddle has lost time value but may gain from price movements - all the PnL at that time you cannot capture with your strategy. Also stop loss cannot guarantee your price.

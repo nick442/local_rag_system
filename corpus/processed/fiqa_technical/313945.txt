@@ -1,0 +1,1 @@
+First off, you **must** get windows. Seriously. Get out of MacLand, it sucks anyways. 1. I'd recommend at least 4GB, preferably 8GB RAM. 2. No. Also, get a dedicated graphics card and a decent processor IF you are going to be doing any sort of programming or monte carlo work. Otherwise, run-of-the-mill stuff should be fine.

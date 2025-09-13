@@ -1,0 +1,1 @@
+"> It just has to finish below the strike price of the short (which can be higher than the stock's current price). You're talking about a put option. That's one ""short"" strategy, but it's not shorting a stock, so the terminology is a little jumbled. There are reasons to not do straight options, because they can be quite risky, and you have to get the time frame correct."

@@ -1,0 +1,1 @@
+Write a virus, start spreading it via USB. That's how stuxnet got to Iran's nuclear program. Someone could make a virus that does nothing on most computers, but if it happens to be on an ATM, it spits out cash if you type in the proper number on the key pad.

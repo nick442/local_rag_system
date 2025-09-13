@@ -1,0 +1,1 @@
+Sales data for one county in FL, July single family home sales. year units median_price median_size 1 2016 2061 221500 1857 2 2017 2126 220000 1770 Looks pretty flat to me. (Mean) $/sqft up 50 cents.

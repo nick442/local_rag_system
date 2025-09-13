@@ -1,0 +1,1 @@
+That's pretty typical for introductory problems. It's leading you into an NPV question. They're keeping the cash flows the same to illustrate the time value of money to show you that even though the free cash flow is the same in year 1 and year 4 or whatever when you discount it to present value today's stream is worth more than tomorrow's

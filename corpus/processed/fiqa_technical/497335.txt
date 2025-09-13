@@ -1,0 +1,1 @@
+Price for the latest transaction. If the stock is selling for $898.7 means that the stock is currently trading for $898.7, and it will be your ask price of stock if you purchase currently.

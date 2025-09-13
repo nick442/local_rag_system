@@ -1,0 +1,1 @@
+They don't track checks at all. If you make a cash transaction for an amount that exceeds the reporting limit (circa $10K), then a Currency Transaction Report will be filed with the US Department of the Treasury (not IRS, but close) about it. This is to detect and prevent money laundering.

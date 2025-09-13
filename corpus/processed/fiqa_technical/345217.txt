@@ -1,0 +1,1 @@
+Right, that's my understanding of the problem too. I tried some of the indices last night (not necessarily the ones you are suggesting), but when pulling them into COMP it only provided the price return, not the total return including coupons. This latter part is still the challenge.

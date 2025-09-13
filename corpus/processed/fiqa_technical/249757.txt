@@ -1,0 +1,1 @@
+social manipulation chat bots are an absurdly small piece of the overall pie when it comes to this. The thing is basically a giant public offsite cloud message bus with almost perfect uptime. It's even useful for things that have nothing to do with actual humans using it.

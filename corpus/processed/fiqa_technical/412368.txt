@@ -1,0 +1,1 @@
+"There are places that call themselves quant funds that are like what you describe, but most are not. ""Quant fund"" can just about mean anything from ""we use computer screens when we read 10-Ks"" to ""our PhDs write signal processing programs without even knowing what the input data represents, and we run those programs with no manual intervention."""

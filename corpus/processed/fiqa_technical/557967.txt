@@ -1,0 +1,1 @@
+You're looking for the amortization calculation. This calculation is essentially solving for the series of cash flows that will yield a zero balance after the specified term, at the given rate for a loan amount. Once you have solved for the payment amount, you can add additional principal amount to each payment period and see the interest payments and time to zero balance drop.

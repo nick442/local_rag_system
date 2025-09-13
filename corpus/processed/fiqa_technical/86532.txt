@@ -1,0 +1,1 @@
+If the debit card is associated with the account, there is nowhere else it could go. The chance is nil that there is another account with that 16-digit number. So either it goes there, or the transfer fails and it is right back where it came from, though this could take some days. If you don't want to risk a wait, talk to your bank now.

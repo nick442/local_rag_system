@@ -1,0 +1,1 @@
+Not that easy!. There’s millions of lines of code and so much logic added over the years. Programmers would add a comment line and insert the code. No one had time to cleanup or rewrite of remodularize functionality. They just piled on it !. Y2K happened and it corrected and renamed whole bunch of date fields and code to work for rollover year.

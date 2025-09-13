@@ -1,0 +1,1 @@
+Someone already mentioned that this is a risk-reversal, but as an aside, in the vol market (delta-hedged options) this is a fundamental skew trade. (buying calls, selling puts or vice versa). Initially vega neutral, the greek that this trade largely isolates is vanna (dvega/dspot or ddelta/dvol).

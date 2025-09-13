@@ -1,0 +1,1 @@
+Note that this is not my site -- I just googled it to get a web-based sha page. Personally, I just wrote a quick php script that spit out on my own web server: echo sha1('mypass'); ran it and then checked.. But I agree the info above is relevant - avoid giving out any sensitive information, although just a random password to a random web site isn't super helpful

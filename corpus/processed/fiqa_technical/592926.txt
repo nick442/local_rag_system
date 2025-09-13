@@ -1,0 +1,1 @@
+You will have to pay your taxes in the UK not USA. For tax purposes it is the company's tax residency not where the server is located. You are just hiring a server in USA. Take for example a CDN being used for your same service then would you pay taxes in 300 different countries if you use Akamai? Does not work that way.

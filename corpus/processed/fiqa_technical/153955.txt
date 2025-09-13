@@ -1,0 +1,1 @@
+What would be the best way to estimate / calculate the basis risk exposure of a commodity trading company? Naturally companies are very cagey when it comes to such info, but is there a way to come up with an approximate number?

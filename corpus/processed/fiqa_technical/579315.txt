@@ -1,0 +1,1 @@
+Some companies have banks and brokerages that are completely separate systems. So you could be actually running ACH transactions between two different banking entities. Bank of America used to have significant latency between BoA accounts, because they ran into delays integrating Fleet, BankSouth and BoA systems.

@@ -1,0 +1,1 @@
+The shortest-hand yet most reliable metric is daily volume / total shares outstanding. A security with a high turnover rate will be more efficient than a lower one, ceteris paribus. The practical impacts are tighter spread and lower average percentage change between trades. A security with a spread of 0% and an average change of 0% between trades is perfectly efficient.

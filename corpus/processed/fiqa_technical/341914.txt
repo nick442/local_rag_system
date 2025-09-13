@@ -1,0 +1,1 @@
+I use a hack to do this sort of thing: I have an ING Direct online bank account. I link both of bank accounts I want to transfer between to the ING Direct account. I transfer between them by moving money to ING direct and then from there to wherever. Any online bank that let's you link regular checking accounts would work for this.

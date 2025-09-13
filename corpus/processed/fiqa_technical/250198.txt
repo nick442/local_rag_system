@@ -1,0 +1,1 @@
+"(Regarding one aspect of the question) Here's a survey suggesting new programmers value ""free lunch"", old programmers do not care about it: https://stackoverflow.blog/2017/06/12/new-kids-block-understanding-developers-entering-workforce-today/?cb=1"

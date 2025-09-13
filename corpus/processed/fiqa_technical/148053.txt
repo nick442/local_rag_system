@@ -1,0 +1,1 @@
+> At what price is the slow customer sending the order? Or are they sending a market order? So if the high frequency fund sees someone wants to meet the ask at 1.01 they'll push that person back in favor of executing their trade first. They'll then raise the price to 1.02 (that's high though) and make the other person pay that. This happens literally in microseconds.

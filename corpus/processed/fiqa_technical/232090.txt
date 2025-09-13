@@ -1,0 +1,1 @@
+In my graduate thesis I explored the liquidity changes in the bond markets. Part of my research led me to also identifying an opportunity for blockchain to play a role in measuring it, something mathematically impossible but increasingly necessary in fixed Income. Definitely interested

@@ -1,0 +1,1 @@
+"VaR does not do what it is supposed to do which is give you a ""floor"" with confidence on your potential losses. Even for portfolios with millions of instruments, it will not give you a metric that means anything. The point im trying to convey is that VaR does not give any meaningful information as its horribly inaccurate and that we would be better off WITHOUT VaR."

@@ -1,0 +1,1 @@
+The reason the loan amount is showing is because it is a default - the fact that you live in a non-recourse state doesn't change the fact that a loan obligation that had your name on it was defaulted upon. I don't think there is much you can do now given that your name was still on the mortgages.

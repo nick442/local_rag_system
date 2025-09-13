@@ -1,0 +1,1 @@
+Tesla gave up on Mobileye a while back. The self driving technology is going to be so crucial to their future business that they brought the programming in-house. They're using Nvidia processors, but they're designing the artificial intelligence system on their own.

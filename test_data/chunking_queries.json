@@ -1,0 +1,45 @@
+{
+  "categories": {
+    "factual": [
+      {"query": "What is the time complexity of quicksort?", "expected_chunks": 2},
+      {"query": "Who invented the transformer architecture?", "expected_chunks": 1},
+      {"query": "What year was Python released?", "expected_chunks": 1},
+      {"query": "What are FSA health insurance premiums?", "expected_chunks": 2},
+      {"query": "What is the apparent diffusion coefficient?", "expected_chunks": 3}
+    ],
+    "explanatory": [
+      {"query": "How does backpropagation work?", "expected_chunks": 4},
+      {"query": "Explain the attention mechanism", "expected_chunks": 5},
+      {"query": "What are the principles of REST API design?", "expected_chunks": 3},
+      {"query": "How do credit ratings work in financial markets?", "expected_chunks": 4},
+      {"query": "What is diffusion tensor magnetic resonance imaging?", "expected_chunks": 5}
+    ],
+    "comparative": [
+      {"query": "Compare Python and JavaScript for web development", "expected_chunks": 6},
+      {"query": "Differences between CNN and RNN architectures", "expected_chunks": 5},
+      {"query": "TCP vs UDP protocol comparison", "expected_chunks": 7},
+      {"query": "Preterm vs full-term infant brain development", "expected_chunks": 6},
+      {"query": "Myelodysplastic syndromes vs normal hematopoiesis", "expected_chunks": 5}
+    ],
+    "procedural": [
+      {"query": "How to implement a binary search tree?", "expected_chunks": 5},
+      {"query": "Steps to deploy a Docker container", "expected_chunks": 4},
+      {"query": "Process for training a neural network", "expected_chunks": 6},
+      {"query": "How to analyze financial instrument ratings", "expected_chunks": 4},
+      {"query": "How to measure brain white matter development", "expected_chunks": 5}
+    ],
+    "domain_specific_financial": [
+      {"query": "What prevents false credit ratings in financial markets?", "expected_chunks": 3},
+      {"query": "How does the DFA regulate credit rating usage?", "expected_chunks": 2},
+      {"query": "What are cafeteria plan limitations for health premiums?", "expected_chunks": 4},
+      {"query": "Can FSA funds be used for individual insurance premiums?", "expected_chunks": 2}
+    ],
+    "domain_specific_medical": [
+      {"query": "What causes myelodysplastic syndromes?", "expected_chunks": 4},
+      {"query": "How do myeloid-derived suppressor cells affect hematopoiesis?", "expected_chunks": 5},
+      {"query": "What is the role of S100A9 in bone marrow function?", "expected_chunks": 3},
+      {"query": "How does CD33 signaling affect blood cell development?", "expected_chunks": 4},
+      {"query": "What is the relationship between white matter and cortical development?", "expected_chunks": 5}
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+Yes, the ADR will trade on a separate exchange from the underlying one, and can (and does) see fluctuations in price that do not match the (exchange corrected) fluctuations that occur in the original market. You are probably exposing yourself to additional risk that is related to:

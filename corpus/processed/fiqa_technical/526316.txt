@@ -1,0 +1,1 @@
+As of half a year ago, the user base was down to the single digit millions, and I would guess it's even smaller now, since they shut down the protocol used by some third party clients earlier this year.

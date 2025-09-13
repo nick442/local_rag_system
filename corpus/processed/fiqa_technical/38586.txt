@@ -1,0 +1,1 @@
+What you want is the distribution yield, which is 2.65. You can see the yield on FT as well, which is listed as 2.64. The difference between the 2 values is likely to be due to different dates of updates. http://funds.ft.com/uk/Tearsheet/Summary?s=CORP:LSE:USD

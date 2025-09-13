@@ -1,0 +1,1 @@
+For long periods of time a short ETF's performance will not match the negative of the long ETF, e.g. funding costs and the fact that they 'only' match daily returns will result in a suboptimal performance. If possible use other derivatives like a put on a long gold etf (fgriglesnickerseven)

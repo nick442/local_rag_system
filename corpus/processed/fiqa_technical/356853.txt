@@ -1,0 +1,1 @@
+They better wipe their goddamn servers when that happens. Though with the number of mishaps they've had so far they'll probably just move some unencrypted, non-password-protected file named ssns_and_names.xls into the recycle bin and leave the servers on the side of the road, thinking there's no way someone can get the data now.

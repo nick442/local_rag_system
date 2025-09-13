@@ -1,0 +1,1 @@
+I knowingly installed company certs because we are a web development company and it is cheaper to sign our own certs. But, this isn't a MITM issue, since they have software installed on my machine. They don't need to be in the middle, they are already at an end point.

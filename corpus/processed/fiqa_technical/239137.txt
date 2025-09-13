@@ -1,0 +1,1 @@
+If you use Google Finance, you will get incorrect results because Google Finance does not show the dividend history. Since your requirement is that dividends are re-invested, you should use Yahoo Finance instead, downloading the historical 'adjusted' price.

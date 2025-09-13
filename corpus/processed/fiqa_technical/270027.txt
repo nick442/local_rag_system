@@ -1,0 +1,1 @@
+Previously, Google had a delayed update for their stock prices (15 minutes I believe). That change enabled users of Google Finance to see updates to stock prices in real-time.

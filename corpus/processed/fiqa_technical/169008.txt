@@ -1,0 +1,1 @@
+Yodlee's Moneycenter is the system that powered Mint.com before Intuit bought them. It works great for managing accounts in a similar fashion to Mint. They have a development platform that might be worth checking out.

@@ -1,0 +1,1 @@
+A SWIFT code helps but it is not always necessary. In the early 2000s I worked in Hong Kong. All a Hong Kong bank needed to wire money to the USA was the ABA number, which was the check routing number from the bottom of a US check, the bank account number, and the name on the destination account.

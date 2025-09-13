@@ -1,0 +1,1 @@
+"In most cases you cannot do ""reverse lookup"" on tax id in the US. You can verify, but for that you need to have more than just the FEIN/SSN. You should also have a name, and some times address. Non-profits, specifically, have to publish their EIN to donors, so it may be easier than others to identify those. Other businesses may not be as easy to find just by EIN."

@@ -1,0 +1,1 @@
+I have a finance background and realized I love programming. I'm learning JS/Node/Socket to create realtime data apps. Later on, I might use Python to crunch some numbers but the aforementioned stack seems to hold a lot of utility for the financial world.

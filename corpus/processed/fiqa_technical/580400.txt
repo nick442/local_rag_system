@@ -1,0 +1,1 @@
+The Explanation is correct. The Traders buys the 1st call and profits linearly form 40$ onwards. At at 45 the short call kick in and neutralizes any further profit on the first call.

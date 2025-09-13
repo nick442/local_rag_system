@@ -1,0 +1,1 @@
+It should have been buried with a stake through the coffin. However, it is very much still a standard for us. The point being that if you have access to Excel, you normally can find your way to VBA. We don't have the ability to drop into something sensible like Python or Java without a full Dev environment which they don't like in production.

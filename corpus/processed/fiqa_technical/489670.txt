@@ -1,0 +1,1 @@
+nice work! really enjoyed looking through your website. do you see any possible application of Machine Learning (specifically tensorflow) to this? I was thinking about building a trading bot that uses data from various APIs as a strategy just as an experiment but I'm wondering what your insights are.

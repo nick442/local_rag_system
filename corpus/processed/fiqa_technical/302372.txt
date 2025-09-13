@@ -1,0 +1,1 @@
+"Stocks with a low average daily trading volume (""thinly traded stocks"") will also tend to have higher spreads. So you'll tend to pay more when you buy and get less when you sell."

@@ -1,0 +1,1 @@
+Maybe thats how cryptocurrencies like Sia will work out. Not only can it handle digital file storage services (like amazon s3, dropbox etc) , but payment services too. Companies can build on top of it..or Amazon can just build their own.

@@ -1,0 +1,1 @@
+Logically, that **should** be true and I'm certain that will be true eventually for the reasons you give. But since the engineers that designed Tesla have so little experience about the failure modes for electric vehicles, we can't really be too sure that will hold true for the electric vehicles being built today.

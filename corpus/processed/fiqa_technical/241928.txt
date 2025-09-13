@@ -1,0 +1,1 @@
+The portfolio manager at Value Research Online does this very nicely. It tracks the underlying holdings of each fund, yielding correct calculations for funds that invest across the board. Take a look at the screenshot from my account: If you have direct equity holdings (e.g., not through a mutual fund), that too gets integrated. Per stock details are also visible.

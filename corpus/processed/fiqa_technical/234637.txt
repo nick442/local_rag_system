@@ -1,0 +1,1 @@
+Can you say a little more about how you want to use your new skills? For instance, machine learning to help make picks? Then I think the answer would be python. But if you’re thinking you’d like to write high speed trading algorithms, that’d be something else.

@@ -1,0 +1,1 @@
+Speech-to-text and text-to-speech are not new technologies. I'm not sure why Siri is so terrible at doing both. Also, it's not value-added to the consumer. Siri is a toy that most people try a few times, then abandon after they realize its just a fancy way to search Google.

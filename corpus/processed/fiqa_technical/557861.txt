@@ -1,0 +1,1 @@
+You should consider Turbocash. It's a mature open-source project, installed locally (thick client).

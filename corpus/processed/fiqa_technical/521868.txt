@@ -1,0 +1,1 @@
+I'd imagine in this extreme edge case it would round down to $0. I can't fathom what makes $10.02 or $153.02 any different from $0.02.

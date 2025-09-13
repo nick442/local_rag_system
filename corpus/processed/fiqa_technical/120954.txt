@@ -1,0 +1,1 @@
+MoneyStrands is a site very similar to Mint, but does not force you to link bank accounts. You can create manual accounts and use all features of the site without linking to banks.

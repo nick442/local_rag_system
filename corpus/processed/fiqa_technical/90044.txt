@@ -1,0 +1,1 @@
+"Yeah.. using let's encrypt for the SSL certs.. which I'm certainly not against, but provides even less guarantee they are who they say they are. High probability of scam. EDIT: Port 22 is wide open which gives me even less faith. EDIT 2: I could not find ""Beam"" or ""Meet Beam"" on the FDIC registry either. https://research.fdic.gov/bankfind/"

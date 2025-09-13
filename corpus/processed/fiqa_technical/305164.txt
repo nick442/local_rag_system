@@ -1,0 +1,1 @@
+CashBase has a web app, an iPhone app and an Android app, all sync'ed up. It doesn't integrate with banks automatically, but you can import bank statements as CSV. Disclaimer: I'm CashBase's founder.

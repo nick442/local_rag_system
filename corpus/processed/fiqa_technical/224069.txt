@@ -1,0 +1,1 @@
+"You need to interpret ""security"" appropriately in Wikipedia's definition. You should think of it as saying: to be long in a put, means the holder of the position owns the put and will profit if the price of the put goes up And what makes the price of the put go up? -- the price of the underlying stock going down."

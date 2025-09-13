@@ -1,0 +1,1 @@
+The SWIFT format has multiple place holders. The Beneficiary Bank and Account can be specified using Local Sort Codes [ABA number in this example]. However you would still need to specify the Correspondent Bank and its BIC.

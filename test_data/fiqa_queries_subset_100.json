@@ -1,0 +1,508 @@
+{
+  "metadata": {
+    "dataset": "fiqa",
+    "source": "local_corpus"
+  },
+  "queries": [
+    {
+      "id": "10385",
+      "query": "When should I start saving/investing for my retirement?",
+      "metadata": {}
+    },
+    {
+      "id": "1927",
+      "query": "How does a Non US citizen gain SEC Accredited Investor Status?",
+      "metadata": {}
+    },
+    {
+      "id": "615",
+      "query": "Canadian accepting money electronically from Americans",
+      "metadata": {}
+    },
+    {
+      "id": "4571",
+      "query": "HSBC Hong Kong's \u201cDeposit Plus\u201d Product: What is it, and what strategies to employ?",
+      "metadata": {}
+    },
+    {
+      "id": "4190",
+      "query": "What is best investment which is full recession proof?",
+      "metadata": {}
+    },
+    {
+      "id": "3783",
+      "query": "Are there any statistics that support the need for Title Insurance?",
+      "metadata": {}
+    },
+    {
+      "id": "3501",
+      "query": "Paid cash for a car, but dealer wants to change price",
+      "metadata": {}
+    },
+    {
+      "id": "2335",
+      "query": "Giving kids annual tax free gift of $28,000",
+      "metadata": {}
+    },
+    {
+      "id": "1783",
+      "query": "Freelancing Tax implication",
+      "metadata": {}
+    },
+    {
+      "id": "1769",
+      "query": "Is it financially advantageous and safe to rent out my personal car?",
+      "metadata": {}
+    },
+    {
+      "id": "5986",
+      "query": "Is forward P/E calculated using current price(if yes, how useful is it)?",
+      "metadata": {}
+    },
+    {
+      "id": "8539",
+      "query": "Can the risk of investing in an asset be different for different investors?",
+      "metadata": {}
+    },
+    {
+      "id": "8090",
+      "query": "Do corporate stock splits negate share repurchase programs?",
+      "metadata": {}
+    },
+    {
+      "id": "1519",
+      "query": "Double-Taxation of Royalties paid for in Korea to a US Company",
+      "metadata": {}
+    },
+    {
+      "id": "9186",
+      "query": "Can I buy only 4 shares of a company?",
+      "metadata": {}
+    },
+    {
+      "id": "6387",
+      "query": "What factors make someone buy or sell a stock?",
+      "metadata": {}
+    },
+    {
+      "id": "696",
+      "query": "Executor of will",
+      "metadata": {}
+    },
+    {
+      "id": "671",
+      "query": "Does the low CAD positively or negatively impact Canadian Investors?",
+      "metadata": {}
+    },
+    {
+      "id": "1622",
+      "query": "How to properly collect money from corporate sponsors?",
+      "metadata": {}
+    },
+    {
+      "id": "3436",
+      "query": "Health insurance lapsed due to employer fraud. How to get medications while in transition?",
+      "metadata": {}
+    },
+    {
+      "id": "3616",
+      "query": "For the first time in my life, I'm going to be making real money\u2026what should I do with it?",
+      "metadata": {}
+    },
+    {
+      "id": "7502",
+      "query": "How do ETF fees get applied?",
+      "metadata": {}
+    },
+    {
+      "id": "9464",
+      "query": "Simple and safe way to manage a lot of cash",
+      "metadata": {}
+    },
+    {
+      "id": "632",
+      "query": "What is the field \u201cFolio\u201d in an accounting book for?",
+      "metadata": {}
+    },
+    {
+      "id": "8480",
+      "query": "Why can I see/trade VIX but not S&P/TSX 60 VIX?",
+      "metadata": {}
+    },
+    {
+      "id": "3183",
+      "query": "Is it better to buy this used car from Craigslist or from a dealership?",
+      "metadata": {}
+    },
+    {
+      "id": "1031",
+      "query": "How to get information about historical stock option prices for a defunct company?",
+      "metadata": {}
+    },
+    {
+      "id": "10595",
+      "query": "Why buying an inverse ETF does not give same results as shorting the ETF",
+      "metadata": {}
+    },
+    {
+      "id": "7381",
+      "query": "Index funds with dividends?",
+      "metadata": {}
+    },
+    {
+      "id": "8084",
+      "query": "Where does the stock go in a collapse?",
+      "metadata": {}
+    },
+    {
+      "id": "6340",
+      "query": "Is there an advantage to keeping a liquid emergency fund if one also has an untapped line of credit?",
+      "metadata": {}
+    },
+    {
+      "id": "3460",
+      "query": "How to manage household finances (income & expenses) [duplicate]",
+      "metadata": {}
+    },
+    {
+      "id": "6774",
+      "query": "Deal with stock PSEC",
+      "metadata": {}
+    },
+    {
+      "id": "9161",
+      "query": "Common practice for start/end date of balance sheet",
+      "metadata": {}
+    },
+    {
+      "id": "4236",
+      "query": "What is the difference between speculating and investing?",
+      "metadata": {}
+    },
+    {
+      "id": "2801",
+      "query": "If I deposit money as cash does it count as direct deposit?",
+      "metadata": {}
+    },
+    {
+      "id": "80",
+      "query": "Get a loan with low interest rate on small business",
+      "metadata": {}
+    },
+    {
+      "id": "4153",
+      "query": "How do I invest in emerging markets",
+      "metadata": {}
+    },
+    {
+      "id": "1309",
+      "query": "Why does FlagStar Bank harass you about payments within grace period?",
+      "metadata": {}
+    },
+    {
+      "id": "2622",
+      "query": "Is the gross amount of US debt dangerous for the small investor?",
+      "metadata": {}
+    },
+    {
+      "id": "5050",
+      "query": "Rollover 401k into Roth IRA?",
+      "metadata": {}
+    },
+    {
+      "id": "6399",
+      "query": "How is Butterfly Trade Strategy good if the mid Strike price is already past?",
+      "metadata": {}
+    },
+    {
+      "id": "5091",
+      "query": "Is there a term that better describes a compound annual growth rate (CAGR) when it is negative?",
+      "metadata": {}
+    },
+    {
+      "id": "4234",
+      "query": "Is there a good rule of thumb for how much I should have set aside as emergency cash?",
+      "metadata": {}
+    },
+    {
+      "id": "2554",
+      "query": "Is there a way to monitor when executives or leaders in a company sell off large holdings?",
+      "metadata": {}
+    },
+    {
+      "id": "3393",
+      "query": "How can contractors recoup taxation-related expenses?",
+      "metadata": {}
+    },
+    {
+      "id": "2010",
+      "query": "Paypal website donations without being a charity",
+      "metadata": {}
+    },
+    {
+      "id": "5044",
+      "query": "How to find trailing 5-year stock returns for 1980s?",
+      "metadata": {}
+    },
+    {
+      "id": "1762",
+      "query": "Is there a bank account that allows ACH deposits but not ACH withdrawals?",
+      "metadata": {}
+    },
+    {
+      "id": "1610",
+      "query": "18 year old making $60k a year; how should I invest? Traditional or Roth IRA?",
+      "metadata": {}
+    },
+    {
+      "id": "5715",
+      "query": "Why do only a handful of Canadian companies have options trading on their stocks?",
+      "metadata": {}
+    },
+    {
+      "id": "1668",
+      "query": "How to send money from europe to usa EUR - USD?",
+      "metadata": {}
+    },
+    {
+      "id": "5367",
+      "query": "Buying a house for a shorter term",
+      "metadata": {}
+    },
+    {
+      "id": "5129",
+      "query": "The penalty on early redemption of a personal loan",
+      "metadata": {}
+    },
+    {
+      "id": "9498",
+      "query": "Meaning of \u201creadily transferable\u201d?",
+      "metadata": {}
+    },
+    {
+      "id": "4055",
+      "query": "Recommended finance & economy book/blog for a Software Engineer?",
+      "metadata": {}
+    },
+    {
+      "id": "2264",
+      "query": "Personal Tax Return software for Linux?",
+      "metadata": {}
+    },
+    {
+      "id": "823",
+      "query": "Can a husband and wife who are both members of the same LLC file a joint tax return?",
+      "metadata": {}
+    },
+    {
+      "id": "10960",
+      "query": "interest rate on online banks",
+      "metadata": {}
+    },
+    {
+      "id": "6938",
+      "query": "Best buying price on stock marketing based on market depth detail (CSE atrad tool)",
+      "metadata": {}
+    },
+    {
+      "id": "7907",
+      "query": "Understanding the synthetic long put option",
+      "metadata": {}
+    },
+    {
+      "id": "2147",
+      "query": "Should I buy my house from my landlord?",
+      "metadata": {}
+    },
+    {
+      "id": "5693",
+      "query": "What is the p/e ratio?",
+      "metadata": {}
+    },
+    {
+      "id": "1362",
+      "query": "State tax issues for NJ resident with DC tax withheld, and likely refunded",
+      "metadata": {}
+    },
+    {
+      "id": "8261",
+      "query": "How might trading volume affect future share price?",
+      "metadata": {}
+    },
+    {
+      "id": "4471",
+      "query": "How to quantify differences in return with low expense ratio vs high expense ratio mutual funds?",
+      "metadata": {}
+    },
+    {
+      "id": "10119",
+      "query": "Gold futures' margin",
+      "metadata": {}
+    },
+    {
+      "id": "9887",
+      "query": "How can we determine how much income our savings could generate if we purchase an annuity?",
+      "metadata": {}
+    },
+    {
+      "id": "5413",
+      "query": "First time home buyer. How to negotiate price?",
+      "metadata": {}
+    },
+    {
+      "id": "8862",
+      "query": "How credible is Stansberry's video \u201cEnd of America\u201d?",
+      "metadata": {}
+    },
+    {
+      "id": "3106",
+      "query": "Tax Form 1099 and hourly worker do i file a W-2 if my employer filed the 1099 for me?",
+      "metadata": {}
+    },
+    {
+      "id": "5916",
+      "query": "Non-owner car insurance and registration",
+      "metadata": {}
+    },
+    {
+      "id": "1177",
+      "query": "Investment strategy for a 20 year old with about 30k in bank account",
+      "metadata": {}
+    },
+    {
+      "id": "851",
+      "query": "Who maintains receipt for employee expense reimbursements?",
+      "metadata": {}
+    },
+    {
+      "id": "10862",
+      "query": "What to do with south african currency free fall",
+      "metadata": {}
+    },
+    {
+      "id": "3560",
+      "query": "Freelancing and getting taxes taken out up front instead of end of year?",
+      "metadata": {}
+    },
+    {
+      "id": "549",
+      "query": "Where to request ACH Direct DEBIT of funds from MY OWN personal bank account?",
+      "metadata": {}
+    },
+    {
+      "id": "4418",
+      "query": "What investment strategy would you deduce from the latest article from Charles Munger?",
+      "metadata": {}
+    },
+    {
+      "id": "1372",
+      "query": "First time consultant, doubts on Taxation",
+      "metadata": {}
+    },
+    {
+      "id": "3619",
+      "query": "When do companies typically announce stock splits?",
+      "metadata": {}
+    },
+    {
+      "id": "1734",
+      "query": "How can I find out the credit rating of a company",
+      "metadata": {}
+    },
+    {
+      "id": "5716",
+      "query": "Are car buying services worth it?",
+      "metadata": {}
+    },
+    {
+      "id": "4235",
+      "query": "Equity prices during currency devaluation \u2014 Mexico 1994",
+      "metadata": {}
+    },
+    {
+      "id": "6847",
+      "query": "What does Dividend 165% mean in stock market?",
+      "metadata": {}
+    },
+    {
+      "id": "10268",
+      "query": "What is the daily rebalanced leverage ratio that is ideal for the S&P 500 based on past performance?",
+      "metadata": {}
+    },
+    {
+      "id": "5479",
+      "query": "What is the best approach to save money for College for three kids?",
+      "metadata": {}
+    },
+    {
+      "id": "2674",
+      "query": "Tax on insurance payment due to car deemed as total loss?",
+      "metadata": {}
+    },
+    {
+      "id": "5566",
+      "query": "How do I factor dividends and yield into the performance of a security?",
+      "metadata": {}
+    },
+    {
+      "id": "5310",
+      "query": "InteractiveBrokers: How to calculate overnight commissions for CFD?",
+      "metadata": {}
+    },
+    {
+      "id": "3326",
+      "query": "Short-sell, or try to rent out?",
+      "metadata": {}
+    },
+    {
+      "id": "11070",
+      "query": "Lump sum annuity distribution \u2014 do I owe estate tax?",
+      "metadata": {}
+    },
+    {
+      "id": "4083",
+      "query": "What should I invest in to hedge against a serious crash or calamity?",
+      "metadata": {}
+    },
+    {
+      "id": "7176",
+      "query": "How does investing in commodities/futures vary from stocks?",
+      "metadata": {}
+    },
+    {
+      "id": "10301",
+      "query": "What would be the signs of a bubble in silver?",
+      "metadata": {}
+    },
+    {
+      "id": "10556",
+      "query": "Are SPDR funds good for beginners?",
+      "metadata": {}
+    },
+    {
+      "id": "1224",
+      "query": "Calculating the cost of waiting longer for money",
+      "metadata": {}
+    },
+    {
+      "id": "9654",
+      "query": "Where can publicly traded profits go but to shareholders via dividends?",
+      "metadata": {}
+    },
+    {
+      "id": "10254",
+      "query": "How to mitigate the risk of Euro Stoxx 50 ETF?",
+      "metadata": {}
+    },
+    {
+      "id": "2797",
+      "query": "New York State - NY Tax on Foreign Sourced Income for NY Non-Resident",
+      "metadata": {}
+    },
+    {
+      "id": "7877",
+      "query": "How does a financial advisor choose debt funds and equity funds for us?",
+      "metadata": {}
+    }
+  ]
+}

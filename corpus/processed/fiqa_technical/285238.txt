@@ -1,0 +1,1 @@
+Yes, if your IRR is 5% per annum after three years then the total return (I prefer total rather than your use of actual) over those three years is 15.76%. Note that if you have other cashflows in and out, it gets a bit more complicated (e.g. using the XIRR function in Excel), but the idea is to find an effective annual percentage return that you're getting for your money.

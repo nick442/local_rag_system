@@ -1,0 +1,1 @@
+Saw this coming. I supported Toys R Us in my job a couple of years ago and when it came to standing up a datacenter environment those guys were clueless and led by some of the most incompetent upper management I have ever experienced. I had to spend 2 lunch meetings explaining why they would need DR sites.

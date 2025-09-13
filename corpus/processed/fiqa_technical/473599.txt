@@ -1,0 +1,1 @@
+What's a good proxy for the return of the market when utilizing CAPM for a WACC build up? I know I could rip data from Domadaran, but I'd like to calculate it for myself. Maybe S&P 500 earnings yield plus the 10yr? Also don't like taking the round assumption of 7%.

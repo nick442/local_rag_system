@@ -1,0 +1,1 @@
+Paper trail of who did the deposit. Less significant for a personal account, but a bigger deal for accounts that are used by multiple people (e.g. a corporate checking account).

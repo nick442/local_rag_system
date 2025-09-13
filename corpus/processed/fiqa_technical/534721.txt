@@ -1,0 +1,1 @@
+No. Bonds don't work like that. When you buy a bond, you buy pieces of notional at a price. 1K denotes the amount you would get back at maturity (+ coupons), So the smallest piece size would be 1k. I've even seen 50K plus but thats for more illiquid products..

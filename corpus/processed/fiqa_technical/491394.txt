@@ -1,0 +1,1 @@
+I worked at a university that provided BYOD access to students and staff. There were never any issues. It may not be trivial to design your network in such a way, but it certainly isn't impossible. Some employees carry a two phones, but many only have one.

@@ -1,0 +1,1 @@
+A derivative is a financial asset (read: contract) whose value is determined by the value of some other asset. Talking about derivatives in general is impossible, options and FRAs (eg) are entirely different. Is there any type of derivative you are particularly interested in?

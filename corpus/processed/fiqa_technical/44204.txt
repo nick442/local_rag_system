@@ -1,0 +1,1 @@
+Depends on the type of documents, if they are just sales flyers you can email/post on website etc. IF they are medial records or some other sensitive information you need to have something with access controls encryption and logging/auditing capabilities.. Some places use sharepoint or just have a shared drive where the docs are stored.

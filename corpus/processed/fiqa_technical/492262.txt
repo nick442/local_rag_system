@@ -1,0 +1,1 @@
+There are about 250 trading days in a year. There are also about 1,900 stocks listed on the NYSE. What you're asking for would require about 6.2M rows of data. Depending on the number of attributes you're likely looking at a couple GB of data. You're only getting that much information through an API or an FTP.

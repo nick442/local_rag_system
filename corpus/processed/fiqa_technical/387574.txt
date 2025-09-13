@@ -1,0 +1,1 @@
+"BYOD is one of the problems [VMWare Octopus](http://www.vmwareoctopus.com/) will hopefully solve. I went to a demo of it last month and it looks promising because it creates a virtual ""work phone"" that can have all the security and limitations a company demands while leaving the normal phone in tact and unlimited as far as dropbox, etc."

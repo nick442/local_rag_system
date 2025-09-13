@@ -1,0 +1,1 @@
+You can use google docs to create a spreadsheet. In field A2, I put Google will load the prices into the sheet. At that point, I add the following into C12, then copy that line all the way down to the botton of column C. You can find my spreadsheet here. It calculates the moving 10 day standard deviation as a percentage of average price for that time period.

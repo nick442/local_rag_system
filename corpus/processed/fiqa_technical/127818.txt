@@ -1,0 +1,1 @@
+This is what I suspect. When you get close to a border, the signal will bounce back and forth between the two countries. But roaming in a country you are not in denotes something else is going on. I know towers can be spoofed, but I'm not sure how this would work.

@@ -1,0 +1,1 @@
+I was typing up a long response and lost it to a backspace. so, I apologize but I don't intend on rewriting it all. You'll have to use a method called bootstrapping to get the forward rates. Essentially you're looking at the spot rate today, and the forward rates, then filling in what must be the rate to make them equal out in the end. Sorry I'm not more help!

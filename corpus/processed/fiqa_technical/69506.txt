@@ -1,0 +1,1 @@
+Try to find the P/E ratio of the Company and then Multiply it with last E.P.S, this calculation gives the Fundamental Value of the share, anything higher than this Value is not acceptable and Vice versa.

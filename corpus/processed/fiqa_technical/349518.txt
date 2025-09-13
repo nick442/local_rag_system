@@ -1,0 +1,1 @@
+"No it does not. Candlesticks really have nothing to do with this, a stock price can open different then the previous day's close. Examining the chart of TSLA provides an example it closed on 1/18 at 238.8 it opened on 1/19 at 243.7 In candlestick parlance is is known as a ""gap up""."

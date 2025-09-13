@@ -1,0 +1,1 @@
+Your calc is spot on, the output is small because it's just 5 days worth of interest, and at today's low rates that's practically 0. Also the rate you would want to use is money market rates as that's typically where companies will park cash to earn interest since its a highly liquid market.

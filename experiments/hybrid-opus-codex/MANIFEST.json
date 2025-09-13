@@ -1,0 +1,77 @@
+{
+  "notes": "Curated files for merging into main. Source \u2192 target path recommendations.",
+  "files": [
+    {
+      "source": "experiments/hybrid-opus-codex/main.py",
+      "target": "main.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/src/retriever.py",
+      "target": "src/retriever.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/src/rag_pipeline.py",
+      "target": "src/rag_pipeline.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/src/experiment_runner.py",
+      "target": "src/experiment_runner.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/src/vector_database.py",
+      "target": "src/vector_database.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/scripts/analyze_results.py",
+      "target": "experiments/hybrid/analyze_results.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/scripts/visualize_results.py",
+      "target": "experiments/hybrid/visualize_results.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/scripts/monitor_and_analyze.py",
+      "target": "experiments/hybrid/monitor_and_analyze.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/tools/augment_results_with_quality.py",
+      "target": "experiments/hybrid/tools/augment_results_with_quality.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/tools/prepare_beir_queries_local.py",
+      "target": "experiments/hybrid/tools/prepare_beir_queries_local.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/tools/make_query_subset_from_qrels.py",
+      "target": "experiments/hybrid/tools/make_query_subset_from_qrels.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/tools/make_query_subset.py",
+      "target": "experiments/hybrid/tools/make_query_subset.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/tools/make_exec_summary.py",
+      "target": "experiments/hybrid/tools/make_exec_summary.py"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/docs/FINAL_REPORT_v2.md",
+      "target": "experiments/hybrid/FINAL_REPORT_v2.md"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/docs/EXEC_SUMMARY.md",
+      "target": "experiments/hybrid/EXEC_SUMMARY.md"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/docs/EXPERIMENT_REDO_LOG.md",
+      "target": "experiments/hybrid/EXPERIMENT_REDO_LOG.md"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/docs/README_hybrid_experiment.md",
+      "target": "experiments/hybrid/README.md"
+    },
+    {
+      "source": "experiments/hybrid-opus-codex/config/rag_config.yaml",
+      "target": "experiments/hybrid/config/rag_config.yaml"
+    }
+  ]
+}

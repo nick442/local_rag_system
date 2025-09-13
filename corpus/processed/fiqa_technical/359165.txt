@@ -1,0 +1,1 @@
+If a company is dumb enough to use activesync instead of a better alternative (for example an encrypted sanboxed application you can kill remotely like Good) then turn around and tell people they 'own' their iPhone because they didn't do enough to find a right solution for BYOD I don't know what to say.

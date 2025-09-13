@@ -1,0 +1,1 @@
+you need to use easy programming language to imply onto a scan where you enter Scan all stocks display if volume < (less than) 100

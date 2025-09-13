@@ -1,0 +1,1 @@
+Delta hedging is not the same as being delta neutral, what you just described is being delta neutral. There exist reasons for a retail trader to be conscious of delta when choosing an option.

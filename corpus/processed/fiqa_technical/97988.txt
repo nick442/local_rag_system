@@ -1,0 +1,1 @@
+Look for EU banks that have US branches. Open an account there and look for the SWIFT code of your bank in US. Withdraw money using SWIFT US code.

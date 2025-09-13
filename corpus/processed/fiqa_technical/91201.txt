@@ -1,0 +1,1 @@
+In this example you are providing 4x more collateral than you are borrowing. Credit score shouldn't matter, regardless of how risky a borrower you are. Sure it costs time and money to go to auction, but this can be factored into your interest rate / fees. I don't see how the bank can lose.

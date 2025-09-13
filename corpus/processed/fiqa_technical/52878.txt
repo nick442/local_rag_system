@@ -1,0 +1,1 @@
+It's a lot easier to trade a contract based on the forward value (a futures contract) of some commodity, than say constantly trade & deliver 1000 barrels of crude oil. Along those lines, it's also easier to trade an option on the forward value than it is an option on the actual commodity, especially if you have the ability to exercise the option

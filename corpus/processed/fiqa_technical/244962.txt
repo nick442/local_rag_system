@@ -1,0 +1,1 @@
+Just adding on a touch, when market participants refer to swaps they are talking about the fixed leg. So for example, if I said a 5y Receiver, it means I am receiving fixed, paying floating. Ie I want yields to fall. Opposite for a Payer. Swaption is just an option on these swaps, so basic swaptions: Long Payer Short Payer Long Receiver Short Receiver

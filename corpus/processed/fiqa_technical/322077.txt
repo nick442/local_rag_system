@@ -1,0 +1,1 @@
+Most quants I've worked with aren't exceptional programmers. I definitely think you can teach yourself enough C++ to get by. You probably want to learn a little of Matlab, R, Sas, Excel, and SQL along with C++ rather than to try to be an expert in programming.

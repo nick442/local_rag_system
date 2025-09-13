@@ -1,0 +1,1 @@
+"What exactly do you need explained? Short term returns show ""fat tails"" in their distribution. Long term returns converge towards a gaussian distribution. The authors think there's a connection between this and the ""long memory"" of volatility (i.e. that the autocorrelation of absolute volatilities also has a fat tail)."

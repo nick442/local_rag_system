@@ -1,0 +1,1 @@
+For futures, you are obligated to puchase the security at $x when the contract expires. For an option, you have the right or option to do so if it's favorable to you.

@@ -1,0 +1,1 @@
+"What you are looking for is an indicator called the ""Rate of Change (Price)"". It provides a rolling % change in the price over the period you have chosen. Below is an example showing a price chart over the last 6 months with a 100 day Rate of Change indicator below the price chart."

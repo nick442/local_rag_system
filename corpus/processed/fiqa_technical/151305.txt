@@ -1,0 +1,1 @@
+I believe that capital gains do affect AGI, but if she sells $40k of stock, then the AGI doesn't go up by $40k, it only goes up by the gains (gross proceeds of the sale minus cost basis). So if she paid $30k for that stock, then the AGI goes up by $10k not $40k.

@@ -1,0 +1,1 @@
+As the referenced document says, there are 3 formulas, and you need to use the formula which results the greatest margin requirement. In your case, you need to use the 10% formula:

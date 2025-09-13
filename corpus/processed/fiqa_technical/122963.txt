@@ -1,0 +1,1 @@
+Get a Mac, then partition part of the drive for Windows. This is the best of both worlds, honestly. Windows has yet to come close to the intuitive and fluid interface that is OSX. Excel for OSX is terrible (poor macro/VBA support, formulas produce different outcomes, etc) so you'll want to use Windows.

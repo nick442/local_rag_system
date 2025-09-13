@@ -1,0 +1,1 @@
+If an offered price is below what people are willing to sell for, it is simply ignored. (What happens if I offer to buy lots of cars as long as I only have to pay $2 each? Same thing.)

@@ -1,0 +1,1 @@
+It is simply an average of what each analyst covering that stock are recommending, and since they usually only recommend Hold or Buy (rarely Sell), the value will float between Hold and Buy. Not very useful IMHO.

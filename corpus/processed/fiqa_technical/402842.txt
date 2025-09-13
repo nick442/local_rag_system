@@ -1,0 +1,1 @@
+Yes, yes and yes. R has tools for web scraping, charts, stats, Quantmod is great of course, there's economics packages, etc.. R can basically do any task that involves gathering and interpreting data, I have scripts that gather my info from all the other sources I use (Yahoo, Google, lesEchos, Money18, Quandl, exchange websites, etc..).

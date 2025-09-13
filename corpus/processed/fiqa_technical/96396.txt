@@ -1,0 +1,1 @@
+It refers to the risk free rate of a particular country. Because all other rates are usually pegged to the risk free rate. In US,it is the 30 day treasury rate. In England, it is the LIBOR In Canada, it is the overnight rate at which banks lend money to each other. All of these come under the category of risk free rate.

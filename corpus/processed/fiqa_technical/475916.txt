@@ -1,0 +1,1 @@
+you could try [FRED](http://research.stlouisfed.org/fred2/graph/?g=HO7), or maybe try the CME and ICE's websites for some decent data. haven't looked just suggestions - pretty sure the symbol for the Libor futures is EM, you could approximate from that so long as it's not a doctoral thesis

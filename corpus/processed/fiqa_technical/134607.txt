@@ -1,0 +1,1 @@
+Generally, the answer is as follows: If there is a legal obligation to pay cash flow (including the possibility of court determined restructuring), then it is debt. If the asset owner is not guaranteed any cash flow, but instead owns the *residual* cash flow from the operations of the business (I.e. the cash flow left-over), then it is equity.

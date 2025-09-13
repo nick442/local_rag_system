@@ -1,0 +1,1 @@
+I'm not 100% familiar with the index they're using to measure hedge fund performance, but based on the name alone, comparing market returns to *market neutral* hedge fund returns seems a bit disingenuous. That doesn't mean the article is wrong, and they have a point about the democratization of data, but still.

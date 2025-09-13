@@ -1,0 +1,1 @@
+Average rates of return usually assume compounding, so your formula would be for annual compounding ,or for continuous compounding.

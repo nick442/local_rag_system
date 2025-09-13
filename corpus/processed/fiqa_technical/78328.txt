@@ -1,0 +1,1 @@
+You could make an entry for the disputed charge as if you were going to lose the dispute, and a second entry that reverses the charge as if you were going to win the dispute. You could then reconcile the account by including the first charge in the reconciliation and excluding the reversal until the issue has been resolved.

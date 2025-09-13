@@ -1,0 +1,1 @@
+You are long the puts. By exercising them you force the underlying stock to be bought from you at your strike price. Let's say your strike it $100 and the stock is currently $25. Buy 100 shares and exercise 1 (bought/long) put. That gives you $7500 of new money, so do the previous sentence over again in as many 'units' as you can.

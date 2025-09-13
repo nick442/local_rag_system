@@ -1,0 +1,1 @@
+I'm not an economics expert or anything, but what seems strange to me is the randomising part. Everything else looks fine but why does it randomly select the next item for price increase, wouldn't this depend on supply/demand and the players in the game?

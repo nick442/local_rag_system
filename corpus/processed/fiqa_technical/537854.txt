@@ -1,0 +1,1 @@
+The entire premise of purchasing a call option is your expectation that the prices will rise. So even though there is a possibility of prices falling, you wouldn't mind paying higher premiums in a volatile market for a call option because you're bullish and are expecting the volatility to eventually turn out in your favour i.e. prices to rise

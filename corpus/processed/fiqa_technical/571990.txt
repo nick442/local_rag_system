@@ -1,0 +1,1 @@
+remember that IV is literally the volatility that would be present to equate to the latest price of a particular option contract, assuming the Black-Scholes-Merton model. Yahoo's free finance service lists the IV for all the options that it tracks.

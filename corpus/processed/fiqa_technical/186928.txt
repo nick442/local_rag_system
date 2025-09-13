@@ -1,0 +1,1 @@
+The relationship is not linear, and depends on a lot of factors. The term you're looking for is efficient frontier, the optimal rate of return for a given level of risk. The goal is to be on the efficient frontier, meaning that for the given level of risk, you're receiving the greatest possible rate of return (reward). http://www.investopedia.com/terms/e/efficientfrontier.asp

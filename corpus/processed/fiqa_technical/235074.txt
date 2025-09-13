@@ -1,0 +1,1 @@
+If you're correct that it's not taxable because it's non-taxable reimbursement (which is supported by your W-2), then it should not go on your 1040 at all. If it is taxable, then it really should have appeared on your W-2 and would probably end up on Line 7 of your Form 1040.

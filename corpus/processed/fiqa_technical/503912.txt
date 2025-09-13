@@ -1,0 +1,1 @@
+If you place a market order, you are guaranteed to sell your stock unless the stock is in a trading halt. A market order does not guarantee the price you sell the stock at. If you place a market order, even if the stock is very illiquid a market maker will guarantee a market, but will not guarantee a price.

@@ -1,0 +1,1 @@
+The check clears when the receiving bank successfully pulled the money from the issuing account. However, the receiving bank may hold the money for an additional time before giving it to you. Sometimes this is done for good reasons (to prevent Check kiting) and sometimes this is about the bank having the money interest free for a bit, or just their own processing convenience.

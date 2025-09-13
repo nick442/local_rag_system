@@ -1,0 +1,1 @@
+This is what I used during my MBA. My biggest complaint is that it is not a database for analytic (it pulls from a database). I hear think or swim has the capability to extract data and offers a free version - anyone know if that is true?

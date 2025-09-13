@@ -1,0 +1,1 @@
+If the base rate is USD LIBOR, you can compute this data directly on my website, which uses futures contracts and historical data to create interest rates scenarios for the calculations: http://www.mortgagecalculator3.com/ If your rate index is different, you can still create your own scenarios and check what would happen to your payments.

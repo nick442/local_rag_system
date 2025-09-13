@@ -1,0 +1,1 @@
+The closest I can think of from the back of my head is http://finviz.com/map.ashx, which display a nice map and allows for different intervals. It has different scopes (S&P500, ETFs, World), but does not allow for specific date ranges, though.

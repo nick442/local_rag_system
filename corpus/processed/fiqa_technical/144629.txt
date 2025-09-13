@@ -1,0 +1,1 @@
+That is kinda my point. I can also secure my machine 100%, but it makes me unhappy to do so. But in fact the human component is still a large weak spot, for any network. So no matter how secure you make it, as long as you have humans interacting, you have vulnerabilities. And making your employees unhappy seems like a poor way to deal with that.

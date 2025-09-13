@@ -1,0 +1,1 @@
+Designed for both centralized and distributed development teams, SCM Anywhere Standalone, SQL Server-based software configuration management (SCM) software, helps development teams deliver software products faster and promotes team collaboration through centralized control of source code files, team activities, work item status and bug reports.

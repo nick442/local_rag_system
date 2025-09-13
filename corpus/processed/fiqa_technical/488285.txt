@@ -1,0 +1,1 @@
+The curved lines (on my screen orange, yellow and pink) are simple moving averages. The fuchsia and blue straight lines are automatically generated trend lines. Those lines are attempting to show how a stock is trending by showing potential bounce points and are commonly used in technical analysis (TA).

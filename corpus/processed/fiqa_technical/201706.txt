@@ -1,0 +1,1 @@
+Market cap should be share price times number of shares, right? That's several orders of magnitude right there..

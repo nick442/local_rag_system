@@ -1,0 +1,1 @@
+There is such a thing as a buy-write, which is buying a stock and writing a (covered) call simultaneously. But as far as I know brokers charge two commissions, one stock trade and one options trade so you're not going to save on commissions.

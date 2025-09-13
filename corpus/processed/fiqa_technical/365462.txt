@@ -1,0 +1,1 @@
+It's not the legitimate checks or bounced checks that are the problem, it's phony checks issued against real accounts with actual money in them. All the security measures on the check don't amount to crap if someone can print up some legitimate looking checks with bogus amounts on them, or even just steal some printed checks and sign something resembling the authorized signature.

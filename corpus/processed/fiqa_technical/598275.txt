@@ -1,0 +1,1 @@
+Go to http://www.isincodes.net/, and enter your data. For example entering Alphabet gives you the ISIN US02079K1079 (for standard US shares). If you want to understand the number format (and build them yourself), check wikipedia: https://en.wikipedia.org/wiki/International_Securities_Identification_Number

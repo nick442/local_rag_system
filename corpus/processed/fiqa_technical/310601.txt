@@ -1,0 +1,1 @@
+Not really. You can have two bonds that have identical duration but vastly different convexity. Pensions and insurance portfolio managers are most common buyers as they're trying to deal with liability matching and high convexity allows them to create a barbell around their projected liabilities.

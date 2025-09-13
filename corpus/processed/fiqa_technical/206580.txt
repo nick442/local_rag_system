@@ -1,0 +1,1 @@
+Inflation data is a general barometer for inflation that a typical consumer would experience. Generally when calculating inflation for yourself you would only include items that you use and in percentages of your budget. Personal inflation is much more useful when attempting to calculate safe withdrawal rates or projections into the future.

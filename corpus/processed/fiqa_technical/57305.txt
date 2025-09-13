@@ -1,0 +1,1 @@
+"It appears the interest is not compounded daily. Each period of interest has the loan amount calculated on the ""capital"" remaining on the start of period, for each day in the period. The Excel finance functions don't handle irregular periods that well, but I can reconstruct the interest calculations:"

@@ -1,0 +1,1 @@
+where A1 is the number of trades. you may have to change the number 100 to 99 depending on how the 100th trade is charged. The idea is to use the if statement to determine the price of the trades. Once you are over the threshold the price is 14*number over threshold.

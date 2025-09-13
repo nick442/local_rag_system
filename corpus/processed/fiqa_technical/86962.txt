@@ -1,0 +1,1 @@
+Some banks are giving you interest on the minimum balance between 10th and last day of the month. However, with automation, RBI has changed the instruction and now for automated branches they are calculated on a daily balance basis. Since you have deposited 1000 on the last day of the month, you will get interest only for a day. A more elaborate article can be found here.

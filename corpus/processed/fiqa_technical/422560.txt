@@ -1,0 +1,1 @@
+"A free solution that I've been using is Task Coach. It has tasks, subtasks, categories, and all the stuff you would expect from a time tracking program. It also counts each distinct period spent on a task as a separate ""effort"" that you can add comments, for example to remind you what that chunk of time was spent on."

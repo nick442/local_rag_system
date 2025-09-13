@@ -1,0 +1,1 @@
+The spread is two trades, one of which opens up some risk one of which limits/cancels the risk. There is nothing stopping you from selling part of the spread opening the door to the risk. You're required to have a margin account to open risky positions, even if the specific spread trade you're attempting to open has a risk limiting/cancelling counterpart.

@@ -1,0 +1,1 @@
+Based on my research while asking How are unmarketable market orders (other side of the order book is empty) matched with incoming orders? and the one answer there, it seems like there are a few things for certain: All of this of course depends on the exact algorithm specified by the given exchange - I don't think there's a standard here.

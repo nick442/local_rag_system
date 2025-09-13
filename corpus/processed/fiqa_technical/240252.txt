@@ -1,0 +1,1 @@
+Thanks for this, great in depth answer. I had previously calculated a WACC and have used it for my discount rate. As part of your last point on revenue vs. cash, I've set a accounts receivable period of 30 days, and then applied a factor of 30/365 * revenue to understand what portion of my revenue is not cash in hand. Does that make sense?

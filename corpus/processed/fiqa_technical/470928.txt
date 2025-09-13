@@ -1,0 +1,1 @@
+"There is no ""standard"" way for personal accounting. However, GNUCash default accounts set includes ""Expense: Adjustment"". It is usually used by the community for reconciliation of unknown small money lost."

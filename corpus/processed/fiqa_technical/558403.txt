@@ -1,0 +1,1 @@
+Last I checked, Wix doesn't allow optimization for image alt text or HTTPs, both of which are ranking factors. It also doesn't allow altering robots.txt or setting canonicals--things that help with search engine crawlability. Are you using any SEO tools? What are your main products?

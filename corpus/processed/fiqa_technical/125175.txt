@@ -1,0 +1,1 @@
+OS/2 has had VERY few security concerns, though. It's extremely stable and very well behaved if the person who configured it knew what he was doing. The way the OS manages tasks is also very good for preventing data leakage exploits like buffer overruns, code on stack, memory re/deallocation attacks, etc.

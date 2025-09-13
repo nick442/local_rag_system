@@ -1,0 +1,1 @@
+One way is to compare the implied volatility with the realised volatility over a period similar to the time left to expiry. However there are plenty of reasons why the implied may be higher than the historical, for example because the market volatility has increased overall or because the underlying company is going to report their results before the option expires.

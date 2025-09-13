@@ -1,0 +1,1 @@
+Mint is only an organizer of information that is actually aggregated by different services. Currently data aggregation for mint is being done by Yodlee and also by Intuit's own aggregation service.

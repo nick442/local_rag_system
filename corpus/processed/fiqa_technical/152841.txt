@@ -1,0 +1,1 @@
+The requirement is to report the highest balance on the account, it has nothing to do with your income.

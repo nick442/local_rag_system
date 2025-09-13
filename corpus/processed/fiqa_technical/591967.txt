@@ -1,0 +1,1 @@
+But the notes are always called at par, no? So you have a fixed yield which depends on the coupon and price you bought it at. I still don't see how the company doing better than expected changes the yield on your investment.

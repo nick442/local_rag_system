@@ -1,0 +1,1 @@
+Its impact on battery life is an interesting sidenote to this. Having a battery that's capable of 75 kwh, but only ever using 60 kwh, will help extend the battery life. So if you pay for that 75 kwh software upgrade, and you use it, you're also shortening your battery's lifespan.

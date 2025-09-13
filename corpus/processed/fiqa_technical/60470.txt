@@ -1,0 +1,1 @@
+Aside from what else has been said, the stock market does not equal the real economy, so putting some trendline over the S&P time series tells us nothing when recessions (though ultimately decided upon by NBER's methodology) generally coincide with >= 2 consecutive quarters of GDP contraction.

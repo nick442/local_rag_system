@@ -1,0 +1,1 @@
+Different exchanges sometimes offer different order types, and of course have different trading fees. But once a trade is finished, it should not matter where it was executed.

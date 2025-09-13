@@ -1,0 +1,1 @@
+To complement farnsy's answer, I want to warn people against market prediction scams. If they give uniformly distributed buy/sell predictions to 256 people, one of them will get eight correct predictions in a row. They are trading a few cents of Amazon server time for 3% of your capital.

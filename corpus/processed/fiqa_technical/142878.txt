@@ -1,0 +1,1 @@
+You can view certain US economic data with FRED Graph or download the data to play with FRED download. Here is some example tax data:

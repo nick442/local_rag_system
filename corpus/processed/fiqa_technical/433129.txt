@@ -1,0 +1,1 @@
+"There is no such thing as a ""one for one"" split. It's either N for 1, or 1 for N in a reverse split. And for either, N can't be 1. Yes a 3:2 can happen, but I still read it as 1.5 for 1."

@@ -1,0 +1,1 @@
+It's a Firefox extension named Murdoch Block copy.rev2.3 and it blocks all websites owned by Newscorp. It gives you the option to view a Google cached version of the page, which I believe prevents Newscorp from gaining any advertising money from the pageview.

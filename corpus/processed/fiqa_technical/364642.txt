@@ -1,0 +1,1 @@
+In day trading, you're trying to predict the immediate fluctuations of an essentially random system. In long-term investing, you're trying to assess the strength of a company over a period of time. You also have frequent opportunities to assess your position and either add to it or get out.

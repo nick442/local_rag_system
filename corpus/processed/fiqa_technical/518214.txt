@@ -1,0 +1,1 @@
+We have custom software written in mostly C# for the long term strategies. Day trading is done on multiple platforms. Currently using ToS scripts for some futures and equities strategies to great success, and sierra charts for a few futures exclusively. I just moved into a position to work with day trading so I'm still learning more about the systems he uses

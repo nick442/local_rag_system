@@ -1,0 +1,1 @@
+Usually the amount of the ESPP stocks is very small compared to the overall volume of the trading, so it shouldn't matter. But check if for your company it not so (look at the stock history for the previous ESPP dates, and volumes).

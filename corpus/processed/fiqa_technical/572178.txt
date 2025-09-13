@@ -1,0 +1,1 @@
+Its not public information but it would be hard to keep it a secret. By its very nature, a custodial bank has to interact with various brokers, middle office systems, back office systems - many of which are third party. And the investment firm will likely be giving out their custodial information to these third parties to set up interfaces and whatnot.

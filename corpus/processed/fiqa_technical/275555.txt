@@ -1,0 +1,1 @@
+I looked around and I don't think there's any way to do what you want completely in Quicken. This should get you the graph, though: Here's what mine looked like (I whited out the numbers on the vertical axis): Once this is done, it's faster in the future to add data to this chart.

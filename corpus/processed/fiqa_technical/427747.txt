@@ -1,0 +1,1 @@
+Market price simply depends on your order side. If you are placing a buy order the market price is the lowest ask, if you are placing a sell order the market price is the highest bid. If your order is larger than the volume then you'd need to also consider the next lowest ask or next highest bid until you've fulfilled your order volume.

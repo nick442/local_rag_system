@@ -1,0 +1,1 @@
+There are plenty of firewalls - Fortinet and Sonicwall UTM, and dedicated DLP devices - that do SSL MITM to sniff traffic for violations. Your employer simply installs the relevant cert on your machine first and most people never notice. Worth noting: Fortinet has a default setting to NOT monitor or log traffic from bank and health SSL sites. It can be disabled though.

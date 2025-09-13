@@ -1,0 +1,1 @@
+"For US equities, Edgar Online is where companies post their government filings to the SEC. On Google Finance, you would look at the ""SEC filings"" link on the page, and then find their 10K and 10Q documents, where that information is listed and already calculated. Many companies also have these same documents posted on their Investor Relations web pages."

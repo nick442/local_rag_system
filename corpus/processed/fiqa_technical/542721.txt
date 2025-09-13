@@ -1,0 +1,1 @@
+To see a chart with 1-minute data for a stock on a specific date: For example, here is the chart for TWTR on November 7, 2013 - the day of the IPO: Here is the chart for TWTR on November 8, 2013 - its second day of trading: Here is the chart for TWTR on November 11, 2013 - its third day of trading:

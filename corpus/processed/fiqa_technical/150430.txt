@@ -1,0 +1,1 @@
+The current Dow divisor is in Historical Divisor Changes. The OpenOffice GetQuote function offers fields for current dividend either in dollars or yield.

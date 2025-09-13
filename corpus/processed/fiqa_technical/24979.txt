@@ -1,0 +1,1 @@
+There is most likely an error in the WSJ's data. Yahoo! Finance reports the P/E on the Russell 2000 to be 15 as of 8/31/11 and S&P 500 P/E to be 13 (about the same as WSJ). Good catch, though! E-mail WSJ, perhaps they will be grateful.

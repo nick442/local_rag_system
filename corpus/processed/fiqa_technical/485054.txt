@@ -1,0 +1,1 @@
+You can get this data from a variety of sources, but likely not all from 1 source. Yahoo is a good source, as is Google, but some stock markets also give away some of this data, and there's foreign websites which provide data for foreign exchanges. Some Googling is required, as is knowledge of web scraping (R, Python, Ruby or Perl are great tools for this..).

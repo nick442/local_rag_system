@@ -1,0 +1,1 @@
+I have been looking into CMEs trading tool. I might just play around with futures on it. You make a good point on that though. I am reading Hull's book on options, futures and derivatives, and so far so good. Only thing I would want to test is options on futures, which is missing :( .

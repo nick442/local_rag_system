@@ -1,0 +1,1 @@
+Yes. I have a US based website that accepts payments via PayPal and can confirm we have many customers from India. Here is a list of countries PayPal supports. Note typically there are some additional fees associated with currency conversion.

@@ -1,0 +1,1 @@
+Robert Shiller published US Stock Market data from 1871. Ken French also has historical data on his website. Damodaran has a bunch of historical data, here is some historical S&P data.

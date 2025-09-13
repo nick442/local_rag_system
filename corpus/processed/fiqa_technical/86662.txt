@@ -1,0 +1,1 @@
+Possibly a single player game hence the need to simulate a market? I would supposed that you could use a Cobb Douglas demand function. This way you could set demand for x_1 = c(m/p_1) and demand for x_2 = (1-c)(m/p_2) Where p_1/p_2 are the prices of good 1 and 2, m is income, and x_1/x_2 are good 1 and 2 respectively.

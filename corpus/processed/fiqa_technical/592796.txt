@@ -1,0 +1,1 @@
+Transfers are defined to arrive on a specific number of business days, nearly always one business day (if you submit it before the cutoff time). The exact number of days depends on the receiver bank, but when you try to create a transfer, it will tell you when it will arrive, before you send it out.

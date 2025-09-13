@@ -1,0 +1,1 @@
+The portion of a stock movement not correlated with stocks in general is called Alpha. I don't know of any online tools to graph alpha. Keep in mind that a company like Apple is so huge right now that any properly weighted index will have to correlate with it to some degree.

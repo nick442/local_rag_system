@@ -1,0 +1,1 @@
+In the first case, if you wish to own the stock, you just exercise the option, and buy it for the strike price. Else, you can sell the option just before expiration, it will be priced very close to its in-the-money value.

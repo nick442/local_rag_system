@@ -1,0 +1,1 @@
+>In the end it will be a mini-NES like console toy, to play the old Atari titles in a raspberry pi form factor. Nothing but speculation. I can see them doing an ARM console that plays their old games as well as mobile ones. But it could also be something that competes with the XBox and PS.

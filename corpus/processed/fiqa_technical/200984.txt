@@ -1,0 +1,1 @@
+"Many online brokers have a ""virtual"" or ""paper"" trading feature to them. You can make trades in near-real time with a fake account balance and it will treat it as though you were making the trade at that time. No need to manage the math yourself - plus, you can even do more complicated trades (One-Cancels-Other/One-Triggers-Other)."

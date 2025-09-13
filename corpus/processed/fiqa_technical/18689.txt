@@ -1,0 +1,1 @@
+Yahoo Finance provides the proper closing price. HP's historical data around the split date can be found here. The open, high and low of the day are wrong prior the split, but the closing price is right and for HP, it was $26.96 USD. The next day the closing price was $13.83 USD.

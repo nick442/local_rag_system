@@ -1,0 +1,1 @@
+This one. Change it to something you can remember but is still not similar to any of your other passwords, because they still may have access. Actually, you should probably just start using different passwords for every site you use, LinkedIn has 100 million customers and they aren't salting? It means you can't trust any company right now.

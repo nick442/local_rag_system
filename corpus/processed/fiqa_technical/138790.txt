@@ -1,0 +1,1 @@
+Google Finance portfolios take into account splits and cash deposits/withdrawals.

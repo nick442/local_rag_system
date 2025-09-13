@@ -1,0 +1,1 @@
+Depends on how you look at it. If it's a flaw in the specific methodology needed to count Twitter users, and if that flaw caused duplicate counts of some segments (or failure to remove duplicate instances if you prefer that), it could cause consistent overstatement. With that said, I'm sure they did it on purpose

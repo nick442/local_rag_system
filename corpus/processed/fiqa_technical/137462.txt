@@ -1,0 +1,1 @@
+Bake backup to azure into their new powercli releases. Force poor saps like me who certify with microsoft products learn about their cloud so we can parrot back the marketing material to our corporate masters. Build a pretty flexible product that isn't junk (so I hear). EDIT: My VMware is showing. Powercli should be Powershell.

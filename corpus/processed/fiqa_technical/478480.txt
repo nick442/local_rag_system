@@ -1,0 +1,1 @@
+Rate of return is (Current value - initial value) divided by initial value. Buy $10,000 worth of put options and sell them for $15,000, and your rate of return is 0.5, or 50%.

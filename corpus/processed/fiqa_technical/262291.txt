@@ -1,0 +1,1 @@
+Starting of 2011, your broker has to keep track of all the transactions and the cost basis, and it will be reported on your 1099-B. Also, some brokers allow downloading the data directly to your tax software or to excel charts (I use E*Trade, and last year TurboTax downloaded all the transaction directly from them).

@@ -1,0 +1,1 @@
+No. Busts are very infrequent, and if an equity were illiquid enough to be affected, the bust cost would be enormous. For a liquid equity, the amount of busted volume is insignificant except during a flash crash or flash spike. Then it would be reasonable to redownload.

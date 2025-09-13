@@ -1,0 +1,1 @@
+It is worth checking currency types you have authorised on your account, and that the payment that your client sent is in one of those currencies. Paypal will not always move or convert between currencies, and I have seen payments held for authorisation where simply enabling the paid currency at the receiving end would allow the transfer.

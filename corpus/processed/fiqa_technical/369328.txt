@@ -1,0 +1,1 @@
+It sounds like the items shipped directly from the vendor need to be recorded into your system when the order is confirmed, that way cost of goods sold and revenue don't get lost. You'll have a record of re-orders and cancels and other such things too.

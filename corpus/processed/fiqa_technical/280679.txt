@@ -1,0 +1,1 @@
+"Paypal has an account called ""micropayments"" for those who have a lot of transaction under $10 with ""better"" commission structure, 5%+5c per transaction (rather than 2.9% + 30c with regular merchant accounts)"

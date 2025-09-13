@@ -1,0 +1,1 @@
+The buyer pays $1.99/share for the option of selling a share of AMD to the seller for $10 which is currently $1.94 higher than the price of $8.06/share. If you bought the put and immediately exercised it, you would come out of the deal losing $.05/share.

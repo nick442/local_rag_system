@@ -1,0 +1,1 @@
+"With options you pay for a premium which relates to the expected (so-called ""implied"" volatility). With futures, there is no assumption about the volatility of an underlying stock. In general, when trading options you trade the direction and future expected volatility of an underlying while futures are directional trades only."

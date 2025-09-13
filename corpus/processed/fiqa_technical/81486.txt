@@ -1,0 +1,1 @@
+Sharpe ratio can work but is often too complex for retail traders. Consider using R-Multiples, where R is the amount risked on the trade. If you're risking 100 and you make 200, that's a 2R trade. There's no right R multiple and it's dependent on your trading style. Van Tharp's books help describe it better.

@@ -1,0 +1,1 @@
+The simplest solution to fire-and-forget is to pick something like a Target Date mutual fund made up of low-overhead index funds (within your 401k or a Roth IRA, perhaps) and set up automatic purchase to that. If you're talking about limit orders and so on, that ain't simple.

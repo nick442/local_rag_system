@@ -1,0 +1,1 @@
+I'm not aware of any digital cable boxes that you can just buy, call the cable company and give them the MAC address and it will work, like with a cable modem. But any cable box that supports CableCard will probably work with Comcast. You still have to rent the cable card, which is generally several dollars a month.

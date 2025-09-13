@@ -1,0 +1,1 @@
+I would just create a single liability account to represent the loan, starting with a $0 balance. Then, create a transaction in which the amount of the loan moves from the liability account into your savings account. As you pay the loan off, you'll create new transactions that move money from whichever account you're using to pay it off into your liability account.

@@ -1,0 +1,1 @@
+Options do act, somewhat, like insurance.. However.. An insurance policy will not have such short term expiration time frames. A 20 year term life insurance policy can be thought of as insurance with an expiration. But the expiration on options is in weeks, not decades. So (IMO) options make terrible insurance policies because of the very short term expirations they have.

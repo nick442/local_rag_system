@@ -1,0 +1,1 @@
+The data for ES_F normally is joined on the contract expiry date, i.e. june is joined to the next month on the expiry date. The discrepancy to the real thing in practice might be significant, as seasonal strategies (as we call these) are mined fairly often.

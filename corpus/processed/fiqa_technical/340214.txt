@@ -1,0 +1,1 @@
+When my orders fill, I'll often see a 1000 shares go through over 4-6 transactions, with a few cents difference high to low, but totaling the transaction cost, it adds to one commission (say $10 for my broker). Are you sure a series of partial fills would result in as many as 20 commissions?

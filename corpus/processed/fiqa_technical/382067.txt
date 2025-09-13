@@ -1,0 +1,1 @@
+Depends on when you are seeing these bids & asks-- off hours, many market makers pull their bid & ask prices entirely. In a lightly traded stock there may just be no market except during the regular trading day.

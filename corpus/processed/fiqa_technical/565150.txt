@@ -1,0 +1,1 @@
+Matthew - what was the stock price and strike price of the option when you did this? I've never seen an at-the-money strike with only a month to run have a price 25% of the underlying stock. Jaydles covers the variables really well in his answer.

@@ -1,0 +1,1 @@
+the data source is the same as the live market trading. pre and after market trading are active markets and there are actual buyers and sellers getting their orders matched.

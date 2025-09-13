@@ -1,0 +1,1 @@
+You could make a browser plugin that did that I would think. Does such a thing exist already? It would track which sites you go to, and for how long. And whichever sites accepted payment through them it would distribute your budget to every month. I imagine you would have to review the payment at the end of the month, just to verify and to prevent fraud.

@@ -1,0 +1,1 @@
+If anyone is interested in looking into it, the company Pinnacle has actually been using theory from quantitative finance for a long time. I went to one of their talks during useR!2017 in Brussels, really interesting betting company.

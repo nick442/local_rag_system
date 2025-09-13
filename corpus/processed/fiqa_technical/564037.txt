@@ -1,0 +1,1 @@
+*Volatility and the VIX can be very tricky to trade. In particular, going out longer than a month can result in highly surprising outcomes because the VIX is basically always a one month snapshot, even when the month is out in the future.

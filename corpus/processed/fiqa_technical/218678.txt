@@ -1,0 +1,1 @@
+SavingsMap is a web-based personal finance forecasting tool that requires no bank account or personal information other than an email address. As founder of SavingsMap, our goal is to forecast future cash flows based on your current budget, while using strategies to minimize US tax obligations and taking into account expected major life events.

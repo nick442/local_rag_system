@@ -1,0 +1,1 @@
+You should be recording the reimbursement as a negative expense on the original account the expense was recorded. Let's assume you have a $100 expense and $100 salary. Total $200 paycheck. You will have something like this In the reports, it will show that the expense account will have $0 ($100 + ($100)), while income account will have $100 (salary).

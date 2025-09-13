@@ -1,0 +1,1 @@
+In order to calculate the ratio you are looking for, just divide total debt by the market capitalization of the stock. Both values can be found on the link you provided. The market capitalization is the market value of equity.

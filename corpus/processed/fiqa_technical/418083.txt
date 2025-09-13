@@ -1,0 +1,1 @@
+If you intend to be responsive to news and intraday price moves, for foreign stocks these will often happen while you're asleep (e.g. the Tokyo Stock Exchange opens at roughly midnight UK time).

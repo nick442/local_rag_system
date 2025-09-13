@@ -1,0 +1,1 @@
+Some banks charge their own customers if they make use of a teller. That is what you are doing. You are going to a bank where you are not a customer and requesting a transaction that requires a teller. If you cash the check by going though your bank, the issuer's bank only handles it as a non-teller transaction.

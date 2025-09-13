@@ -1,0 +1,1 @@
+Check the answers to this Stackoverflow question https://stackoverflow.com/questions/754593/source-of-historical-stock-data a number of potential sources are listed

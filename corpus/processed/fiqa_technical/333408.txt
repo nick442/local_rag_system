@@ -1,0 +1,1 @@
+Owners of American-style options may exercise at any time before the option expires, while owners of European-style options may exercise only at expiration. Read more: American Vs. European Options

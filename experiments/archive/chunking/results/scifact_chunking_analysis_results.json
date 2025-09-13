@@ -1,0 +1,142 @@
+{
+  "corpus": "SciFact",
+  "summary_stats": {
+    "total_experiments": 510,
+    "avg_quality_score": 1.0,
+    "avg_response_time": 28.882982974893906,
+    "configurations_tested": 17
+  },
+  "optimal_configurations": {
+    "best_overall_quality": {
+      "config": {
+        "chunk_size": 128,
+        "chunk_overlap": 32,
+        "retrieval_k": 5
+      },
+      "quality_score": 1.0,
+      "response_time": 11.054950221379597,
+      "efficiency": 0.10751887036009891
+    },
+    "best_efficiency": {
+      "config": {
+        "chunk_size": 128,
+        "chunk_overlap": 32,
+        "retrieval_k": 5
+      },
+      "efficiency": 0.10751887036009891,
+      "quality_score": 1.0,
+      "response_time": 11.054950221379597
+    },
+    "fastest_response": {
+      "config": {
+        "chunk_size": 128,
+        "chunk_overlap": 32,
+        "retrieval_k": 5
+      },
+      "response_time": 11.054950221379597,
+      "quality_score": 1.0,
+      "efficiency": 0.10751887036009891
+    },
+    "most_reliable": {
+      "config": {
+        "chunk_size": 128,
+        "chunk_overlap": 32,
+        "retrieval_k": 5
+      },
+      "retrieval_success": 1.0,
+      "response_generated": 1.0,
+      "quality_score": 1.0
+    },
+    "parameter_analysis": {
+      "chunk_size": {
+        "best_value": 128,
+        "worst_value": 128,
+        "performance_range": 0.0,
+        "stats": {
+          "128": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 60.0
+          },
+          "256": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 90.0
+          },
+          "512": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 120.0
+          },
+          "1024": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 120.0
+          },
+          "2048": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 120.0
+          }
+        }
+      },
+      "chunk_overlap": {
+        "best_value": 32,
+        "worst_value": 32,
+        "performance_range": 0.0,
+        "stats": {
+          "32": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 150.0
+          },
+          "64": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 150.0
+          },
+          "128": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 120.0
+          },
+          "256": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 90.0
+          }
+        }
+      },
+      "retrieval_k": {
+        "best_value": 5,
+        "worst_value": 5,
+        "performance_range": 0.0,
+        "stats": {
+          "5": {
+            "mean": 1.0,
+            "std": 0.0,
+            "count": 510.0
+          }
+        }
+      }
+    }
+  },
+  "parameter_distributions": {
+    "chunk_size": {
+      "512": 120,
+      "1024": 120,
+      "2048": 120,
+      "256": 90,
+      "128": 60
+    },
+    "chunk_overlap": {
+      "32": 150,
+      "64": 150,
+      "128": 120,
+      "256": 90
+    },
+    "retrieval_k": {
+      "5": 510
+    }
+  }
+}

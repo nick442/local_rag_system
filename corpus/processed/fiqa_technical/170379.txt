@@ -1,0 +1,1 @@
+Factset also provides a host of tools for analysis. Not many people know as they aren't as prevalent as Bloomberg. CapitalQ and Thomson Reuters also provide analysis tools. Most of the market data providers also provide analysis tools to analyze the data they and others provide.

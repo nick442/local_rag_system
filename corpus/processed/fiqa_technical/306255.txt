@@ -1,0 +1,1 @@
+Not quite the usual DCF or valuation question, but more FP&A: any ideas how to bridge cash forecast to financial forecast? To clarify, financial forecast is mostly done on an accrual basis whereas cash is outflows and inflows. Trying to figure out how to have better visibility into cash discrepancies

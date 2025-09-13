@@ -1,0 +1,1 @@
+My company (30 people) is struggling with timezones as it is. We've got clients world-wide and if we didn't have east & west coast people as well as someone in Europe and a team in India, working with India, China, and Europe would be pretty exhausting. If I were amazon, I'd definitely see value in picking another time zone.

@@ -1,0 +1,1 @@
+"There's something wrong with your story. The IBAN contiains two check digits, and the method used to compute them guarantees that any single digit error will be caught. So it's impossible that ""HSBC screwed up the last digit of my IBAN"" because if that were the case, the resulting IBAN would not be valid and be rejected by the computer when it was entered at your bank."

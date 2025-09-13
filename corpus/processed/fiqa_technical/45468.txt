@@ -1,0 +1,1 @@
+A bond fund has a 5% yield. You can take 1/.05 and think of it as a 20 P/E. I wouldn't, because no one else does, really. An individual bond has a coupon yield, and a YTM, yield to maturity. A bond fund or ETF usually won't have a maturity, only a yield.

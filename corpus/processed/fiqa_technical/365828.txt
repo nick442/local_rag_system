@@ -1,0 +1,1 @@
+Either, since I don't think you can go wrong (but it also depends on what you plan on doing). Its not just the language that's important, but the way it teaches you to think about algorithms or frameworks that might apply elsewhere. At the very least, if you don't take a programming course, pick up SQL or VB to script Excel stuff.

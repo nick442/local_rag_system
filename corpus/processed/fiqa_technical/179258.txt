@@ -1,0 +1,1 @@
+In the world of stock exchanges, the result depends on the market state of the traded stock. There are two possibilities, (a) a trade occurs or (b) no trade occurs. During the so-called auction phase, bid and ask prices may overlap, actually they usually do. During an open market, when bid and ask match, trades occur.

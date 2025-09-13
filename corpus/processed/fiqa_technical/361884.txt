@@ -1,0 +1,1 @@
+FTSE is an index catering to the London stock exchange. It is a Capitalization-Weighted Index of 100 companies listed on the London Stock Exchange with the highest market capitalization . When somebody says FTSE closed at 6440, it basically means at the end of the day, the index calculated using the day end market capitalization of the companies, included in the index, is 6440.

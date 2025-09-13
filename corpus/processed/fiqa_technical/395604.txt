@@ -1,0 +1,1 @@
+Microsoft, one of the leading technology giants, released the much awaited .net core last year. ASP.NET has a notable position as robust and scalable development platform. ASP.NET developers around the world want to have a to more powerful and fresh ASP.NET framework to get their hands on.

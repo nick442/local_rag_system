@@ -1,0 +1,1 @@
+You typically need to specify that you want the GTC order to be working during the Extended hours session. I trade on TD Ameritrade's Thinkorswim platform, and you can select DAY, GTC, EXT or GTC_EXT. So in your case, you would select GTC_EXT.

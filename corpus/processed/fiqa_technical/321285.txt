@@ -1,0 +1,1 @@
+I am not aware of any hedge funds that measure themselves using the sharpe ratio. The sharpe ratio measures risk relative to the risk free rate, and I don't believe there are any huge funds that consider themselves risk free. Hedge funds or CTAs will use information ratio using excess return compared to a relevant benchmark.

@@ -1,0 +1,1 @@
+You'll need to find out in what format MoneyStrands expects the data. A .qif or an .ofx file may not be the answer.

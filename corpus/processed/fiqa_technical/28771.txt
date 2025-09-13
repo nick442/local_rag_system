@@ -1,0 +1,1 @@
+I think he's referring to [NAT-PMP](https://en.wikipedia.org/wiki/NAT_Port_Mapping_Protocol). NAT-PMP opens a port on your firewall to allow you to access your IoT devices when you're away from home, but the services this exposes may have vulnerabilities that allow attackers to have access to your internal network.

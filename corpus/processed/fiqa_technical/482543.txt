@@ -1,0 +1,1 @@
+* HOS limits time a driver can spend behind the wheel. Without team drivers, the truck sits idle for 60-70+% of the time.* There are also regulations that limit the time a truck can be operated no matter how many drivers are being used. Last time I checked it was 16 hours in any 24 hour period. Will those regulations still exist when self driving trucks enter service?

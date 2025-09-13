@@ -1,0 +1,1 @@
+Im creating a 5-year projection on Profit and loss, cash flow and balance sheet and i\m suppose to use the LIBOR (5 year forward curve) as interest rate on debt. This is the information i am given and it in USD. Thanks for the link. I guess its the USD LIBOR today, in one year, in two years, three years, four years and five years

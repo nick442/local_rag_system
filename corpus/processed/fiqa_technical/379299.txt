@@ -1,0 +1,1 @@
+You could create your own spreadsheet of Cash Flows and use the XIRR function in Excel: The formula is:

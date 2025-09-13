@@ -1,0 +1,1 @@
+I looked at this a little more closely but the answer Victor provided is essentially correct. The key to look at in the google finance graph is the red labled SMA(###d) would indicate the period units are d=days. If you change the time axis of the graph it will shift to SMA(###m) for period in minutes or SMA(###w) for period in weeks. Hope this clears things up!

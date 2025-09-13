@@ -1,0 +1,1 @@
+Looks like this is just for billing mostly. We need inventory management that integrates with our PO's but still be able to add line items for sales that do not come from inventory. We need a system similar to SAP.

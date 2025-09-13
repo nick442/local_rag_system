@@ -1,0 +1,1 @@
+"They have a software charging curve that ""increases"" the batteries capacity as it degrades over time. So the end user see's a more stable range over the life of the car rather than a gradual decline from the 60kwh it's rated as. This is better for the batteries and ultimately the end user."

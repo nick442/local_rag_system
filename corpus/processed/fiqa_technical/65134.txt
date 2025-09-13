@@ -1,0 +1,1 @@
+But if underlying goes to 103 at expiration, both the call and the put expire worthless If the stock closes at 103 on expiration, the 105 put is worth $2, not worthless.

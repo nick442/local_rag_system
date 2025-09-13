@@ -1,0 +1,1 @@
+Yes for every order there is a buyer and seller. But overall there are multiple buyers and multiple sellers. So every trade is at a different price and this price is agreed by both buyer and seller. Related question will help you understand this better. How do exchanges match limit orders?

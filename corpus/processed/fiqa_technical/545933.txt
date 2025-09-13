@@ -1,0 +1,1 @@
+The one whose order gets to the exchange first. The exchange receives the orders and arranges them in First-In-First-Out order, by which they're then executed. At some point it is synchronized and put into a list. Whoever gets to that point first - gets the deal.

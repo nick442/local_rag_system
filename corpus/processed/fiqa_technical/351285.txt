@@ -1,0 +1,1 @@
+In the US, for most mortgages: The rules for how you compute LTV vary. Usually it's based with current value. With FHA loans, you cannot have the property re-assessed -- LTV is based on the original loan amortization. Note that in the wake of the housing crisis, assessors have suddenly become very conservative with valuations, so be prepared to fight over the valuation.

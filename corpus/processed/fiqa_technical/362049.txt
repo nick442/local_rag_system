@@ -1,0 +1,1 @@
+On the US markets, most index options are European style. Most stock and ETF options are, as you noted, American style.

@@ -1,0 +1,1 @@
+That's why I said you can do a weighted average and take into account other factors. The initial average calculation is just a simple, high level average to compare betas across different listings. For a more precise calculation you would have to weigh different factors.

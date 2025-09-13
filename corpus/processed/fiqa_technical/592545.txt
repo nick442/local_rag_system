@@ -1,0 +1,1 @@
+"The best I could come up with would be to simply ask for the amount of ""notes"" and ""coins"" you would like, and specify denominations thereof. The different currency labels exist for the reason that not all of them are valued the same, so USD 100 is not the same as EUR 100. To generalize would mean some form of uniformity in the values, that just isn't there."

@@ -1,0 +1,1 @@
+Every insurance company has a pricing factor for every car they insure that along with factors about the driver is used to set rates. The story was that AAA was adjusting it's factor for Tesla models. Insurance companies do this all time as they collect more data. This is only news because people like to talk about Tesla.

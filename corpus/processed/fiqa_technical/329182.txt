@@ -1,0 +1,1 @@
+Just got back from the office, so I can better answer it now. The trader uses the Metatrader platform, which is programmed with a language based off C++. I'm working with him to update some algos now. His strategies running on ToS are more or less proof-of-concept that he streams right now as he sources investors.

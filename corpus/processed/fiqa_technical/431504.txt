@@ -1,0 +1,1 @@
+When you enter your expected gross income into the worksheet - just enter $360000 and leave everything else as is. That should give you the right numbers. Same for State (form DE-4).

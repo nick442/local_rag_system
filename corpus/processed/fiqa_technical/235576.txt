@@ -1,0 +1,1 @@
+More on a technical note, but the spread on an ETF tends to be worst at market open and near market close. (assuming the ETF constituents are traded on a synchronous basis.) If possible, it's often best to let market makers get up and running before allowing your order to flow into market.

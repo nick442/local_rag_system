@@ -1,0 +1,1 @@
+How do I calculate the adjusted real rate of return of an investment (such as mutual fund) after inflation and fees? I have always thought that you do this: (1 + nominal return - fees)/(1 + inflation) - 1, but I have been told that this is the wrong way to do it. Additionally, what is the difference between real interest rate and inflation-adjusted return?

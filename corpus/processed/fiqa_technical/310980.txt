@@ -1,0 +1,1 @@
+This is still unknown. One theory is that the risk adjusted premium is at an equilibrium allowing the seller and buyer to receive the best risk-adjusted premium. Deep in the monies have lower premiums, so this spurns sellers. Deep out the monies have lower probabilities of expiring in the money, so this spurns buyers. Risk adjusted, not at the monies cost more.

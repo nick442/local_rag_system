@@ -1,0 +1,1 @@
+"On mint, you can create your own tags for transactions. So, you could create a tag called ""reviewed"" and tag each transaction as reviewed once you review it. I've done something similar to this called ""reimbursable expense"" to tag which purchases I made on behalf of someone else who is going to pay me back."

@@ -1,0 +1,1 @@
+The answer to your question as asked is no. Call options, even those issued by the company, cannot create new shares unless they are employee stock options. Company-issued warrants, on the other hand, can create new shares.

@@ -1,0 +1,1 @@
+Volumes are used to predict momentum of movement, not the direction of it. Large trading volumes generally tend to create a price breakout in either positive or negative direction. Especially in relatively illiquid stocks (like small caps), sudden volume surges can create sharp price fluctuations.

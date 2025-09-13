@@ -1,0 +1,1 @@
+To me, any program which has its algorithm change based on input. Air control traffic systems would not satisfy this because although they adjust their path choices based on input, nothing changes about the algorithm. The algorithm was designed to adjust path choices based on input, and the way the algorithm approaches that does not change based on input.

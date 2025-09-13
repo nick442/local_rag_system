@@ -1,0 +1,1 @@
+There's a concept called interest rate parity, which sort of says that you cannot profit on the difference in interest rates. This difference accounts for the predicted movement in exchange rates as well, along with the stability of the currencies.

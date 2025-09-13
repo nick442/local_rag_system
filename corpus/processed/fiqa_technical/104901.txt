@@ -1,0 +1,1 @@
+There's an interesting paper, Does Investor Attention Affect Stock Prices? (Sandhya et al), where researchers look at related stock tickers. When a large cap, better-known stock jumps, smaller firms with similar symbols also rise. Pretty nuts -- I interviewed the author of the paper [here](http://www.tradestreaming.com/?p=3745). There's also a transcript.

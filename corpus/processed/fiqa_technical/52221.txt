@@ -1,0 +1,1 @@
+The simple answer: The opening price is the price of the first trade of the day and the closing price is the price of the last trade of the day. And since the stock price change from trade to trade they are usually different.

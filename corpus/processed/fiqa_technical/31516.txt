@@ -1,0 +1,1 @@
+You can take a look at EDGAR (Electronic Data Gathering, Analysis, and Retrieval), a big database run by the SEC where all companies, foreign and domestic, are required to file registration statements, periodic reports, and other forms electronically.

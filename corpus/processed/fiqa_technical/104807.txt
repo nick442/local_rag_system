@@ -1,0 +1,1 @@
+> Once it is triggered, the system triggers an event to the bank’s alarm system, flags video surveillance of an event, and starts up a device designed to “jam” skimmers by disrupting their reading of card data. If this works as well as the article claims, why not simply have the magnetic jammers running constantly?

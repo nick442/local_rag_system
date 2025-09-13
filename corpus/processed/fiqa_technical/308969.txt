@@ -1,0 +1,1 @@
+http://www.irs.gov/pub/irs-pdf/f5498.pdf see the instructions for box 2, it's used to report incoming rollover/transfers. The receiving broker should be acknowledging the transfer with the 5498. If you read the PDF carefully, any incoming money is reported this way.

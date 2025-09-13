@@ -1,0 +1,1 @@
+"I assume the devs who created the options didn't think about it much and/or wanted to make the API flexible. Only later did a project manager come by and say, ""We should block Apps from limiting options like that"", which is what they did in the upcoming iOS."

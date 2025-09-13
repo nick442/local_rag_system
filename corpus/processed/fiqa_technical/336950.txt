@@ -1,0 +1,1 @@
+The usual, but controversial, answer to this question is a 4% withdrawal rate. This means a net worth of ($5000 * 12 months ) / 4%, i.e., $1,500,000 If you want to play with the numbers, based on historical data, you can use the FIRECalc simulator.

@@ -1,0 +1,1 @@
+Right now the SEPA Credit Transfers take 3 days excluding holidays. In future this would be reduced to 2 days and then eventually to same day. Your bank would have acknowledged sending out the transaction. It would go into the clearing house and then to the recipient's bank. Once the receiver's bank receives the funds, they would notify the receiver.

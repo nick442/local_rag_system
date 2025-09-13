@@ -1,0 +1,1 @@
+Checks actually have a limited lifespan before the bank no longer has to honor them, which simplifies this question. After about 6 months you assume that check won't be cashed. If they find it after that, you write them a new check. If they don't, you really should pester them to do so.

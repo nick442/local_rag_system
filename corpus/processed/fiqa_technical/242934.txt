@@ -1,0 +1,1 @@
+If the expense ratio of the fund is 0.00% then yes. However, if the fund has expenses of 1% then if the NAV of the fund is $10/share the expenses would cause you to see only $.002 a share and thus you'd have $.10 in total as the expenses first cut down the yield.

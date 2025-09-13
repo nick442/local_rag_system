@@ -1,0 +1,1 @@
+">The currencies pay people for mining Why do you think people mine? What is the function of ""mining""? >There is no reason financial institutions couldn't create their own closed-network to recordkeep transactions using block chain but without a cryptocurrency. Walk me through how that looks. This would be a node based system right? Not a client-server model?"

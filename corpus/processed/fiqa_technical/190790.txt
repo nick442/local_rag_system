@@ -1,0 +1,1 @@
+Today's rate is 23.21 bps. I'm going to list years forward, spot rate, forward rate. 1, 30.27, 61.77 2, 63.64, 155.73 3, 107.15, 228.04 4, 143.16, 266.31 5, 172.55, 290.12 These are bids, but mids are all within a basis point

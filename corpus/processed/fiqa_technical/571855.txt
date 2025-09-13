@@ -1,0 +1,1 @@
+Why ACH transfers are free and wires are subject to fees? Because ACH transfers can be done in batch, and are much easier and cheaper for the banks than wire transfers which must be reviewed individually, are somewhat safer (partly because of this review) and faster, but are more expensive for the banks to process.

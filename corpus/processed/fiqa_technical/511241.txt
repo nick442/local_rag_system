@@ -1,0 +1,1 @@
+You're talking about floating rate loans. It's so that the bond is marked back to market every 90 days. Any more often would be a hassle to deal with for everyone involved, any less often and they would be significant variance from LIBOR vs. the loan's specific rate.

@@ -1,0 +1,1 @@
+The same as when you are buying a car. If a dealer quotes 10k and you quote 8k. 8k is the buy price and 10k is the sell price. Somebody might quote 8.5k and another dealer might quote 9.5k. The the new price that you see on your screen is 8.5k(Best buy price) and 9.5k(Best sell price). When the buyer and seller agree to an amount, the car(In your case stock) is traded.

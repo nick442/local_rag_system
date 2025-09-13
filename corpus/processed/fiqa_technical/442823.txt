@@ -1,0 +1,1 @@
+An expiration 2 years out will have Sqr(2) (yes the square root of 2!) times the premium of the 1 year expiration. So if the option a year out sell for $1.00, two is only $1.41. And if the stock trades for $10, but the strike is $12, why aren't you just waiting for expiration to write the next one?

@@ -1,0 +1,1 @@
+Time premium is the difference between the market value of the option and its intrinsic value the amount you would get if it expired right now. Lets think about three cases for buying call options: Purchasing put options works similarly but in reverse.

@@ -1,0 +1,1 @@
+The value does change from 12.61% to 13.48%. The difference between re-investing cashflows at 14% vs 12% is not big enough to change the rounded value. Edit: The initial cashflow is discounted at t0, meaning it's already equal to its present value and the finance rate doesn't have an effect. It does impact future outgoing cashflows, as you've noted.

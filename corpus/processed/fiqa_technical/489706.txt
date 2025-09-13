@@ -1,0 +1,1 @@
+The point of a total return index is that it already has accounted for the capital gains + coupon income. If you want to calculate it yourself you'll have to find the on-the-run 10y bond for each distinct period then string them together to calc your total return. Check XLTP if they have anything

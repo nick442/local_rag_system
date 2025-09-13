@@ -1,0 +1,1 @@
+Yield is almost always the mean rate of return. Then 1.65% yield means that you will see that rate of return inclusive of any coupons. The way I like think of is that yield is the discount rate used to value the instrument at market value. DONT CONFUSE THE COUPON RATE WITH YIELD. Those are two completely separate things.

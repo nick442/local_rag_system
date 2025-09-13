@@ -1,0 +1,1 @@
+Yes. There are levels of option trading permission. For example, I've never set myself up for naked put writing. But, if you already have the call spread, buying back the shorted call will leave you with a long call. This wouldn't be an issue. As long as you have the cash/margin to buy back that higher strike call.

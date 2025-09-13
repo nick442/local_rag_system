@@ -1,0 +1,1 @@
+That is true. You will not be able to reconstruct the value of the index from the data returned with this script. I initially wrote this script because I wanted data for a lot of stocks and I wanted to perform PCA on the stocks currently included in the index.

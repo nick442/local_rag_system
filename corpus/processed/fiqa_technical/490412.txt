@@ -1,0 +1,1 @@
+As a programmer, I think it's bizarre that they wouldn't be running some kind of UNIX variant for all sorts of reasons. But sometimes tech decisions at these big companies get made by non-tech people and they end up doing things in unusual ways (that's why businesses end up paying a bunch of money for lesser quality software from Microsoft, Oracle, etc.).

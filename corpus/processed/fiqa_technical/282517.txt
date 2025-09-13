@@ -1,0 +1,1 @@
+The 7 digit corporation number can be found through a business entity search on the CA SOS website (specifically, http://kepler.sos.ca.gov/) If you have a 7-digit corporation number, then you do not have a 12-digit file number. (A call to the Secretary of State's office revealed that they provide either a 7 digit corporation number or a 12 digit file number - not both.)

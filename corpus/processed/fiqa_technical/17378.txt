@@ -1,0 +1,1 @@
+In regards to your 1st question, if you are a US resident (according to IRS rules) and you have any foreign bank accounts, then you need to file a FBAR form for every year in which any of these accounts has more than $10,000. This is the way that IRS keeps track of substantial amounts of money kept by US residents in foreign accounts.

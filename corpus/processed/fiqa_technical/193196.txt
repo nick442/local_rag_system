@@ -1,0 +1,1 @@
+Restaurant owner here. Comcast's SLA is 4 hours. So, when it goes down at 7pm on a Friday (and it has, multiple times) then I'm pretty much screwed on my credit card transactions. So, I have to have a failover device that uses a mobile network in order to make sure that I can keep processing transactions. That's another $700/year just because Comcast's reliability is so bad.

@@ -1,0 +1,1 @@
+Given the following variables Where b[n + 1] = b[n] (1 + r) - w and b[0] = s then b[n] = ((1 + r)^n (r s - w) + w)/r For example, illustrating with some figures. The balances in the first four quarters (n = 1, 2, 3, 4) are Check As per the Excel formula provided by OneTruDragonGirl £670.27

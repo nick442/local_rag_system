@@ -1,0 +1,1 @@
+You set it based on liquidity management. Cash drag is one of the reasons actively managed funds underperform. The longer your settlement date, the less cash you have to hold because you can take three days to liquidate positions to redeem. So it's a convenience vs performance question.

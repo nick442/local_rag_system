@@ -1,0 +1,1 @@
+I wrote a small Excel-based bookkeeping system that handles three things: income, expenses, and tax (including VAT, which you Americans can rename GST). Download it here.

@@ -1,0 +1,1 @@
+This depends on the loan calculation methodology. If it is on reducing balance then yes. Else not much difference

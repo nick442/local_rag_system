@@ -1,0 +1,1 @@
+Yes, it would be incorrect to refer to BATS Chi-X Europe as a market maker. Market makers make markets on BATS Chi-X Europe, which is a stock exchange.

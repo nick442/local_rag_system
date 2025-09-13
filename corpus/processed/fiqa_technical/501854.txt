@@ -1,0 +1,1 @@
+Meanwhile, JP Morgan is heavily involved in the Enterprise Ethereum Alliance. It's mostly focused on private chains for now, but at the EEA conference they said they hope to move some applications to the public chain when it's ready. JP Morgan's Quorum client bridges the two.

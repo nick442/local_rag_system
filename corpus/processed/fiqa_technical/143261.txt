@@ -1,0 +1,1 @@
+It seems like you want to compare the company's values not necessarily the stock price. Why not get the total outstanding shares and the stock price, generate the market cap. Then you could compare changes to market cap rather than just share price.

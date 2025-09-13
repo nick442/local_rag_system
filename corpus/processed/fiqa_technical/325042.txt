@@ -1,0 +1,1 @@
+@Jeremy Using CVV doesn't decrease the transaction cost. I know this because I have quotes for CC transactions and the cost/transaction doesn't depend on using CVV. That said we don't plan to use CVV because we sell insurance and the likelihood that someone who steals CC will buy insurance is very low.

@@ -1,0 +1,508 @@
+{
+  "metadata": {
+    "dataset": "fiqa",
+    "source": "local_corpus"
+  },
+  "queries": [
+    {
+      "id": "4019",
+      "query": "How and Should I Invest (As a college 18 year old with minimal living expenses)?",
+      "metadata": {}
+    },
+    {
+      "id": "7279",
+      "query": "If I invest in securities denominated in a foreign currency, should I hedge my currency risk?",
+      "metadata": {}
+    },
+    {
+      "id": "9329",
+      "query": "Interactive Brokers: IOPTS and list of structured products",
+      "metadata": {}
+    },
+    {
+      "id": "10267",
+      "query": "How should I prepare for the next financial crisis?",
+      "metadata": {}
+    },
+    {
+      "id": "2685",
+      "query": "What ways are there for us to earn a little extra side money?",
+      "metadata": {}
+    },
+    {
+      "id": "6612",
+      "query": "If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",
+      "metadata": {}
+    },
+    {
+      "id": "2593",
+      "query": "Am I \u201ccheating the system\u201d by opening up a tiny account with a credit union and then immediately applying for a huge loan?",
+      "metadata": {}
+    },
+    {
+      "id": "6867",
+      "query": "Will there always be somebody selling/buying in every stock?",
+      "metadata": {}
+    },
+    {
+      "id": "68",
+      "query": "Intentions of Deductible Amount for Small Business",
+      "metadata": {}
+    },
+    {
+      "id": "7109",
+      "query": "How do I analyse moving averages?",
+      "metadata": {}
+    },
+    {
+      "id": "687",
+      "query": "Online tool to connect to my bank account and tell me what I spend in different categories?",
+      "metadata": {}
+    },
+    {
+      "id": "3357",
+      "query": "Why big clients want the contractor to be incorporated before giving them work",
+      "metadata": {}
+    },
+    {
+      "id": "4037",
+      "query": "How separate individual expenses from family expenses in Gnucash?",
+      "metadata": {}
+    },
+    {
+      "id": "34",
+      "query": "401k Transfer After Business Closure",
+      "metadata": {}
+    },
+    {
+      "id": "5460",
+      "query": "Paying off a loan with a loan to get a better interest rate",
+      "metadata": {}
+    },
+    {
+      "id": "6221",
+      "query": "To pay off a student loan, should I save up a lump sum payoff payment or pay extra each month?",
+      "metadata": {}
+    },
+    {
+      "id": "4411",
+      "query": "How does the importance of a cash emergency fund change when you live in a country with nationalized healthcare?",
+      "metadata": {}
+    },
+    {
+      "id": "1933",
+      "query": "UK sole trader who often buys products/services on behalf of clients \u2013 do I deduct from declared income or claim as allowable expenses?",
+      "metadata": {}
+    },
+    {
+      "id": "10122",
+      "query": "Why diversify stocks/investments?",
+      "metadata": {}
+    },
+    {
+      "id": "5903",
+      "query": "Fees aside, what factors could account for performance differences between U.S. large-cap index ETFs?",
+      "metadata": {}
+    },
+    {
+      "id": "8116",
+      "query": "A-B-C Class Shares: What's the difference?",
+      "metadata": {}
+    },
+    {
+      "id": "1469",
+      "query": "Why do some companies report how well their EBITDA performed even if their overall net profit did equally well?",
+      "metadata": {}
+    },
+    {
+      "id": "6909",
+      "query": "Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?",
+      "metadata": {}
+    },
+    {
+      "id": "4286",
+      "query": "Given advice \u201cbuy term insurance and invest the rest\u201d, how should one \u201cinvest the rest\u201d?",
+      "metadata": {}
+    },
+    {
+      "id": "9808",
+      "query": "Selling To Close",
+      "metadata": {}
+    },
+    {
+      "id": "699",
+      "query": "Prepaid Rent (Accrual Based Accounting)",
+      "metadata": {}
+    },
+    {
+      "id": "8970",
+      "query": "What's the difference, if any, between stock appreciation and compound interest?",
+      "metadata": {}
+    },
+    {
+      "id": "4804",
+      "query": "How do financial services aimed at women differ from conventional services?",
+      "metadata": {}
+    },
+    {
+      "id": "3177",
+      "query": "Vanguard ETF vs mutual fund",
+      "metadata": {}
+    },
+    {
+      "id": "810",
+      "query": "Can I open a bank account in the US remotely? Will I pay taxes for the money on it?",
+      "metadata": {}
+    },
+    {
+      "id": "5782",
+      "query": "Pay off credit cards in one lump sum, or spread over a few months?",
+      "metadata": {}
+    },
+    {
+      "id": "6041",
+      "query": "Most effective Fundamental Analysis indicators for market entry",
+      "metadata": {}
+    },
+    {
+      "id": "6907",
+      "query": "Nominal value of shares",
+      "metadata": {}
+    },
+    {
+      "id": "5505",
+      "query": "Can I deduct interest and fees on a loan for qualified medical expenses?",
+      "metadata": {}
+    },
+    {
+      "id": "928",
+      "query": "How can I determine if a FHA loan refinance offer is from a reputable lender",
+      "metadata": {}
+    },
+    {
+      "id": "10812",
+      "query": "Is is possible to dispute IRS underpayment penalties?",
+      "metadata": {}
+    },
+    {
+      "id": "9126",
+      "query": "Short an option - random assignment?",
+      "metadata": {}
+    },
+    {
+      "id": "5585",
+      "query": "Is there any site you can find out about the 'bonus features' of credit cards?",
+      "metadata": {}
+    },
+    {
+      "id": "852",
+      "query": "Dalbar: How can the average investor lose money?",
+      "metadata": {}
+    },
+    {
+      "id": "8512",
+      "query": "Is it possible to transfer stock I already own into my Roth IRA without having to sell the stock?",
+      "metadata": {}
+    },
+    {
+      "id": "2443",
+      "query": "What are some way to transfer money from Hong Kong to India on a monthly basis?",
+      "metadata": {}
+    },
+    {
+      "id": "6219",
+      "query": "Are there Investable Real Estate Indices which track Geographical Locations?",
+      "metadata": {}
+    },
+    {
+      "id": "8378",
+      "query": "Should I wait a few days to sell ESPP Stock?",
+      "metadata": {}
+    },
+    {
+      "id": "4999",
+      "query": "Looking for a good source for Financial Statements",
+      "metadata": {}
+    },
+    {
+      "id": "5356",
+      "query": "Historical stock prices: Where to find free / low cost data for offline analysis?",
+      "metadata": {}
+    },
+    {
+      "id": "8934",
+      "query": "Dividend yield for multiple years?",
+      "metadata": {}
+    },
+    {
+      "id": "10183",
+      "query": "How are various types of income taxed differently in the USA?",
+      "metadata": {}
+    },
+    {
+      "id": "4523",
+      "query": "What should I do with my $25k to invest as a 20 years old?",
+      "metadata": {}
+    },
+    {
+      "id": "3085",
+      "query": "How long can I convert 401(k) to Roth 401(k)?",
+      "metadata": {}
+    },
+    {
+      "id": "859",
+      "query": "Any reason to keep around my account with my old, 'big' bank?",
+      "metadata": {}
+    },
+    {
+      "id": "3791",
+      "query": "\"When people say 'Interest rates are at all time low!\"\" \u2026 Which interest rate are they actually referring to?\"",
+      "metadata": {}
+    },
+    {
+      "id": "4605",
+      "query": "If the U.S. defaults on its debt, what will happen to my bank money?",
+      "metadata": {}
+    },
+    {
+      "id": "9403",
+      "query": "Abundance of Cash - What should I do?",
+      "metadata": {}
+    },
+    {
+      "id": "8247",
+      "query": "Tax on Stocks or ETF's",
+      "metadata": {}
+    },
+    {
+      "id": "8102",
+      "query": "When do I sell a stock that I hold as a long-term position?",
+      "metadata": {}
+    },
+    {
+      "id": "7080",
+      "query": "Wash sale rule with dividend reinvestment",
+      "metadata": {}
+    },
+    {
+      "id": "4312",
+      "query": "Is it true that 90% of investors lose their money?",
+      "metadata": {}
+    },
+    {
+      "id": "8513",
+      "query": "Buy on dip when earnings fail?",
+      "metadata": {}
+    },
+    {
+      "id": "547",
+      "query": "What percentage of my company should I have if I only put money?",
+      "metadata": {}
+    },
+    {
+      "id": "4767",
+      "query": "New car: buy with cash or 0% financing",
+      "metadata": {}
+    },
+    {
+      "id": "7445",
+      "query": "IS it the wrong time to get into the equity market immediately after large gains?",
+      "metadata": {}
+    },
+    {
+      "id": "2801",
+      "query": "If I deposit money as cash does it count as direct deposit?",
+      "metadata": {}
+    },
+    {
+      "id": "957",
+      "query": "How can I withdraw money from my LLC?",
+      "metadata": {}
+    },
+    {
+      "id": "2891",
+      "query": "May I claim money earned but not received in 2012",
+      "metadata": {}
+    },
+    {
+      "id": "2088",
+      "query": "How would I go about selling the stock of a privately held company?",
+      "metadata": {}
+    },
+    {
+      "id": "8959",
+      "query": "How is the opening-day price of a stock decided?",
+      "metadata": {}
+    },
+    {
+      "id": "4464",
+      "query": "Are Australian mutual fund fees large compared to US?",
+      "metadata": {}
+    },
+    {
+      "id": "3612",
+      "query": "How can I buy and sell the same stock on the same day?",
+      "metadata": {}
+    },
+    {
+      "id": "5086",
+      "query": "Mortgage loan implications when tearing down existing house and building new one?",
+      "metadata": {}
+    },
+    {
+      "id": "10482",
+      "query": "Rollover into bond fund to do dollar cost averaging [duplicate]",
+      "metadata": {}
+    },
+    {
+      "id": "3569",
+      "query": "Funds in closed bank account have gone to the government",
+      "metadata": {}
+    },
+    {
+      "id": "1391",
+      "query": "How is taxation for youtube/twitch etc monetization handled in the UK?",
+      "metadata": {}
+    },
+    {
+      "id": "3566",
+      "query": "Where can I buy stocks if I only want to invest a little bit at a time, and not really be involved in trading?",
+      "metadata": {}
+    },
+    {
+      "id": "9391",
+      "query": "Should I replace bonds in a passive investment strategy",
+      "metadata": {}
+    },
+    {
+      "id": "5134",
+      "query": "Why does Yahoo Finance's data for a Vanguard fund's dividend per share not match the info from Vanguard?",
+      "metadata": {}
+    },
+    {
+      "id": "3829",
+      "query": "Are all VISA cards connected with bank accounts?",
+      "metadata": {}
+    },
+    {
+      "id": "2648",
+      "query": "How does unemployment insurance work?",
+      "metadata": {}
+    },
+    {
+      "id": "3594",
+      "query": "If I were to get into a life situation where I would not be able to make regular payments, do lenders typically provide options other than default?",
+      "metadata": {}
+    },
+    {
+      "id": "7925",
+      "query": "Can I sell a stock immediately?",
+      "metadata": {}
+    },
+    {
+      "id": "549",
+      "query": "Where to request ACH Direct DEBIT of funds from MY OWN personal bank account?",
+      "metadata": {}
+    },
+    {
+      "id": "2318",
+      "query": "F1 student and eBay selling tax",
+      "metadata": {}
+    },
+    {
+      "id": "6122",
+      "query": "Better to rent condo to daughter or put her on title?",
+      "metadata": {}
+    },
+    {
+      "id": "5410",
+      "query": "Dealership made me the secondary owner to my own car",
+      "metadata": {}
+    },
+    {
+      "id": "3264",
+      "query": "Pros and Cons of Interest Only Loans",
+      "metadata": {}
+    },
+    {
+      "id": "9737",
+      "query": "Long(100%)-Short(-100%) investment explanation",
+      "metadata": {}
+    },
+    {
+      "id": "8202",
+      "query": "What accounted for DXJR's huge drop in stock price?",
+      "metadata": {}
+    },
+    {
+      "id": "8539",
+      "query": "Can the risk of investing in an asset be different for different investors?",
+      "metadata": {}
+    },
+    {
+      "id": "4153",
+      "query": "How do I invest in emerging markets",
+      "metadata": {}
+    },
+    {
+      "id": "503",
+      "query": "Privacy preferences on creditworthiness data",
+      "metadata": {}
+    },
+    {
+      "id": "4409",
+      "query": "My friend wants to put my name down for a house he's buying. What risks would I be taking?",
+      "metadata": {}
+    },
+    {
+      "id": "2737",
+      "query": "What to do with an old building to get money",
+      "metadata": {}
+    },
+    {
+      "id": "8632",
+      "query": "Is it best to exercise options shares when they vest, or wait",
+      "metadata": {}
+    },
+    {
+      "id": "9882",
+      "query": "Money-market or cash-type ETFs for foreigners with U.S brokerage account",
+      "metadata": {}
+    },
+    {
+      "id": "588",
+      "query": "Is there a reason to buy a 0% yield bond?",
+      "metadata": {}
+    },
+    {
+      "id": "6849",
+      "query": "What do the points in a stock market index epresent?",
+      "metadata": {}
+    },
+    {
+      "id": "3512",
+      "query": "As an employee, when is it inappropriate to request to see your young/startup company's financial statements?",
+      "metadata": {}
+    },
+    {
+      "id": "10979",
+      "query": "Closing a futures position",
+      "metadata": {}
+    },
+    {
+      "id": "2183",
+      "query": "Why are there many small banks and more banks in the U.S.?",
+      "metadata": {}
+    },
+    {
+      "id": "3530",
+      "query": "How to exclude stock from mutual fund",
+      "metadata": {}
+    },
+    {
+      "id": "1948",
+      "query": "Which colors can one use to fill out a check in the US?",
+      "metadata": {}
+    }
+  ]
+}

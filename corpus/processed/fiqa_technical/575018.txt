@@ -1,0 +1,1 @@
+Yup. What I wanted to know was where they are pulling it up from. Have casually used Google finance for personal investments, but they suck at corp actions. Not sure if they provide free APIs, but that would probably suck too! :D

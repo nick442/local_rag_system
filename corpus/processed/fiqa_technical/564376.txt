@@ -1,0 +1,1 @@
+As a computer security enthusiast who is still a bit of a noob.. how do I know these sha1 generators don't store my password as well? Granted, I guess they couldn't associate it with my account but if I were an unethical person I would put one of these up and use it to collect things that people queried to add them to a database of pw/hash combos to check.

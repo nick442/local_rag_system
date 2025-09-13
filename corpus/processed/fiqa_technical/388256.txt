@@ -1,0 +1,1 @@
+Part 2 = 12% -5000/0.12 (1 - 1/(1.12^2 ) = -8450.26 Then subtract year 0s 5000 payment if you havent = -13450.26 and then compare to option 2 -2000/0.12 (1 - 1/(1.12^10) = -11300.46 and subtract 20000 -31300.46 As you can see both values are substantially smaller compared to a 4% discount rate.

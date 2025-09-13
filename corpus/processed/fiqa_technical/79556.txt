@@ -1,0 +1,1 @@
+I read Q#4 as Will $250 in one account earn more interest than $250 in five accounts? in which case Excel says no, assuming a constant interest rate for all accounts. I dunno if the same holds true for banks.

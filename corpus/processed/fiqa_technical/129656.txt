@@ -1,0 +1,1 @@
+I would say binomial tree, except your last sentence, > The probabilities of the various outcomes are unknown. causes issues with that. You could do a scenario analysis in which you compare values using different %chances of up vs. down.

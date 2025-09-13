@@ -1,0 +1,1 @@
+I would say it isn't the best. There's a new NIST face recognition vendor test coming up that is good for evaluating company algorithms. I doubt face.com will enter considering they have been bought by Facebook, but I'm not sure they would have entered even if they had not been bought.

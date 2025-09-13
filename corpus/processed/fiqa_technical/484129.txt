@@ -1,0 +1,1 @@
+BIC and IBANN are used in EU (and some other OECD countries) for inter bank transfers. SWIFT is used everywhere for interbank transfers. In the US - IBAN system is not (yet, hopefully) available, so you have to use SWIFT. The codes may look the same, but these are different systems. More details here.

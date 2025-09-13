@@ -1,0 +1,1 @@
+The brokerage executes the transactions you tell them to make on your behalf. Other than acting as your agent for those, and maintaining your account, and charging a fee for the service, they have no involvement -- they do not attempt to predict optimal anything, or hold any assets themselves.

@@ -1,0 +1,1 @@
+What I ended up doing was finding where each ticker of Novo was registered (what exchange), then individually looking up the foreign taxation rules of the containing country. Luckily, most companies only have a few tickers so this wasn't too hard in the end.

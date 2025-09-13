@@ -1,0 +1,1 @@
+You can't sell options if you don't have margin account (except covered call). You can't trade futures if you don't have margin account. Everything is immediate when you have margin account. (Including stocks) Margin account is not subject to freeriding rules, but is subject to Pattern Day Trader rules.

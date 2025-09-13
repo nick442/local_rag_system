@@ -1,0 +1,1 @@
+>I'm saying in a public context, your consensus mechanism is either proof of work or proof of stake, and both require a blockchain native currency. There are other proofs, such as proof of service and proof of authority. The former also requires a cryptocurrency. The latter does not - by requiring that you trust the eligible authorities.

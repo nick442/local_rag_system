@@ -1,0 +1,1 @@
+What's also interesting is that JP Morgan is heavily involved in the Enterprise Ethereum Alliance, to the point of sponsoring conferences and developing their own client [software](https://www.jpmorgan.com/global/Quorum). Initially this is for private networks but they say they plan to connect to the public chain once it scales better and has stronger privacy features.

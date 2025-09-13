@@ -1,0 +1,1 @@
+Since the vast majority of fund managers/big investors run private entities, it's not possible to track their performance. It's possible to look at what they are holding (that's never real-time information) and emulate their performance.

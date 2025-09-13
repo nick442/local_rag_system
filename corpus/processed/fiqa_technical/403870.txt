@@ -1,0 +1,1 @@
+Fund performance at NAV (%) for latest quarter, YTD, and average annual total returns for 1, 3, 5, 10 years. P/E ratio (1 yr. forecast), P/B ratio, Beta, Sharpe ratio, Wtd. avg. market cap, fund assets. I guess I would want to calculate all these things based off of the data that I would be working with. I will assume I am working with daily fund values per share over 10+ years.

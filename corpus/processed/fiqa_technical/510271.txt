@@ -1,0 +1,1 @@
+Use a compound interest calculator to project the difference with ETFs in the S&P 500 (or the asset mix of your choosing), and subtract the expected pension amount. If the difference is positive, or around around even, I would do it to avoid the risk of company failure.

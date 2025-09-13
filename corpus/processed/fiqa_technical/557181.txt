@@ -1,0 +1,1 @@
+No. Black Scholes includes a number of variables to calculate the value of the derivative but taxation isn't one of them. Whether you are trading options or futures, the dividend itelf may be part of the equation, but not the tax on said dividend.

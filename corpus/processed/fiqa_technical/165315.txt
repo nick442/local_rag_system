@@ -1,0 +1,1 @@
+I took a look at a lot of these products while doing some work for a non-profit. We ended up going with a hosted solution called [Thinkific](https://www.thinkific.com/). Good product, reasonable pricing, and responsive support. I think they've got a free trial iirc. (I'm not associated with them in any way.)

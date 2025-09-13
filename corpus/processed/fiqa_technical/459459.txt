@@ -1,0 +1,1 @@
+Yahoo finance does in fact have futures quotes. But I've found them difficult to search for because you also have to know the expiration codes for the contract to find them. S&P 500 Emini quote for June 2012

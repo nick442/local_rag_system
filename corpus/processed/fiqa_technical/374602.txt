@@ -1,0 +1,1 @@
+This depends. Quite a few stock exchanges / country report total capitalisation in terms of free float. I.E total shares that can be traded, ignoring the promoters shares. The market cap reported by company takes all shares.

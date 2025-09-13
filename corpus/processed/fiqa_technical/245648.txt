@@ -1,0 +1,1 @@
+It's not compound interest. It is internal rate of return. If you have access to Excel look up the XIRR built-in function.

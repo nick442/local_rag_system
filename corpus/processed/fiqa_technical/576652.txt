@@ -1,0 +1,1 @@
+The math is wrong. $16m grows to $72b over 44 years at 21% return (exact return is (72000/16)^(1/44) - 1 = 0.21067). At one percentage point lower return, i.e. 20%, $16m grows to $50b (16m x 1.21^44 = 49.985b). In that case you would have paid about 30 percent of your gain in fees. Still a lot, but not severe. Even the calculation of percent fees is wrong in the article!

@@ -1,0 +1,1 @@
+At my first job (moderate sized quant prop fund) we inexplicably used Macs. Excel on a mac is a nightmare- if you tried to graph more than, say, 2000 data points it would grind to a halt, though this was some time ago. In retrospect maybe they were conditioning us to program rather than use excel..

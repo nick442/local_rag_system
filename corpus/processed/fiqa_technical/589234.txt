@@ -1,0 +1,1 @@
+Treat each transaction as separate, with its own principal, its own gain, and its own number of days. Then the total annualized return is just a weighted average of each annualized return, with the weighting related to the number of shares in that transaction.

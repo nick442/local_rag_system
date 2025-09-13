@@ -1,0 +1,1 @@
+"Preferred dividends and common dividends are completely separate transactions. There's not a single ""dividend"" payment that is split between preferred and common shares. Dividends on preferred shares are generally MUCH higher than common dividends, and are generally required by the terms of the preferred shares, again unlike common dividends, which are discretionary."

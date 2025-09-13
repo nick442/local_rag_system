@@ -1,0 +1,1 @@
+You can make a purchase at the after market price by sending an order that gets executed in after market. Often times these are called Extended orders, or EXT. With an EXT limit order it will place the bid on the after market hours order book. If you get filled, then you have the shares. This is the answer.

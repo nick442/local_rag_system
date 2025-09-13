@@ -1,0 +1,1 @@
+Points are the units of measurement of the index. They're calculated based on the index formula, which in turn based on the prices of the underlying stocks. Movement in points is not really interesting, the movement as a percentage of the base price (daily opening, usually) is more interesting since it gives more context.

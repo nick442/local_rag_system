@@ -1,0 +1,1 @@
+well well, good question, worth a discussion, the more filters you add to your strategy (volatility in this case), the lower its predictive power. i mean, one could further filter it by day of the week, whether prices are above or below a 200 day moving average..etc.

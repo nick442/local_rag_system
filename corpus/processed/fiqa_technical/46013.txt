@@ -1,0 +1,1 @@
+Yes, just SHA1 convert of my hash and then a search through the list. A couple of friends looked and they weren't there. It's about 10% apparently - I'd imagine 150m+ users are going to have more than 6.5m passwords amongst them.

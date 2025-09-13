@@ -1,0 +1,1 @@
+Interesting: reddit, according to [privacyscore.com](http://www.privacyscore.com/), has a score of 50 out of 100 whereas target.com has 49 (up one point from the article). > .. privacyscore.com and it will rate it from zero to 100 based on the number of trackers on every page.

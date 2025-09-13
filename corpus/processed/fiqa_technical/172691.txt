@@ -1,0 +1,1 @@
+Market price of a stock typically trades in a range of Price/Earnings Ratio (P/E ratio). Or in other words, price of a stock = Earnings * P/E ratio Because of this direct proportionality of stock price with earnings, stock prices move in tandem with earnings.

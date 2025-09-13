@@ -1,0 +1,1 @@
+i will not calculate it for you but just calculate the discounted cash flow (by dividing with 1.1 / 1.1^2 / 1.1^3 ..)of each single exercise as stated and deduct the 12.000 of the above sum. in the end compare which has the highest npv

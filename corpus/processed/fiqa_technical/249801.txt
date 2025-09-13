@@ -1,0 +1,1 @@
+agreed. shorting the box kills you on commissions. your negative theta on a straight put position won't be a problem until you're at least 60 days from expiration. (i would even argue you're safe until 30 days out.) plus the positive vega can give you some extra juice if gold does end up falling.

@@ -1,0 +1,1 @@
+If you would like to use linux I suggest you to use KMyMoney http://kmymoney2.sourceforge.net/ It is based on gnucash but it is easier to use IMO

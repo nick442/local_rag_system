@@ -1,0 +1,1 @@
+check out The Art of R Programming. There are PDFs floating around for free or you could even buy the book. I've dabbled in Octave but I've only heard Andrew Ng and his online students talk about it.

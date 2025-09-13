@@ -1,0 +1,1 @@
+"I believe it's still pretty general, and just mentions life sciences as a possible use. Some of the course may be in that context. The ""difficulty"" on the side says the course is intermediate, so there might be a possibility that it'll be maybe a little rough for beginners to R, and possibly very difficult for beginners to programming on the whole."

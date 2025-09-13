@@ -1,0 +1,1 @@
+Your observation is mostly right, that 1 is a the number around which this varies. You are actually referencing PEG, P/E to Growth ratio, which is a common benchmark to use to evaluate a stock. The article I link to provides more discussion.

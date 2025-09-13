@@ -1,0 +1,1 @@
+If it's number of years and the interest is per-annum the formula is the same as the normal one. this should work on most hand-held calculators.

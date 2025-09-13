@@ -1,0 +1,1 @@
+If the position starts losing money as soon as it is put on, then I would close it out ,taking a small loss. However, if it starts making money,as in the stock inches higher, then you can use part of the premium collected to buy an out of money put, thereby limiting your downside. It is called a collar.

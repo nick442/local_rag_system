@@ -1,0 +1,1 @@
+you asked for strategies which use deep in the money options: dividend mispricing can use deep in the money options, basically its an arbitrage play on ex-dividend dates. and any kind of spread can use deep in the money options, depending on how wide you want your spread to be

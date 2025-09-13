@@ -1,0 +1,1 @@
+"The formulae #issued shares = #outstanding shares + #treasury shares looks right. However it looks like the Treasury Shares are treated as -ve in accounting books and thus the outstanding shares are more than issued shares to the extent of Treasury shares. Further info at ""Accounting for treasury stock"" on wiki"

@@ -1,0 +1,1 @@
+Citing the Yahoo Finance Help page, Beta: The Beta used is Beta of Equity. Beta is the monthly price change of a particular company relative to the monthly price change of the S&P500. The time period for Beta is 3 years (36 months) when available. Regarding customised time periods, I do not think so.

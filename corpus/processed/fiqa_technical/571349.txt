@@ -1,0 +1,1 @@
+I believe it’s because the old ticker machines only had 32 symbols making each symbol (1/32) a tick. (Back in the London Stock / Debt exchange in the 18th century) . The first ever government bond was issued by the Bank of England in 1693 to raise money to fund a war against France

@@ -1,0 +1,1 @@
+"Yes, selling premium is just selling options. It's usually used to talk about out-of-the-money options without coverage from underlying securities which you expect to expire worthless. More ""sophisticated"" ways to sell premium would include selling options strangles or straddles which allow you to sell more premium if you have more specific beliefs about the price action."

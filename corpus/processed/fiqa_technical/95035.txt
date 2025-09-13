@@ -1,0 +1,1 @@
+You have purchased a Tplink router and want to set it up. Then firstly open tplinklogin.net in the address bar of the browser window. Enter the login details such as username and password; you will land to the admin panel of the router to begin installation.

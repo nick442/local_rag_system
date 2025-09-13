@@ -1,0 +1,1 @@
+You don't specify in which format are the files you're importing, but if it's .qif then qifqif provides a CLI interface to enter categories as fast as possible (by reusing categories used for similar past transactions).

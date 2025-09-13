@@ -1,0 +1,1 @@
+If I designed a system that handled multimillion dollar orders, I'd have the foresight to include a timestamp / order #, so resubmissions didn't generate duplicate charges. But that's probably just me and my small town ways.

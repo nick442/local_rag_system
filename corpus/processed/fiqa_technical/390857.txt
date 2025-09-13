@@ -1,0 +1,1 @@
+*Stuxnet attacked Windows systems using an unprecedented four zero-day attacks (plus the CPLINK vulnerability and a vulnerability used by the Conficker worm[50]). It is initially spread using infected removable drives such as USB flash drives,[20][44] which contain Windows shortcut files to initiate executable code.[51]* https://en.wikipedia.org/wiki/Stuxnet#Windows_infection

@@ -1,0 +1,1 @@
+Rule 610 (Google for it) stands that if Bid and Ask are the same, the market is considered Locked, and the exchange must stop all trading. So the same person can't quote the same bid and ask price. However, HFTs have found ways to circumvent this limitation when exchanges created special order types for them, e.g. Spam-and-Cancel

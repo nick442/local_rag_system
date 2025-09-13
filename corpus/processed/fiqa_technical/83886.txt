@@ -1,0 +1,1 @@
+1. Up to you, enough such that you are confident in your results 2. We should make a subreddit :), and I should write up a tutorial for quantstrat for dummies a) You want the methodology, max DD Relative to portfolio equity, and where the strategy works and does not work. b) be critical at every step of the way, so you can consistently improve.

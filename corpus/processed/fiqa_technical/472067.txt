@@ -1,0 +1,1 @@
+You are comparing apples and oranges: the charts show the capital appreciation excluding dividends. If you include dividends and calculate a total return over that period you see VSMAX up 132% vs. FSEVX up 129%, i.e. quite close. That residual difference is possibly due to a performance difference between the two benchmarks.

@@ -1,0 +1,1 @@
+I am mostly interested in day to day records, and would like the data to contain information such as dividend payouts, and other parameters commonly available, such as on : http://finviz.com/screener.ashx .. but the kind of queries you can do is limited. For instance you can only go back two years.

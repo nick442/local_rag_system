@@ -1,0 +1,1 @@
+Hi, apologize for my English. Extremely moronic question incoming (corporate finance, Modigliani&Miller). Let's say an unlevered company is valued at 1 bln: it issues 200 mln of debt and the corporate tax is at 40%. What is its value now? The sum of unlevered value, fiscal shield (200*0.4) and debt or just the sum of unlevered value and fiscal shield?

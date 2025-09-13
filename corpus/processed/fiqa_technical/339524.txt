@@ -1,0 +1,1 @@
+You can get really nerdy with the EV calc, but I would just add that it's important to deduct any non-operating, non-consolidated assets in addition to the minority interest adjustment - e.g. unconsolidated subsidiaries, excess real estate, excess working capital, etc.

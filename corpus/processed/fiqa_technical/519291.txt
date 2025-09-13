@@ -1,0 +1,1 @@
+Yes, but it must be remembered that these conditions only last for instants, and that's why only HFTs can take advantage of this. During 2/28/14's selloff from the invasion of Ukraine, many times, there were moments where there was overwhelming liquidity on the bid relative to the ask, but the price continued to drop.

@@ -1,0 +1,1 @@
+You're talking about NQO - non-qualified stock options. Even assuming the whole scheme is going to work, the way NQO are taxed is that the difference between the fair market value and the strike price is considered income to you and is taxed as salary. You'll save nothing, and will add a huge headache and additional costs of IPO and SEC regulations.

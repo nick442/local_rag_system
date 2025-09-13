@@ -1,0 +1,1 @@
+The chain just contains hashes, you seem to be over complicating it. Your lack of understanding is why people will pursue this idea. In the end they will likely peg their chain to the mega chain anyway, as it's the only immutable decentralized single source of truth.

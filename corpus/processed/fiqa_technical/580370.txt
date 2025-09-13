@@ -1,0 +1,1 @@
+Business analytics is a huge umbrella term, but if you're interested in the web analytics part of it, I'd highly recommend google analytics' tutorials. The videos are very well done and they'll give you a dummy account to practice with.

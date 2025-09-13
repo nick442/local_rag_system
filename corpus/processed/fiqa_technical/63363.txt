@@ -1,0 +1,1 @@
+See how you can only make the premium amount but your risk is the same as holding the stock when writing a put option.

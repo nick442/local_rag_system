@@ -1,0 +1,1 @@
+The market cap always reflect the company's equity. Except that you cannot fix a stock price in a free market. A company with such profit pattern would have stock price behave like present value of a perpetuity (future income stream discounted by risk free rate) Since your assumption is unachievable, there is no point in determining the logic.

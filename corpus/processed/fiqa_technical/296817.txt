@@ -1,0 +1,1 @@
+Let's go ahead and walk through the other solutions while were at it! It's been a few years since finance class in college Skip #30 since it's basically the same Q EDIT: #28: did I do this right - PV(.0635, 7, -10,000) = 55,135 31 - not sure how to solve for monthly payments in excel

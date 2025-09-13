@@ -1,0 +1,1 @@
+For the skeptical, this stuff works. Much of Ren Tech's initial edge was probably based on NLP given Simons' academic background, Leonard Baum and the IBM NLP team that they poached. However, this space is extremely saturated and there's very little edge to be gained especially if you're using open source python libraries.

@@ -1,0 +1,1 @@
+Embedded systems. We run xp on a lot of equipment since it's been a steady, bug free environment for our software. Introducing a new OS will only cause unforeseen problems and we would nothing to gain from such update.

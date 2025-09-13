@@ -1,0 +1,43 @@
+{
+  "dataset": "fiqa",
+  "total_runs": 1944,
+  "alpha_range": {
+    "min": 0.0,
+    "max": 1.0
+  },
+  "optimal_alpha": 0.5,
+  "alpha_statistics": {
+    "0.0": {
+      "alpha": 0.0,
+      "run_count": 648,
+      "avg_response_time": 0.7210400443018219,
+      "std_response_time": 0.22386067373938365,
+      "min_response_time": 0.5700228214263916,
+      "max_response_time": 5.684785842895508,
+      "avg_ndcg@10": 0.0888128087659465,
+      "avg_recall@10": 0.1132551990190879
+    },
+    "0.5": {
+      "alpha": 0.5,
+      "run_count": 648,
+      "avg_response_time": 0.7342039232636676,
+      "std_response_time": 0.1205761645630937,
+      "min_response_time": 0.5683279037475586,
+      "max_response_time": 1.2894160747528076,
+      "avg_ndcg@10": 0.3417655183253506,
+      "avg_recall@10": 0.3673459856330227
+    },
+    "1.0": {
+      "alpha": 1.0,
+      "run_count": 648,
+      "avg_response_time": 3.4920556482709486,
+      "std_response_time": 48.14761382250621,
+      "min_response_time": 0.5713751316070557,
+      "max_response_time": 946.1073741912842,
+      "avg_ndcg@10": 0.3417655183253506,
+      "avg_recall@10": 0.3673459856330227
+    }
+  },
+  "performance_trend": "balanced",
+  "metric_preference": "ndcg@10"
+}

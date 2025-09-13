@@ -1,0 +1,1 @@
+No, this is misbehavior of sales software that tries to automatically find the price point which maximizes profit. There have been much worse examples. Ignore it. The robot will eventually see that no sales occurred and try a more reasonable price.

@@ -1,0 +1,1 @@
+Does the price only start the day based on the previous day's rebalancing? No, the tracker will open at the price according to the stock it is tracking. So for example, if the ETF closed at $10 but the tracked stock continued trading and was priced $15 when the ETF reopened the ETF will open at $15. (Example is for a non-leveraged ETF.)

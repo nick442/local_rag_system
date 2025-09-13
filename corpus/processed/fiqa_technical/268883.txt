@@ -1,0 +1,1 @@
+Usually you want two consecutive quarters before declaring a recession. This blog doesn't reference any seasonal adjustment; a one or two month decline may be to any number of reasons. E.g. labor numbers dropped this month largely attributed to weather. I only see screen shots of excel sheets, I'm not willing to invest any time into parsing that out :(

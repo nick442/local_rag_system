@@ -1,0 +1,1 @@
+There's a whole industry devoted to this. Professionals use Bloomberg terminals. High Frequency Traders have computers read news feeds for them. Amateurs use trading consoles (like Thinkorswim) to get headlines quickly on stocks.

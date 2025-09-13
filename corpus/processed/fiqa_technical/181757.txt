@@ -1,0 +1,1 @@
+The way that credit card transactions happen are: In your example, the card is authorized for the charge but the transaction never actually moves on to the next step. However, your available credit should drop by whatever the authorized amount is and this will not disappear until it naturally goes away when the transaction does not move onto the next step.

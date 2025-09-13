@@ -1,0 +1,1 @@
+Real basic bond question: When a future on Gov bonds get tendered, a physical bond is delivered. Since 'bonds' are generally in denoms of $100, does the physical delivery always have to be in sets of 100, ie there can't be partial delivery of bonds?

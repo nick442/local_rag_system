@@ -1,0 +1,1 @@
+They changed the way trailing interest is calculated back in 2008 if I recall correctly. The idea at the time was that the interest charges to the customer were somewhat less, but it made trying to get a payoff quote a PITA. They used to take payments for more than the current balance due at that time, however. I can't provide any insight as to why they won't now, though.

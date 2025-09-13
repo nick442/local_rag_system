@@ -1,0 +1,1 @@
+"I once saw a graph somewhere on data is beautiful regarding this, and decided to do a bit of math. If the US ""got their money's worth"" (i.e I took the average dollars/person and average life expectancy, and created a dollars/year of life), the amount we spend on health care would make us nearly a millennium old each."

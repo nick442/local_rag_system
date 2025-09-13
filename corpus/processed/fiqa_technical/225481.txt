@@ -1,0 +1,1 @@
+Not to be flippant, but I hope you're asking for llfinance to cover stochastic calculus on his blog, and not for someone here to give you a primer on it. If you like, I can give you an explanation for why stochastic calculus has to be different from regular calculus.

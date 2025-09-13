@@ -1,0 +1,1 @@
+Yes, it's completely normal to buy (and sell) puts and other options without holding the underlying. However, every (US) brokerage I know of only permits this within a margin account. I don't know why..probably a legal reason. You don't actually have to use the margin in a margin account. If you want to trade options, though, you will need a margin account.

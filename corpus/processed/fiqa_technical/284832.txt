@@ -1,0 +1,1 @@
+Here's a very simple answer, ask your broker/bank. Mine uses ofx. When asked if they would reimburse me for any unauthorized activity, the answer was no. Simple enough, the banks that use it don't feel its secure enough.

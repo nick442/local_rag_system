@@ -1,0 +1,1 @@
+from what i understand, which is not much, some companies use some of their own company shares as securitisation for loans. If the share price decreases, the security in the loan decreases, which means the company would need to find new capital. It can create a vicious cycle if the fall in share price is the result of operational concerns.

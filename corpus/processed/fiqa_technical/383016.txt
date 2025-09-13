@@ -1,0 +1,1 @@
+You're correct in your implied point: Selling a cash secured put has less risk (in terms of both volatility and maximum loss) than buying the security outright. However, many brokerages don't allow cash-secured put writing in IRA accounts. There are three reasons this tends to be the case:

@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "timestamp": "2025-09-04T21:36:43.692759",
+    "queries_file": "experiments/chunking/queries/chunking_queries.json",
+    "total_queries": 30,
+    "configuration": {
+      "chunk_size": 512,
+      "chunk_overlap": 0,
+      "retrieval_k": 5,
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "llm_model": "gemma-3-4b-it-q4_0.gguf"
+    }
+  },
+  "baseline_results": [
+    {
+      "query_id": "fin_01",
+      "query_text": "What is compound interest and how is it calculated?",
+      "collection": "fiqa_technical",
+      "category": "factual",
+      "expected_chunks": 2,
+      "status": "success",
+      "execution_time": 34.19225788116455,
+      "metrics": {
+        "retrieval_time": 4.358,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 814
+      },
+      "answer_sample": "Answer:\nCompound interest is the process where the interest earned in each period is \nadded to the principal, and the next period\u2019s interest is calculated on the new,\nlarger principal. This allows you..."
+    },
+    {
+      "query_id": "fin_02",
+      "query_text": "How do index funds differ from actively managed mutual funds?",
+      "collection": "fiqa_technical",
+      "category": "comparative",
+      "expected_chunks": 4,
+      "status": "success",
+      "execution_time": 46.28089785575867,
+      "metrics": {
+        "retrieval_time": 4.077,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1642
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of how index funds differ from actively managed mutual funds,\nbased on the provided context:\n\n*   **Management Style:** Index funds are designed to match the performance of ..."
+    },
+    {
+      "query_id": "fin_03",
+      "query_text": "What factors affect credit scores and how can they be improved?",
+      "collection": "fiqa_technical",
+      "category": "explanatory",
+      "expected_chunks": 5,
+      "status": "success",
+      "execution_time": 47.887036085128784,
+      "metrics": {
+        "retrieval_time": 4.036,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1812
+      },
+      "answer_sample": "Answer:\nBased on the provided contexts, here\u2019s a breakdown of the factors affecting \ncredit scores and how they can be improved:\n\n**Factors Affecting Credit Scores:**\n\n*   **Payment History:** This is..."
+    },
+    {
+      "query_id": "fin_04",
+      "query_text": "How to calculate the present value of future cash flows?",
+      "collection": "fiqa_technical",
+      "category": "procedural",
+      "expected_chunks": 3,
+      "status": "success",
+      "execution_time": 39.1902871131897,
+      "metrics": {
+        "retrieval_time": 3.654,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1140
+      },
+      "answer_sample": "Answer:\nHere\u2019s how to calculate the present value of future cash flows, based on the \nprovided context:\n\n1.  **Spreadsheet with Cash Flows & XIRR:** You can create a spreadsheet and use\nthe XIRR funct..."
+    },
+    {
+      "query_id": "fin_05",
+      "query_text": "What is the difference between stocks and bonds?",
+      "collection": "fiqa_technical",
+      "category": "comparative",
+      "expected_chunks": 3,
+      "status": "success",
+      "execution_time": 46.49457097053528,
+      "metrics": {
+        "retrieval_time": 4.711,
+        "response_time": 0.0,
+        "contexts_retrieved": 5,
+        "response_tokens": 0.0,
+        "answer_length": 1718
+      },
+      "answer_sample": "Answer:\nHere\u2019s a breakdown of the differences between stocks and bonds, based on the \nprovided context:\n\n**Stocks:**\n\n*   **Ownership:** Stocks represent ownership in a company.\n*   **Potential Return..."
+    }
+  ]
+}

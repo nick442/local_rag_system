@@ -1,0 +1,1 @@
+Volatility is a shitty metric and is sample dependent, What is more interesting is point recurrence, i.e. how many times has a certain point been touched in x time, you can make good day trading strategies off point recurrence (relative that is).

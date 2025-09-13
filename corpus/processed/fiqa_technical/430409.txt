@@ -1,0 +1,1 @@
+There are really three routes in academic finance. 1) Corporate finance - you probably have enough math for this 2) Market forecasting and modeling - this relies more heavily on econometrics, or more basic math 3) Quantitative valuations - most of the work here is in exotic asymmetric derivatives, which is almost entirely differential equations.

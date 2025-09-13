@@ -1,0 +1,1 @@
+Do you realise that the examples you have given are for stock splits not for dividends, that is why the date payable is before the ex-date for the split. The payments for the split occur on 30th June and the first day the stock trades with the new split is on the next trading day, being the ex-date, 1st July.

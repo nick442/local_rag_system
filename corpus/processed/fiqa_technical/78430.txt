@@ -1,0 +1,1 @@
+I haven't found a drop-in replacement for MS Money, but I've tried a few of the Mac desktop programs. I settled on Iggsoftware's iBank, which seems to do what I need it to do. It also appears to be able to import transactions from MS Money if you export your accounts as QIF files at the MS Money end, but I never tried it.

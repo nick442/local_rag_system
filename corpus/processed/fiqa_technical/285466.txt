@@ -1,0 +1,1 @@
+Like others have said, mutual funds don't have an intraday NAV, but their ETF equivalents do. Use something like Yahoo Finance and search for the ETF.IV. For example VOO.IV. This will give you not the ETF price (which may be at a premium or discount), but the value of the underlying securities updated every 15 seconds.

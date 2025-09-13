@@ -1,0 +1,1 @@
+"What you are proposing is called a ""covered call"" strategy. It is a perfectly reasonable speculative play on how far the stock will move within a certain amount of time. If your belief that the stock's volatility is such that it is unlikely to reach the strike price before the maturity is greater than the markets (which it seems it is), then go ahead and sell the call."

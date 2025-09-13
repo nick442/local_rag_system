@@ -1,0 +1,1 @@
+It's hard to fathom what Boeing was thinking with this strategy. The [Theory of Constraints](http://en.wikipedia.org/wiki/Theory_of_Constraints) is a pretty fundamental business theory that predicts their ability to manufacture a quality airplane profitably will only be as good as their weakest supplier. In other words, outsource too much and you're almost certain to lose.

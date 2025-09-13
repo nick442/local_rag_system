@@ -1,0 +1,1 @@
+Are there any frameworks to deal with the following situation: assume you're invested in an asset which has gained 10x, there is a chance for the asset to gain another 10x (100x in total) and go to zero. The probabilities of the various outcomes are unknown.

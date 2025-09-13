@@ -1,0 +1,1 @@
+When a stock is ask for 15.2 and bid for 14.5, and the last market price was 14.5, what does it mean? It means that the seller wants to sell for a higher price than the last sale while the buyer does not want to buy for more than the last sale price. Or what if the last price is 15.2? The seller is offering to sell for the last sale price, but the buyer wants to buy for less.

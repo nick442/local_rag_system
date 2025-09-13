@@ -1,0 +1,1 @@
+"I use ""Money Manager Ex"" which is a Windows application I use on PC to log my transactions and for simple statistic. They have two versions, simple standlone application and self-hosted web app."

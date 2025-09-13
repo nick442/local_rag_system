@@ -1,0 +1,1 @@
+Frankly, you should probably learn to write code and use a data science package. Pandas lets me do the shit I'd do in excel 10 times quicker with more data and I can generalize it instead of working with just one file. As with most white-collar fields nowadays, writing code or at least understanding how to use it to enhance your productivity is very very attractive.

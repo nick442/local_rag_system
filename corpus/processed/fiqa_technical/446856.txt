@@ -1,0 +1,1 @@
+Yes. If I own a call, an American call option can be exercised at my wish. A European call can only be exercised at expiration, by the way. Your broker doesn't give you anything but a current quote for a given strike price. There are a number of good option related questions here. A bit of searching and reading will help you understand the process.

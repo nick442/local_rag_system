@@ -1,0 +1,1 @@
+If the APR is an effective rate. If the APR is a nominal rate compounded monthly, first convert it to an effective rate.

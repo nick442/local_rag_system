@@ -1,0 +1,1 @@
+ETFs trade on specific exchanges. If your broker deals with those exchanges, you should have access to the ETF. If your broker does not deal with that exchange, then you will not have access through that broker. This is different than, say, mutual funds, which don't trade on the exchanges are proprietary to certain brokerages or financial institutions.

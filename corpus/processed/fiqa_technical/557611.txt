@@ -1,0 +1,1 @@
+Why would you regress prices? Correlation should alway be based on returns. Daily return correlation is around 0.8 last I checked. Of course this is backward looking. Correlation of VIX to next month returns is pretty low. I haven't checked shorter timeframes though.

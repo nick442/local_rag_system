@@ -1,0 +1,1 @@
+"The best way to do this is to use IRR. It's a complicated calculation, but will take into account multiple in/out cash flows over time along with ""idle periods"" where your money may not have been doing anything. Excel can calculate it for you using the XIRR function"

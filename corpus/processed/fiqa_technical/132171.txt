@@ -1,0 +1,1 @@
+If you have two other assets whose payoffs tomorrow are known and whose prices today are known, you can value it. Let's say you can observe a risk-free bond and a stock. Using those, you can calculate the state prices/risk-neutral probabilities. NOTE: You do not need to know the true probabilities. The value of your asset is then the state-price weighted sum of future payoffs.

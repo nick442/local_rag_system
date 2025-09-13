@@ -1,0 +1,1 @@
+When you buy a bond - you're giving a loan to the issuer. The interest rate on the bond is the interest rate on the loan. Usually (and this is also the case with the treasury bonds), the rate is fixed for the term of the loan. Thus, if the market rate for similar loans a year later is higher, the rate for the loan you gave - remains the same.

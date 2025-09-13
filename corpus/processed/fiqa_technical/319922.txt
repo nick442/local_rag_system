@@ -1,0 +1,1 @@
+I'm actually building a UK stock screener right now. It's more of an exercise in finding out how to work out technical things like MACD and EMA calculations, but if those are the things you're interested in, it's at http://www.pifflevalve.co.uk/screen-builder/ As I say, it's more of a personal project than anything commercial, but it's fun to play with.

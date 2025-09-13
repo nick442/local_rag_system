@@ -1,0 +1,1 @@
+Stock A last traded at $100. Stock A has 1 million shares outstanding. No seller is willing to sell Stock A for less than $110 a share. One buyer is willing to buy 1 share for $110. The order executes. The buyer pays the seller $110. Stock A's new price is $110. An $110 investment increased the market cap by $10 million. Neat trick (for all who own Stock A).

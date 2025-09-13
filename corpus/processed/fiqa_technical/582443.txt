@@ -1,0 +1,1 @@
+Personally, I think this one is best. RAROC (risk-adjusted return on capital) puts things in perspective for excess returns when considering risk-contribution. It does have its flaws, e.g. the quality of the VaR can be manipulated or simply incorrectly measured. But as in any model, it's GIGO (garbage-in garbage-out).

@@ -1,0 +1,1 @@
+Have you looked into GnuCash? It lets you track your stock purchases, and grabs price updates. It's designed for double-entry accounting, but I think it could fit your use case.

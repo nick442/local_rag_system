@@ -1,0 +1,1 @@
+One should also point out that you make a major assumption in that the high of the day doesn't occur on a gap up in morning trading. It's unlikely that you'd fill at a reasonable price, thereby throwing your strategy into disarray.

@@ -1,0 +1,1 @@
+I think you can solve the problem of different wordings by having a lookup with a table of all the different ways companies spell the same words that returns a standard format that you use. That way you only need to update the table every time you come across a new company and you wont have to type it out all the time.

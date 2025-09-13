@@ -1,0 +1,3975 @@
+{
+  "metadata": {
+    "export_timestamp": "2025-09-06T20:30:11.010143",
+    "claude_version": "Experiment_v2_fixes"
+  },
+  "experiment_id": "sweep_1757183395",
+  "experiment_type": "parameter_sweep",
+  "status": "completed",
+  "total_runtime": 15.177515029907227,
+  "created_at": "2025-09-06T18:30:11.008908+00:00",
+  "completed_at": "2025-09-06T18:30:11.008909+00:00",
+  "total_results": 120,
+  "results": [
+    {
+      "run_id": "sweep_1757183395_run_0_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "0",
+        "query": "What is considered a business expense on a business trip?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 4.153956890106201
+      },
+      "duration_seconds": 4.153956890106201,
+      "timestamp": "2025-09-06T18:29:59.985515+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "What is considered a business expense on a business trip?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:00.061870+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "1",
+        "query": "How to calculate return on investment for rental property?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.14851093292236328
+      },
+      "duration_seconds": 0.14851093292236328,
+      "timestamp": "2025-09-06T18:30:00.212498+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "How to calculate return on investment for rental property?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:00.291349+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "2",
+        "query": "Tax implications of selling stocks at a loss"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.13354802131652832
+      },
+      "duration_seconds": 0.13354802131652832,
+      "timestamp": "2025-09-06T18:30:00.425566+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Tax implications of selling stocks at a loss",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:00.504952+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "3",
+        "query": "Best practices for small business bookkeeping"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.1485886573791504
+      },
+      "duration_seconds": 0.1485886573791504,
+      "timestamp": "2025-09-06T18:30:00.654480+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Best practices for small business bookkeeping",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:00.733266+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "4",
+        "query": "How does compound interest work on savings accounts?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.13371586799621582
+      },
+      "duration_seconds": 0.13371586799621582,
+      "timestamp": "2025-09-06T18:30:00.867642+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "How does compound interest work on savings accounts?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:00.950134+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "5",
+        "query": "What is the difference between Roth IRA and traditional IRA?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10353207588195801
+      },
+      "duration_seconds": 0.10353207588195801,
+      "timestamp": "2025-09-06T18:30:01.054346+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:01.133843+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "6",
+        "query": "Credit score factors and how to improve it"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09950089454650879
+      },
+      "duration_seconds": 0.09950089454650879,
+      "timestamp": "2025-09-06T18:30:01.234414+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Credit score factors and how to improve it",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:01.307975+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "7",
+        "query": "Mortgage refinancing pros and cons"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10476183891296387
+      },
+      "duration_seconds": 0.10476183891296387,
+      "timestamp": "2025-09-06T18:30:01.413340+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Mortgage refinancing pros and cons",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:01.494100+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "8",
+        "query": "Investment portfolio diversification strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.13303709030151367
+      },
+      "duration_seconds": 0.13303709030151367,
+      "timestamp": "2025-09-06T18:30:01.627860+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Investment portfolio diversification strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:01.704358+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "9",
+        "query": "Business loan requirements for startups"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.1324751377105713
+      },
+      "duration_seconds": 0.1324751377105713,
+      "timestamp": "2025-09-06T18:30:01.837526+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Business loan requirements for startups",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:01.924201+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "10",
+        "query": "How to value company stock options"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09802794456481934
+      },
+      "duration_seconds": 0.09802794456481934,
+      "timestamp": "2025-09-06T18:30:02.022915+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "How to value company stock options",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:02.099796+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "11",
+        "query": "Tax deductions for home office expenses"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0978097915649414
+      },
+      "duration_seconds": 0.0978097915649414,
+      "timestamp": "2025-09-06T18:30:02.198521+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Tax deductions for home office expenses",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:02.286000+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "12",
+        "query": "Emergency fund recommendations and savings goals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09760785102844238
+      },
+      "duration_seconds": 0.09760785102844238,
+      "timestamp": "2025-09-06T18:30:02.384335+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Emergency fund recommendations and savings goals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:02.466841+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "13",
+        "query": "Real estate investment vs stock market returns"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09796786308288574
+      },
+      "duration_seconds": 0.09796786308288574,
+      "timestamp": "2025-09-06T18:30:02.565733+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Real estate investment vs stock market returns",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:02.642024+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "14",
+        "query": "401k contribution limits and employer matching"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10209107398986816
+      },
+      "duration_seconds": 0.10209107398986816,
+      "timestamp": "2025-09-06T18:30:02.744900+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "401k contribution limits and employer matching",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:02.818897+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "15",
+        "query": "Insurance needs assessment for young professionals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09774589538574219
+      },
+      "duration_seconds": 0.09774589538574219,
+      "timestamp": "2025-09-06T18:30:02.917397+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Insurance needs assessment for young professionals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:02.990583+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "16",
+        "query": "Debt consolidation options and strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.1021268367767334
+      },
+      "duration_seconds": 0.1021268367767334,
+      "timestamp": "2025-09-06T18:30:03.093553+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Debt consolidation options and strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:03.175621+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "17",
+        "query": "Foreign exchange rate impact on investments"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10390710830688477
+      },
+      "duration_seconds": 0.10390710830688477,
+      "timestamp": "2025-09-06T18:30:03.280541+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Foreign exchange rate impact on investments",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:03.355049+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "18",
+        "query": "Estate planning basics and will preparation"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09737706184387207
+      },
+      "duration_seconds": 0.09737706184387207,
+      "timestamp": "2025-09-06T18:30:03.453337+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Estate planning basics and will preparation",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:03.538384+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": {
+        "id": "19",
+        "query": "Cryptocurrency taxation and reporting requirements"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09676098823547363
+      },
+      "duration_seconds": 0.09676098823547363,
+      "timestamp": "2025-09-06T18:30:03.636266+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_0_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.0
+      },
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:03.712114+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "0",
+        "query": "What is considered a business expense on a business trip?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09480786323547363
+      },
+      "duration_seconds": 0.09480786323547363,
+      "timestamp": "2025-09-06T18:30:03.807921+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "What is considered a business expense on a business trip?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:03.893391+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "1",
+        "query": "How to calculate return on investment for rental property?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10479617118835449
+      },
+      "duration_seconds": 0.10479617118835449,
+      "timestamp": "2025-09-06T18:30:03.999234+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "How to calculate return on investment for rental property?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:04.080464+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "2",
+        "query": "Tax implications of selling stocks at a loss"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09628486633300781
+      },
+      "duration_seconds": 0.09628486633300781,
+      "timestamp": "2025-09-06T18:30:04.177685+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Tax implications of selling stocks at a loss",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:04.253142+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "3",
+        "query": "Best practices for small business bookkeeping"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10283589363098145
+      },
+      "duration_seconds": 0.10283589363098145,
+      "timestamp": "2025-09-06T18:30:04.357035+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Best practices for small business bookkeeping",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:04.439753+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "4",
+        "query": "How does compound interest work on savings accounts?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10120701789855957
+      },
+      "duration_seconds": 0.10120701789855957,
+      "timestamp": "2025-09-06T18:30:04.541652+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "How does compound interest work on savings accounts?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:04.616787+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "5",
+        "query": "What is the difference between Roth IRA and traditional IRA?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09711503982543945
+      },
+      "duration_seconds": 0.09711503982543945,
+      "timestamp": "2025-09-06T18:30:04.714945+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:04.796213+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "6",
+        "query": "Credit score factors and how to improve it"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10228610038757324
+      },
+      "duration_seconds": 0.10228610038757324,
+      "timestamp": "2025-09-06T18:30:04.899541+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Credit score factors and how to improve it",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:04.977416+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "7",
+        "query": "Mortgage refinancing pros and cons"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0945138931274414
+      },
+      "duration_seconds": 0.0945138931274414,
+      "timestamp": "2025-09-06T18:30:05.072846+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Mortgage refinancing pros and cons",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:05.152905+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "8",
+        "query": "Investment portfolio diversification strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09717130661010742
+      },
+      "duration_seconds": 0.09717130661010742,
+      "timestamp": "2025-09-06T18:30:05.251137+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Investment portfolio diversification strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:05.333197+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "9",
+        "query": "Business loan requirements for startups"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09434199333190918
+      },
+      "duration_seconds": 0.09434199333190918,
+      "timestamp": "2025-09-06T18:30:05.428923+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Business loan requirements for startups",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:05.510632+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "10",
+        "query": "How to value company stock options"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10032510757446289
+      },
+      "duration_seconds": 0.10032510757446289,
+      "timestamp": "2025-09-06T18:30:05.611958+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "How to value company stock options",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:05.696728+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "11",
+        "query": "Tax deductions for home office expenses"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09916996955871582
+      },
+      "duration_seconds": 0.09916996955871582,
+      "timestamp": "2025-09-06T18:30:05.796880+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Tax deductions for home office expenses",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:05.874393+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "12",
+        "query": "Emergency fund recommendations and savings goals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0979461669921875
+      },
+      "duration_seconds": 0.0979461669921875,
+      "timestamp": "2025-09-06T18:30:05.973325+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Emergency fund recommendations and savings goals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:06.056995+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "13",
+        "query": "Real estate investment vs stock market returns"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10583996772766113
+      },
+      "duration_seconds": 0.10583996772766113,
+      "timestamp": "2025-09-06T18:30:06.163984+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Real estate investment vs stock market returns",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:06.243135+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "14",
+        "query": "401k contribution limits and employer matching"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09754490852355957
+      },
+      "duration_seconds": 0.09754490852355957,
+      "timestamp": "2025-09-06T18:30:06.341349+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "401k contribution limits and employer matching",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:06.417627+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "15",
+        "query": "Insurance needs assessment for young professionals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10567998886108398
+      },
+      "duration_seconds": 0.10567998886108398,
+      "timestamp": "2025-09-06T18:30:06.524347+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Insurance needs assessment for young professionals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:06.610215+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "16",
+        "query": "Debt consolidation options and strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10389304161071777
+      },
+      "duration_seconds": 0.10389304161071777,
+      "timestamp": "2025-09-06T18:30:06.715144+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Debt consolidation options and strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:06.790036+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "17",
+        "query": "Foreign exchange rate impact on investments"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09778785705566406
+      },
+      "duration_seconds": 0.09778785705566406,
+      "timestamp": "2025-09-06T18:30:06.888933+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Foreign exchange rate impact on investments",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:06.971426+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "18",
+        "query": "Estate planning basics and will preparation"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10207414627075195
+      },
+      "duration_seconds": 0.10207414627075195,
+      "timestamp": "2025-09-06T18:30:07.074538+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Estate planning basics and will preparation",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:07.152093+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": {
+        "id": "19",
+        "query": "Cryptocurrency taxation and reporting requirements"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09261584281921387
+      },
+      "duration_seconds": 0.09261584281921387,
+      "timestamp": "2025-09-06T18:30:07.245713+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_1_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 0.5
+      },
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:07.328381+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "0",
+        "query": "What is considered a business expense on a business trip?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10169696807861328
+      },
+      "duration_seconds": 0.10169696807861328,
+      "timestamp": "2025-09-06T18:30:07.431277+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_0",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "What is considered a business expense on a business trip?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:07.524589+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "1",
+        "query": "How to calculate return on investment for rental property?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.11668682098388672
+      },
+      "duration_seconds": 0.11668682098388672,
+      "timestamp": "2025-09-06T18:30:07.642480+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_1",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "How to calculate return on investment for rental property?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:07.733901+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "2",
+        "query": "Tax implications of selling stocks at a loss"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10454607009887695
+      },
+      "duration_seconds": 0.10454607009887695,
+      "timestamp": "2025-09-06T18:30:07.839468+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_2",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Tax implications of selling stocks at a loss",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:07.927129+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "3",
+        "query": "Best practices for small business bookkeeping"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10003995895385742
+      },
+      "duration_seconds": 0.10003995895385742,
+      "timestamp": "2025-09-06T18:30:08.027828+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_3",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Best practices for small business bookkeeping",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:08.107460+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "4",
+        "query": "How does compound interest work on savings accounts?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.1046299934387207
+      },
+      "duration_seconds": 0.1046299934387207,
+      "timestamp": "2025-09-06T18:30:08.212703+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_4",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "How does compound interest work on savings accounts?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:08.299454+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "5",
+        "query": "What is the difference between Roth IRA and traditional IRA?"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09740781784057617
+      },
+      "duration_seconds": 0.09740781784057617,
+      "timestamp": "2025-09-06T18:30:08.397561+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_5",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "What is the difference between Roth IRA and traditional IRA?",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:08.472384+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "6",
+        "query": "Credit score factors and how to improve it"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09517121315002441
+      },
+      "duration_seconds": 0.09517121315002441,
+      "timestamp": "2025-09-06T18:30:08.568574+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_6",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Credit score factors and how to improve it",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:08.656522+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "7",
+        "query": "Mortgage refinancing pros and cons"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.11042118072509766
+      },
+      "duration_seconds": 0.11042118072509766,
+      "timestamp": "2025-09-06T18:30:08.767780+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_7",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Mortgage refinancing pros and cons",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:08.843011+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "8",
+        "query": "Investment portfolio diversification strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09692215919494629
+      },
+      "duration_seconds": 0.09692215919494629,
+      "timestamp": "2025-09-06T18:30:08.940962+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_8",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Investment portfolio diversification strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:09.019370+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "9",
+        "query": "Business loan requirements for startups"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10881829261779785
+      },
+      "duration_seconds": 0.10881829261779785,
+      "timestamp": "2025-09-06T18:30:09.129326+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_9",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Business loan requirements for startups",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:09.205435+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "10",
+        "query": "How to value company stock options"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0965886116027832
+      },
+      "duration_seconds": 0.0965886116027832,
+      "timestamp": "2025-09-06T18:30:09.303012+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_10",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "How to value company stock options",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:09.377985+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "11",
+        "query": "Tax deductions for home office expenses"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10532236099243164
+      },
+      "duration_seconds": 0.10532236099243164,
+      "timestamp": "2025-09-06T18:30:09.484472+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_11",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Tax deductions for home office expenses",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:09.573510+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "12",
+        "query": "Emergency fund recommendations and savings goals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.0994880199432373
+      },
+      "duration_seconds": 0.0994880199432373,
+      "timestamp": "2025-09-06T18:30:09.674078+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_12",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Emergency fund recommendations and savings goals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:09.755546+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "13",
+        "query": "Real estate investment vs stock market returns"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09653377532958984
+      },
+      "duration_seconds": 0.09653377532958984,
+      "timestamp": "2025-09-06T18:30:09.854511+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_13",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Real estate investment vs stock market returns",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:09.934489+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "14",
+        "query": "401k contribution limits and employer matching"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09938621520996094
+      },
+      "duration_seconds": 0.09938621520996094,
+      "timestamp": "2025-09-06T18:30:10.034997+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_14",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "401k contribution limits and employer matching",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:10.113973+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "15",
+        "query": "Insurance needs assessment for young professionals"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09427404403686523
+      },
+      "duration_seconds": 0.09427404403686523,
+      "timestamp": "2025-09-06T18:30:10.209252+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_15",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Insurance needs assessment for young professionals",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:10.283541+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "16",
+        "query": "Debt consolidation options and strategies"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.11124992370605469
+      },
+      "duration_seconds": 0.11124992370605469,
+      "timestamp": "2025-09-06T18:30:10.395465+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_16",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Debt consolidation options and strategies",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:10.476124+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "17",
+        "query": "Foreign exchange rate impact on investments"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09441995620727539
+      },
+      "duration_seconds": 0.09441995620727539,
+      "timestamp": "2025-09-06T18:30:10.571671+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_17",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Foreign exchange rate impact on investments",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:10.647208+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "18",
+        "query": "Estate planning basics and will preparation"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.10391592979431152
+      },
+      "duration_seconds": 0.10391592979431152,
+      "timestamp": "2025-09-06T18:30:10.751780+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_18",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Estate planning basics and will preparation",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:10.834611+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": {
+        "id": "19",
+        "query": "Cryptocurrency taxation and reporting requirements"
+      },
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0,
+        "response_time": 0.09396886825561523
+      },
+      "duration_seconds": 0.09396886825561523,
+      "timestamp": "2025-09-06T18:30:10.929744+00:00",
+      "error_message": "'NoneType' object has no attribute 'n_ctx'",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    },
+    {
+      "run_id": "sweep_1757183395_run_2_19",
+      "config": {
+        "chunk_size": 512,
+        "chunk_overlap": 128,
+        "retrieval_k": 5,
+        "temperature": 0.8,
+        "max_tokens": 1024,
+        "profile": null,
+        "collection_id": null,
+        "retrieval_method": "hybrid",
+        "similarity_threshold": 1.0
+      },
+      "query": "Cryptocurrency taxation and reporting requirements",
+      "response": "",
+      "response_length_words": 0,
+      "response_length_chars": 0,
+      "metrics": {
+        "error": 1.0
+      },
+      "duration_seconds": 0.0,
+      "timestamp": "2025-09-06T18:30:11.007356+00:00",
+      "error_message": "Error binding parameter 4: type 'dict' is not supported",
+      "retrieval_time": null,
+      "generation_time": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "contexts_count": null,
+      "tokens_per_second": null
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+I'm guessing you're talking about options given to employees. The company can issue stock options at whatever strike price it wants. The difference between the strike price and the actual market value is considered income to the employee. You can get the options at $0 strike just as well (although companies generally just give RSUs instead in this case).

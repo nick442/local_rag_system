@@ -1,0 +1,1 @@
+MICR fields are defined by their distance to the right edge of the check. The routing number is always the same distance from the right edge. Business checks are longer and have more room for auxiliary information on the left if the bank chooses to use it.

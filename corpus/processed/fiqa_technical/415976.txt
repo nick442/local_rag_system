@@ -1,0 +1,1 @@
+The price inflation isn't a percentage, it's a fixed amount. If the dealer adds $R to the price of both the trade-in and the purchased car, then everyone ends up with the right amount of money in their pockets. So your formula should be: D + T + R = 0.1 * (P + R)

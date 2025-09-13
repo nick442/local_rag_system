@@ -1,0 +1,1 @@
+It depends on the broker. The one I use (Fidelity) will allow me to buy then sell or sell then buy within 3 days even though the cash isn't settled from the first transaction. But they won't let me buy then sell then buy again with unsettled cash. Of course not waiting for cash to settle makes you vulnerable to a good faith violation.

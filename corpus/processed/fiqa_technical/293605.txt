@@ -1,0 +1,1 @@
+"The traditional E-mini S&P500 options (introduced on 09/09/97) already expire on the 3rd Friday, so there's no need for another ""weekly"" option that expires at the same time."

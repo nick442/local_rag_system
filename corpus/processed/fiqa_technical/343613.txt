@@ -1,0 +1,1 @@
+Two ways to mitigate this risk are to buy a put at a lower premium to the written call, or manage your trade by buying back your call if you see the underlying price going against you - a bit similar to having a stop loss.

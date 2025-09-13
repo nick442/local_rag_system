@@ -1,0 +1,1 @@
+The RDFI (Receiving Depository Institution) is the place where you keep your money and where the Debit is going to be made. Unfortunately the Debit did not go through for some kind of regulatory reason that I don't understand. You could ask them why people are not allowed to make ACH Debits there or you can try to pay through a different bank.

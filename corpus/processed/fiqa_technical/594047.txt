@@ -1,0 +1,1 @@
+Yes, one such strategy is dividend arbitrage using stock and in the money options. You have to find out which option is the most mispriced before the ex-dividend date.

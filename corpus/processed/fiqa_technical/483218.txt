@@ -1,0 +1,1 @@
+The generic representative of interest rates is the 10 year treasury bond rate. (USA). As an approximation most other interest rates do tend to move up and down with the treasury rate, but with more or less sensitivity. Another prominently discussed interest rate is the short term loan rate established by the Federal Reserve for loans it makes to banks.

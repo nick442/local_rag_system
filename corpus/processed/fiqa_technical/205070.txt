@@ -1,0 +1,1 @@
+Thanks to this youtube video I think I understood the required calculation. Based on following notation: then the formula to find x is: I found afterwards an example on IB site (click on the link 'How to Determine the Last Stock Price Before We Begin to Liquidate the Position') that corroborate the formula above.

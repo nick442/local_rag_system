@@ -1,0 +1,1 @@
+The price of a future with an underlying that pays dividends is As you can see, since the value of dividends is subtracted from the value of the underlying equity, the future's price is lowered if dividends rise. Compounding that effect with the dividend effect on equity prices, reducing their prices, the future should suffer more.

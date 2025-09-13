@@ -1,0 +1,1 @@
+"That's the thing: It seems like such a simple solution doesn't it? Yes, that would work really well to stop ads from being blocked! There's only one problem: The ad network has to trust the site that's using it. ""Yeah, our image server delivered your ads a billion times last month. Now send us the check.."""

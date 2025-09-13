@@ -1,0 +1,1 @@
+It depends on the sequence in which the order [bid and ask] were placed. Please read the below question to understand how the order are matched. How do exchanges match limit orders?

@@ -1,0 +1,1 @@
+You can trade currency ETF options on IB. It is SIPC insured; the options are just like vanilla options in Saxo.

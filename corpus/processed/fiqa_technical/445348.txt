@@ -1,0 +1,1 @@
+This calculation arrives at the correct answer. However, it uses the formula for an annuity due. This means the payments are made at the beginning of the month and the last month of the 10 year period has interest accrued. See the section, Calculating the Future Value of an Annuity Due. The rate is given as an effective rate. with In Excel, =FV((1+0.12)^(1/12)-1,120,3500,0,1)

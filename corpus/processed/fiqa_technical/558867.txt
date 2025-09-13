@@ -1,0 +1,1 @@
+I'm not sure where you are, but in the United States capital gains are taxed at a lower rate than other types of income. On the 1040, captial gains income is separated from earned income, and income tax is calculated just on earned income. Then capital gains tax is calculated on capital gains income, and then added to income tax afterward.

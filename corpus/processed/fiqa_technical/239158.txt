@@ -1,0 +1,1 @@
+I work in the retail software industry, and can confirm this is a major problem right now. There are several very popular point of sale packages that hackers have written RAM scrapers for. Yes, there is (a lot) of credit card fraud traced back to these hacks.

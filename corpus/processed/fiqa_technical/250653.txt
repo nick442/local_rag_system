@@ -1,0 +1,1 @@
+You can statistically estimate the maximal loss/gain over a period of time T by the highest loss/gain during any of the same length time intervals in during the life of the stock. Using logarithmic prices to be more accurate.

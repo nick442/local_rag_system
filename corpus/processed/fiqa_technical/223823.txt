@@ -1,0 +1,1 @@
+PE ratio is the current share price divided by the prior 4 quarters earnings per share. Any stock quote site will report it. You can also compute it yourself. All you need is an income statement and a current stock quote.

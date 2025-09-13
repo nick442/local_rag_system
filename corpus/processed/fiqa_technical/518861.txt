@@ -1,0 +1,1 @@
+Augmented Reality in industry. Stuff like hard hats with a HUD that shows you the BIM model as you work, what's behind that wall before you drill, sensory data like temperature, and so much more. It's already starting to creep in as BIM replaces CAD.

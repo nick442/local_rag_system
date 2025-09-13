@@ -1,0 +1,1 @@
+This is a useful metric in that it gives you a trust factor on how reliable the beta is for future expectations It is akin to velocity and acceleration First and second order derivatives of distance / time. Erratic acceleration implies the velocity is less trustworthy Same idea for beta

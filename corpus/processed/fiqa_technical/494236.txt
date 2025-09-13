@@ -1,0 +1,1 @@
+Firstly doing a regression on prices is never significant because of scaling. The price of the SP500 has no relation to the vix. The returns of the SP500 are related to the vix and most base models incorporate some function on SP500 returns. More specifically, sampled volatility of the SP500 is related to the vix. The price should have no relation at all.

@@ -1,0 +1,1 @@
+I had to install Parallels to run another piece of (trading) software, so I typically just use Windows Excel within Parallels when I need extensive statistical analysis--then I get the best of both worlds: Mac environment on everything but in depth Excel (run of the mill Excel for Mac works fine). I hate Windows.

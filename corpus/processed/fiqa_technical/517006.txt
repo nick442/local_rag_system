@@ -1,0 +1,1 @@
+I would guess that this is due to the card issuer, not Paypal. Credit card transactions are tagged with a code describing the type of purchase, and some issuers disallow certain types (such as gambling).

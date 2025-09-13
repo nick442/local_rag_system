@@ -1,0 +1,1 @@
+Here's my approach: As for Google Docs, I think that its safe enough for most people. If you in a profession that was subject to heavy regulatory scrutiny, of if you are cheating on your taxes, I would probably not use a cloud provider. Many providers will provide documents to government agencies without a subpoena or notice to you.

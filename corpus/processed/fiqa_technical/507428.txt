@@ -1,0 +1,1 @@
+Merchants are only supposed to verify the presence of a signature, which signifies that the card owner has accepted the terms and conditions of the card / account. It was never really intended to be used to authenticate the card holder, nor is it used as such in practice.

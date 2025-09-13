@@ -1,0 +1,1 @@
+You really shouldn't be using class tracking to keep business and personal operations separate. I'm pretty sure the IRS and courts frown upon this, and you're probably risking losing any limited liability you may have. And for keeping separate parts of the business separate, like say stores in a franchise, one approach would be subaccounts. Messy, I'm sure.

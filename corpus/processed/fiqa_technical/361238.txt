@@ -1,0 +1,1 @@
+Yes You could write a covered call and the stock gets called away at the price + premium. You could convince someone to buy it regardless of the market price.

@@ -1,0 +1,1 @@
+Suppose the price didn't drop on the ex-dividend date. Then people wanting to make a quick return on their money would buy shares the day before, collect the dividend, and then sell them on the ex-dividend date. But all those people trying to buy on the day before would push the price up, and they would push the price down trying to sell on the date.

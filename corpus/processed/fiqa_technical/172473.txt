@@ -1,0 +1,1 @@
+> That being said, we're in a historically low-rate environment, so even the 2.77% is probably a bit low. You might try using some sort of historical average with the argument that it is more indicative of a long term RF assumption. My firm is currently using the 5 year average yield on 20yr US Treasuries, currently about 4%.

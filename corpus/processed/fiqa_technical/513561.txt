@@ -1,0 +1,1 @@
+I am able to place an 'all or none' order with my broker. But doing so reduces the number of potential sources to fulfill the order. As others have mentioned, try a limit order to get a specific price.

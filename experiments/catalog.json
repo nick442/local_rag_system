@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "beir_v2_2_reranking",
+    "title": "BEIR v2.2 Reranking",
+    "path": "experiments/finished/beir_v2_2_reranking",
+    "report": "experiments/finished/beir_v2_2_reranking/reports/FINAL_REPORT_v2_2_BEIR.md",
+    "summary": "experiments/finished/beir_v2_2_reranking/results/summary.md",
+    "manifest": "experiments/finished/beir_v2_2_reranking/MANIFEST.yaml"
+  }
+]

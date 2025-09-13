@@ -1,0 +1,1 @@
+I hovered over the label for trading volume and the following message popped up: Volume / average volume Volume is the number of shares traded on the latest trading day. The average volume is measured over 30 days.

@@ -1,0 +1,1 @@
+I haven't worked with Xero before, but can't you just set it up as accounts payable? Put in an accounts payable for the contract. When the client makes a payment, the accounts payable goes down and the cash goes up.

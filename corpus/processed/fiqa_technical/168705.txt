@@ -1,0 +1,1 @@
+You can do some very crafty hedging with the variety of options. For instance, deep out of the money options are affected more by changes of market volatility, knowing this you can get long or short vega very easily, as opposed to necessarily betting on changes in the underlying asset.

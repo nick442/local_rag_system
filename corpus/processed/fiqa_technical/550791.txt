@@ -1,0 +1,1 @@
+1) Comcast has been paid for the traffic as well. Why should Level3 pay all of it? 2) One of the transit companies did offer to pay for one of the ISPs equipment upgrads (I think it was Cogent and AT&T?), and were refused. 3) Ultimately, Comcast's network requested huge amounts of traffic from Level3's network, and Comcast wanted to charge Level3 for that privilege.

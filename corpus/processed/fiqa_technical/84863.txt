@@ -1,0 +1,1 @@
+"You likely won't require OCR software for the PDFs. Most PDFs are created entirely in software these days, rather then scanning in a printed or faxed letter. The text should be able to extracted from the them with a utility like ""pdftotext""."

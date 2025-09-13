@@ -1,0 +1,1 @@
+Open a dispute for the preauth. It is effectively a double charge, since you have already paid for the item. You can provide evidence of the other transaction. This forces them to go through some hassle and waste some time on the issue.

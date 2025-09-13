@@ -1,0 +1,1 @@
+Hope you figure it out. There wouldn't be a different RFR / discount rate because you're assuming a return on parked cash - that's what it's for. Since both situations would theoretically happen simultaneously you use the same rate unless you would do something different with cash in each instance.

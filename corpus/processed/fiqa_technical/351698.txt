@@ -1,0 +1,1 @@
+With the $2000 downpayment and interest rate of 11.5% nominal compounded monthly the monthly payments would be $970.49 As you state, that is a monthly rate of 0.9583% Edit With the new information, taking the standard loan equation where Let Now setting s = 98000, with d = 990.291 solve for r

@@ -1,0 +1,1 @@
+0.13% is a pretty low fee. PTTRX expenses are 0.45%, VINIX expenses are 0.04%. So based on your allocation, you end up with at least 0.08%. While lower than 0.13%, don't know if it is worth the trouble (and potentially fees) of monthly re-balancing.

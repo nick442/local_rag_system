@@ -1,0 +1,1 @@
+There's been some work on sentiment analysis and it's effect on stock prices. Would be interesting to see a model that uses sentiment as well as more normal fundamentals to try model returns. Perhaps short term sentiment could explain some of the messiness day by day while long term sentiment has an effect on long term prices..

@@ -1,0 +1,1 @@
+http://en.wikipedia.org/wiki/Black%E2%80%93Scholes Start there, the black scholes formula is used to calculate the value of a call or put option and it incorporates the risk free rate in the formula. I am currently a bit busy but I will write up a better answer later if I get time.

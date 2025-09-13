@@ -1,0 +1,1 @@
+Algo traders/quants/market backtesters/coders/et al. I am looking to backtest basic things like the correlation of P/E, EV/EBITDA, etc. to market performance. I know a little R and Python. What is the easiest way to learn to backtest this sort of stuff? I want to eventually get into algo trading sort of stuff. I'd **greatly** appreciate it!

@@ -1,0 +1,1 @@
+> Did you tell your wireless router to stay only on channel 11 or did Apple finally fix that? Had to tie down the router to channel 11. My only hesitation is that I'll miss the Del key, and I'm scared about all the emacs shortcuts, but others have done it, so I'll live.

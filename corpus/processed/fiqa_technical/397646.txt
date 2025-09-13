@@ -1,0 +1,1 @@
+All VaR is is simply a confidence interval on losses. The problem with VaR models is they usually don't fare well against events that break the normal operating criteria.. So the model validation process usually throws out the outliers when in reality it's what happens in the extremes that makes or breaks your company.

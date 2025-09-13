@@ -1,0 +1,1 @@
+To calculate you take the Price and divide it by the Earnings, or by the Sales, or by the Free Cash Flow. Most of these calculations are done for you on a lot of finance sites if the data is available. Such sites as Yahoo Finance and Google Finance as well as my personal favorite: Morningstar

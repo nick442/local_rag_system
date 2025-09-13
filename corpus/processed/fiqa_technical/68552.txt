@@ -1,0 +1,1 @@
+"The Amazon recommendation engine is based on an artificial intelligence framework called Deep Scalable Sparse Tensor Network Engine (DSSTNE), nicknamed ""destiny"". So it is clear that Amazon wishes to control your destiny. Even the books you find yourself reading will be determined by their AI."

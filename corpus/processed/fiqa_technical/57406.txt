@@ -1,0 +1,1 @@
+I took littleadv's advice and talked to an accountant today. Regardless of method of payment, my US LLC does not have to withhold taxes or report the payment as payments to contractors (1099/1042(S)) to the IRS; it is simply a business expense. He said this gets more complicated if the recipient is working in the US (regardless of nationality), but that is not my case

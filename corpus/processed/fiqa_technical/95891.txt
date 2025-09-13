@@ -1,0 +1,1 @@
+Fighting with email is a loosing battle. Use a service like amazon ses, mailchimp or a hosting provider with mailchannels or similar smart hosts and be done. Your double opt in, not spam email will more likely be delivered to the inbox (if its single opt, opt out only or quasi spam nothing will help).

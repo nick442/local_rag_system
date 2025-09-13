@@ -1,0 +1,1 @@
+USAA does - that's my bank. Wells Fargo tries to determine whether the online activity is a risk; if it is, they'll require an SMS code or phoned code be entered. You can get a fairly definitive list of online companies at twofactorauth.org.

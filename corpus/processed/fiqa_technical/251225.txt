@@ -1,0 +1,1 @@
+Curious: Why don't banks have their ATMs running on a bare bones distro of Linux like Arch? IMO It would be far more secure and with the right kind of training for the maintenance staff, would actually be easier to maintain. I mean, it's not like they can't get access to top notch counsel from tech industry heavy weights.

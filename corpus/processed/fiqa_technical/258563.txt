@@ -1,0 +1,1 @@
+Should do it through a limit auction book. Management and shareholders pre ipo submit sealed limit sell orders. Buyers submit sealed limit buy orders, nobody can see where the price is going. At 9AM, the price is calculated and whomever fills get filled and ta da everyone is trading at 9:30 when the market is open.

@@ -1,0 +1,1 @@
+When you borrow money - you create a liability to yourself (you credit your Liabilities:Loans account and debit your Asset:Bank account). When you lend money - you create an asset to yourself (you debit your Asset:Loan account and credit your Asset:Bank account).

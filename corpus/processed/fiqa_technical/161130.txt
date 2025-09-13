@@ -1,0 +1,1 @@
+I'm not sure I'm following what you said. GDP PPP standardizes prices across countries to better compare how much is produced in each country. So 2 Big Macs sold at a low price in china results in a lower GDP than 1 expensive Big Mac in the US. Although with GDP PPP, china would have the bigger figure after adjusting for price differences since it produces more.

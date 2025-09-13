@@ -1,0 +1,1 @@
+A tax is the wrong way to go. HFT does not create liquidity, it only creates arbitrage opportunities and is quite possibly illegal given current laws and regulation. There needs to be a required minimum order time on market. HFT just naturally goes away if their orders have to hang out for 5 seconds.

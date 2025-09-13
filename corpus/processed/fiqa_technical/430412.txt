@@ -1,0 +1,1 @@
+Also, for the longest time it was only storable on local memory which could have been lost, stolen, or destroyed. Or they could have died or lost the password. I still don't like how easily it is/was to lose entire swaths of the blockchain

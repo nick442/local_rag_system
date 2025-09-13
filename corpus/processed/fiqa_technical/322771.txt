@@ -1,0 +1,1 @@
+You can check whether the company whose stock you want to buy is present on an european market. For instance this is the case for Apple at Frankfurt.

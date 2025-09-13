@@ -1,0 +1,1 @@
+It won't be worth $1050 at maturity. You are not accounting for tym. So to see the 'worth: of a bond you will need it's yield (5%) and the current market rate of a similar bond. Then just use the bond valuation formula to solve (on mobilw so can't explain further/better) sorry

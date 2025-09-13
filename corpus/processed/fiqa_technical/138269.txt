@@ -1,0 +1,1 @@
+"There is no problem to set up your own""email server"", especially if you have your own website. The problem is that the interface of server based emails are really crappy and outdated. I personally still forward all of my server based email messages to Gmail, because it is way more convenient to use it."

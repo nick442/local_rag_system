@@ -1,0 +1,1 @@
+Answering my own question, I figured it out: yes, there is a way, with a tool called gnucash2ledger.py. Versions used: GnuCash 2.6.1, Ledger 2.6.2, hledger 0.22

@@ -1,0 +1,1 @@
+There's no way the reader encrypts the data before it gets to the phone. If any of the phones have a backdoor (increasingly more common), the remote attacker can just sit back and soak up credit card numbers. Bad, bad idea.

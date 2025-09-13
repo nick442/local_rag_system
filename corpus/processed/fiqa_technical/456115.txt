@@ -1,0 +1,1 @@
+Excel expert level: -Leveraging all the built in Excel tools to properly data mine -Business Intelligence using PowerPivot (very useful for just about any industry) -Setting up and solving models using Solver -VBA (you don't have to be a pro programmer, but knowing how to set up the macros to do what it is you need to do)

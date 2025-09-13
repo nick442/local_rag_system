@@ -1,0 +1,1 @@
+The price doesn't have to drop 5% in one go to activate your order. The trailing aspect simply means your sell trigger price will increase if the current value increases (it will never decrease).

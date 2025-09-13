@@ -1,0 +1,1 @@
+I'm a sysadmin by trade. Yes there's still a lot of skeptimism towards MS, as sysadmins are much slower to change their views. But a lot of admins are well skilled in MS services. Rarely will you find an admin that hasn't managed an AD environment at least once in their life.

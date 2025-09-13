@@ -1,0 +1,1 @@
+In addition to TransferWise that @miernik answered with and that I successfully used, I found CurrencyFair which looks to be along similar lines and also supports US$.

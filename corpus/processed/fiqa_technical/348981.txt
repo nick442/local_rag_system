@@ -1,0 +1,1 @@
+Public/private keys are a method of having a secret that others can verify without being able to duplicate. They are used all over the internet and work really well. The biggest algorithm is RSA. Google can explain better than I can. The big issue with these methods are key management. Who makes the key, who knows the key, how do you recover a lost key etc.

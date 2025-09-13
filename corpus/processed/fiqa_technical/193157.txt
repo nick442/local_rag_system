@@ -1,0 +1,1 @@
+Data modeling may require large datasets to be loaded in memory. As such, get at least 16GB of RAM. If you only have 8GB, Windows will eat most of that on its own. If you're getting into machine learning then a good GPU will be important. Realistically though, as a student you'll be using small datasets so any specs will do.

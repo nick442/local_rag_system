@@ -1,0 +1,1 @@
+Spreadsheets need not be static, they can pull data from the web. This article describes the method you seek.

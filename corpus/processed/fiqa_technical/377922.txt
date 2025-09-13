@@ -1,0 +1,1 @@
+90% fail 10% success Just plug in some odds, because most of this is made up and a bunch of bologna anyway. Put a field in for their hurdle rate in the Excel spreadsheet and have your model always project 5% above their hurdle rate.

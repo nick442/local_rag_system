@@ -1,0 +1,1 @@
+It depends completely on the current order book for that security. There is literally no telling how that buy order would move the price of a stock in general.
