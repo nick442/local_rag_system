@@ -43,7 +43,8 @@ def load_qrels_tsv(path: Path) -> Dict[str, Dict[str, float]]:
 @click.option('--qrels', required=True, help='BEIR-style qrels TSV with header: query-id, corpus-id, score')
 @click.option('--k', default=10, show_default=True, help='K for NDCG@K and Recall@K')
 @click.option('--output', required=True, help='Output JSON path for evaluation metrics')
-def main(results: str, qrels: str, k: int, output: str):
+@click.option('--deduplicate', is_flag=True, default=False, help='Deduplicate retrieved doc IDs before scoring')
+def main(results: str, qrels: str, k: int, output: str, deduplicate: bool):
     res_path = Path(results)
     qrels_path = Path(qrels)
     out_path = Path(output)
@@ -90,8 +91,21 @@ def main(results: str, qrels: str, k: int, output: str):
     count = 0
     per_query = {}
     for qid, docs in query_results.items():
+        # Optionally deduplicate doc IDs while preserving order
+        if deduplicate:
+            try:
+                docs = list(dict.fromkeys(docs))
+            except Exception:
+                # Fallback to original list if dict key conversion fails
+                docs = docs
+
         nd = evaluator.calculate_ndcg_at_k(qid, docs, k)
         rc = evaluator.calculate_recall_at_k(qid, docs, k)
+        # Numerical safety: clamp recall to [0,1]
+        if rc < 0:
+            rc = 0.0
+        elif rc > 1:
+            rc = 1.0
         per_query[qid] = {'ndcg@k': nd, 'recall@k': rc}
         ndcg_sum += nd
         recall_sum += rc

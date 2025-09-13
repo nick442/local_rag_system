@@ -755,6 +755,19 @@ python experiments/reranking/generate_report.py
 
 ## 11. Current Status & Results (Update)
 
+### Auto-Updated Summary (2025-09-13 21:54)
+
+- FiQA (k=10)
+  - Baseline (vector-only): ndcg@10 = 0.3766, recall@10 = 0.4591
+  - Hybrid+MiniLM-L-12 (alpha=0.3, cm=10, topk=50): ndcg@10 = 0.4009, recall@10 = 0.4708
+  - BGE-base (first-stage hybrid, topk=50): ndcg@10 = 0.3592, recall@10 = 0.4351
+  - Best FiQA run: `fiqa_hybrid_a0.3_cm10_miniLM12.topk50` (Δ ndcg=+0.0243, Δ recall=+0.0117)
+- SciFact (k=10)
+  - Baseline (vector-only): ndcg@10 = 0.6406, recall@10 = 0.7832
+  - BGE-base (vector, topk=50): ndcg@10 = 0.8109, recall@10 = 0.8168
+  - Best SciFact run: `scifact_rerank_bge_base.topk50` (Δ ndcg=+0.1703, Δ recall=+0.0336)
+
+
 This section summarizes what has been implemented and measured so far in this branch (`feat/experiment-v2-2-reranking-beir`). Evaluation uses BEIR test qrels with query IDs. The evaluation script maps corpus-ids from context metadata filename/source stem to align with qrels.
 
 - FiQA (collection `fiqa_technical`, k=10)
@@ -763,7 +776,7 @@ This section summarizes what has been implemented and measured so far in this br
   - Rerank MiniLM-L-12-v2 (topk50): ndcg@10 = 0.3926, recall@10 = 0.4591
   - Hybrid first-stage + L-12 (alpha=0.7, cand_mult=5, rerank_topk=100): ndcg@10 = 0.3935, recall@10 = 0.4802
   - Hybrid first-stage + L-12 (alpha=0.5, cand_mult=10, rerank_topk=100): ndcg@10 = 0.3935, recall@10 = 0.4802
-  - Rerank BGE-base (topk100): ndcg@10 = 0.3456, recall@10 = 0.4369
+  - Rerank BGE-base (topk100): ndcg@10 = 0.3456, recall@10 = 0.4193
   - Note: reranking improves NDCG; recall improves when first-stage candidate set is expanded (hybrid).
 
 - SciFact (collection `scifact_scientific`, k=10)
@@ -771,8 +784,8 @@ This section summarizes what has been implemented and measured so far in this br
   - Rerank MiniLM-L-6-v2 (topk50): ndcg@10 = 0.7933, recall@10 = 0.9957
   - Rerank MiniLM-L-12-v2 (topk50): ndcg@10 = 0.7991, recall@10 = 0.9957
   - Hybrid first-stage + L-12 (alpha=0.7, cand_mult=5, rerank_topk=100): ndcg@10 = 0.7888, recall@10 = 0.9856
-  - Rerank BGE-base (topk50): ndcg@10 = 0.8109, recall@10 ≈ 1.00 (raw mean 1.026)
-  - Note: vector-only first stage is already strong; hybrid did not help here.
+  - Rerank BGE-base (topk50): ndcg@10 = 0.8109, recall@10 = 0.8168
+  - Note: vector-only first stage is already strong; hybrid did not help here. BGE improves NDCG but reduces recall vs. vector-only (near-saturated recall baseline).
 
 - Rerank-topk sweeps {20,50,100} showed no additional gains beyond 20 for the MiniLM models on both datasets.
 
