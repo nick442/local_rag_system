@@ -1,0 +1,30 @@
+title: BEIR v2.2 Reranking
+slug: beir_v2_2_reranking
+created_at: 2025-09-13 22:41:32
+repo:
+  remote: 'https://github.com/nick442/local_rag_system.git'
+  branch: 'feat/experiment-v2-2-reranking-beir'
+  commit: '22f49071c195a081df63ee423d5da3a2fac30f44'
+  merge_base_origin_main: 'c94a62b7fd666fa6bbca4c3e2d42f8fc2575b4d3'
+data:
+  db_path: 'data/rag_vectors.db'
+  collections: ['fiqa_technical','scifact_scientific']
+  queries:
+    fiqa: 'test_data/beir_fiqa_queries_test_only.json'
+    scifact: 'test_data/beir_scifact_queries_test_only.json'
+evaluation:
+  k: 10
+  rerank_topk_values: [50, 100]
+  metrics: ['ndcg@10','recall@10']
+first_stage:
+  methods: ['vector','keyword','hybrid']
+  alphas: [0.3, 0.5, 0.7, 0.9]
+  candidate_multipliers: [10, 3, 5]
+rerankers: ["cross-encoder/ms-marco-MiniLM-L-12-v2", "BAAI/bge-reranker-base"]
+results:
+  fiqa:
+    baseline: {"dataset": "fiqa", "run_name": "fiqa_baseline.dedup", "metrics_path": "experiments/reranking/results/fiqa_baseline.dedup.metrics.json", "results_path": "experiments/reranking/results/fiqa_baseline.test.json", "ndcg_at_10": 0.3692202393555413, "recall_at_10": 0.44284810268606556, "queries": 648, "retrieval_method": "vector", "alpha": null, "candidate_multiplier": null, "reranker_model": null, "rerank_topk": null, "deduplicated": true}
+    best: {"dataset": "fiqa", "run_name": "fiqa_hybrid_a0.3_cm10_miniLM12.topk50", "metrics_path": "experiments/reranking/results/fiqa_hybrid_a0.3_cm10_miniLM12.topk50.metrics.json", "results_path": "experiments/reranking/results/fiqa_hybrid_a0.3_cm10_miniLM12.topk50.test.json", "ndcg_at_10": 0.4009312177842635, "recall_at_10": 0.47075792862829924, "queries": 648, "retrieval_method": "hybrid", "alpha": 0.3, "candidate_multiplier": 10, "reranker_model": "cross-encoder/ms-marco-MiniLM-L-12-v2", "rerank_topk": 50, "deduplicated": false}
+  scifact:
+    baseline: {"dataset": "scifact", "run_name": "scifact_baseline.dedup", "metrics_path": "experiments/reranking/results/scifact_baseline.dedup.metrics.json", "results_path": "experiments/reranking/results/scifact_baseline.test.json", "ndcg_at_10": 0.6406062864732235, "recall_at_10": 0.7832222222222222, "queries": 300, "retrieval_method": "vector", "alpha": null, "candidate_multiplier": null, "reranker_model": null, "rerank_topk": null, "deduplicated": true}
+    best: {"dataset": "scifact", "run_name": "scifact_rerank_bge_base.topk50", "metrics_path": "experiments/reranking/results/scifact_rerank_bge_base.topk50.metrics.json", "results_path": "experiments/reranking/results/scifact_rerank_bge_base.topk50.test.json", "ndcg_at_10": 0.8108840996666373, "recall_at_10": 0.8167777777777778, "queries": 300, "retrieval_method": "vector", "alpha": null, "candidate_multiplier": null, "reranker_model": "BAAI/bge-reranker-base", "rerank_topk": 50, "deduplicated": false}
